@@ -1,0 +1,19 @@
+<h1>Пользователи</h1>
+
+<table>
+  <tr>
+    <th>email</th>
+    <th>active</th>
+    <th></th>
+
+  </tr>
+
+<% @users.each do |course| %>
+  <tr>
+    <td><%= course.email %></td>
+    <td><%= course.active %></td>
+    <td><%= link_to 'Activate', change_user_user_path(course.id) %></td>
+
+  </tr>
+<% end %>
+</table>

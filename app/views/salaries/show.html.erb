@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date:</b>
+  <%= @salary.date %>
+</p>
+
+<p>
+  <b>Summ:</b>
+  <%= @salary.summ %>
+</p>
+
+<p>
+  <b>Course:</b>
+  <%= @salary.course.name %>
+</p>
+<p>
+  <b>Teacher:</b>
+  <%= @salary.teacher.name %>
+</p>
+
+<p>
+  <b>Month:</b>
+  <%= @salary.month %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @salary.type %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @salary.comment %>
+</p>
+
+
+<%= link_to 'Edit', edit_salary_path(@salary) %> |
+<%= link_to 'Back', salaries_path %>

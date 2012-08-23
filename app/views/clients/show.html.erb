@@ -1,0 +1,80 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Status:</b>
+  <%= @client.status.name %>
+</p>
+
+<p>
+  <b>Resource:</b>
+  <%= @client.resource.name %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @client.name %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @client.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @client.email %>
+</p>
+
+<p>
+  <b>Idvk:</b>
+  <%= @client.idvk %>
+</p>
+
+<p>
+  <b>School:</b>
+  <%= @client.school %>
+</p>
+
+<p>
+  <b>Parent:</b>
+  <%= @client.parent %>
+</p>
+
+<p>
+  <b>Parent phone:</b>
+  <%= @client.parent_phone %>
+</p>
+
+<p>
+  <b>Channel:</b>
+  <%= @client.channel.name %>
+</p>
+
+<p>
+  <b>Manager:</b>
+  <%= @client.manager.name %>
+</p>
+
+<p>
+  <b>Daysandtime:</b>
+  <%= @client.daysandtime %>
+</p>
+
+<p>
+  <b>Period:</b>
+  <%= @client.period %>
+</p>
+
+<p>
+  <b>Office:</b>
+  <%= @client.office.name %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @client.comment %>
+</p>
+
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>

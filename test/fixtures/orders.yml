@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  client: 
+  contract: 2012-08-22 10:28:30
+  course: 
+  teacher: 
+  schedule: 
+  office: 
+  start: 2012-08-22 10:28:30
+  dayandtime: MyString
+  end: MyString
+  discount: MyString
+  price: 1.5
+
+two:
+  client: 
+  contract: 2012-08-22 10:28:30
+  course: 
+  teacher: 
+  schedule: 
+  office: 
+  start: 2012-08-22 10:28:30
+  dayandtime: MyString
+  end: MyString
+  discount: MyString
+  price: 1.5

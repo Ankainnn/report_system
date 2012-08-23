@@ -1,0 +1,45 @@
+<h1>Список договоров</h1>
+
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Client</th>
+    <th>Contract</th>
+    <th>Course</th>
+    <th>Teacher</th>
+    <th>Schedule</th>
+    <th>Office</th>
+    <th>Start</th>
+    <th>Dayandtime</th>
+    <th>End</th>
+    <th>Discount</th>
+    <th>Price</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @orders.each do |order| %>
+  <tr>
+    <td><%= order.name %></td>
+    <td><%= order.client.name %></td>
+    <td><%= order.contract %></td>
+    <td><%= order.course.name %></td>
+    <td><%= order.teacher.name %></td>
+    <td><%= order.schedule.name%></td>
+    <td><%= order.office.name %></td>
+    <td><%= order.start %></td>
+    <td><%= order.dayandtime %></td>
+    <td><%= order.end %></td>
+    <td><%= order.discount %></td>
+    <td><%= order.price %></td>
+    <td><%= link_to 'Show', order %></td>
+    <td><%= link_to 'Edit', edit_order_path(order) %></td>
+    <td><%= link_to 'Destroy', order, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Order', new_order_path %>

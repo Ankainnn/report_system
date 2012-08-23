@@ -1,0 +1,16 @@
+<%= simple_form_for(@order) do |f| %>
+
+  <%= f.association :client %>
+  <%= f.input :contract %>
+  <%= f.association :course %>
+  <%= f.association :teacher %>
+  <%= f.association :schedule %>
+  <%= f.association :office %>
+  <%= f.input :start %>
+  <%= f.input :dayandtime %>
+  <%= f.input :end %>
+  <%= f.input :discount %>
+  <%= f.input :price %>
+  <%= f.button :submit %>
+
+<% end %>

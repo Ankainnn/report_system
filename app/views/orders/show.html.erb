@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Number:</b>
+  <%= @order.name %>
+</p>
+
+<p>
+  <b>Client:</b>
+  <%= @order.client.name %>
+</p>
+
+<p>
+  <b>Contract:</b>
+  <%= @order.contract %>
+</p>
+
+<p>
+  <b>Course:</b>
+  <%= @order.course.name %>
+</p>
+
+<p>
+  <b>Teacher:</b>
+  <%= @order.teacher.name %>
+</p>
+
+<p>
+  <b>Schedule:</b>
+  <%= @order.schedule.name %>
+</p>
+
+<p>
+  <b>Office:</b>
+  <%= @order.office.name %>
+</p>
+
+<p>
+  <b>Start:</b>
+  <%= @order.start %>
+</p>
+
+<p>
+  <b>Dayandtime:</b>
+  <%= @order.dayandtime %>
+</p>
+
+<p>
+  <b>End:</b>
+  <%= @order.end %>
+</p>
+
+<p>
+  <b>Discount:</b>
+  <%= @order.discount %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @order.price %>
+</p>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

@@ -1,0 +1,36 @@
+<h1>Учителя</h1>
+
+<table id="demotable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Idvk</th>
+      <th>Workplace</th>
+      <th>Comment</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @teachers.each do |teacher| %>
+      <tr>
+        <td><%= teacher.name %></td>
+        <td><%= teacher.phone %></td>
+        <td><%= teacher.email %></td>
+        <td><%= teacher.idvk %></td>
+        <td><%= teacher.workplace %></td>
+        <td><%= teacher.comment %></td>
+        <td><%= link_to 'Show', teacher %></td>
+        <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
+        <td><%= link_to 'Destroy', teacher, confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Teacher', new_teacher_path %>

@@ -1,0 +1,33 @@
+<h1>Выплаты менеджерам</h1>
+
+<table>
+  <tr>
+    <th>Manager</th>
+    <th>Date</th>
+    <th>Summ</th>
+    <th>Month</th>
+    <th>Type</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @msalaries.each do |msalary| %>
+  <tr>
+    <td><%= msalary.manager.name %></td>
+    <td><%= msalary.date %></td>
+    <td><%= msalary.summ %></td>
+    <td><%= msalary.month %></td>
+    <td><%= msalary.type %></td>
+    <td><%= msalary.comment %></td>
+    <td><%= link_to 'Show', msalary %></td>
+    <td><%= link_to 'Edit', edit_msalary_path(msalary) %></td>
+    <td><%= link_to 'Destroy', msalary, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Msalary', new_msalary_path %>

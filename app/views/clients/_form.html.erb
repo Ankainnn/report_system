@@ -1,0 +1,19 @@
+<%= simple_form_for(@client) do |f| %>
+  <%= f.association :status %>
+  <%= f.association :resource %>
+  <%= f.input :name %>
+  <%= f.input :email %>
+  <%= f.input :phone %>
+  <%= f.input :idvk %>
+  <%= f.input :school %>
+  <%= f.input :parent %>
+  <%= f.input :parent_phone %>
+  <%= f.association :channel %>
+  <%= f.association :manager %>
+  <%= f.input :daysandtime %>
+  <%= f.input :period %>
+  <%= f.association :office %>
+  <%= f.input :comment %>
+  <%= f.button :submit %>
+
+<% end %>

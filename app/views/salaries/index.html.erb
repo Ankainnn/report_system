@@ -1,0 +1,35 @@
+<h1>Выплаты преподавателям</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Summ</th>
+    <th>Course</th>
+    <th>Teacher</th>
+    <th>Month</th>
+    <th>Type</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @salaries.each do |salary| %>
+  <tr>
+    <td><%= salary.date %></td>
+    <td><%= salary.summ %></td>
+    <td><%= salary.course.name %></td>
+    <td><%= salary.teacher.name %></td>
+    <td><%= salary.month %></td>
+    <td><%= salary.type %></td>
+    <td><%= salary.comment %></td>
+    <td><%= link_to 'Show', salary %></td>
+    <td><%= link_to 'Edit', edit_salary_path(salary) %></td>
+    <td><%= link_to 'Destroy', salary, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Salary', new_salary_path %>

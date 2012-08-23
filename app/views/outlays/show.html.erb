@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date:</b>
+  <%= @outlay.date %>
+</p>
+
+<p>
+  <b>Summ:</b>
+  <%= @outlay.summ %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @outlay.name %>
+</p>
+
+<p>
+  <b>Cost:</b>
+  <%= @outlay.cost.name %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @outlay.type %>
+</p>
+
+<p>
+  <b>Person:</b>
+  <%= @outlay.person %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @outlay.comment %>
+</p>
+
+
+<%= link_to 'Edit', edit_outlay_path(@outlay) %> |
+<%= link_to 'Back', outlays_path %>

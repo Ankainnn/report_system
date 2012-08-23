@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  status: 
+  resource: 
+  name: MyString
+  phone: MyString
+  email: MyString
+  idvk: MyString
+  school: MyString
+  parent: MyString
+  parent_phone: MyString
+  channel: 
+  manager: 
+  daysandtime: MyString
+  period: MyString
+  office: 
+  comment: MyText
+
+two:
+  status: 
+  resource: 
+  name: MyString
+  phone: MyString
+  email: MyString
+  idvk: MyString
+  school: MyString
+  parent: MyString
+  parent_phone: MyString
+  channel: 
+  manager: 
+  daysandtime: MyString
+  period: MyString
+  office: 
+  comment: MyText

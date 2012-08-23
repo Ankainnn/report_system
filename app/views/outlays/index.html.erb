@@ -1,0 +1,35 @@
+<h1>Расходы</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Summ</th>
+    <th>Name</th>
+    <th>Cost</th>
+    <th>Type</th>
+    <th>Person</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @outlays.each do |outlay| %>
+  <tr>
+    <td><%= outlay.date %></td>
+    <td><%= outlay.summ %></td>
+    <td><%= outlay.name %></td>
+    <td><%= outlay.cost.name %></td>
+    <td><%= outlay.type %></td>
+    <td><%= outlay.person %></td>
+    <td><%= outlay.comment %></td>
+    <td><%= link_to 'Show', outlay %></td>
+    <td><%= link_to 'Edit', edit_outlay_path(outlay) %></td>
+    <td><%= link_to 'Destroy', outlay, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Outlay', new_outlay_path %>

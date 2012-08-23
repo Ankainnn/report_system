@@ -1,0 +1,3 @@
+<p>Ваш аккаунт <%= current_user.email %> пока не активирован, у вас нет доступа к сайту. Свяжитесь с администратором.</p>
+
+<%= link_to "Выйти", destroy_user_session_path, :method => :delete %>

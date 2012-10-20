@@ -1,14 +1,16 @@
-<h1>Учителя</h1>
+<h1>Преподаватели</h1>
 
+<%= link_to 'New Teacher', new_teacher_path %>
 <table id="demotable">
   <thead>
     <tr>
       <th>Name</th>
       <th>Phone</th>
       <th>Email</th>
-      <th>Idvk</th>
+      <th>Id-vk</th>
       <th>Workplace</th>
       <th>Comment</th>
+      <th>courses</th>
       <th></th>
       <th></th>
       <th></th>
@@ -23,6 +25,11 @@
         <td><%= teacher.idvk %></td>
         <td><%= teacher.workplace %></td>
         <td><%= teacher.comment %></td>
+        <td>
+          <% teacher.courses.each do |x| %>
+            <%=  x.name + ", " %>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', teacher %></td>
         <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
         <td><%= link_to 'Destroy', teacher, confirm: 'Are you sure?', method: :delete %></td>
@@ -33,4 +40,3 @@
 
 <br />
 
-<%= link_to 'New Teacher', new_teacher_path %>

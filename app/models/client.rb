@@ -7,4 +7,12 @@ class Client < ActiveRecord::Base
   has_and_belongs_to_many :courses
   has_many :orders
   
+  def fio
+    if self.try(:surname)
+    	self.try(:name) + " " + self.try(:surname)
+    else
+    	self.try(:name)
+    end
+  end
+
 end

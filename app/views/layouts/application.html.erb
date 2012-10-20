@@ -12,18 +12,19 @@
     <% if current_user %>
     	<%= link_to "Выйти", destroy_user_session_path, :method => :delete %>
     	<%= link_to "Пользователи", list_users_path %></br>
-
+      СПРАВОЧНИКИ:  
       <%= link_to "Статусы", statuses_path %> |
       <%= link_to "Источники", resources_path %> |
       <%= link_to "Каналы", channels_path %> |
       <%= link_to "Курсы", courses_path %> |
-      <%= link_to "Типы расходов", costs_path %>  
-      <%= link_to "Офисы", offices_path %>  
-      </br>
+      <%= link_to "Типы расходов", costs_path %> | 
+      <%= link_to "Офисы", offices_path %>  |
       <%= link_to "Менеджеры", managers_path %> | 
+      <%= link_to "Преподаватели", teachers_path %> | 
+      <%= link_to "Графики", schedules_path %> 
+      </br>
+      СПИСКИ:  
       <%= link_to "Клиенты", clients_path %> | 
-      <%= link_to "Преподователи", teachers_path %> | 
-      <%= link_to "Графики", schedules_path %> | 
       <%= link_to "Договоры", orders_path %> | 
       <%= link_to "Расходы", outlays_path %> | 
       <%= link_to "Выплаты преподователю", salaries_path %> | 

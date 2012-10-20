@@ -1,5 +1,7 @@
 <h1>Клиенты</h1>
 
+<%= link_to 'New Client', new_client_path %>
+
 <table  id="demotable">
    <thead>
       <tr>
@@ -26,16 +28,16 @@
    <tbody>
         <% @clients.each do |client| %>
           <tr>
-            <td><%= client.status.name %></td>
+            <td><%= client.status.try(:name) %></td>
             <td><%= client.resource.name %></td>
-            <td><%= client.name %></td>
+            <td><%= client.fio%></td>
             <td><%= client.phone %></td>
             <td><%= client.email %></td>
             <td><%= client.idvk %></td>
             <td><%= client.school %></td>
             <td><%= client.parent %></td>
             <td><%= client.parent_phone %></td>
-            <td><%= client.channel.name %></td>
+            <td><%= client.channel.try(:name) %></td>
             <td><%= client.manager.name %></td>
             <td><%= client.daysandtime %></td>
             <td><%= client.period %></td>
@@ -51,4 +53,3 @@
 
 <br />
 
-<%= link_to 'New Client', new_client_path %>

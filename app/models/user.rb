@@ -15,4 +15,6 @@ class User < ActiveRecord::Base
   def act
   	self.active
   end
+
+  
 end

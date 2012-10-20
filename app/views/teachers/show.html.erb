@@ -16,7 +16,7 @@
 </p>
 
 <p>
-  <b>Idvk:</b>
+  <b>Id-vk:</b>
   <%= @teacher.idvk %>
 </p>
 
@@ -29,6 +29,13 @@
   <b>Comment:</b>
   <%= @teacher.comment %>
 </p>
+<p>
+  <b>Curses:</b>
+  <% @teacher.courses.each do |x| %>
+    <%=  x.name + ", " %>
+  <% end %>
+</p>
+
 
 
 <%= link_to 'Edit', edit_teacher_path(@teacher) %> |

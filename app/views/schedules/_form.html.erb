@@ -4,7 +4,7 @@
   <%= f.association :office %>
   <%= f.association :teacher %>
   <%= f.association :course %>
-  <%= f.input :hours %>
+  <%= f.input :hours, :as => :integer %>
   <%= f.input :start %>
   <%= f.button :submit %>
 <% end %>

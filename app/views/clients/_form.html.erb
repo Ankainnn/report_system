@@ -2,6 +2,7 @@
   <%= f.association :status %>
   <%= f.association :resource %>
   <%= f.input :name %>
+  <%= f.input :surname %>
   <%= f.input :email %>
   <%= f.input :phone %>
   <%= f.input :idvk %>
@@ -13,7 +14,9 @@
   <%= f.input :daysandtime %>
   <%= f.input :period %>
   <%= f.association :office %>
-  <%= f.input :comment %>
+  <div class="upper">
+    <%= f.input :comment %>
+  </div>
   <%= f.button :submit %>
 
 <% end %>

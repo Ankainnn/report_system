@@ -2,7 +2,7 @@
 
 <p>
   <b>Status:</b>
-  <%= @client.status.name %>
+  <%= @client.status.try(:name) %>
 </p>
 
 <p>
@@ -13,6 +13,10 @@
 <p>
   <b>Name:</b>
   <%= @client.name %>
+</p>
+<p>
+  <b>Surname:</b>
+  <%= @client.try(:surname) %>
 </p>
 
 <p>
@@ -47,7 +51,7 @@
 
 <p>
   <b>Channel:</b>
-  <%= @client.channel.name %>
+  <%= @client.channel.try(:name) %>
 </p>
 
 <p>
@@ -73,6 +77,14 @@
 <p>
   <b>Comment:</b>
   <%= @client.comment %>
+</p>
+<p>
+  <b>created:</b>
+  <%= @client.created_at %>
+</p>
+<p>
+  <b>updated:</b>
+  <%= @client.updated_at %>
 </p>
 
 

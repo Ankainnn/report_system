@@ -29,7 +29,7 @@
         <% @clients.each do |client| %>
           <tr>
             <td><%= client.status.try(:name) %></td>
-            <td><%= client.resource.name %></td>
+            <td><%= client.resource.try(:name) %></td>
             <td><%= client.fio%></td>
             <td><%= client.phone %></td>
             <td><%= client.email %></td>
@@ -38,7 +38,7 @@
             <td><%= client.parent %></td>
             <td><%= client.parent_phone %></td>
             <td><%= client.channel.try(:name) %></td>
-            <td><%= client.manager.name %></td>
+            <td><%= client.manager.try(:name) %></td>
             <td><%= client.daysandtime %></td>
             <td><%= client.period %></td>
             <td><%= client.office.name %></td>

@@ -1,13 +1,14 @@
 <h1>Выплаты менеджерам</h1>
 
-<table>
+<%= link_to 'новая выплата', new_msalary_path %>
+<table class="table table-striped">
   <tr>
-    <th>Manager</th>
-    <th>Date</th>
-    <th>Summ</th>
-    <th>Month</th>
-    <th>Type</th>
-    <th>Comment</th>
+    <th>менеджер</th>
+    <th>дата</th>
+    <th>сумма</th>
+    <th>месяц</th>
+    <th>Форма выплаты</th>
+    <th>комментарий</th>
     <th></th>
     <th></th>
     <th></th>
@@ -21,13 +22,11 @@
     <td><%= msalary.month %></td>
     <td><%= msalary.type %></td>
     <td><%= msalary.comment %></td>
-    <td><%= link_to 'Show', msalary %></td>
-    <td><%= link_to 'Edit', edit_msalary_path(msalary) %></td>
-    <td><%= link_to 'Destroy', msalary, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'см.', msalary %></td>
+    <td><%= link_to 'ред.', edit_msalary_path(msalary) %></td>
+    <td><%= link_to 'уд.', msalary, confirm: 'уверены?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
 
-<%= link_to 'New Msalary', new_msalary_path %>

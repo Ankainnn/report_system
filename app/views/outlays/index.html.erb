@@ -1,14 +1,15 @@
 <h1>Расходы</h1>
 
-<table>
+<%= link_to 'новая выплата', new_outlay_path %>
+<table class="table table-striped">
   <tr>
-    <th>Date</th>
-    <th>Summ</th>
-    <th>Name</th>
-    <th>Cost</th>
-    <th>Type</th>
-    <th>Person</th>
-    <th>Comment</th>
+    <th>дата</th>
+    <th>сумма</th>
+    <th>имя</th>
+    <th>типа расходов</th>
+    <th>форма оплаты</th>
+    <th>автор</th>
+    <th>комментарий</th>
     <th></th>
     <th></th>
     <th></th>
@@ -23,13 +24,9 @@
     <td><%= outlay.type %></td>
     <td><%= outlay.person %></td>
     <td><%= outlay.comment %></td>
-    <td><%= link_to 'Show', outlay %></td>
-    <td><%= link_to 'Edit', edit_outlay_path(outlay) %></td>
-    <td><%= link_to 'Destroy', outlay, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'см.', outlay %></td>
+    <td><%= link_to 'ред.', edit_outlay_path(outlay) %></td>
+    <td><%= link_to 'уд.', outlay, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Outlay', new_outlay_path %>

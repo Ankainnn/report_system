@@ -19,4 +19,12 @@ $(document).ready(function() {
 		additionalFilterTriggers: [$('#quickfind')]
 	};*/
 	$('#demotable').tableFilter();
+
+	jQuery(function($){
+   $("#date").mask("99/99/9999");
+   $.mask.definitions['#']='[0123456789.]';
+   $("#order_discount").mask("#?#####");
+   $(".tel").mask("(999) 999-9999");
+   $("#ssn").mask("999-99-9999");
+});
 });

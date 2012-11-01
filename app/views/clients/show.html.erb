@@ -1,26 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Status:</b>
+  <b>статус:</b>
   <%= @client.status.try(:name) %>
 </p>
 
 <p>
-  <b>Resource:</b>
-  <%= @client.resource.name %>
+  <b>источник:</b>
+  <%= @client.resource.try(:name) %>
 </p>
 
 <p>
-  <b>Name:</b>
+  <b>имя:</b>
   <%= @client.name %>
 </p>
 <p>
-  <b>Surname:</b>
+  <b>фамилия:</b>
   <%= @client.try(:surname) %>
 </p>
 
 <p>
-  <b>Phone:</b>
+  <b>телефон:</b>
   <%= @client.phone %>
 </p>
 
@@ -30,63 +30,63 @@
 </p>
 
 <p>
-  <b>Idvk:</b>
+  <b>Id-vk:</b>
   <%= @client.idvk %>
 </p>
 
 <p>
-  <b>School:</b>
+  <b>Школа:</b>
   <%= @client.school %>
 </p>
 
 <p>
-  <b>Parent:</b>
+  <b>Родитель:</b>
   <%= @client.parent %>
 </p>
 
 <p>
-  <b>Parent phone:</b>
+  <b>Телефон родителя:</b>
   <%= @client.parent_phone %>
 </p>
 
 <p>
-  <b>Channel:</b>
+  <b>Канал:</b>
   <%= @client.channel.try(:name) %>
 </p>
 
 <p>
-  <b>Manager:</b>
-  <%= @client.manager.name %>
+  <b>Менеджер:</b>
+  <%= @client.manager.try(:name) %>
 </p>
 
 <p>
-  <b>Daysandtime:</b>
+  <b>День и время:</b>
   <%= @client.daysandtime %>
 </p>
 
 <p>
-  <b>Period:</b>
+  <b>Период:</b>
   <%= @client.period %>
 </p>
 
 <p>
-  <b>Office:</b>
-  <%= @client.office.name %>
+  <b>Офис:</b>
+  <%= @client.office.try(:name) %>
 </p>
 
 <p>
-  <b>Comment:</b>
+  <b>комментарий:</b>
   <%= @client.comment %>
 </p>
 <p>
-  <b>created:</b>
+  <b>создано:</b>
   <%= @client.created_at %>
 </p>
 <p>
-  <b>updated:</b>
+  <b>Обновлено:</b>
   <%= @client.updated_at %>
 </p>
 
 
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+<%= link_to 'редактировать', edit_client_path(@client) %> |
+<%= link_to 'к списку', clients_path %>

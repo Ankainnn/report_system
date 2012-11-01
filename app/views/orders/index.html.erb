@@ -1,19 +1,20 @@
-<h1>Список договоров</h1>
+<h1>договоры</h1>
 
-<table>
+<%= link_to 'новый договор', new_order_path %>
+<table class="table table-striped">
   <tr>
-    <th>Number</th>
-    <th>Client</th>
-    <th>Contract</th>
-    <th>Course</th>
-    <th>Teacher</th>
-    <th>Schedule</th>
-    <th>Office</th>
-    <th>Start</th>
-    <th>Dayandtime</th>
-    <th>End</th>
-    <th>Discount</th>
-    <th>Price</th>
+    <th>номер</th>
+    <th>клиент</th>
+    <th>дата заключения</th>
+    <th>курс</th>
+    <th>преподаватель</th>
+    <th>расписание</th>
+    <th>офис</th>
+    <th>начало</th>
+    <th>время и день</th>
+    <th>конец</th>
+    <th>скидка</th>
+    <th>стоимость</th>
     <th></th>
     <th></th>
     <th></th>
@@ -33,13 +34,12 @@
     <td><%= order.end %></td>
     <td><%= order.discount %></td>
     <td><%= order.price %></td>
-    <td><%= link_to 'Show', order %></td>
-    <td><%= link_to 'Edit', edit_order_path(order) %></td>
-    <td><%= link_to 'Destroy', order, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'см.', order %></td>
+    <td><%= link_to 'ред.', edit_order_path(order) %></td>
+    <td><%= link_to 'уд.', order, confirm: 'уверены?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Order', new_order_path %>

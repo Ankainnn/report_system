@@ -1,65 +1,65 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Number:</b>
+  <b>номер:</b>
   <%= @order.name %>
 </p>
 
 <p>
-  <b>Client:</b>
+  <b>клиент:</b>
   <%= @order.client.name %>
 </p>
 
 <p>
-  <b>Contract:</b>
+  <b>дата заключения:</b>
   <%= @order.contract %>
 </p>
 
 <p>
-  <b>Course:</b>
+  <b>курс:</b>
   <%= @order.course.name %>
 </p>
 
 <p>
-  <b>Teacher:</b>
+  <b>преподаватель:</b>
   <%= @order.teacher.name %>
 </p>
 
 <p>
-  <b>Schedule:</b>
+  <b>расписание:</b>
   <%= @order.schedule.name %>
 </p>
 
 <p>
-  <b>Office:</b>
+  <b>офис:</b>
   <%= @order.office.name %>
 </p>
 
 <p>
-  <b>Start:</b>
+  <b>начало:</b>
   <%= @order.start %>
 </p>
 
 <p>
-  <b>Dayandtime:</b>
+  <b>время и день:</b>
   <%= @order.dayandtime %>
 </p>
 
 <p>
-  <b>End:</b>
+  <b>конец:</b>
   <%= @order.end %>
 </p>
 
 <p>
-  <b>Discount:</b>
+  <b>скидка:</b>
   <%= @order.discount %>
 </p>
 
 <p>
-  <b>Price:</b>
+  <b>стоимость:</b>
   <%= @order.price %>
 </p>
 
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<%= link_to 'редактировать', edit_order_path(@order) %> |
+<%= link_to 'к списку', orders_path %>

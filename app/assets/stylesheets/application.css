@@ -11,6 +11,4 @@
  *= require_self
  *= require_tree .
 */
-.upper label{
-	float: left;
-}
+label {margin-right: 20px;}

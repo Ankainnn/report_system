@@ -1,22 +1,22 @@
-<%= simple_form_for(@client) do |f| %>
-  <%= f.association :status %>
-  <%= f.association :resource %>
-  <%= f.input :name %>
-  <%= f.input :surname %>
+<%= simple_form_for @client, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.association :status, :label => "статус" %>
+  <%= f.association :resource, :label => "источник" %>
+  <%= f.input :name, :label => "имя" %>
+  <%= f.input :surname, :label => "фамилия" %>
   <%= f.input :email %>
-  <%= f.input :phone %>
-  <%= f.input :idvk %>
-  <%= f.input :school %>
-  <%= f.input :parent %>
-  <%= f.input :parent_phone %>
-  <%= f.association :channel %>
-  <%= f.association :manager %>
-  <%= f.input :daysandtime %>
-  <%= f.input :period %>
-  <%= f.association :office %>
+  <%= f.input :phone, :label => "телефон", :input_html =>{:id => "phone"} %>
+  <%= f.input :idvk, :label => "id-vk" %>
+  <%= f.input :school, :label => "школа" %>
+  <%= f.input :parent, :label => "родитель" %>
+  <%= f.input :parent_phone, :label => "телефон родителя"%>
+  <%= f.association :channel, :label => "канал" %>
+  <%= f.association :manager, :label => "менеджер" %>
+  <%= f.input :daysandtime, :label => "день и время" %>
+  <%= f.input :period, :label => "период" %>
+  <%= f.association :office, :label => "офис" %>
   <div class="upper">
-    <%= f.input :comment %>
+    <%= f.input :comment, :label => "комментария" %>
   </div>
-  <%= f.button :submit %>
+  <%= f.button :submit, :value => "сохранить" %>
 
 <% end %>

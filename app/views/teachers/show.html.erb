@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <b>имя:</b>
   <%= @teacher.name %>
 </p>
 
 <p>
-  <b>Phone:</b>
+  <b>телефон:</b>
   <%= @teacher.phone %>
 </p>
 
@@ -21,16 +21,16 @@
 </p>
 
 <p>
-  <b>Workplace:</b>
+  <b>рабочее место:</b>
   <%= @teacher.workplace %>
 </p>
 
 <p>
-  <b>Comment:</b>
+  <b>коммент:</b>
   <%= @teacher.comment %>
 </p>
 <p>
-  <b>Curses:</b>
+  <b>курсы:</b>
   <% @teacher.courses.each do |x| %>
     <%=  x.name + ", " %>
   <% end %>
@@ -38,5 +38,5 @@
 
 
 
-<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
-<%= link_to 'Back', teachers_path %>
+<%= link_to 'редактировать', edit_teacher_path(@teacher) %> |
+<%= link_to 'к списку', teachers_path %>

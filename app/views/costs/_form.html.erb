@@ -1,21 +1,4 @@
-<%= form_for(@cost) do |f| %>
-  <% if @cost.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@cost.errors.count, "error") %> prohibited this cost from being saved:</h2>
-
-      <ul>
-      <% @cost.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= simple_form_for(@cost, :html => { :class => 'form-horizontal' } ) do |f| %>
+    <%= f.input :name, label: "имя" %> 
+    <%= f.button :submit, :value => "сохранить" %>
 <% end %>

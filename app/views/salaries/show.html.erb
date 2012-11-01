@@ -1,39 +1,39 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Date:</b>
+  <b>дата:</b>
   <%= @salary.date %>
 </p>
 
 <p>
-  <b>Summ:</b>
+  <b>сумма:</b>
   <%= @salary.summ %>
 </p>
 
 <p>
-  <b>Course:</b>
+  <b>курс:</b>
   <%= @salary.course.name %>
 </p>
 <p>
-  <b>Teacher:</b>
+  <b>преподаватель:</b>
   <%= @salary.teacher.name %>
 </p>
 
 <p>
-  <b>Month:</b>
+  <b>месяц:</b>
   <%= @salary.month %>
 </p>
 
 <p>
-  <b>Type:</b>
+  <b>форма выплаты:</b>
   <%= @salary.type %>
 </p>
 
 <p>
-  <b>Comment:</b>
+  <b>коммент:</b>
   <%= @salary.comment %>
 </p>
 
 
-<%= link_to 'Edit', edit_salary_path(@salary) %> |
-<%= link_to 'Back', salaries_path %>
+<%= link_to 'редактировать', edit_salary_path(@salary) %> |
+<%= link_to 'к списку', salaries_path %>

@@ -1,25 +1,25 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Date:</b>
+  <b>дата:</b>
   <%= @payment.date %>
 </p>
 
 <p>
-  <b>Summ:</b>
+  <b>сумма:</b>
   <%= @payment.summ %>
 </p>
 
 <p>
-  <b>Type:</b>
+  <b>форма оплаты:</b>
   <%= @payment.type %>
 </p>
 
 <p>
-  <b>Order:</b>
+  <b>договор:</b>
   <%= @payment.order.name %>
 </p>
 
 
-<%= link_to 'Edit', edit_payment_path(@payment) %> |
-<%= link_to 'Back', payments_path %>
+<%= link_to 'редактировать', edit_payment_path(@payment) %> |
+<%= link_to 'к списку', payments_path %>

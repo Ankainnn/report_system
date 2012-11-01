@@ -1,16 +1,16 @@
 <h1>Преподаватели</h1>
 
 <%= link_to 'New Teacher', new_teacher_path %>
-<table id="demotable">
+<table id="demotable" class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Phone</th>
+      <th>имя</th>
+      <th>телефон</th>
       <th>Email</th>
       <th>Id-vk</th>
-      <th>Workplace</th>
-      <th>Comment</th>
-      <th>courses</th>
+      <th>рабочее место</th>
+      <th>комментарий</th>
+      <th>курсы</th>
       <th></th>
       <th></th>
       <th></th>
@@ -30,13 +30,10 @@
             <%=  x.name + ", " %>
           <% end %>
         </td>
-        <td><%= link_to 'Show', teacher %></td>
-        <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-        <td><%= link_to 'Destroy', teacher, confirm: 'Are you sure?', method: :delete %></td>
+        <td><%= link_to 'см.', teacher %></td>
+        <td><%= link_to 'ред.', edit_teacher_path(teacher) %></td>
+        <td><%= link_to 'уд.', teacher, confirm: 'Are you sure?', method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br />
-

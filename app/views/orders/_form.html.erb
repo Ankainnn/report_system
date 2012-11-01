@@ -1,16 +1,16 @@
-<%= simple_form_for(@order) do |f| %>
+<%= simple_form_for(@order, :html => { :class => 'form-horizontal' }) do |f| %>
 
-  <%= f.association :client %>
-  <%= f.input :contract %>
-  <%= f.association :course %>
-  <%= f.association :teacher %>
-  <%= f.association :schedule %>
-  <%= f.association :office %>
-  <%= f.input :start %>
-  <%= f.input :dayandtime %>
-  <%= f.input :end %>
-  <%= f.input :discount %>
-  <%= f.input :price %>
-  <%= f.button :submit %>
+  <%= f.association :client, label: "клиент" %>
+  <%= f.input :contract, label: "дата заключения" %>
+  <%= f.association :course, label: "курс" %>
+  <%= f.association :teacher, label: "учитель" %>
+  <%= f.association :schedule, label: "расписание" %>
+  <%= f.association :office, label: "офис" %>
+  <%= f.input :start, label: "начало" %>
+  <%= f.input :dayandtime, label: "день и время" %>
+  <%= f.input :end, label: "конец" %>
+  <%= f.input :discount, label: "скидка" %>
+  <%= f.input :price, label: "стоимость" %>
+  <%= f.button :submit,"сохранить" %>
 
 <% end %>

@@ -1,25 +1,25 @@
 <h1>Клиенты</h1>
 
-<%= link_to 'New Client', new_client_path %>
+<%= link_to 'Новый клиент', new_client_path %>
 
-<table  id="demotable">
+<table  id="demotable"  class="table table-striped">
    <thead>
       <tr>
-        <th>Status</th>
-        <th>Resource</th>
-        <th>Name</th>
-        <th>Phone</th>
+        <th>статус</th>
+        <th>источник</th>
+        <th>имя</th>
+        <th>телефон</th>
         <th>Email</th>
-        <th>Idvk</th>
-        <th>School</th>
-        <th>Parent</th>
-        <th>Parent phone</th>
-        <th>Channel</th>
-        <th>Manager</th>
-        <th>Daysandtime</th>
-        <th>Period</th>
-        <th>Office</th>
-        <th>Comment</th>
+        <th>Id-vk</th>
+        <th>школа</th>
+        <th>родитель</th>
+        <th>телефон родителя</th>
+        <th>канал</th>
+        <th>менеджер</th>
+        <th>день и время</th>
+        <th>период</th>
+        <th>офис</th>
+        <th>комментарий</th>
         <th></th>
         <th></th>
         <th></th>
@@ -41,11 +41,11 @@
             <td><%= client.manager.try(:name) %></td>
             <td><%= client.daysandtime %></td>
             <td><%= client.period %></td>
-            <td><%= client.office.name %></td>
+            <td><%= client.office.try(:name) %></td>
             <td><%= client.comment %></td>
-            <td><%= link_to 'Show', client %></td>
-            <td><%= link_to 'Edit', edit_client_path(client) %></td>
-            <td><%= link_to 'Destroy', client, confirm: 'Are you sure?', method: :delete %></td>
+            <td><%= link_to 'см.', client %></td>
+            <td><%= link_to 'ред.', edit_client_path(client) %></td>
+            <td><%= link_to 'уд.', client, confirm: 'Are you sure?', method: :delete %></td>
           </tr>
         <% end %>
    </tbody>

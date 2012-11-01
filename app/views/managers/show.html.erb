@@ -1,25 +1,25 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <b>имя:</b>
   <%= @manager.name %>
 </p>
 
 <p>
-  <b>Phone:</b>
+  <b>телефон:</b>
   <%= @manager.phone %>
 </p>
 
 <p>
-  <b>Idvk:</b>
+  <b>Id-vk:</b>
   <%= @manager.idvk %>
 </p>
 
 <p>
-  <b>School:</b>
+  <b>школа:</b>
   <%= @manager.school %>
 </p>
 
 
-<%= link_to 'Edit', edit_manager_path(@manager) %> |
-<%= link_to 'Back', managers_path %>
+<%= link_to 'редактировать', edit_manager_path(@manager) %> |
+<%= link_to 'к списку', managers_path %>

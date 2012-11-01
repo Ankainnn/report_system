@@ -1,14 +1,15 @@
 <h1>Выплаты преподавателям</h1>
 
-<table>
+<%= link_to 'новая выплата', new_salary_path %>
+<table class="table table-striped">
   <tr>
-    <th>Date</th>
-    <th>Summ</th>
-    <th>Course</th>
-    <th>Teacher</th>
-    <th>Month</th>
-    <th>Type</th>
-    <th>Comment</th>
+    <th>дата</th>
+    <th>сумма</th>
+    <th>курс</th>
+    <th>преподаватель</th>
+    <th>месяц</th>
+    <th>форма выплаты</th>
+    <th>комментарий</th>
     <th></th>
     <th></th>
     <th></th>
@@ -23,13 +24,9 @@
     <td><%= salary.month %></td>
     <td><%= salary.type %></td>
     <td><%= salary.comment %></td>
-    <td><%= link_to 'Show', salary %></td>
-    <td><%= link_to 'Edit', edit_salary_path(salary) %></td>
-    <td><%= link_to 'Destroy', salary, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'см.', salary %></td>
+    <td><%= link_to 'ред.', edit_salary_path(salary) %></td>
+    <td><%= link_to 'уд.', salary, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Salary', new_salary_path %>

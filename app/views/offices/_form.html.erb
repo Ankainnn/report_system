@@ -1,6 +1,6 @@
-<%= simple_form_for(@office) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :phone %>
-  <%= f.button :submit %>
+<%= simple_form_for(@office, :html => { :class => 'form-horizontal' }) do |f| %>
+  <%= f.input :name, label: "имя" %>
+  <%= f.input :address, label: "адрес" %>
+  <%= f.input :phone, label: "телефон" %>
+  <%= f.button :submit,"сохранить" %>
 <% end %>

@@ -1,40 +1,40 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Date:</b>
+  <b>дата:</b>
   <%= @outlay.date %>
 </p>
 
 <p>
-  <b>Summ:</b>
+  <b>сумма:</b>
   <%= @outlay.summ %>
 </p>
 
 <p>
-  <b>Name:</b>
+  <b>имя:</b>
   <%= @outlay.name %>
 </p>
 
 <p>
-  <b>Cost:</b>
+  <b>тип расходов:</b>
   <%= @outlay.cost.name %>
 </p>
 
 <p>
-  <b>Type:</b>
+  <b>форма вылпаты:</b>
   <%= @outlay.type %>
 </p>
 
 <p>
-  <b>Person:</b>
+  <b>автор:</b>
   <%= @outlay.person %>
 </p>
 
 <p>
-  <b>Comment:</b>
+  <b>комментарий:</b>
   <%= @outlay.comment %>
 </p>
 
 
-<%= link_to 'Edit', edit_outlay_path(@outlay) %> |
-<%= link_to 'Back', outlays_path %>
+<%= link_to 'редактировать', edit_outlay_path(@outlay) %> |
+<%= link_to 'к списку', outlays_path %>

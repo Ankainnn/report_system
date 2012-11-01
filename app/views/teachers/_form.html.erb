@@ -1,13 +1,12 @@
-<%= simple_form_for(@teacher) do |f| %>
+<%= simple_form_for(@teacher, :html => { :class => 'form-horizontal' }) do |f| %>
 
-  <%= f.input :name %>
-  <%= f.input :phone %>
+  <%= f.input :name, label: "имя" %>
+  <%= f.input :phone, label: "телефон" %>
   <%= f.input :email %>
   <%= f.input :idvk, :label => "id-vk" %>
-  <%= f.input :workplace %>
-  <%= f.input :comment %>
-  <%= f.association :courses %>
+  <%= f.input :workplace, label: "рабочее место" %>
+  <%= f.input :comment, label: "комментарий" %>
+  <%= f.association :courses, label: "курс" %>
 
-  <%= f.button :submit %>
-
+	<%= f.button :submit, value: "сохранить" %>
 <% end %>

@@ -1,8 +1,9 @@
-<h1>Справочник типов расходов</h1>
+<h1>Типы расходов</h1>
 
-<table>
+<%= link_to 'новый тип расходов', new_cost_path %>
+<table class="table table-striped">
   <tr>
-    <th>Name</th>
+    <th>имя</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,13 +12,12 @@
 <% @costs.each do |cost| %>
   <tr>
     <td><%= cost.name %></td>
-    <td><%= link_to 'Show', cost %></td>
-    <td><%= link_to 'Edit', edit_cost_path(cost) %></td>
-    <td><%= link_to 'Destroy', cost, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'см.', cost %></td>
+    <td><%= link_to 'ред.', edit_cost_path(cost) %></td>
+    <td><%= link_to 'уд.', cost, confirm: 'уверены?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Cost', new_cost_path %>

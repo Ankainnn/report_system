@@ -1,11 +1,12 @@
-<h1>Список менеджеров</h1>
+<h1>Менеджеры</h1>
 
-<table>
+<%= link_to 'новый менеджер', new_manager_path %>
+<table class="table table-striped">
   <tr>
-    <th>Name</th>
-    <th>Phone</th>
+    <th>имя</th>
+    <th>телефон</th>
     <th>Id-vk</th>
-    <th>School</th>
+    <th>школа</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,13 +18,10 @@
     <td><%= manager.phone %></td>
     <td><%= manager.idvk %></td>
     <td><%= manager.school %></td>
-    <td><%= link_to 'Show', manager %></td>
-    <td><%= link_to 'Edit', edit_manager_path(manager) %></td>
-    <td><%= link_to 'Destroy', manager, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'см.', manager %></td>
+    <td><%= link_to 'ред.', edit_manager_path(manager) %></td>
+    <td><%= link_to 'уд.', manager, confirm: 'уверены?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Manager', new_manager_path %>

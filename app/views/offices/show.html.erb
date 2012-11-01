@@ -1,20 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <b>имя:</b>
   <%= @office.name %>
 </p>
 
 <p>
-  <b>Address:</b>
+  <b>адрес:</b>
   <%= @office.address %>
 </p>
 
 <p>
-  <b>Phone:</b>
+  <b>телефон:</b>
   <%= @office.phone %>
 </p>
 
 
-<%= link_to 'Edit', edit_office_path(@office) %> |
-<%= link_to 'Back', offices_path %>
+<%= link_to 'редактирование', edit_office_path(@office) %> |
+<%= link_to 'к списку', offices_path %>

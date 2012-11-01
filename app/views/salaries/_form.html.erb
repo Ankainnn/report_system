@@ -1,11 +1,11 @@
-<%= simple_form_for(@salary) do |f| %>
-  <%= f.input :date %>
-  <%= f.input :summ %>
-  <%= f.association :teacher %>
-  <%= f.association :course %>
-  <%= f.input :month %>
-  <%= f.input :type, :collection => ["Наличные", "По безналу"], :as => :radio_buttons %>
-  <%= f.input :comment %>
-  <%= f.button :submit %>
+<%= simple_form_for(@salary, :html => { :class => 'form-horizontal' }) do |f| %>
+  <%= f.input :date, label: "дата" %>
+  <%= f.input :summ, label: "сумма" %>
+  <%= f.association :teacher, label: "преподаватель" %>
+  <%= f.association :course, label: "курс" %>
+  <%= f.input :month, label: "месяц" %>
+  <%= f.input :type, label: "форма оплаты", :collection => ["Наличные", "По безналу"], :as => :radio_buttons %>
+  <%= f.input :comment, label: "комментарий" %>
+  <%= f.button :submit, value: "сохранить" %>
   
 <% end %>

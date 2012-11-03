@@ -7,7 +7,7 @@
   <%= f.input :phone, :label => "телефон", :input_html =>{:id => "phone"} %>
   <%= f.input :idvk, :label => "id-vk" %>
   <%= f.input :school, :label => "школа" %>
-  <%= f.input :parent, :label => "родитель" %>
+  <%= f.input :parent, :label => "родитель", :input_html => {:value => current_user.email} %>
   <%= f.input :parent_phone, :label => "телефон родителя"%>
   <%= f.association :channel, :label => "канал" %>
   <%= f.association :manager, :label => "менеджер" %>

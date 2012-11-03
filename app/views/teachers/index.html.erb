@@ -1,6 +1,6 @@
 <h1>Преподаватели</h1>
 
-<%= link_to 'New Teacher', new_teacher_path %>
+<%= link_to 'Новый преподаватель', new_teacher_path %>
 <table id="demotable" class="table table-striped">
   <thead>
     <tr>
@@ -19,7 +19,7 @@
   <tbody>
     <% @teachers.each do |teacher| %>
       <tr>
-        <td><%= teacher.name %></td>
+        <td><%= teacher.fio %></td>
         <td><%= teacher.phone %></td>
         <td><%= teacher.email %></td>
         <td><%= teacher.idvk %></td>

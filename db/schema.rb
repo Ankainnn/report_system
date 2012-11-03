@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121020085317) do
+ActiveRecord::Schema.define(:version => 20121103083730) do
 
   create_table "channels", :force => true do |t|
     t.string   "name"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(:version => 20121020085317) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.string   "surname"
+    t.string   "author"
+    t.string   "editor"
   end
 
   add_index "clients", ["channel_id"], :name => "index_clients_on_channel_id"
@@ -102,14 +104,14 @@ ActiveRecord::Schema.define(:version => 20121020085317) do
 
   create_table "orders", :force => true do |t|
     t.integer  "client_id"
-    t.datetime "contract"
+    t.date     "contract"
     t.integer  "course_id"
     t.integer  "teacher_id"
     t.integer  "schedule_id"
     t.integer  "office_id"
-    t.datetime "start"
-    t.string   "dayandtime"
-    t.string   "end"
+    t.date     "start"
+    t.string   "number"
+    t.date     "end"
     t.string   "discount"
     t.float    "price"
     t.datetime "created_at",  :null => false
@@ -196,6 +198,7 @@ ActiveRecord::Schema.define(:version => 20121020085317) do
     t.text     "comment"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "surname"
   end
 
   create_table "users", :force => true do |t|

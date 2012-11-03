@@ -20,6 +20,8 @@
         <th>период</th>
         <th>офис</th>
         <th>комментарий</th>
+        <th>создано</th>
+        <th>отредактированио</th>
         <th></th>
         <th></th>
         <th></th>
@@ -43,6 +45,8 @@
             <td><%= client.period %></td>
             <td><%= client.office.try(:name) %></td>
             <td><%= client.comment %></td>
+            <td><%= client.created_at.strftime('%d/%m/%Y %H:%M:%S') %></td>
+            <td><%= client.updated_at.strftime('%d/%m/%Y %H:%M:%S') %></td>
             <td><%= link_to 'см.', client %></td>
             <td><%= link_to 'ред.', edit_client_path(client) %></td>
             <td><%= link_to 'уд.', client, confirm: 'Are you sure?', method: :delete %></td>

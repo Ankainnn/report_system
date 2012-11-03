@@ -80,11 +80,19 @@
 </p>
 <p>
   <b>создано:</b>
-  <%= @client.created_at %>
+  <%= @client.created_at.strftime('%d/%m/%Y %H:%M:%S') %>
+</p>
+<p>
+  <b>автор:</b>
+  <%= @client.author %>
 </p>
 <p>
   <b>Обновлено:</b>
-  <%= @client.updated_at %>
+  <%= @client.updated_at.strftime('%d/%m/%Y %H:%M:%S') %>
+</p>
+<p>
+  <b>редактировал:</b>
+  <%= @client.editor %>
 </p>
 
 

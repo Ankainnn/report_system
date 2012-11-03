@@ -8,7 +8,7 @@ class Course < ActiveRecord::Base
   attr_accessor :name
 
 	def name
-    self.direction + " < " + self.subject
+    self.direction + " / " + self.subject
 	end
 
 end

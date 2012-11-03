@@ -5,6 +5,6 @@
   <%= f.association :teacher, label: "преподаватель" %>
   <%= f.association :course, label: "курс" %>
   <%= f.input :hours, :as => :integer, label: "часы" %>
-  <%= f.input :start, label: "начало" %>
+  <%= f.input :start, label: "начало", :as => :date %>
   <%= f.button :submit, value: "сохранить" %>
 <% end %>

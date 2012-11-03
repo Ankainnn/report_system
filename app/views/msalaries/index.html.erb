@@ -6,7 +6,8 @@
     <th>менеджер</th>
     <th>дата</th>
     <th>сумма</th>
-    <th>месяц</th>
+    <th>начало</th>
+    <th>конец</th>
     <th>Форма выплаты</th>
     <th>комментарий</th>
     <th></th>
@@ -19,7 +20,8 @@
     <td><%= msalary.manager.name %></td>
     <td><%= msalary.date %></td>
     <td><%= msalary.summ %></td>
-    <td><%= msalary.month %></td>
+    <td><%= msalary.try(:start) %></td>
+    <td><%= msalary.try(:end) %></td>
     <td><%= msalary.type %></td>
     <td><%= msalary.comment %></td>
     <td><%= link_to 'см.', msalary %></td>

@@ -1,5 +1,6 @@
 <h1>Платежи по договорам</h1>
 
+<%= link_to 'новый платеж', new_payment_path %>
 <table id="demotable" class="table table-striped">
   <thead>
     <tr>
@@ -7,6 +8,8 @@
       <th>сумма</th>
       <th>форма оплаты</th>
       <th>договор</th>
+      <th>начало</th>
+      <th>конец</th>
       <th></th>
       <th></th>
       <th></th>
@@ -19,9 +22,11 @@
         <td><%= payment.summ %></td>
         <td><%= payment.type %></td>
         <td><%= payment.order.name %></td>
-        <td><%= link_to 'Show', payment %></td>
-        <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
-        <td><%= link_to 'Destroy', payment, confirm: 'Are you sure?', method: :delete %></td>
+        <td><%= payment.try(:start) %></td>
+        <td><%= payment.try(:end) %></td>
+        <td><%= link_to 'см.', payment %></td>
+        <td><%= link_to 'ред.', edit_payment_path(payment) %></td>
+        <td><%= link_to 'уд.', payment, confirm: 'Are you sure?', method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,4 +34,3 @@
 
 <br />
 
-<%= link_to 'New Payment', new_payment_path %>

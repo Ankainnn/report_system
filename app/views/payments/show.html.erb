@@ -20,6 +20,15 @@
   <%= @payment.order.name %>
 </p>
 
+<p>
+  <b>начало:</b>
+  <%= @payment.start %>
+</p>
+<p>
+  <b>конец:</b>
+  <%= @payment.end %>
+</p>
+
 
 <%= link_to 'редактировать', edit_payment_path(@payment) %> |
 <%= link_to 'к списку', payments_path %>

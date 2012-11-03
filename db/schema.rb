@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121103083730) do
+ActiveRecord::Schema.define(:version => 20121103215857) do
 
   create_table "channels", :force => true do |t|
     t.string   "name"
@@ -85,11 +85,12 @@ ActiveRecord::Schema.define(:version => 20121103083730) do
     t.integer  "manager_id"
     t.datetime "date"
     t.float    "summ"
-    t.string   "month"
     t.string   "type"
     t.text     "comment"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.date     "start"
+    t.date     "end"
   end
 
   add_index "msalaries", ["manager_id"], :name => "index_msalaries_on_manager_id"
@@ -145,6 +146,8 @@ ActiveRecord::Schema.define(:version => 20121103083730) do
     t.integer  "order_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.date     "start"
+    t.date     "end"
   end
 
   add_index "payments", ["order_id"], :name => "index_payments_on_order_id"
@@ -159,12 +162,14 @@ ActiveRecord::Schema.define(:version => 20121103083730) do
     t.datetime "date"
     t.float    "summ"
     t.integer  "course_id"
-    t.string   "month"
     t.string   "type"
     t.text     "comment"
     t.integer  "teacher_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.date     "start"
+    t.date     "end"
+    t.integer  "schedule_id"
   end
 
   create_table "schedules", :force => true do |t|

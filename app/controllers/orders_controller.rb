@@ -27,7 +27,11 @@ class OrdersController < ApplicationController
   # GET /orders/new.json
   def new
     @order = Order.new
-
+    @sts = Status.all.to_a
+    @sts.delete(Status.where(:name => "Договор"))
+    @sts.delete(Status.where(:name => "Отказ"))
+    @sts.collect!{|s| s.id}
+    @cls = Client.where(:status_id => @sts)
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @order }
@@ -37,6 +41,11 @@ class OrdersController < ApplicationController
   # GET /orders/1/edit
   def edit
     @order = Order.find(params[:id])
+    @sts = Status.all.to_a
+    @sts.delete(Status.where(:name => "Договор"))
+    @sts.delete(Status.where(:name => "Отказ"))
+    @sts.collect!{|s| s.id}
+    @cls = Client.where(:status_id => @sts)
   end
 
   # POST /orders
@@ -81,5 +90,12 @@ class OrdersController < ApplicationController
       format.html { redirect_to orders_url }
       format.json { head :no_content }
     end
+  end
+
+  def find_statuses
+    @sts = Status.all.to_a
+    @sts.delete(Status.where(:name => "Договор"))
+    @sts.delete(Status.where(:name => "Отказ"))
+
   end
 end

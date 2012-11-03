@@ -7,7 +7,8 @@
     <th>сумма</th>
     <th>курс</th>
     <th>преподаватель</th>
-    <th>месяц</th>
+    <th>начало</th>
+    <th>конец</th>
     <th>форма выплаты</th>
     <th>комментарий</th>
     <th></th>
@@ -21,7 +22,8 @@
     <td><%= salary.summ %></td>
     <td><%= salary.course.name %></td>
     <td><%= salary.teacher.name %></td>
-    <td><%= salary.month %></td>
+    <td><%= salary.try(:start) %></td>
+    <td><%= salary.try(:end) %></td>
     <td><%= salary.type %></td>
     <td><%= salary.comment %></td>
     <td><%= link_to 'см.', salary %></td>

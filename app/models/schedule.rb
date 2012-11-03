@@ -3,6 +3,7 @@ class Schedule < ActiveRecord::Base
   belongs_to :teacher
   belongs_to :course
   has_many :orders
+  has_many :salaries
 
 
   attr_accessor :name

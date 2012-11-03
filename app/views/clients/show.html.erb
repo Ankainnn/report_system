@@ -84,7 +84,7 @@
 </p>
 <p>
   <b>автор:</b>
-  <%= @client.author %>
+  <%= @client.try(:author) %>
 </p>
 <p>
   <b>Обновлено:</b>
@@ -92,7 +92,7 @@
 </p>
 <p>
   <b>редактировал:</b>
-  <%= @client.editor %>
+  <%= @client.try(:editor) %>
 </p>
 
 

@@ -1,0 +1,23 @@
+<h1>курсы</h1>
+
+<%= link_to 'новый курс', new_course_path %>
+<table class="table table-striped">
+  <tr>
+    <th>направление</th>
+    <th>предмет</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @courses.each do |course| %>
+  <tr>
+    <td><%= course.direction %></td>
+    <td><%= course.subject %></td>
+    <td><%= link_to 'см.', course %></td>
+    <td><%= link_to 'ред.', edit_course_path(course) %></td>
+    <td><%= link_to 'уд.', course, confirm: 'уверены?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+

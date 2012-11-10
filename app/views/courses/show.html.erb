@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>направление:</b>
+  <%= @course.direction %>
+</p>
+
+<p>
+  <b>предмет:</b>
+  <%= @course.subject %>
+</p>
+
+
+<%= link_to 'ред.', edit_course_path(@course) %> |
+<%= link_to 'к списку', courses_path %>

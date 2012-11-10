@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>день:</b>
+  <%= @schedule.day %>
+</p>
+
+<p>
+  <b>время:</b>
+  <%= @schedule.time %>
+</p>
+
+<p>
+  <b>офис:</b>
+  <%= @schedule.office.name %>
+</p>
+
+<p>
+  <b>преподаватель:</b>
+  <%= @schedule.teacher.name %>
+</p>
+
+<p>
+  <b>курс:</b>
+  <%= @schedule.course.name %>
+</p>
+
+<p>
+  <b>часы:</b>
+  <%= @schedule.hours %>
+</p>
+
+<p>
+  <b>начало:</b>
+  <%= @schedule.start.to_date %>
+</p>
+
+
+<%= link_to 'редактирование', edit_schedule_path(@schedule) %> |
+<%= link_to 'к списку', schedules_path %>

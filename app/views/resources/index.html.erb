@@ -1,0 +1,21 @@
+<h1>источники</h1>
+
+<%= link_to 'новый источник', new_resource_path %>
+<table class="table table-striped">
+  <tr>
+    <th>название</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @resources.each do |resource| %>
+  <tr>
+    <td><%= resource.name %></td>
+    <td><%= link_to 'см.', resource %></td>
+    <td><%= link_to 'ред.', edit_resource_path(resource) %></td>
+    <td><%= link_to 'уд.', resource, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+

@@ -1,0 +1,100 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>статус:</b>
+  <%= @client.status.try(:name) %>
+</p>
+
+<p>
+  <b>источник:</b>
+  <%= @client.resource.try(:name) %>
+</p>
+
+<p>
+  <b>имя:</b>
+  <%= @client.name %>
+</p>
+<p>
+  <b>фамилия:</b>
+  <%= @client.try(:surname) %>
+</p>
+
+<p>
+  <b>телефон:</b>
+  <%= @client.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @client.email %>
+</p>
+
+<p>
+  <b>Id-vk:</b>
+  <%= @client.idvk %>
+</p>
+
+<p>
+  <b>Школа:</b>
+  <%= @client.school %>
+</p>
+
+<p>
+  <b>Родитель:</b>
+  <%= @client.parent %>
+</p>
+
+<p>
+  <b>Телефон родителя:</b>
+  <%= @client.parent_phone %>
+</p>
+
+<p>
+  <b>Канал:</b>
+  <%= @client.channel.try(:name) %>
+</p>
+
+<p>
+  <b>Менеджер:</b>
+  <%= @client.manager.try(:name) %>
+</p>
+
+<p>
+  <b>День и время:</b>
+  <%= @client.daysandtime %>
+</p>
+
+<p>
+  <b>Период:</b>
+  <%= @client.period %>
+</p>
+
+<p>
+  <b>Офис:</b>
+  <%= @client.office.try(:name) %>
+</p>
+
+<p>
+  <b>комментарий:</b>
+  <%= @client.comment %>
+</p>
+<p>
+  <b>создано:</b>
+  <%= @client.created_at.strftime('%d/%m/%Y %H:%M:%S') %>
+</p>
+<p>
+  <b>автор:</b>
+  <%= @client.try(:author) %>
+</p>
+<p>
+  <b>Обновлено:</b>
+  <%= @client.updated_at.strftime('%d/%m/%Y %H:%M:%S') %>
+</p>
+<p>
+  <b>редактировал:</b>
+  <%= @client.try(:editor) %>
+</p>
+
+
+<%= link_to 'редактировать', edit_client_path(@client) %> |
+<%= link_to 'к списку', clients_path %>

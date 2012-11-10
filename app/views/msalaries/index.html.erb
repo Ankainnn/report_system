@@ -1,0 +1,34 @@
+<h1>Выплаты менеджерам</h1>
+
+<%= link_to 'новая выплата', new_msalary_path %>
+<table class="table table-striped">
+  <tr>
+    <th><%= sortable("manager_id", "менеджер") %></th>
+    <th><%= sortable("date", "дата") %></th>
+    <th><%= sortable("summ", "сумма") %></th>
+    <th><%= sortable("start", "начало") %></th>
+    <th><%= sortable("end", "конец") %></th>
+    <th><%= sortable("type", "Форма выплаты") %></th>
+    <th><%= sortable("comment", "комментарий") %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @msalaries.each do |msalary| %>
+  <tr>
+    <td><%= msalary.manager.name %></td>
+    <td><%= msalary.date %></td>
+    <td><%= msalary.summ %></td>
+    <td><%= msalary.try(:start) %></td>
+    <td><%= msalary.try(:end) %></td>
+    <td><%= msalary.type %></td>
+    <td><%= msalary.comment %></td>
+    <td><%= link_to 'см.', msalary %></td>
+    <td><%= link_to 'ред.', edit_msalary_path(msalary) %></td>
+    <td><%= link_to 'уд.', msalary, confirm: 'уверены?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+

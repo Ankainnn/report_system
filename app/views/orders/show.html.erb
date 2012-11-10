@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>номер:</b>
+  <%= @order.number %>
+</p>
+
+<p>
+  <b>клиент:</b>
+  <%= @order.client.name %>
+</p>
+
+<p>
+  <b>дата заключения:</b>
+  <%= @order.contract %>
+</p>
+
+<p>
+  <b>курс:</b>
+  <%= @order.course.name %>
+</p>
+
+<p>
+  <b>преподаватель:</b>
+  <%= @order.teacher.name %>
+</p>
+
+<p>
+  <b>расписание:</b>
+  <%= @order.schedule.name %>
+</p>
+
+<p>
+  <b>офис:</b>
+  <%= @order.office.name %>
+</p>
+
+<p>
+  <b>начало:</b>
+  <%= @order.start %>
+</p>
+
+
+<p>
+  <b>конец:</b>
+  <%= @order.end %>
+</p>
+
+<p>
+  <b>скидка:</b>
+  <%= @order.discount %>
+</p>
+
+<p>
+  <b>стоимость:</b>
+  <%= @order.price %>
+</p>
+
+
+<%= link_to 'редактировать', edit_order_path(@order) %> |
+<%= link_to 'к списку', orders_path %>

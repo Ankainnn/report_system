@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>фамилия:</b>
+  <%= @teacher.surname %>
+</p>
+<p>
+  <b>имя:</b>
+  <%= @teacher.name %>
+</p>
+
+<p>
+  <b>телефон:</b>
+  <%= @teacher.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @teacher.email %>
+</p>
+
+<p>
+  <b>Id-vk:</b>
+  <%= @teacher.idvk %>
+</p>
+
+<p>
+  <b>рабочее место:</b>
+  <%= @teacher.workplace %>
+</p>
+
+<p>
+  <b>коммент:</b>
+  <%= @teacher.comment %>
+</p>
+<p>
+  <b>курсы:</b>
+  <% @teacher.courses.each do |x| %>
+    <%=  x.name + ", " %>
+  <% end %>
+</p>
+
+
+
+<%= link_to 'редактировать', edit_teacher_path(@teacher) %> |
+<%= link_to 'к списку', teachers_path %>

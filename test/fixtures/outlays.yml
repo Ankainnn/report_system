@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  date: 2012-08-22 11:09:43
+  summ: 1.5
+  name: MyString
+  cost: 
+  type: 
+  person: MyString
+  comment: MyString
+
+two:
+  date: 2012-08-22 11:09:43
+  summ: 1.5
+  name: MyString
+  cost: 
+  type: 
+  person: MyString
+  comment: MyString

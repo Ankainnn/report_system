@@ -1,0 +1,25 @@
+<h1>офисы</h1>
+<%= link_to 'новый офис', new_office_path %>
+
+<table class="table table-striped">
+  <tr>
+    <th>имя</th>
+    <th>адрес</th>
+    <th>телефон</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @offices.each do |office| %>
+  <tr>
+    <td><%= office.name %></td>
+    <td><%= office.address %></td>
+    <td><%= office.phone %></td>
+    <td><%= link_to 'см.', office %></td>
+    <td><%= link_to 'ред.', edit_office_path(office) %></td>
+    <td><%= link_to 'уд.', office, confirm: 'уверены?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+

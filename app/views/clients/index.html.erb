@@ -1,0 +1,59 @@
+<h1>Клиенты</h1>
+
+<%= link_to 'Новый клиент', new_client_path %>
+
+<table  id="demotable"  class="table table-striped">
+   <thead>
+      <tr>
+        <th><%= sortable("status_id", "статус") %></th>
+        <th><%= sortable("resource_id", "источник") %></th>
+        <th><%= sortable("name", "имя") %></th>
+        <th><%= sortable("phone", "телефон") %></th>
+        <th><%= sortable("email", "Email") %></th>
+        <th><%= sortable("idvk", "Id-vk") %></th>
+        <th><%= sortable("school", "школа") %></th>
+        <th><%= sortable("parent", "родитель") %></th>
+        <th><%= sortable("parent_phone", "телефон родителя") %></th>
+        <th><%= sortable("channel_id", "канал") %></th>
+        <th><%= sortable("manager_id", "менеджер") %></th>
+        <th><%= sortable("daysandtime", "день и время") %></th>
+        <th><%= sortable("period", "период") %></th>
+        <th><%= sortable("office_id", "офис") %></th>
+        <th><%= sortable("comment", "комментарий") %></th>
+        <th><%= sortable("created_at", "создано") %></th>
+        <th><%= sortable("updated_at", "отредактированио") %></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+   </thead>
+   <tbody>
+        <% @clients.each do |client| %>
+          <tr>
+            <td><%= client.status.try(:name) %></td>
+            <td><%= client.resource.try(:name) %></td>
+            <td><%= client.fio%></td>
+            <td><%= client.phone %></td>
+            <td><%= client.email %></td>
+            <td><%= client.idvk %></td>
+            <td><%= client.school %></td>
+            <td><%= client.parent %></td>
+            <td><%= client.parent_phone %></td>
+            <td><%= client.channel.try(:name) %></td>
+            <td><%= client.manager.try(:name) %></td>
+            <td><%= client.daysandtime %></td>
+            <td><%= client.period %></td>
+            <td><%= client.office.try(:name) %></td>
+            <td><%= client.comment %></td>
+            <td><%= client.created_at.strftime('%d/%m/%Y %H:%M:%S') %></td>
+            <td><%= client.updated_at.strftime('%d/%m/%Y %H:%M:%S') %></td>
+            <td><%= link_to 'см.', client %></td>
+            <td><%= link_to 'ред.', edit_client_path(client) %></td>
+            <td><%= link_to 'уд.', client, confirm: 'Are you sure?', method: :delete %></td>
+          </tr>
+        <% end %>
+   </tbody>
+</table>
+
+<br />
+

@@ -1,0 +1,5 @@
+<%= simple_form_for(@course) do |f| %>
+    <%= f.input :direction, label: "направление" %>
+    <%= f.input :subject, label: "предмет" %>
+    <%= f.button :submit, value: "сохранить" %>
+<% end %>

@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>менеджер:</b>
+  <%= @msalary.manager.name %>
+</p>
+
+<p>
+  <b>дата:</b>
+  <%= @msalary.date %>
+</p>
+
+<p>
+  <b>сумма:</b>
+  <%= @msalary.summ %>
+</p>
+<p>
+  <b>начало:</b>
+  <%= @msalary.start %>
+</p>
+<p>
+  <b>конец:</b>
+  <%= @msalary.end %>
+</p>
+
+<p>
+  <b>форма вылпаты:</b>
+  <%= @msalary.type %>
+</p>
+
+<p>
+  <b>комментарий:</b>
+  <%= @msalary.comment %>
+</p>
+
+
+<%= link_to 'редактировать', edit_msalary_path(@msalary) %> |
+<%= link_to 'к списку', msalaries_path %>

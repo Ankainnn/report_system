@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  day: MyString
+  time: MyString
+  office: 
+  teacher: 
+  course: 
+  hours: 1
+  start: 2012-08-22 10:49:44
+
+two:
+  day: MyString
+  time: MyString
+  office: 
+  teacher: 
+  course: 
+  hours: 1
+  start: 2012-08-22 10:49:44

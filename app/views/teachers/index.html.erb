@@ -1,0 +1,39 @@
+<h1>Преподаватели</h1>
+
+<%= link_to 'Новый преподаватель', new_teacher_path %>
+<table id="demotable" class="table table-striped">
+  <thead>
+    <tr>
+      <th>имя</th>
+      <th>телефон</th>
+      <th>Email</th>
+      <th>Id-vk</th>
+      <th>рабочее место</th>
+      <th>комментарий</th>
+      <th>курсы</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @teachers.each do |teacher| %>
+      <tr>
+        <td><%= teacher.fio %></td>
+        <td><%= teacher.phone %></td>
+        <td><%= teacher.email %></td>
+        <td><%= teacher.idvk %></td>
+        <td><%= teacher.workplace %></td>
+        <td><%= teacher.comment %></td>
+        <td>
+          <% teacher.courses.each do |x| %>
+            <%=  x.name + ", " %>
+          <% end %>
+        </td>
+        <td><%= link_to 'см.', teacher %></td>
+        <td><%= link_to 'ред.', edit_teacher_path(teacher) %></td>
+        <td><%= link_to 'уд.', teacher, confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

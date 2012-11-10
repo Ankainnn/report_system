@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Имя:</b>
+  <%= @channel.name %>
+</p>
+
+
+<%= link_to 'Ред.', edit_channel_path(@channel) %> |
+<%= link_to 'к списку', channels_path %>

@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>название:</b>
+  <%= @resource.name %>
+</p>
+
+
+<%= link_to 'редактировать', edit_resource_path(@resource) %> |
+<%= link_to 'к списку', resources_path %>

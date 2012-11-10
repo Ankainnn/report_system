@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reports</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jquery-1.8.0.min.js" %>
+  <%= javascript_include_tag "jquery.maskedinput-1.3.min.js" %>
+  <%= javascript_include_tag "picnet.table.filter.min.js" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <% if current_user %>
+    	<%= link_to "Выйти", destroy_user_session_path, :method => :delete %>
+    	<%= link_to "Пользователи", list_users_path %></br>
+      СПРАВОЧНИКИ:  
+      <%= link_to "Статусы", statuses_path %> |
+      <%= link_to "Источники", resources_path %> |
+      <%= link_to "Каналы", channels_path %> |
+      <%= link_to "Курсы", courses_path %> |
+      <%= link_to "Типы расходов", costs_path %> | 
+      <%= link_to "Офисы", offices_path %>  |
+      <%= link_to "Менеджеры", managers_path %> | 
+      <%= link_to "Преподаватели", teachers_path %> | 
+      <%= link_to "Графики", schedules_path %> 
+      </br>
+      СПИСКИ:  
+      <%= link_to "Клиенты", clients_path %> | 
+      <%= link_to "Договоры", orders_path %> | 
+      <%= link_to "Расходы", outlays_path %> | 
+      <%= link_to "Выплаты преподователю", salaries_path %> | 
+      <%= link_to "Выплаты менеджеру", msalaries_path %> | 
+      <%= link_to "Выплаты по договорам", payments_path %> 
+
+    <% end %>
+
+<%= yield %>
+
+</body>
+</html>

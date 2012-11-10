@@ -1,0 +1,27 @@
+<h1>Менеджеры</h1>
+
+<%= link_to 'новый менеджер', new_manager_path %>
+<table class="table table-striped">
+  <tr>
+    <th>имя</th>
+    <th>телефон</th>
+    <th>Id-vk</th>
+    <th>школа</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @managers.each do |manager| %>
+  <tr>
+    <td><%= manager.name %></td>
+    <td><%= manager.phone %></td>
+    <td><%= manager.idvk %></td>
+    <td><%= manager.school %></td>
+    <td><%= link_to 'см.', manager %></td>
+    <td><%= link_to 'ред.', edit_manager_path(manager) %></td>
+    <td><%= link_to 'уд.', manager, confirm: 'уверены?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+

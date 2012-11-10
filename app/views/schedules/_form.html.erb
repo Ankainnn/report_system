@@ -1,0 +1,14 @@
+<%= simple_form_for(@schedule, :html => { :class => 'form-horizontal' }) do |f| %>
+  <% @collect.each do |i|%>
+  <%= label_tag i%>
+  <%= check_box_tag "day[]", i %>
+  <%= select_tag "hour[]", options_for_select(0..23), :prompt => "часы"%>
+  <%= select_tag  "minute[]", options_for_select(00..59), :prompt => "минуты"%>
+  <% end%>
+  <%= f.association :office, label: "офис" %>
+  <%= f.association :teacher, label: "преподаватель" %>
+  <%= f.association :course, label: "курс" %>
+  <%= f.input :hours, :as => :integer, label: "часы" %>
+  <%= f.input :start, label: "начало", :as => :date %>
+  <%= f.button :submit, value: "сохранить" %>
+<% end %>

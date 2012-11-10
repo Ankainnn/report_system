@@ -1,0 +1,34 @@
+<h1>Выплаты преподавателям</h1>
+
+<%= link_to 'новая выплата', new_salary_path %>
+<table class="table table-striped">
+  <tr>
+    <th><%= sortable("date", "дата") %></th>
+    <th><%= sortable("sum", "сумма") %></th>
+    <th><%= sortable("course_id", "курс") %></th>
+    <th><%= sortable("teacher_id", "преподаватель") %></th>
+    <th><%= sortable("start", "начало") %></th>
+    <th><%= sortable("end", "конец") %></th>
+    <th><%= sortable("comment", "форма выплаты") %></th>
+    <th><%= sortable("type", "комментарий") %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @salaries.each do |salary| %>
+  <tr>
+    <td><%= salary.date %></td>
+    <td><%= salary.summ %></td>
+    <td><%= salary.course.name %></td>
+    <td><%= salary.teacher.name %></td>
+    <td><%= salary.try(:start) %></td>
+    <td><%= salary.try(:end) %></td>
+    <td><%= salary.type %></td>
+    <td><%= salary.comment %></td>
+    <td><%= link_to 'см.', salary %></td>
+    <td><%= link_to 'ред.', edit_salary_path(salary) %></td>
+    <td><%= link_to 'уд.', salary, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>

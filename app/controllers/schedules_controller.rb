@@ -3,8 +3,9 @@ class SchedulesController < ApplicationController
   # GET /schedules
   # GET /schedules.json
   before_filter :active_user
+  helper_method :sort_column, :sort_direction
   def index
-    @schedules = Schedule.all
+    @schedules = Schedule.order(sort_column + ' ' + sort_direction)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -45,6 +46,7 @@ class SchedulesController < ApplicationController
 
   # GET /schedules/1/edit
   def edit
+    @collect = %w(понедельник вторник среда четверг пятница суббота воскресение )
     @schedule = Schedule.find(params[:id])
   end
 
@@ -101,6 +103,12 @@ class SchedulesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  private
+  def sort_column
+    Client.column_names.include?(params[:sort]) ? params[:sort] : "day"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+  end
 end
-#<%= f.input :day, :collection => @collection_day, :as => :check_boxes, label: false%>
-#<%= f.input :time, :collection => @collection_time, :as => :select,  label: false %>

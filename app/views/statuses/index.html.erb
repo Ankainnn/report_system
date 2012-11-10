@@ -3,7 +3,7 @@
 <%= link_to 'новый статус', new_status_path %>
 <table  class="table table-striped">
   <tr>
-    <th>название</th>
+    <th><%= sortable("name", "название") %></th>
     <th></th>
     <th></th>
     <th></th>

@@ -3,8 +3,8 @@
 <%= link_to 'новый курс', new_course_path %>
 <table class="table table-striped">
   <tr>
-    <th>направление</th>
-    <th>предмет</th>
+    <th><%= sortable("direction", "направление") %></th>
+    <th><%= sortable("subject", "предмет") %></th>
     <th></th>
     <th></th>
     <th></th>

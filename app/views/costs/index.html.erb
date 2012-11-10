@@ -3,7 +3,7 @@
 <%= link_to 'новый тип расходов', new_cost_path %>
 <table class="table table-striped">
   <tr>
-    <th>имя</th>
+    <th><%= sortable("name", "имя") %></th>
     <th></th>
     <th></th>
     <th></th>

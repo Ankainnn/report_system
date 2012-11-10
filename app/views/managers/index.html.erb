@@ -3,10 +3,10 @@
 <%= link_to 'новый менеджер', new_manager_path %>
 <table class="table table-striped">
   <tr>
-    <th>имя</th>
-    <th>телефон</th>
-    <th>Id-vk</th>
-    <th>школа</th>
+    <th><%= sortable("name", "имя") %></th>
+    <th><%= sortable("phone", "телефон") %></th>
+    <th><%= sortable("idvk", "Id-vk") %></th>
+    <th><%= sortable("school", "школа") %></th>
     <th></th>
     <th></th>
     <th></th>

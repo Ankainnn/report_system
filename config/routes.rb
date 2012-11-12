@@ -1,5 +1,20 @@
 Reports::Application.routes.draw do
   get "orders/payment"
+  get "clients/date_to_excel_format"
+  get "orders/orders_to_excel_format"
+  get "outlays/outlays_to_excel_format"
+  get "salaries/salaries_to_excel_format"
+  get "msalaries/msalaries_to_excel_format"
+  get "payments/payments_to_excel_format"
+  get "statuses/statuses_to_excel_format"
+  get "resources/resources_to_excel_format"
+  get "channels/channels_to_excel_format"
+  get "courses/courses_to_excel_format"
+  get "costs/costs_to_excel_format"
+  get "offices/offices_to_excel_format"
+  get "managers/managers_to_excel_format"
+  get "teachers/teachers_to_excel_format"
+  get "schedules/schedules_to_excel_format"
 
   resources :outlays
 
@@ -44,6 +59,12 @@ Reports::Application.routes.draw do
 
   resources :statuses
   match 'orders/payment', to: 'orders#payment', as: :payment
+  match 'clients/date_to_excel_format', to: 'clients#date_to_excel_format', as: :clients_to_xls
+  match 'orders/orders_to_excel_format', to: 'orders#orders_to_excel_format', as: :orders_to_xls
+  match 'outlays/outlays_to_excel_format', to: 'outlays#outlays_to_excel_format', as: :outlays_to_xls
+  match 'salaries/salaries_to_excel_format', to: 'salaries#salaries_to_excel_format', as: :salaries_to_xls
+  match 'msalaries/msalaries_to_excel_format', to: 'msalaries#msalaries_to_excel_format', as: :msalaries_to_xls
+  match 'payments/payments_to_excel_format', to: 'payments#payments_to_excel_format', as: :payments_to_xls
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

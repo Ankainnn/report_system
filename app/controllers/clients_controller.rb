@@ -3,9 +3,8 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   before_filter :active_user
-  helper_method :sort_column, :sort_direction
   def index
-    @clients = Client.order(sort_column + ' ' + sort_direction)
+    @clients = Client.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -84,12 +83,13 @@ class ClientsController < ApplicationController
     end
   end
 
-  private
-  def sort_column
-    Client.column_names.include?(params[:sort]) ? params[:sort] : "status_id"
+  def date_to_excel_format
+    @clients = Client.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @clients.to_csv }
+      format.xls
+    end
   end
 
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
-  end
 end

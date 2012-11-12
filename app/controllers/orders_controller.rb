@@ -3,9 +3,8 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   before_filter :active_user
-  helper_method :sort_column, :sort_direction
   def index
-    @orders = Order.order(sort_column + ' ' + sort_direction)
+    @orders = Order.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -33,7 +32,7 @@ class OrdersController < ApplicationController
     @sts.delete(Status.where(:name => "Отказ"))
     @sts.collect!{|s| s.id}
     @cls = Client.where(:status_id => @sts)
-    @client_collection = Client
+    @client_collection = Client.all
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @order }
@@ -106,13 +105,13 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
-
-  private
-  def sort_column
-    Order.column_names.include?(params[:sort]) ? params[:sort] : "client_id"
+  def orders_to_excel_format
+    @orders = Order.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @order.to_csv }
+      format.xls
+    end
   end
 
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
-  end
 end

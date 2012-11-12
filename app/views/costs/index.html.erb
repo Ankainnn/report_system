@@ -1,13 +1,16 @@
 <h1>Типы расходов</h1>
 
 <%= link_to 'новый тип расходов', new_cost_path %>
-<table class="table table-striped">
-  <tr>
-    <th><%= sortable("name", "имя") %></th>
+<table id="demotable" class="table table-striped">
+  <thead>
+  <tr class="sort">
+    <th>имя</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
+  </thead>
+  <tbody>
 
 <% @costs.each do |cost| %>
   <tr>
@@ -17,6 +20,7 @@
     <td><%= link_to 'уд.', cost, confirm: 'уверены?', method: :delete %></td>
   </tr>
 <% end %>
+  </tbody>
 </table>
 
 <br />

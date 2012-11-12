@@ -1,15 +1,15 @@
 <h1>Платежи по договорам</h1>
 
-<%= link_to 'новый платеж', new_payment_path %>
+<%= link_to 'новый платеж', new_payment_path %> | <%= link_to 'загрузить таблицу в XLS формате', payments_to_xls_path + ".xls" %>
 <table id="demotable" class="table table-striped">
   <thead>
-    <tr>
-      <th><%= sortable("date", "дата") %></th>
-      <th><%= sortable("summ", "сумма") %></th>
-      <th><%= sortable("type", "форма оплаты") %></th>
-      <th><%= sortable("order_id", "договор") %></th>
-      <th><%= sortable("start", "начало") %></th>
-      <th><%= sortable("end", "конец") %></th>
+    <tr class="sort">
+      <th>дата</th>
+      <th>сумма</th>
+      <th>форма оплаты</th>
+      <th>договор</th>
+      <th>начало</th>
+      <th>конец</th>
       <th></th>
       <th></th>
       <th></th>

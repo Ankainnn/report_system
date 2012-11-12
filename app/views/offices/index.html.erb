@@ -1,16 +1,19 @@
 <h1>офисы</h1>
 <%= link_to 'новый офис', new_office_path %>
 
-<table class="table table-striped">
-  <tr>
-    <th><%= sortable("name", "имя") %></th>
-    <th><%= sortable("address", "адрес") %></th>
-    <th><%= sortable("phone", "телефон") %></th>
+<table id="demotable" class="table table-striped">
+  <thead>
+  <tr class="sort">
+    <th>имя</th>
+    <th>адрес</th>
+    <th>телефон</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
+  </thead>
 
+  <tbody>
 <% @offices.each do |office| %>
   <tr>
     <td><%= office.name %></td>
@@ -21,5 +24,6 @@
     <td><%= link_to 'уд.', office, confirm: 'уверены?', method: :delete %></td>
   </tr>
 <% end %>
+  </tbody>
 </table>
 

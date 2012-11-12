@@ -3,9 +3,8 @@ class OutlaysController < ApplicationController
   # GET /outlays
   # GET /outlays.json
   before_filter :active_user
-  helper_method :sort_column, :sort_direction
   def index
-    @outlays = Outlay.order(sort_column + ' ' + sort_direction)
+    @outlays = Outlay.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -84,12 +83,13 @@ class OutlaysController < ApplicationController
     end
   end
 
-  private
-  def sort_column
-    Order.column_names.include?(params[:sort]) ? params[:sort] : "date"
+  def outlays_to_excel_format
+    @outlays = Outlay.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @outlays.to_csv }
+      format.xls
+    end
   end
 
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
-  end
 end

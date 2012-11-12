@@ -3,9 +3,8 @@ class MsalariesController < ApplicationController
   # GET /msalaries
   # GET /msalaries.json
   before_filter :active_user
-  helper_method :sort_column, :sort_direction
   def index
-    @msalaries = Msalary.order(sort_column + ' ' + sort_direction)
+    @msalaries = Msalary.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -84,12 +83,13 @@ class MsalariesController < ApplicationController
     end
   end
 
-  private
-  def sort_column
-    Order.column_names.include?(params[:sort]) ? params[:sort] : "date"
+  def msalaries_to_excel_format
+    @msalaries = Msalary.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @msalaries.to_csv }
+      format.xls
+    end
   end
 
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
-  end
 end

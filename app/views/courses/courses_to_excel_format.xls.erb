@@ -1,0 +1,30 @@
+
+
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">направление</Data></Cell>
+        <Cell><Data ss:Type="String">предмет</Data></Cell>
+        <Cell><Data ss:Type="String">дата создания</Data></Cell>
+        <Cell><Data ss:Type="String">дата обновления</Data></Cell>
+      </Row>
+      <% @courses.each do |course| %>
+          <Row>
+            <Cell><Data ss:Type="Number"><%= course.id %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= course.direction %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= course.subject %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= course.created_at.strftime("%d.%m.%Y") %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= course.updated_at.strftime("%d.%m.%Y") %></Data></Cell>
+          </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+

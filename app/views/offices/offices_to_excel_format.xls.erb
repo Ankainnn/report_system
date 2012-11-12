@@ -1,0 +1,28 @@
+
+
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">название</Data></Cell>
+        <Cell><Data ss:Type="String">адрес</Data></Cell>
+        <Cell><Data ss:Type="String">телефон</Data></Cell>
+      </Row>
+      <% @offices.each do |office| %>
+          <Row>
+            <Cell><Data ss:Type="Number"><%= office.id %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= office.name %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= office.address %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= office.phone %></Data></Cell>
+          </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+

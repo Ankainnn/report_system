@@ -1,27 +1,26 @@
 <h1>Клиенты</h1>
 
-<%= link_to 'Новый клиент', new_client_path %>
-
-<table  id="demotable"  class="table table-striped">
+<%= link_to 'Новый клиент', new_client_path %> | <%= link_to 'загрузить таблицу в XLS формате', clients_to_xls_path + ".xls" %>
+<table id="demotable" class="table table-striped tablesorter">
    <thead>
-      <tr>
-        <th><%= sortable("status_id", "статус") %></th>
-        <th><%= sortable("resource_id", "источник") %></th>
-        <th><%= sortable("name", "имя") %></th>
-        <th><%= sortable("phone", "телефон") %></th>
-        <th><%= sortable("email", "Email") %></th>
-        <th><%= sortable("idvk", "Id-vk") %></th>
-        <th><%= sortable("school", "школа") %></th>
-        <th><%= sortable("parent", "родитель") %></th>
-        <th><%= sortable("parent_phone", "телефон родителя") %></th>
-        <th><%= sortable("channel_id", "канал") %></th>
-        <th><%= sortable("manager_id", "менеджер") %></th>
-        <th><%= sortable("daysandtime", "день и время") %></th>
-        <th><%= sortable("period", "период") %></th>
-        <th><%= sortable("office_id", "офис") %></th>
-        <th><%= sortable("comment", "комментарий") %></th>
-        <th><%= sortable("created_at", "создано") %></th>
-        <th><%= sortable("updated_at", "отредактированио") %></th>
+      <tr class="sort">
+        <th>статус</th>
+        <th>источник</th>
+        <th>имя</th>
+        <th>телефон</th>
+        <th>Email</th>
+        <th>Id-vk</th>
+        <th>школа</th>
+        <th>родитель</th>
+        <th>телефон родителя</th>
+        <th>канал</th>
+        <th>менеджер</th>
+        <th>день и время</th>
+        <th>период</th>
+        <th>офис</th>
+        <th>комментарий</th>
+        <th>создано</th>
+        <th>отредактированио</th>
         <th></th>
         <th></th>
         <th></th>
@@ -29,14 +28,14 @@
    </thead>
    <tbody>
         <% @clients.each do |client| %>
-          <tr>
+          <tr class="tr">
             <td><%= client.status.try(:name) %></td>
             <td><%= client.resource.try(:name) %></td>
             <td><%= client.fio%></td>
             <td><%= client.phone %></td>
             <td><%= client.email %></td>
             <td><%= client.idvk %></td>
-            <td><%= client.school %></td>
+            <td class="sum"> <%= client.school %></td>
             <td><%= client.parent %></td>
             <td><%= client.parent_phone %></td>
             <td><%= client.channel.try(:name) %></td>
@@ -54,6 +53,40 @@
         <% end %>
    </tbody>
 </table>
+<div>тестовое динамическое суммирование колонок (школа): <span id="result"></span></div>
 
 <br />
+
+<script>
+    var delay = (function(){
+        var timer = 0;
+        return function(callback, ms){
+            clearTimeout (timer);
+            timer = setTimeout(callback, ms);
+        };
+    })();
+    $(document).ready(function() {
+        var res=0;
+        $('.tr').each(function(){
+            if ( getComputedStyle(this,null).display != "none") {
+                res += parseFloat($(this).find(".sum").html());
+            }
+        });
+        $('#result').text(res);
+
+            $('input').keyup(function() {
+                delay(function(){
+                    var res=0;
+                    $('.tr').each(function(){
+                        if ( getComputedStyle(this,null).display != "none") {
+                            res += parseFloat($(this).find(".sum").html());
+                        }
+                    });
+                    $('#result').text(res);
+                }, 350 );
+            });
+
+        });
+
+</script>
 

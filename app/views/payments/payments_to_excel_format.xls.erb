@@ -1,0 +1,34 @@
+
+
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">дата</Data></Cell>
+        <Cell><Data ss:Type="String">сумма</Data></Cell>
+        <Cell><Data ss:Type="String">тип</Data></Cell>
+        <Cell><Data ss:Type="String">заказ</Data></Cell>
+        <Cell><Data ss:Type="String">начало</Data></Cell>
+        <Cell><Data ss:Type="String">конец</Data></Cell>
+      </Row>
+      <% @payments.each do |payments| %>
+          <Row>
+            <Cell><Data ss:Type="Number"><%= payments.id %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= payments.date%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= payments.summ %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= payments.type %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= payments.order.start if payments.order_id.present? %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= payments.start %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= payments.end %></Data></Cell>
+          </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+

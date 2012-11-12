@@ -3,9 +3,8 @@ class ChannelsController < ApplicationController
   # GET /channels
   # GET /channels.json
   before_filter :active_user
-  helper_method :sort_column, :sort_direction
   def index
-    @channels = Channel.order(sort_column + ' ' + sort_direction)
+    @channels = Channel.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -83,12 +82,14 @@ class ChannelsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  private
-  def sort_column
-    Client.column_names.include?(params[:sort]) ? params[:sort] : "name"
+
+  def channels_to_excel_format
+    @channels = Channel.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @channels.to_csv }
+      format.xls
+    end
   end
 
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
-  end
 end

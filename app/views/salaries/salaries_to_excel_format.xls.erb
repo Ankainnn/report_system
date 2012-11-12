@@ -1,0 +1,38 @@
+
+
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">дата</Data></Cell>
+        <Cell><Data ss:Type="String">сумма</Data></Cell>
+        <Cell><Data ss:Type="String">курс</Data></Cell>
+        <Cell><Data ss:Type="String">тип</Data></Cell>
+        <Cell><Data ss:Type="String">комментарий</Data></Cell>
+        <Cell><Data ss:Type="String">преподаватель</Data></Cell>
+        <Cell><Data ss:Type="String">начало</Data></Cell>
+        <Cell><Data ss:Type="String">конец</Data></Cell>
+      </Row>
+      <% @salaries.each do |salaries| %>
+          <Row>
+            <Cell><Data ss:Type="Number"><%= salaries.id %></Data></Cell>
+            <Cell><Data ss:Type="String"><%=salaries.date%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= salaries.summ %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= salaries.course.name if salaries.course_id.present? %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= salaries.type %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= salaries.comment %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= salaries.teacher.name if salaries.teacher_id.present? %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= salaries.start %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.end %></Data></Cell>
+          </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+

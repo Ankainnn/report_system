@@ -3,14 +3,14 @@
 <%= link_to 'новый график', new_schedule_path %>
 <table id="demotable" class="table table-striped">
   <thead>
-    <tr>
-      <th><%= sortable("day", "день") %></th>
-      <th><%= sortable("time", "время") %></th>
-      <th><%= sortable("office", "офис") %></th>
-      <th><%= sortable("teacher_id", "преподаватель") %></th>
-      <th><%= sortable("course_id", "курс") %></th>
-      <th><%= sortable("hours", "часы") %></th>
-      <th><%= sortable("start", "начало") %></th>
+    <tr class="sort">
+      <th>день</th>
+      <th>время</th>
+      <th>офис</th>
+      <th>преподаватель</th>
+      <th>курс</th>
+      <th>часы</th>
+      <th>начало</th>
       <th></th>
       <th></th>
       <th></th>

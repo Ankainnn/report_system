@@ -3,9 +3,8 @@ class StatusesController < ApplicationController
   # GET /statuses
   # GET /statuses.json
   before_filter :active_user
-  helper_method :sort_column, :sort_direction
   def index
-    @statuses = Status.order(sort_column + ' ' + sort_direction)
+    @statuses = Status.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -84,12 +83,13 @@ class StatusesController < ApplicationController
     end
   end
 
-  private
-  def sort_column
-    Client.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  def statuses_to_excel_format
+    @statuses = Status.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @statuses.to_csv }
+      format.xls
+    end
   end
 
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
-  end
 end

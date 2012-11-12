@@ -1,20 +1,22 @@
 <h1>Выплаты менеджерам</h1>
 
-<%= link_to 'новая выплата', new_msalary_path %>
-<table class="table table-striped">
-  <tr>
-    <th><%= sortable("manager_id", "менеджер") %></th>
-    <th><%= sortable("date", "дата") %></th>
-    <th><%= sortable("summ", "сумма") %></th>
-    <th><%= sortable("start", "начало") %></th>
-    <th><%= sortable("end", "конец") %></th>
-    <th><%= sortable("type", "Форма выплаты") %></th>
-    <th><%= sortable("comment", "комментарий") %></th>
+<%= link_to 'новая выплата', new_msalary_path %> | <%= link_to 'загрузить таблицу в XLS формате', msalaries_to_xls_path + ".xls" %>
+<table id="demotable" class="table table-striped">
+  <thead>
+  <tr class="sort">
+    <th>менеджер</th>
+    <th>дата</th>
+    <th>сумма</th>
+    <th>начало</th>
+    <th>конец</th>
+    <th>Форма выплаты</th>
+    <th>комментарий</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
+  </thead>
+<tbody>
 <% @msalaries.each do |msalary| %>
   <tr>
     <td><%= msalary.manager.name %></td>
@@ -29,6 +31,7 @@
     <td><%= link_to 'уд.', msalary, confirm: 'уверены?', method: :delete %></td>
   </tr>
 <% end %>
+</tbody>
 </table>
 
 

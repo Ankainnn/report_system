@@ -12,3 +12,7 @@
  *= require_tree .
 */
 label {margin-right: 20px;}
+.sort{
+    cursor: pointer;
+    color: #2e54ed;
+}

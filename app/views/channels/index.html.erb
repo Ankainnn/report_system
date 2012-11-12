@@ -1,13 +1,16 @@
 <h1>каналы</h1>
 
 <%= link_to 'Новый канал', new_channel_path %>
-<table class="table table-striped">
-  <tr>
-    <th><%= sortable("name", "Имя") %></th>
+<table id="demotable" class="table table-striped">
+  <thead>
+  <tr class="sort">
+    <th>Имя</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
+  </thead>
+  <tbody>
 
 <% @channels.each do |channel| %>
   <tr>
@@ -17,6 +20,7 @@
     <td><%= link_to 'уд.', channel, confirm: 'Вы уверены?', method: :delete %></td>
   </tr>
 <% end %>
+  </tbody>
 </table>
 
 <br />

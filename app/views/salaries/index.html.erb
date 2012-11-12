@@ -1,21 +1,23 @@
 <h1>Выплаты преподавателям</h1>
 
-<%= link_to 'новая выплата', new_salary_path %>
-<table class="table table-striped">
-  <tr>
-    <th><%= sortable("date", "дата") %></th>
-    <th><%= sortable("sum", "сумма") %></th>
-    <th><%= sortable("course_id", "курс") %></th>
-    <th><%= sortable("teacher_id", "преподаватель") %></th>
-    <th><%= sortable("start", "начало") %></th>
-    <th><%= sortable("end", "конец") %></th>
-    <th><%= sortable("comment", "форма выплаты") %></th>
-    <th><%= sortable("type", "комментарий") %></th>
+<%= link_to 'новая выплата', new_salary_path %> | <%= link_to 'загрузить таблицу в XLS формате', salaries_to_xls_path + ".xls" %>
+<table id="demotable" class="table table-striped">
+  <thead>
+  <tr class="sort">
+    <th>дата</th>
+    <th>сумма</th>
+    <th>курс</th>
+    <th>преподаватель</th>
+    <th>начало</th>
+    <th>конец</th>
+    <th>форма выплаты</th>
+    <th>комментарий</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
+  </thead>
+  <tbody>
 <% @salaries.each do |salary| %>
   <tr>
     <td><%= salary.date %></td>
@@ -31,4 +33,5 @@
     <td><%= link_to 'уд.', salary, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
+</tbody>
 </table>

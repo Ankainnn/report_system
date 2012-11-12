@@ -3,9 +3,8 @@ class SchedulesController < ApplicationController
   # GET /schedules
   # GET /schedules.json
   before_filter :active_user
-  helper_method :sort_column, :sort_direction
   def index
-    @schedules = Schedule.order(sort_column + ' ' + sort_direction)
+    @schedules = Schedule.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -27,15 +26,7 @@ class SchedulesController < ApplicationController
   # GET /schedules/new
   # GET /schedules/new.json
   def new
-    @collection_day = {'понедельник' => 'понедельник',
-                   'вторник' => 'вторник',
-                   'среда' => 'среда',
-                   'четверг' => 'четверг',
-                   'пятница' => 'пятница',
-                   'суббота' => 'суббота',
-                   'воскресение' => 'воскресение'}
     @collect = %w(понедельник вторник среда четверг пятница суббота воскресение )
-    @collection_time = {'9:00' => '9:00', '10:00' => '10:00', '11:00' => '11:00', '12:00' => '12:00', '13:00' => '13:00'}
     @schedule = Schedule.new
 
     respond_to do |format|
@@ -103,12 +94,13 @@ class SchedulesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  private
-  def sort_column
-    Client.column_names.include?(params[:sort]) ? params[:sort] : "day"
-  end
 
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+  def schedules_to_excel_format
+    @schedules = Schedule.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @schedules.to_csv }
+      format.xls
+    end
   end
 end

@@ -1,0 +1,52 @@
+
+
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">статус</Data></Cell>
+        <Cell><Data ss:Type="String">ресурс</Data></Cell>
+        <Cell><Data ss:Type="String">имя</Data></Cell>
+        <Cell><Data ss:Type="String">телефон</Data></Cell>
+        <Cell><Data ss:Type="String">e-mail</Data></Cell>
+        <Cell><Data ss:Type="String">vk</Data></Cell>
+        <Cell><Data ss:Type="String">школа</Data></Cell>
+        <Cell><Data ss:Type="String">родитель</Data></Cell>
+        <Cell><Data ss:Type="String">телефон родителя</Data></Cell>
+        <Cell><Data ss:Type="String">канал</Data></Cell>
+        <Cell><Data ss:Type="String">менеджер</Data></Cell>
+        <Cell><Data ss:Type="String">дни и время</Data></Cell>
+        <Cell><Data ss:Type="String">период</Data></Cell>
+        <Cell><Data ss:Type="String">офис</Data></Cell>
+        <Cell><Data ss:Type="String">комментарий</Data></Cell>
+      </Row>
+      <% @clients.each do |client| %>
+          <Row>
+            <Cell><Data ss:Type="Number"><%= client.id %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.status.name if client.status_id.present?%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.resource.name if client.resource_id.present? %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.name %></Data></Cell>
+            <Cell><Data ss:Type="Number"><%= client.phone %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.email %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.idvk %></Data></Cell>
+            <Cell><Data ss:Type="Number"><%= client.school %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.parent %></Data></Cell>
+            <Cell><Data ss:Type="Number"><%= client.parent_phone %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.channel.name if client.channel_id.present?%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.manager.name if client.manager_id.present?%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.daysandtime %></Data></Cell>
+            <Cell><Data ss:Type="Number"><%= client.period %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.office.address if client.office_id.present?%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.comment %></Data></Cell>
+          </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+

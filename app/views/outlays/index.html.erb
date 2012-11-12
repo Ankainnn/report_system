@@ -1,20 +1,22 @@
 <h1>Расходы</h1>
 
-<%= link_to 'новая выплата', new_outlay_path %>
-<table class="table table-striped">
-  <tr>
-    <th><%= sortable("date", "дата") %></th>
-    <th><%= sortable("summ", "сумма") %></th>
-    <th><%= sortable("name", "имя") %></th>
-    <th><%= sortable("type", "типа расходов") %></th>
-    <th><%= sortable("cost_id", "форма оплаты") %></th>
-    <th><%= sortable("person", "автор") %></th>
-    <th><%= sortable("comment", "комментарий") %></th>
+<%= link_to 'новая выплата', new_outlay_path %> | <%= link_to 'загрузить таблицу в XLS формате', outlays_to_xls_path + ".xls" %>
+<table id="demotable" class="table table-striped">
+  <thead>
+  <tr class="sort">
+    <th>дата</th>
+    <th>сумма</th>
+    <th>имя</th>
+    <th>типа расходов</th>
+    <th>форма оплаты</th>
+    <th>автор</th>
+    <th>комментарий</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
+  </thead>
+  <tbody>
 <% @outlays.each do |outlay| %>
   <tr>
     <td><%= outlay.date %></td>
@@ -29,4 +31,5 @@
     <td><%= link_to 'уд.', outlay, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
+<tbody>
 </table>

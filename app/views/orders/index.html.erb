@@ -1,45 +1,47 @@
 <h1>договоры</h1>
 
-<%= link_to 'новый договор', new_order_path %>
-<table class="table table-striped">
-  <tr>
-    <th><%= sortable("number", "номер") %></th>
-    <th><%= sortable("client_id", "клиент") %></th>
-    <th><%= sortable("contract", "дата заключения") %></th>
-    <th><%= sortable("course_id", "курс") %></th>
-    <th><%= sortable("teacher_id", "преподаватель") %></th>
-    <th><%= sortable("schedule_id", "расписание") %></th>
-    <th><%= sortable("office_id", "офис") %></th>
-    <th><%= sortable("start", "начало") %></th>
-    <th><%= sortable("end", "конец") %></th>
-    <th><%= sortable("discount", "скидка") %></th>
-    <th><%= sortable("price", "стоимость") %></th>
+<%= link_to 'новый договор', new_order_path %> | <%= link_to 'загрузить таблицу в XLS формате', orders_to_xls_path + ".xls" %>
+<table id="demotable" class="table table-striped tablesorter">
+  <thead>
+  <tr class="sort">
+    <th>номер</th>
+    <th>клиент</th>
+    <th>дата заключения</th>
+    <th>курс</th>
+    <th>преподаватель</th>
+    <th>расписание</th>
+    <th>офис</th>
+    <th>начало</th>
+    <th>конец</th>
+    <th>скидка</th>
+    <th>стоимость</th>
     <th></th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
-<% @orders.each do |order| %>
-  <tr>
-    <td><%= order.number %></td>
-    <td><%= order.client.name %></td>
-    <td><%= order.contract %></td>
-    <td><%= order.course.name %></td>
-    <td><%= order.teacher.name %></td>
-    <td><%= order.schedule.name%></td>
-    <td><%= order.office.name %></td>
-    <td><%= order.start %></td>
-    <td><%= order.end %></td>
-    <td><%= order.discount %></td>
-    <td><%= order.price %></td>
-    <td><%= button_to 'оплата по договору', payment_path(id: order.id) %></td>
-    <td><%= link_to 'см.', order %></td>
-    <td><%= link_to 'ред.', edit_order_path(order) %></td>
-    <td><%= link_to 'уд.', order, confirm: 'уверены?', method: :delete %></td>
-  </tr>
-<% end %>
+  </thead>
+  <tbody>
+  <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.number %></td>
+        <td><%= order.client.name %></td>
+        <td><%= order.contract %></td>
+        <td><%= order.course.name %></td>
+        <td><%= order.teacher.name %></td>
+        <td><%= order.schedule.name%></td>
+        <td><%= order.office.name %></td>
+        <td><%= order.start %></td>
+        <td><%= order.end %></td>
+        <td><%= order.discount %></td>
+        <td><%= order.price %></td>
+        <td><%= button_to 'оплата по договору', payment_path(id: order.id) %></td>
+        <td><%= link_to 'см.', order %></td>
+        <td><%= link_to 'ред.', edit_order_path(order) %></td>
+        <td><%= link_to 'уд.', order, confirm: 'уверены?', method: :delete %></td>
+      </tr>
+  <% end %>
+  </tbody>
 </table>
 
 <br />
-

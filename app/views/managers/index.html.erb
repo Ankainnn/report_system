@@ -1,17 +1,19 @@
 <h1>Менеджеры</h1>
 
 <%= link_to 'новый менеджер', new_manager_path %>
-<table class="table table-striped">
-  <tr>
-    <th><%= sortable("name", "имя") %></th>
-    <th><%= sortable("phone", "телефон") %></th>
-    <th><%= sortable("idvk", "Id-vk") %></th>
-    <th><%= sortable("school", "школа") %></th>
+<table id="demotable" class="table table-striped">
+  <thead>
+  <tr class="sort">
+    <th>имя</th>
+    <th>телефон</th>
+    <th>Id-vk</th>
+    <th>школа</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
+  </thead>
+  <tbody>
 <% @managers.each do |manager| %>
   <tr>
     <td><%= manager.name %></td>
@@ -23,5 +25,6 @@
     <td><%= link_to 'уд.', manager, confirm: 'уверены?', method: :delete %></td>
   </tr>
 <% end %>
+  </tbody>
 </table>
 

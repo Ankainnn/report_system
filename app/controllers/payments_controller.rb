@@ -3,9 +3,8 @@ class PaymentsController < ApplicationController
   # GET /payments
   # GET /payments.json
   before_filter :active_user
-  helper_method :sort_column, :sort_direction
   def index
-    @payments = Payment.order(sort_column + ' ' + sort_direction)
+    @payments = Payment.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -84,12 +83,13 @@ class PaymentsController < ApplicationController
     end
   end
 
-  private
-  def sort_column
-    Order.column_names.include?(params[:sort]) ? params[:sort] : "date"
+  def payments_to_excel_format
+    @payments = Payment.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @paiments.to_csv }
+      format.xls
+    end
   end
 
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
-  end
 end

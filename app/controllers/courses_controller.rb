@@ -3,9 +3,8 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   before_filter :active_user
-  helper_method :sort_column, :sort_direction
   def index
-    @courses = Course.order(sort_column + ' ' + sort_direction)
+    @courses = Course.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -83,12 +82,14 @@ class CoursesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  private
-  def sort_column
-    Client.column_names.include?(params[:sort]) ? params[:sort] : "subject"
+
+  def courses_to_excel_format
+    @courses = Course.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @courses.to_csv }
+      format.xls
+    end
   end
 
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
-  end
 end

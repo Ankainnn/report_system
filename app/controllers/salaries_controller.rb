@@ -27,6 +27,8 @@ class SalariesController < ApplicationController
   # GET /salaries/new.json
   def new
     @salary = Salary.new
+    @teacher_collect = Teacher.order(:name)
+    @course_collect = Course.order(:id)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,6 +44,7 @@ class SalariesController < ApplicationController
   # POST /salaries
   # POST /salaries.json
   def create
+    #params[:salary][:course] = params[:salary][:course].to_i
     @salary = Salary.new(params[:salary])
 
     respond_to do |format|

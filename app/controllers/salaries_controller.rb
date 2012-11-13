@@ -44,9 +44,7 @@ class SalariesController < ApplicationController
   # POST /salaries
   # POST /salaries.json
   def create
-    #params[:salary][:course] = params[:salary][:course].to_i
     @salary = Salary.new(params[:salary])
-
     respond_to do |format|
       if @salary.save
         format.html { redirect_to @salary, notice: 'Salary was successfully created.' }

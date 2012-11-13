@@ -8,6 +8,7 @@
     <th>сумма</th>
     <th>курс</th>
     <th>преподаватель</th>
+    <th>график</th>
     <th>начало</th>
     <th>конец</th>
     <th>форма выплаты</th>
@@ -24,6 +25,7 @@
     <td><%= salary.summ %></td>
     <td><%= salary.course.name %></td>
     <td><%= salary.teacher.name %></td>
+    <td><%= "#{salary.schedule.day} / #{salary.schedule.time}" if salary.schedule_id.present?%> </td>
     <td><%= salary.try(:start) %></td>
     <td><%= salary.try(:end) %></td>
     <td><%= salary.type %></td>

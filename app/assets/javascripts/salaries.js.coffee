@@ -3,38 +3,35 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
-  $("#salary_course_id").hide()
-  $('#course_label').hide()
+  $('#salary_course_id').parent().hide()
   courses = $("#salary_course_id").html()
-  $("#salary_teacher_id").change ->
-    teacher = $("#salary_teacher_id :selected").text()
-    options_course = $(courses).filter("optgroup[label='#{teacher}']").html()
-    if options_course
-      $('#salary_course_id').html(options_course)
-      $('#salary_course_id').show()
-      $('#course_label').show()
+  schedule = $("#salary_schedule_id").html()
+  $('#salary_teacher_id').change ->
+    teacher = $('#salary_teacher_id :selected').text()
+    options_t = $(courses).filter("optgroup[label='#{teacher}']").html()
+    if options_t
+      $('#salary_course_id').html(options_t)
+      $('#salary_course_id').parent().show()
+      selected_c = $('#salary_course_id :selected').text()
+      options = $(schedule).filter("optgroup[label='#{selected_c}']").html()
+      if options
+        $('#salary_schedule_id').html(options)
+        $('#salary_schedule_id').parent().show()
     else
       $('#salary_course_id').empty()
-      $('#salary_course_id').hide()
-      $('#course_label').hide()
-      $('#salary_schedule_id').hide()
-      $('#schedule_label').hide()
+      $('#salary_course_id').parent().hide()
+      $('#salary_schedule_id').parent().hide()
 
-  $("#salary_schedule_id").hide()
-  $('#schedule_label').hide()
-  schedules = $("#salary_schedule_id").html()
-  $("#salary_course_id").change ->
-    course = $("#salary_course_id :selected").text()
-    options_schedule = $(schedules).filter("optgroup[label='#{course}']").html()
-    if options_schedule
-      $('#salary_schedule_id').html(options_schedule)
-      $('#salary_schedule_id').show()
-      $('#schedule_label').show()
+  $('#salary_schedule_id').parent().hide()
+  schedule = $("#salary_schedule_id").html()
+  $('#salary_course_id').change ->
+    course = $('#salary_course_id :selected').text()
+    options_c = $(schedule).filter("optgroup[label='#{course}']").html()
+    if options_c
+      $('#salary_schedule_id').html(options_c)
+      $('#salary_schedule_id').parent().show()
     else
       $('#salary_schedule_id').empty()
-      $('#salary_schedule_id').hide()
-      $('#schedule_label').hide()
-
-
+      $('#salary_schedule_id').parent().hide()
 
 

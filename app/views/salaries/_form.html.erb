@@ -1,14 +1,52 @@
-<%= simple_form_for(@salary, :html => { :class => 'form-horizontal' }) do |f| %>
-    <%= f.input :date, label: "дата" %>
-    <%= f.input :summ, label: "сумма" %>
-    <%= f.association :teacher, label: "преподаватель" %>
-    <%= f.association :course, collection: @teacher_collect, as: :grouped_select, group_method: :courses%>
-    <%= f.association :schedule, collection: @course_collect, as: :grouped_select, group_method: :schedules%>
+<%= form_for(@salary) do |g|%>
+    <div>
+    <%= g.label :date %>
+    <%= g.datetime_select :date %>
+    </div>
 
-    <%= f.input :start, label: "начало периода" %>
-    <%= f.input :end, label: "конец периода" %>
-    <%= f.input :type, label: "форма оплаты", :collection => ["Наличные", "По безналу"], :as => :radio_buttons %>
-    <%= f.input :comment, label: "комментарий" %>
-    <%= f.button :submit, value: "сохранить" %>
+    <div>
+    <%= g.label :summ %>
+    <%= g.text_field :summ %>
+    </div>
 
-<% end %>
+    <div>
+    <%= g.label :teacher_id%>
+    <%= g.collection_select :teacher_id, Teacher.order(:name), :id, :name, {include_blank: true}%>
+    </div>
+
+    <div>
+      <%= g.label :course_id%>
+      <%= g.grouped_collection_select :course_id, Teacher.order(:name), :courses, :name, :id, :name, :include_blank => true %>
+    </div>
+
+    <div>
+      <%= g.label :schedule_id%>
+      <%= g.grouped_collection_select :schedule_id, Course.order(:id), :schedules, :name, :id, :graphic, :include_blank => true%>
+    </div>
+
+    <div>
+    <%= g.label :start %>
+    <%= g.date_select :start %>
+    </div>
+
+    <div>
+    <%= g.label :end %>
+    <%= g.date_select :end %>
+    </div>
+
+    <div>
+    <% ["Наличные", "По безналу"].each do |r| %>
+    <%= g.label :type, r%>
+    <%= g.radio_button :type, r %>
+    <%end%>
+    </div>
+
+    <div>
+    <%= g.label :comment%>
+    <%= g.text_field :comment%>
+    </div>
+
+    <div>
+    <%= g.submit "отправить" %>
+    </div>
+<%end%>

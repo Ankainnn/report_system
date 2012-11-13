@@ -6,9 +6,13 @@ class Schedule < ActiveRecord::Base
   has_many :salaries
 
 
-  attr_accessor :name
+  attr_accessor :name, :graphic
   def name
   	self.course.name + " - " + self.teacher.name + " - " + self.office.name + " - " + self.day
+  end
+
+  def graphic
+    day + " / " + time
   end
 
   def self.to_csv(options = {})

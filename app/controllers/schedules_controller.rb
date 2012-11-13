@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class SchedulesController < ApplicationController
+include ApplicationHelper
   # GET /schedules
   # GET /schedules.json
   before_filter :active_user
@@ -26,6 +27,8 @@ class SchedulesController < ApplicationController
   # GET /schedules/new
   # GET /schedules/new.json
   def new
+    @collect_hour = range_format((0..23))
+    @collect_minute = range_format((0..59))
     @collect = %w(понедельник вторник среда четверг пятница суббота воскресение )
     @schedule = Schedule.new
 

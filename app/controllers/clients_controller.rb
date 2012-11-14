@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class ClientsController < ApplicationController
+include ApplicationHelper
   # GET /clients
   # GET /clients.json
   before_filter :active_user
@@ -26,6 +27,9 @@ class ClientsController < ApplicationController
   # GET /clients/new
   # GET /clients/new.json
   def new
+    @collect_hour = range_format((0..23))
+    @collect_minute = range_format((0..59))
+    @collect = %w(понедельник вторник среда четверг пятница суббота воскресение )
     @client = Client.new
 
     respond_to do |format|
@@ -42,7 +46,17 @@ class ClientsController < ApplicationController
   # POST /clients
   # POST /clients.json
   def create
+    times =[]
+    days = params[:day]
+    (0..6).each do |i|
+      if params[:hour][i].present? && params[:minute][i].present?
+        times<< "#{params[:hour][i]}:#{ params[:minute][i]}"
+      end
+    end
+    days = days.collect{|x| x + " | #{times[days.index(x)]}"}
+    days = days.join(", ")
     @client = Client.new(params[:client])
+    @client.daysandtime = days
 
     respond_to do |format|
       if @client.save

@@ -13,7 +13,12 @@
   <%= f.input :parent_phone, :label => "телефон родителя"%>
   <%= f.association :channel, :label => "канал" %>
   <%= f.association :manager, :label => "менеджер" %>
-  <%= f.input :daysandtime, :label => "день и время" %>
+    <% @collect.each do |i|%>
+        <%= label_tag i%>
+        <%= check_box_tag "day[]", i %>
+        <%= select_tag "hour[]", options_for_select(@collect_hour), :prompt => "часы"%>
+        <%= select_tag  "minute[]", options_for_select(@collect_minute), :prompt => "минуты"%>
+    <% end%>
   <%= f.input :period, :label => "период" %>
   <%= f.association :office, :label => "офис" %>
   <%= f.input :comment, :label => "комментария" %>

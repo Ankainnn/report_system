@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  channels: MyString
+  clients: MyString
+  clients_courses: MyString
+  costs: MyString
+  courses: MyString
+  courses_teachers: MyString
+  managers: MyString
+  msalaries: MyString
+  offices: MyString
+  orders: MyString
+  outlays: MyString
+  payments: MyString
+  resources: MyString
+  salaries: MyString
+  schedules: MyString
+  statuses: MyString
+  teachers: MyString
+  users: MyString
+
+two:
+  user_id: 1
+  channels: MyString
+  clients: MyString
+  clients_courses: MyString
+  costs: MyString
+  courses: MyString
+  courses_teachers: MyString
+  managers: MyString
+  msalaries: MyString
+  offices: MyString
+  orders: MyString
+  outlays: MyString
+  payments: MyString
+  resources: MyString
+  salaries: MyString
+  schedules: MyString
+  statuses: MyString
+  teachers: MyString
+  users: MyString

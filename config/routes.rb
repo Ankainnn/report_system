@@ -1,4 +1,6 @@
 Reports::Application.routes.draw do
+  get "help/index"
+
   get "orders/payment"
   get "clients/date_to_excel_format"
   get "orders/orders_to_excel_format"
@@ -15,6 +17,8 @@ Reports::Application.routes.draw do
   get "managers/managers_to_excel_format"
   get "teachers/teachers_to_excel_format"
   get "schedules/schedules_to_excel_format"
+
+  post "clients/sort_options"
 
   resources :outlays
 
@@ -65,6 +69,8 @@ Reports::Application.routes.draw do
   match 'salaries/salaries_to_excel_format', to: 'salaries#salaries_to_excel_format', as: :salaries_to_xls
   match 'msalaries/msalaries_to_excel_format', to: 'msalaries#msalaries_to_excel_format', as: :msalaries_to_xls
   match 'payments/payments_to_excel_format', to: 'payments#payments_to_excel_format', as: :payments_to_xls
+
+  match 'help', to: 'help#index', as: :help_page
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

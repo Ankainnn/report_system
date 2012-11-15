@@ -1,6 +1,7 @@
 <h1>договоры</h1>
 
 <%= link_to 'новый договор', new_order_path %> | <%= link_to 'загрузить таблицу в XLS формате', orders_to_xls_path + ".xls" %>
+
 <table id="demotable" class="table table-striped tablesorter">
   <thead>
   <tr class="sort">
@@ -14,7 +15,7 @@
     <th>начало</th>
     <th>конец</th>
     <th>скидка</th>
-    <th>стоимость</th>
+    <th> <div id="result" style="text-align: center; color: #000000;"></div> стоимость </th>
     <th></th>
     <th></th>
     <th></th>
@@ -23,7 +24,7 @@
   </thead>
   <tbody>
   <% @orders.each do |order| %>
-      <tr>
+      <tr class="tr">
         <td><%= order.number %></td>
         <td><%= order.client.name %></td>
         <td><%= order.contract %></td>
@@ -34,7 +35,7 @@
         <td><%= order.start %></td>
         <td><%= order.end %></td>
         <td><%= order.discount %></td>
-        <td><%= order.price %></td>
+        <td class="sum"><%= order.price %></td>
         <td><%= button_to 'оплата по договору', payment_path(id: order.id) %></td>
         <td><%= link_to 'см.', order %></td>
         <td><%= link_to 'ред.', edit_order_path(order) %></td>
@@ -45,3 +46,36 @@
 </table>
 
 <br />
+
+<script>
+    var delay = (function(){
+        var timer = 0;
+        return function(callback, ms){
+            clearTimeout (timer);
+            timer = setTimeout(callback, ms);
+        };
+    })();
+    $(document).ready(function() {
+        var res=0;
+        $('.tr').each(function(){
+            if ( getComputedStyle(this,null).display != "none") {
+                res += parseFloat($(this).find(".sum").html());
+            }
+        });
+        $('#result').text(res);
+
+        $('input').keyup(function() {
+            delay(function(){
+                var res=0;
+                $('.tr').each(function(){
+                    if ( getComputedStyle(this,null).display != "none") {
+                        res += parseFloat($(this).find(".sum").html());
+                    }
+                });
+                $('#result').text(res);
+            }, 350 );
+        });
+
+    });
+
+</script>

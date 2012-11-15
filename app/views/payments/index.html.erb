@@ -5,7 +5,7 @@
   <thead>
     <tr class="sort">
       <th>дата</th>
-      <th>сумма</th>
+      <th> <div id="result" style="text-align: center; color: #000000;"></div> сумма</th>
       <th>форма оплаты</th>
       <th>договор</th>
       <th>начало</th>
@@ -17,9 +17,9 @@
   </thead>
   <tbody>
     <% @payments.each do |payment| %>
-      <tr>
+      <tr class="tr">
         <td><%= payment.date %></td>
-        <td><%= payment.summ %></td>
+        <td class="sum"><%= payment.summ %></td>
         <td><%= payment.type %></td>
         <td><%= payment.order.name %></td>
         <td><%= payment.try(:start) %></td>
@@ -33,4 +33,37 @@
 </table>
 
 <br />
+
+<script>
+    var delay = (function(){
+        var timer = 0;
+        return function(callback, ms){
+            clearTimeout (timer);
+            timer = setTimeout(callback, ms);
+        };
+    })();
+    $(document).ready(function() {
+        var res=0;
+        $('.tr').each(function(){
+            if ( getComputedStyle(this,null).display != "none") {
+                res += parseFloat($(this).find(".sum").html());
+            }
+        });
+        $('#result').text(res);
+
+        $('input').keyup(function() {
+            delay(function(){
+                var res=0;
+                $('.tr').each(function(){
+                    if ( getComputedStyle(this,null).display != "none") {
+                        res += parseFloat($(this).find(".sum").html());
+                    }
+                });
+                $('#result').text(res);
+            }, 350 );
+        });
+
+    });
+
+</script>
 

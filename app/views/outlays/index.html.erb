@@ -5,7 +5,7 @@
   <thead>
   <tr class="sort">
     <th>дата</th>
-    <th>сумма</th>
+    <th> <div id="result" style="text-align: center; color: #000000;"></div> сумма</th>
     <th>имя</th>
     <th>типа расходов</th>
     <th>форма оплаты</th>
@@ -18,9 +18,9 @@
   </thead>
   <tbody>
 <% @outlays.each do |outlay| %>
-  <tr>
+  <tr class="tr">
     <td><%= outlay.date %></td>
-    <td><%= outlay.summ %></td>
+    <td class="sum"><%= outlay.summ %></td>
     <td><%= outlay.name %></td>
     <td><%= outlay.cost.name %></td>
     <td><%= outlay.type %></td>
@@ -33,3 +33,36 @@
 <% end %>
 <tbody>
 </table>
+
+<script>
+    var delay = (function(){
+        var timer = 0;
+        return function(callback, ms){
+            clearTimeout (timer);
+            timer = setTimeout(callback, ms);
+        };
+    })();
+    $(document).ready(function() {
+        var res=0;
+        $('.tr').each(function(){
+            if ( getComputedStyle(this,null).display != "none") {
+                res += parseFloat($(this).find(".sum").html());
+            }
+        });
+        $('#result').text(res);
+
+        $('input').keyup(function() {
+            delay(function(){
+                var res=0;
+                $('.tr').each(function(){
+                    if ( getComputedStyle(this,null).display != "none") {
+                        res += parseFloat($(this).find(".sum").html());
+                    }
+                });
+                $('#result').text(res);
+            }, 350 );
+        });
+
+    });
+
+</script>

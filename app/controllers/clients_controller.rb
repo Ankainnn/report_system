@@ -5,7 +5,29 @@ include ApplicationHelper
   # GET /clients.json
   before_filter :active_user
   def index
-    @clients = Client.all
+    res = SortOption.find_by_user_id(current_user.id)
+    @current_user = current_user.id
+    @options = [['статус', 'status_id'],
+                ['источник', 'resource_id'],
+                ['имя','name'],
+                ['телефон','phone'],
+                ['email','email'],
+                ['vk(id)','idvk'],
+                ['школа','school'],
+                ['родитель','parent'],
+                ['телефон родителя','parent_phone'],
+                ['канал','channel_id'],
+                ['менеджер','manager_id'],
+                ['день и время','daysandtime'],
+                ['период','period'],
+                ['офис','office_id'],
+                ['комментарий','comment']]
+    if res
+      @clients = Client.order("#{res.clients} ASC")
+    else
+      @clients = Client.all
+    end
+
 
     respond_to do |format|
       format.html # index.html.erb
@@ -104,6 +126,15 @@ include ApplicationHelper
       format.csv { send_data @clients.to_csv }
       format.xls
     end
+  end
+
+  def sort_options
+    if params[:selected].present?
+      res = SortOption.find_or_create_by_user_id(current_user.id)
+      res.update_attribute(:clients, params[:selected])
+      @res = res
+    end
+    redirect_to clients_path
   end
 
 end

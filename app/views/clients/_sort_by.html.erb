@@ -1,0 +1,6 @@
+<span style="display: inline-block;">
+<%=form_tag('clients/sort_options')  do%>
+    <%= select_tag :selected, options_for_select(@options), prompt: "варианты" %>
+    <%= submit_tag "выбрать"%>
+<% end %>
+</span>

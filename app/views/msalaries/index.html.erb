@@ -6,7 +6,7 @@
   <tr class="sort">
     <th>менеджер</th>
     <th>дата</th>
-    <th>сумма</th>
+    <th> <div id="result" style="text-align: center; color: #000000;"></div> сумма</th>
     <th>начало</th>
     <th>конец</th>
     <th>Форма выплаты</th>
@@ -18,10 +18,10 @@
   </thead>
 <tbody>
 <% @msalaries.each do |msalary| %>
-  <tr>
+  <tr class="tr">
     <td><%= msalary.manager.name %></td>
     <td><%= msalary.date %></td>
-    <td><%= msalary.summ %></td>
+    <td class="sum"><%= msalary.summ %></td>
     <td><%= msalary.try(:start) %></td>
     <td><%= msalary.try(:end) %></td>
     <td><%= msalary.type %></td>
@@ -33,5 +33,38 @@
 <% end %>
 </tbody>
 </table>
+
+<script>
+    var delay = (function(){
+        var timer = 0;
+        return function(callback, ms){
+            clearTimeout (timer);
+            timer = setTimeout(callback, ms);
+        };
+    })();
+    $(document).ready(function() {
+        var res=0;
+        $('.tr').each(function(){
+            if ( getComputedStyle(this,null).display != "none") {
+                res += parseFloat($(this).find(".sum").html());
+            }
+        });
+        $('#result').text(res);
+
+        $('input').keyup(function() {
+            delay(function(){
+                var res=0;
+                $('.tr').each(function(){
+                    if ( getComputedStyle(this,null).display != "none") {
+                        res += parseFloat($(this).find(".sum").html());
+                    }
+                });
+                $('#result').text(res);
+            }, 350 );
+        });
+
+    });
+
+</script>
 
 

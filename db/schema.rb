@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121103215857) do
+ActiveRecord::Schema.define(:version => 20121114205735) do
 
   create_table "channels", :force => true do |t|
     t.string   "name"
@@ -172,6 +172,8 @@ ActiveRecord::Schema.define(:version => 20121103215857) do
     t.integer  "schedule_id"
   end
 
+  add_index "salaries", ["course_id"], :name => "index_salaries_on_course_id"
+
   create_table "schedules", :force => true do |t|
     t.string   "day"
     t.string   "time"
@@ -187,6 +189,28 @@ ActiveRecord::Schema.define(:version => 20121103215857) do
   add_index "schedules", ["course_id"], :name => "index_schedules_on_course_id"
   add_index "schedules", ["office_id"], :name => "index_schedules_on_office_id"
   add_index "schedules", ["teacher_id"], :name => "index_schedules_on_teacher_id"
+
+  create_table "sort_options", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "channels"
+    t.string   "clients"
+    t.string   "costs"
+    t.string   "courses"
+    t.string   "managers"
+    t.string   "msalaries"
+    t.string   "offices"
+    t.string   "orders"
+    t.string   "outlays"
+    t.string   "payments"
+    t.string   "resources"
+    t.string   "salaries"
+    t.string   "schedules"
+    t.string   "statuses"
+    t.string   "teachers"
+    t.string   "users"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "statuses", :force => true do |t|
     t.string   "name"
@@ -208,7 +232,6 @@ ActiveRecord::Schema.define(:version => 20121103215857) do
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
-    t.integer  "active",                 :default => 0,  :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -220,6 +243,7 @@ ActiveRecord::Schema.define(:version => 20121103215857) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.integer  "active"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

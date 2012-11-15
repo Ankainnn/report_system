@@ -5,7 +5,7 @@
   <thead>
   <tr class="sort">
     <th>дата</th>
-    <th>сумма</th>
+    <th> <div id="result" style="text-align: center; color: #000000;"></div> сумма</th>
     <th>курс</th>
     <th>преподаватель</th>
     <th>график</th>
@@ -20,9 +20,9 @@
   </thead>
   <tbody>
 <% @salaries.each do |salary| %>
-  <tr>
+  <tr class="tr">
     <td><%= salary.date %></td>
-    <td><%= salary.summ %></td>
+    <td class="sum"><%= salary.summ %></td>
     <td><%= salary.course.name %></td>
     <td><%= salary.teacher.name %></td>
     <td><%= "#{salary.schedule.day} / #{salary.schedule.time}" if salary.schedule_id.present?%> </td>
@@ -37,3 +37,37 @@
 <% end %>
 </tbody>
 </table>
+
+
+<script>
+    var delay = (function(){
+        var timer = 0;
+        return function(callback, ms){
+            clearTimeout (timer);
+            timer = setTimeout(callback, ms);
+        };
+    })();
+    $(document).ready(function() {
+        var res=0;
+        $('.tr').each(function(){
+            if ( getComputedStyle(this,null).display != "none") {
+                res += parseFloat($(this).find(".sum").html());
+            }
+        });
+        $('#result').text(res);
+
+        $('input').keyup(function() {
+            delay(function(){
+                var res=0;
+                $('.tr').each(function(){
+                    if ( getComputedStyle(this,null).display != "none") {
+                        res += parseFloat($(this).find(".sum").html());
+                    }
+                });
+                $('#result').text(res);
+            }, 350 );
+        });
+
+    });
+
+</script>

@@ -18,7 +18,7 @@
   </thead>
 <tbody>
 <% @msalaries.each do |msalary| %>
-  <tr class="tr">
+  <tr class=<%= "tr" if msalary.summ.present?%>>
     <td><%= msalary.manager.name %></td>
     <td><%= msalary.date %></td>
     <td class="sum"><%= msalary.summ %></td>

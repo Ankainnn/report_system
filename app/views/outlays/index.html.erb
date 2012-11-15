@@ -18,7 +18,7 @@
   </thead>
   <tbody>
 <% @outlays.each do |outlay| %>
-  <tr class="tr">
+  <tr class=<%= "tr" if outlay.summ.present?%>>
     <td><%= outlay.date %></td>
     <td class="sum"><%= outlay.summ %></td>
     <td><%= outlay.name %></td>

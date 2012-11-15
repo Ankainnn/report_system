@@ -24,7 +24,7 @@
   </thead>
   <tbody>
   <% @orders.each do |order| %>
-      <tr class="tr">
+      <tr class=<%= "tr" if order.price.present?%>>
         <td><%= order.number %></td>
         <td><%= order.client.name %></td>
         <td><%= order.contract %></td>

@@ -52,7 +52,9 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+    client = Client.find_by_name(params[:order][:client_id])
     @order = Order.new(params[:order])
+    @order.client_id = client.id
 
     respond_to do |format|
       if @order.save
@@ -63,6 +65,7 @@ class OrdersController < ApplicationController
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PUT /orders/1

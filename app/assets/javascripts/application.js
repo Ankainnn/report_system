@@ -35,8 +35,8 @@ $(document).ready(function() {
    $(".tel").mask("(999) 999-9999");
    $("#ssn").mask("999-99-9999");
 
-        $( "#order_client" ).autocomplete({
-            source: $('#order_client').data('autocomplete-source')
+        $( "#order_client_id" ).autocomplete({
+            source: $('#order_client_id').data('autocomplete-source')
         });
 
     });

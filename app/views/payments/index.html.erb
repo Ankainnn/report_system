@@ -17,7 +17,7 @@
   </thead>
   <tbody>
     <% @payments.each do |payment| %>
-      <tr class="tr">
+      <tr class=<%= "tr" if payment.summ.present?%>>
         <td><%= payment.date %></td>
         <td class="sum"><%= payment.summ %></td>
         <td><%= payment.type %></td>

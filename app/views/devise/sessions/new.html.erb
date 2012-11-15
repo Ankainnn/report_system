@@ -11,6 +11,7 @@
     <%= f.button :submit, "вход" %>
   </div>
 <% end %>
+<%= link_to "регистрация", new_user_registration_path %>
 <% if User.all.empty? %>
 	<%= render "devise/shared/links" %>
 <% end %>

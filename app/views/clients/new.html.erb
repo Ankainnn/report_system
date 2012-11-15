@@ -6,6 +6,7 @@
   <%= f.input :name, :label => "имя" %>
   <%= f.input :surname, :label => "фамилия" %>
   <%= f.input :email %>
+  <%= f.input :login%>
   <%= f.input :phone, :label => "телефон", :input_html =>{:id => "phone"} %>
   <%= f.input :idvk, :label => "id-vk" %>
   <%= f.input :school, :label => "школа" %>
@@ -19,7 +20,9 @@
         <%= select_tag "hour[]", options_for_select(@collect_hour), :prompt => "часы"%>
         <%= select_tag  "minute[]", options_for_select(@collect_minute), :prompt => "минуты"%>
     <% end%>
-  <%= f.input :period, :label => "период" %>
+    <br>
+  <%= f.label :period %>
+  <%= f.select(:period, Period.all.collect {|p| p.period }, { :include_blank => "выбирите период" })  %>
   <%= f.association :office, :label => "офис" %>
   <%= f.input :comment, :label => "комментария" %>
   <%= f.input :author,:as => :hidden, :input_html => {:value => current_user.email}, :disabled => true %>

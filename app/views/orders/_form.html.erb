@@ -2,7 +2,11 @@
 
     <%= f.input :number, label: "номер договора" %>
     <%= f.label :client%>
+    <% if action_name == "new"%>
     <%= f.text_field :client_id , data: {autocomplete_source: @client_collection.map(&:name)} %>
+    <% else %>
+    <%= f.text_field :client_id%>
+    <% end %>
     <%= f.input :contract, label: "дата заключения"%>
     <%= f.association :course, label: "курс" %>
     <%= f.association :teacher, label: "учитель" %>

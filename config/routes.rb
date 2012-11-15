@@ -1,4 +1,6 @@
 Reports::Application.routes.draw do
+  resources :periods
+
   get "help/index"
 
   get "orders/payment"

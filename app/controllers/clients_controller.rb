@@ -51,11 +51,7 @@ include ApplicationHelper
   # GET /clients/new
   # GET /clients/new.json
   def new
-    @collect_hour = range_format((0..23))
-    @collect_minute = range_format((0..59))
-    @collect = %w(понедельник вторник среда четверг пятница суббота воскресение )
     @client = Client.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @client }
@@ -70,17 +66,19 @@ include ApplicationHelper
   # POST /clients
   # POST /clients.json
   def create
+    @client = Client.new(params[:client])
     times =[]
-    days = params[:day]
     (0..6).each do |i|
       if params[:hour][i].present? && params[:minute][i].present?
         times<< "#{params[:hour][i]}:#{ params[:minute][i]}"
       end
     end
+    if params[:day].present?
+    days = params[:day]
     days = days.collect{|x| x + " | #{times[days.index(x)]}"}
     days = days.join(", ")
-    @client = Client.new(params[:client])
     @client.daysandtime = days
+    end
 
     respond_to do |format|
       if @client.save

@@ -1,11 +1,11 @@
 # -*- encoding : utf-8 -*-
 class ClientsController < ApplicationController
 include ApplicationHelper
-skip_before_filter :verify_authenticity_token
   # GET /clients
   # GET /clients.json
   before_filter :active_user
   def index
+    @rand = rand(1..100)
     res = SortOption.find_by_user_id(current_user.id)
     @current_user = current_user.id
     @options = [['статус', 'status_id'],

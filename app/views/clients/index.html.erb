@@ -1,61 +1,60 @@
-<h1>Клиенты</h1> <%= link_to "случайное число", ajax_path, remote: true %>
+<h1>Клиенты</h1>
 
 <%= link_to 'Новый клиент', new_client_path %> | <%= link_to 'загрузить таблицу в XLS формате', clients_to_xls_path + ".xls" %> | сортировать по:  <%= render 'sort_by'%>
 <table id="demotable" class="table table-striped tablesorter">
-   <thead>
-      <tr class="sort">
-        <th>статус</th>
-        <th>источник</th>
-        <th>имя</th>
-        <th>телефон</th>
-        <th>Email</th>
-        <th>Логин</th>
-        <th>Id-vk</th>
-        <th>школа</th>
-        <th>родитель</th>
-        <th>телефон родителя</th>
-        <th>канал</th>
-        <th>менеджер</th>
-        <th>день и время</th>
-        <th>период</th>
-        <th>офис</th>
-        <th>комментарий</th>
-        <th>создано</th>
-        <th>отредактированио</th>
-        <th></th>
-        <th></th>
-        <th></th>
+  <thead>
+  <tr class="sort">
+    <th>статус</th>
+    <th>источник</th>
+    <th>имя</th>
+    <th>телефон</th>
+    <th>Email</th>
+    <th>Логин</th>
+    <th>Id-vk</th>
+    <th>школа</th>
+    <th>родитель</th>
+    <th>телефон родителя</th>
+    <th>канал</th>
+    <th>менеджер</th>
+    <th>день и время</th>
+    <th>период</th>
+    <th>офис</th>
+    <th>комментарий</th>
+    <th>создано</th>
+    <th>отредактированио</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody id="clients_tabel">
+  <% @clients.each do |client| %>
+      <tr class="tr">
+        <td><%= client.status.try(:name) %></td>
+        <td><%= client.resource.try(:name) %></td>
+        <td><%= client.fio%></td>
+        <td><%= client.phone %></td>
+        <td><%= client.email %></td>
+        <td><%= client.login %></td>
+        <td><%= client.idvk %></td>
+        <td class="sum"> <%= client.school %></td>
+        <td><%= client.parent %></td>
+        <td><%= client.parent_phone %></td>
+        <td><%= client.channel.try(:name) %></td>
+        <td><%= client.manager.try(:name) %></td>
+        <td><%= client.daysandtime %></td>
+        <td><%= client.period %></td>
+        <td><%= client.office.try(:name) %></td>
+        <td><%= client.comment %></td>
+        <td><%= client.created_at.strftime('%d/%m/%Y %H:%M:%S') %></td>
+        <td><%= client.updated_at.strftime('%d/%m/%Y %H:%M:%S') %></td>
+        <td><%= link_to 'см.', client %></td>
+        <td><%= link_to 'ред.', edit_client_path(client) %></td>
+        <td><%= link_to 'уд.', client, confirm: 'Are you sure?', method: :delete %></td>
       </tr>
-   </thead>
-   <tbody>
-        <% @clients.each do |client| %>
-          <tr class="tr">
-            <td><%= client.status.try(:name) %></td>
-            <td><%= client.resource.try(:name) %></td>
-            <td><%= client.fio%></td>
-            <td><%= client.phone %></td>
-            <td><%= client.email %></td>
-            <td><%= client.login %></td>
-            <td><%= client.idvk %></td>
-            <td class="sum"> <%= client.school %></td>
-            <td><%= client.parent %></td>
-            <td><%= client.parent_phone %></td>
-            <td><%= client.channel.try(:name) %></td>
-            <td><%= client.manager.try(:name) %></td>
-            <td><%= client.daysandtime %></td>
-            <td><%= client.period %></td>
-            <td><%= client.office.try(:name) %></td>
-            <td><%= client.comment %></td>
-            <td><%= client.created_at.strftime('%d/%m/%Y %H:%M:%S') %></td>
-            <td><%= client.updated_at.strftime('%d/%m/%Y %H:%M:%S') %></td>
-            <td><%= link_to 'см.', client %></td>
-            <td><%= link_to 'ред.', edit_client_path(client) %></td>
-            <td><%= link_to 'уд.', client, confirm: 'Are you sure?', method: :delete %></td>
-          </tr>
-        <% end %>
-   </tbody>
+  <% end %>
+  </tbody>
 </table>
-<div>тестовое динамическое суммирование колонок (школа): <span id="result"></span></div>
 
 <br />
 

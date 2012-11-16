@@ -1,5 +1,6 @@
 <span style="display: inline-block;">
-<%=form_tag url_for(action: 'sort_options'), remote: true do%>
-    <%= select_tag :selected, options_for_select(@options), prompt: "варианты", onchange: "$.post('clients/sort_options', $('#selected').serialize(),{}, 'json' );"  %>
-<% end %>
+  <%= form_tag url_for(action: 'sort_options'), :id => "sort_form" do %>
+      <%=  select_tag :selected, options_for_select(@options), prompt: "варианты", onchange: "this.form.submit()" %>
+  <% end %>
 </span>
+

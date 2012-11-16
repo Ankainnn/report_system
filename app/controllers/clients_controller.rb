@@ -78,6 +78,7 @@ include ApplicationHelper
     days = days.collect{|x| x + " | #{times[days.index(x)]}"}
     days = days.join(", ")
     @client.daysandtime = days
+    @client.author = current_user.user_nick
     end
 
     respond_to do |format|
@@ -97,7 +98,7 @@ include ApplicationHelper
     @client = Client.find(params[:id])
 
     respond_to do |format|
-      if @client.update_attributes(params[:client])
+      if @client.update_attributes(params[:client]) && @client.update_attribute(:editor, current_user.user_nick)
         format.html { redirect_to @client, notice: 'Client was successfully updated.' }
         format.json { head :no_content }
       else

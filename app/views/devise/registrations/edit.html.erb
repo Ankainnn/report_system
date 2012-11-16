@@ -5,6 +5,7 @@
 
   <div class="form-inputs">
     <%= f.input :email, :required => true, :autofocus => true %>
+    <%= f.input :user_nick, :required => true, label: "логин" %>
     <%= f.input :password, :autocomplete => "off", :hint => "оставьте поле пустым если не хотите менять пароль", :required => false, label: "пароль" %>
     <%= f.input :password_confirmation, :required => false, label: "повторите пароль" %>
     <%= f.input :current_password, :hint => "текущий пароль", :required => true, label: "текущий пароль" %>

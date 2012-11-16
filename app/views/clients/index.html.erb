@@ -9,7 +9,6 @@
     <th>имя</th>
     <th>телефон</th>
     <th>Email</th>
-    <th>Логин</th>
     <th>Id-vk</th>
     <th>школа</th>
     <th>родитель</th>
@@ -22,6 +21,8 @@
     <th>комментарий</th>
     <th>создано</th>
     <th>отредактированио</th>
+    <th>создал</th>
+    <th>редактировал</th>
     <th></th>
     <th></th>
     <th></th>
@@ -35,7 +36,6 @@
         <td><%= client.fio%></td>
         <td><%= client.phone %></td>
         <td><%= client.email %></td>
-        <td><%= client.login %></td>
         <td><%= client.idvk %></td>
         <td class="sum"> <%= client.school %></td>
         <td><%= client.parent %></td>
@@ -48,6 +48,8 @@
         <td><%= client.comment %></td>
         <td><%= client.created_at.strftime('%d/%m/%Y %H:%M:%S') %></td>
         <td><%= client.updated_at.strftime('%d/%m/%Y %H:%M:%S') %></td>
+        <td><%= client.author %></td>
+        <td><%= client.editor %></td>
         <td><%= link_to 'см.', client %></td>
         <td><%= link_to 'ред.', edit_client_path(client) %></td>
         <td><%= link_to 'уд.', client, confirm: 'Are you sure?', method: :delete %></td>

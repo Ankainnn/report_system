@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121115154947) do
+ActiveRecord::Schema.define(:version => 20121116185529) do
 
   create_table "channels", :force => true do |t|
     t.string   "name"
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(:version => 20121115154947) do
     t.string   "surname"
     t.string   "author"
     t.string   "editor"
-    t.string   "login"
   end
 
   add_index "clients", ["channel_id"], :name => "index_clients_on_channel_id"

@@ -2,7 +2,24 @@
   <%= f.input :date, label: "дата" %>
   <%= f.input :summ, label: "сумма" %>
   <%= f.input :type, :collection => ["Наличные", "По безналу"], :as => :radio_buttons, label: "форма оплаты" %>
-  <%= f.association :order, label: "договор" %>
+
+    <div>
+  <%= f.label "клиент"%>
+  <%= text_field_tag :client, nil , data: {autocomplete_source: @collect_c.map(&:name)} %>
+  </div>
+
+    <div>
+  <%= f.label "курс"%>
+  <%= f.grouped_collection_select :start, @collect_c, :courses, :name, :id, :name, :include_blank => true %>
+  </div>
+
+
+    <div>
+      <%= f.label "график"%>
+      <%= f.grouped_collection_select :end, Course.all, :schedules, :name, :id, :graphic, :include_blank => true%>
+    </div>
+
+    <%= f.association :order, label: "договор" %>
   <%= f.input :start, label: "начало периода" %>
   <%= f.input :end, label: "конец периода" %>
   <%= f.button :submit,"сохранить" %>

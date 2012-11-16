@@ -26,12 +26,27 @@ class PaymentsController < ApplicationController
   # GET /payments/new
   # GET /payments/new.json
   def new
-    @payment = Payment.new
+    client_id = []
+    schedules_id = []
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @payment }
+    Payment.includes(:order).each do |p|
+      client_id << p.order.client_id
     end
+
+    uniq_client_id = client_id.uniq
+
+    @collect_c = Client.includes(:orders).where(id: uniq_client_id)
+
+    @collect_c.each do |client|
+      client.orders.each do |order|
+        schedules_id << order.schedule.id
+      end
+    end
+
+    uniq_schedules_id = schedules_id.uniq
+
+
+    @payment = Payment.new
   end
 
   # GET /payments/1/edit

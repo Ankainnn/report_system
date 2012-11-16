@@ -7,7 +7,6 @@ skip_before_filter :verify_authenticity_token
   before_filter :active_user
   def index
     res = SortOption.find_by_user_id(current_user.id)
-    @work = res.clients
     @current_user = current_user.id
     @options = [['статус', 'status_id'],
                 ['источник', 'resource_id'],
@@ -34,6 +33,7 @@ skip_before_filter :verify_authenticity_token
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @clients }
+      format.js
     end
   end
 
@@ -134,7 +134,6 @@ skip_before_filter :verify_authenticity_token
     if params[:selected].present?
       res = SortOption.find_or_create_by_user_id(current_user.id)
       res.update_attribute(:clients, params[:selected])
-      @res = res
     end
     redirect_to clients_path
   end

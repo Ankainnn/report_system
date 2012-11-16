@@ -39,6 +39,8 @@ $(document).ready(function() {
             source: $('#order_client_id').data('autocomplete-source')
         });
 
+
+
     });
 
 });

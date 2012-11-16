@@ -21,6 +21,7 @@ Reports::Application.routes.draw do
   get "schedules/schedules_to_excel_format"
 
   post "clients/sort_options"
+  post "clients/index"
 
   resources :outlays
 
@@ -73,6 +74,8 @@ Reports::Application.routes.draw do
   match 'payments/payments_to_excel_format', to: 'payments#payments_to_excel_format', as: :payments_to_xls
 
   match 'help', to: 'help#index', as: :help_page
+
+  match 'clients', to: 'clients#sort_options', as: :ajax
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -67,10 +67,11 @@ include ApplicationHelper
   # POST /clients.json
   def create
     @client = Client.new(params[:client])
+    @client.author = current_user.user_nick
     times =[]
     (0..6).each do |i|
       if params[:hour][i].present? && params[:minute][i].present?
-        times<< "#{params[:hour][i]}:#{ params[:minute][i]}"
+        times << "#{params[:hour][i]}:#{ params[:minute][i]}"
       end
     end
     if params[:day].present?
@@ -78,7 +79,6 @@ include ApplicationHelper
     days = days.collect{|x| x + " | #{times[days.index(x)]}"}
     days = days.join(", ")
     @client.daysandtime = days
-    @client.author = current_user.user_nick
     end
 
     respond_to do |format|

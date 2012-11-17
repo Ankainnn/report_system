@@ -13,6 +13,8 @@
     <th>конец</th>
     <th>форма выплаты</th>
     <th>комментарий</th>
+    <th>период оплаты с:</th>
+    <th>период оплаты по:</th>
     <th></th>
     <th></th>
     <th></th>
@@ -30,6 +32,8 @@
     <td><%= salary.try(:end) %></td>
     <td><%= salary.type %></td>
     <td><%= salary.comment %></td>
+    <td><%= salary.pay_from %></td>
+    <td><%= salary.pay_to %></td>
     <td><%= link_to 'см.', salary %></td>
     <td><%= link_to 'ред.', edit_salary_path(salary) %></td>
     <td><%= link_to 'уд.', salary, confirm: 'Are you sure?', method: :delete %></td>

@@ -10,6 +10,8 @@
       <th>договор</th>
       <th>начало</th>
       <th>конец</th>
+      <th>период оплаты с:</th>
+      <th>период оплаты по:</th>
       <th></th>
       <th></th>
       <th></th>
@@ -21,9 +23,11 @@
         <td><%= payment.date %></td>
         <td class="sum"><%= payment.summ %></td>
         <td><%= payment.type %></td>
-        <td><%= payment.order.name %></td>
+        <td><%= payment.order.name if payment.order_id.present? %></td>
         <td><%= payment.try(:start) %></td>
         <td><%= payment.try(:end) %></td>
+        <td><%= payment.pay_from %></td>
+        <td><%= payment.pay_to %></td>
         <td><%= link_to 'см.', payment %></td>
         <td><%= link_to 'ред.', edit_payment_path(payment) %></td>
         <td><%= link_to 'уд.', payment, confirm: 'Are you sure?', method: :delete %></td>

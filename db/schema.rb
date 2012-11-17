@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121116185529) do
+ActiveRecord::Schema.define(:version => 20121116231532) do
 
   create_table "channels", :force => true do |t|
     t.string   "name"
@@ -35,11 +35,12 @@ ActiveRecord::Schema.define(:version => 20121116185529) do
     t.string   "period"
     t.integer  "office_id"
     t.text     "comment"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "surname"
     t.string   "author"
     t.string   "editor"
+    t.string   "presumed_start"
   end
 
   add_index "clients", ["channel_id"], :name => "index_clients_on_channel_id"
@@ -91,6 +92,8 @@ ActiveRecord::Schema.define(:version => 20121116185529) do
     t.datetime "updated_at", :null => false
     t.date     "start"
     t.date     "end"
+    t.string   "pay_from"
+    t.string   "pay_to"
   end
 
   add_index "msalaries", ["manager_id"], :name => "index_msalaries_on_manager_id"
@@ -148,6 +151,8 @@ ActiveRecord::Schema.define(:version => 20121116185529) do
     t.datetime "updated_at", :null => false
     t.date     "start"
     t.date     "end"
+    t.string   "pay_from"
+    t.string   "pay_to"
   end
 
   add_index "payments", ["order_id"], :name => "index_payments_on_order_id"
@@ -176,6 +181,8 @@ ActiveRecord::Schema.define(:version => 20121116185529) do
     t.date     "start"
     t.date     "end"
     t.integer  "schedule_id"
+    t.string   "pay_from"
+    t.string   "pay_to"
   end
 
   add_index "salaries", ["course_id"], :name => "index_salaries_on_course_id"

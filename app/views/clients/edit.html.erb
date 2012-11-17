@@ -14,7 +14,10 @@
   <%= f.association :channel, :label => "канал" %>
   <%= f.association :manager, :label => "менеджер" %>
   <%= f.input :daysandtime, :label => "день и время" %>
-  <%= f.input :period, :label => "период" %>
+    <%= f.input :presumed_start, label: "Ожидаемое время начало занятий", :input_html => { :class => 'ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all' } %>
+    <br>
+    <%= f.label :period %>
+    <%= f.select(:period, Period.all.collect {|p| p.period }, { :include_blank => "выбирите период" })  %>
   <%= f.association :office, :label => "офис" %>
   <%= f.input :comment, :label => "комментария" %>
   <%= f.input :editor, :input_html => {:value => current_user.email}, :disabled => true %>

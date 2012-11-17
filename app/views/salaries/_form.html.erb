@@ -35,6 +35,13 @@
     </div>
 
     <div>
+      <%= g.label :pay_from, "с"%>
+      <%= g.text_field :pay_from%>
+      <%= g.label :pay_to, "по"%>
+      <%= g.text_field :pay_to%>
+    </div>
+
+    <div>
     <% ["Наличные", "По безналу"].each do |r| %>
     <%= g.label :type, r%>
     <%= g.radio_button :type, r %>

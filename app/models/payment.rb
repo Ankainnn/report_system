@@ -1,6 +1,6 @@
 class Payment < ActiveRecord::Base
   belongs_to :order
-  attr_accessible :type, :date, :summ, :order_id, :end, :start
+  attr_accessible :type, :date, :summ, :order_id, :end, :start, :pay_from, :pay_to
   self.inheritance_column = nil
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|

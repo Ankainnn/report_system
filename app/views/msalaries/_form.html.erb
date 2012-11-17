@@ -2,6 +2,10 @@
   <%= f.input :date, label: "дата" %>
   <%= f.input :summ, label: "сумма" %>
   <%= f.association :manager, label: "менеджер" %>
+    <div>
+      <%= f.input :pay_from, label: "c"%>
+      <%= f.input :pay_to, label: "по"%>
+    </div>
   <%= f.input :start, label: "начало периода" %>
   <%= f.input :end, label: "конец периода" %>
   <%= f.input :type, label: "форма оплаты", :collection => ["Наличные", "По безналу"], :as => :radio_buttons %>

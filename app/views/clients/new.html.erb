@@ -19,6 +19,8 @@
         <%= select_tag "hour[]", options_for_select(range_format((0..23))), :prompt => "часы"%>
         <%= select_tag  "minute[]", options_for_select(range_format((0..59))), :prompt => "минуты"%>
     <% end%>
+
+  <%= f.input :presumed_start, label: "Ожидаемое время начало занятий", :input_html => { :class => 'ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all' } %>
     <br>
   <%= f.label :period %>
   <%= f.select(:period, Period.all.collect {|p| p.period }, { :include_blank => "выбирите период" })  %>

@@ -17,6 +17,7 @@
     <th>менеджер</th>
     <th>день и время</th>
     <th>период</th>
+    <th>ожидаемое время начала занятий</th>
     <th>офис</th>
     <th>комментарий</th>
     <th>создано</th>
@@ -44,6 +45,7 @@
         <td><%= client.manager.try(:name) %></td>
         <td><%= client.daysandtime %></td>
         <td><%= client.period %></td>
+        <td><%= client.presumed_start %></td>
         <td><%= client.office.try(:name) %></td>
         <td><%= client.comment %></td>
         <td><%= client.created_at.strftime('%d/%m/%Y %H:%M:%S') %></td>

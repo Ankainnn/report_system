@@ -2,7 +2,7 @@
 
 <p>
   <b>менеджер:</b>
-  <%= @msalary.manager.name %>
+  <%= @msalary.manager.name if @msalary.manager_id.present? %>
 </p>
 
 <p>

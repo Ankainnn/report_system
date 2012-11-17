@@ -18,6 +18,10 @@
       <%= f.label "график"%>
       <%= f.grouped_collection_select :end, Course.all, :schedules, :name, :id, :graphic, :include_blank => true%>
     </div>
+    <div>
+      <%= f.input :pay_from, label: "c"%>
+      <%= f.input :pay_to, label: "по"%>
+    </div>
 
     <%= f.association :order, label: "договор" %>
   <%= f.input :start, label: "начало периода" %>

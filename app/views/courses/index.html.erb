@@ -1,10 +1,10 @@
-<h1>курсы</h1>
+<h1>Справочник курсов обучения</h1>
 
 <%= link_to 'новый курс', new_course_path %> | <%= link_to 'загрузить таблицу в XLS формате', courses_to_xls_path + ".xls" %>
 <table id="demotable"  class="table table-striped">
   <thead>
   <tr class="sort">
-    <th>направление</th>
+    <th><div id="result" style="text-align: center; color: #000000;"></div> направление</th>
     <th>предмет</th>
     <th></th>
     <th></th>
@@ -13,7 +13,7 @@
   </thead>
   <tbody>
 <% @courses.each do |course| %>
-  <tr>
+  <tr class="tr">
     <td><%= course.direction %></td>
     <td><%= course.subject %></td>
     <td><%= link_to 'см.', course %></td>
@@ -23,4 +23,38 @@
 <% end %>
   </tbody>
 </table>
+
+
+<script>
+    var delay = (function(){
+        var timer = 0;
+        return function(callback, ms){
+            clearTimeout (timer);
+            timer = setTimeout(callback, ms);
+        };
+    })();
+    $(document).ready(function() {
+        var res=0;
+        $('.tr').each(function(){
+            if ( getComputedStyle(this,null).display != "none") {
+                res += 1;
+            }
+        });
+        $('#result').text(res);
+
+        $('input').keyup(function() {
+            delay(function(){
+                var res=0;
+                $('.tr').each(function(){
+                    if ( getComputedStyle(this,null).display != "none") {
+                        res += 1;
+                    }
+                });
+                $('#result').text(res);
+            }, 350 );
+        });
+
+    });
+
+</script>
 

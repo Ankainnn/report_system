@@ -1,10 +1,14 @@
 <h1>Клиенты</h1>
+<%if user_role == "admin"%>
+<%= link_to "Добавить пользователя", add_user_path%> |
+<%end%>
+ <%=  link_to 'Новый клиент', new_client_path  %> |
 
-<%= link_to 'Новый клиент', new_client_path %> | <%= link_to 'загрузить таблицу в XLS формате', statuses_to_xls_path + ".xls" %> | сортировать по:  <%= render 'sort_by'%>
+ <%= link_to 'загрузить таблицу в XLS формате', statuses_to_xls_path + ".xls" %> | сортировать по:  <%= render 'sort_by'%>
 <table id="demotable" class="table table-striped tablesorter">
   <thead>
   <tr class="sort">
-    <th>статус</th>
+    <th><div id="result" style="text-align: center; color: #000000;"></div>статус</th>
     <th>источник</th>
     <th>имя</th>
     <th>телефон</th>
@@ -16,6 +20,7 @@
     <th>канал</th>
     <th>менеджер</th>
     <th>день и время</th>
+    <th>курс</th>
     <th>период</th>
     <th>ожидаемое время начала занятий</th>
     <th>офис</th>
@@ -44,6 +49,7 @@
         <td><%= client.channel.try(:name) %></td>
         <td><%= client.manager.try(:name) %></td>
         <td><%= client.daysandtime %></td>
+        <td><%= client.course %></td>
         <td><%= client.period %></td>
         <td><%= client.presumed_start %></td>
         <td><%= client.office.try(:name) %></td>
@@ -53,12 +59,48 @@
         <td><%= client.author %></td>
         <td><%= client.editor %></td>
         <td><%= link_to 'см.', client %></td>
-        <td><%= link_to 'ред.', edit_client_path(client) %></td>
-        <td><%= link_to 'уд.', client, confirm: 'Are you sure?', method: :delete %></td>
+        <% if user_role == "admin"%>
+            <td><%= link_to 'ред.', edit_client_path(client) %></td>
+            <td><%= link_to 'уд.', client, confirm: 'Are you sure?', method: :delete %></td>
+        <%end%>
       </tr>
   <% end %>
   </tbody>
 </table>
 
 <br />
+
+
+<script>
+    var delay = (function(){
+        var timer = 0;
+        return function(callback, ms){
+            clearTimeout (timer);
+            timer = setTimeout(callback, ms);
+        };
+    })();
+    $(document).ready(function() {
+        var res=0;
+        $('.tr').each(function(){
+            if ( getComputedStyle(this,null).display != "none") {
+                res += 1;
+            }
+        });
+        $('#result').text(res);
+
+        $('#demotable_filter_0').keyup(function() {
+            delay(function(){
+                var res=0;
+                $('.tr').each(function(){
+                    if ( getComputedStyle(this,null).display != "none") {
+                        res += 1;
+                    }
+                });
+                $('#result').text(res);
+            }, 350 );
+        });
+
+    });
+
+</script>
 

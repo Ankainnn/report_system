@@ -29,7 +29,6 @@ include ApplicationHelper
   def new
     @collect_hour = range_format((0..23))
     @collect_minute = range_format((0..59))
-    @collect = %w(понедельник вторник среда четверг пятница суббота воскресение )
     @schedule = Schedule.new
 
     respond_to do |format|

@@ -1,10 +1,10 @@
-<h1>Преподаватели</h1>
+<h1>Справочник преподавателей фирмы</h1>
 
 <%= link_to 'Новый преподаватель', new_teacher_path %> | <%= link_to 'загрузить таблицу в XLS формате', teachers_to_xls_path + ".xls" %>
 <table id="demotable" class="table table-striped">
   <thead>
     <tr class="sort">
-      <th>имя</th>
+      <th><div id="result" style="text-align: center; color: #000000;"></div>имя</th>
       <th>телефон</th>
       <th>Email</th>
       <th>Id-vk</th>
@@ -18,7 +18,7 @@
   </thead>
   <tbody>
     <% @teachers.each do |teacher| %>
-      <tr>
+      <tr class="tr">
         <td><%= teacher.fio %></td>
         <td><%= teacher.phone %></td>
         <td><%= teacher.email %></td>
@@ -37,3 +37,36 @@
     <% end %>
   </tbody>
 </table>
+
+<script>
+    var delay = (function(){
+        var timer = 0;
+        return function(callback, ms){
+            clearTimeout (timer);
+            timer = setTimeout(callback, ms);
+        };
+    })();
+    $(document).ready(function() {
+        var res=0;
+        $('.tr').each(function(){
+            if ( getComputedStyle(this,null).display != "none") {
+                res += 1;
+            }
+        });
+        $('#result').text(res);
+
+        $('#demotable_filter_0').keyup(function() {
+            delay(function(){
+                var res=0;
+                $('.tr').each(function(){
+                    if ( getComputedStyle(this,null).display != "none") {
+                        res += 1;
+                    }
+                });
+                $('#result').text(res);
+            }, 350 );
+        });
+
+    });
+
+</script>

@@ -15,6 +15,10 @@ class Schedule < ActiveRecord::Base
     day + " / " + time
   end
 
+  def fio
+    self.name + " " + self.surname
+  end
+
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       csv << column_names

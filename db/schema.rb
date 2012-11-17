@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121116231532) do
+ActiveRecord::Schema.define(:version => 20121117185604) do
 
   create_table "channels", :force => true do |t|
     t.string   "name"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20121116231532) do
     t.string   "author"
     t.string   "editor"
     t.string   "presumed_start"
+    t.string   "course"
   end
 
   add_index "clients", ["channel_id"], :name => "index_clients_on_channel_id"
@@ -131,7 +132,6 @@ ActiveRecord::Schema.define(:version => 20121116231532) do
   create_table "outlays", :force => true do |t|
     t.datetime "date"
     t.float    "summ"
-    t.string   "name"
     t.integer  "cost_id"
     t.string   "type"
     t.string   "person"
@@ -258,6 +258,7 @@ ActiveRecord::Schema.define(:version => 20121116231532) do
     t.datetime "updated_at",                             :null => false
     t.integer  "active"
     t.string   "user_nick"
+    t.string   "role"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

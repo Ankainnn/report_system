@@ -11,4 +11,8 @@ module ApplicationHelper
     res
   end
 
+  def user_role
+    User.find(current_user).role
+  end
+
 end

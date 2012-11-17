@@ -5,7 +5,7 @@
 <table id="demotable" class="table table-striped tablesorter">
   <thead>
   <tr class="sort">
-    <th>номер</th>
+    <th> <div id="count" style="text-align: center; color: #000000;"></div> номер</th>
     <th>клиент</th>
     <th>дата заключения</th>
     <th>курс</th>
@@ -72,6 +72,25 @@
                         res += parseFloat($(this).find(".sum").html());
                     }
                 });
+                $('#result').text(res);
+            }, 350 );
+        });
+
+        $('#demotable_filter_0').keyup(function() {
+            delay(function(){
+                var count = 0;
+                var res = 0;
+                $('.tr').each(function(){
+                    if ( getComputedStyle(this,null).display != "none") {
+                        res += parseFloat($(this).find(".sum").html());
+                    }
+                });
+                $('tbody tr').each(function(){
+                    if ( getComputedStyle(this,null).display != "none") {
+                        count +=1;
+                    }
+                });
+                $('#count').text(count);
                 $('#result').text(res);
             }, 350 );
         });

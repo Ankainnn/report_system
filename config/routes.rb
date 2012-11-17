@@ -83,6 +83,9 @@ Reports::Application.routes.draw do
   match 'schedules/schedules_to_excel_format', to: 'schedules#schedules_to_excel_format', as: :schedules_to_xls
   #match 'periods/periods_to_excel_format', to: 'periods#periods_to_excel_format', as: :periods_to_xls
 
+  match 'help/admin_add_user', to: 'help#admin_add_user', as: :add_user
+  match 'help/create', to: 'help#create', as: :create_user
+
 
   match 'help', to: 'help#index', as: :help_page
 

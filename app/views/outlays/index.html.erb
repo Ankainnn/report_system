@@ -6,7 +6,6 @@
   <tr class="sort">
     <th>дата</th>
     <th> <div id="result" style="text-align: center; color: #000000;"></div> сумма</th>
-    <th>имя</th>
     <th>типа расходов</th>
     <th>форма оплаты</th>
     <th>автор</th>
@@ -21,7 +20,6 @@
   <tr class=<%= "tr" if outlay.summ.present?%>>
     <td><%= outlay.date %></td>
     <td class="sum"><%= outlay.summ %></td>
-    <td><%= outlay.name %></td>
     <td><%= outlay.cost.name %></td>
     <td><%= outlay.type %></td>
     <td><%= outlay.person %></td>

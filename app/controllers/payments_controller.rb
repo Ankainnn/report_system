@@ -30,7 +30,7 @@ class PaymentsController < ApplicationController
     schedules_id = []
 
     Payment.includes(:order).each do |p|
-      client_id << p.order.client_id
+      client_id << p.order.client_id if p.order_id.present?
     end
 
     uniq_client_id = client_id.uniq

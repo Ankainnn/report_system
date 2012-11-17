@@ -4,15 +4,13 @@
 <table id="demotable" class="table table-striped">
   <thead>
   <tr class="sort">
-    <th>менеджер</th>
+    <th> <div id="count" style="text-align: center; color: #000000;"></div> менеджер</th>
     <th>дата</th>
     <th> <div id="result" style="text-align: center; color: #000000;"></div> сумма</th>
     <th>начало</th>
     <th>конец</th>
     <th>Форма выплаты</th>
     <th>комментарий</th>
-    <th>период оплаты с:</th>
-    <th>период оплаты по:</th>
     <th></th>
     <th></th>
     <th></th>
@@ -28,8 +26,6 @@
     <td><%= msalary.try(:end) %></td>
     <td><%= msalary.type %></td>
     <td><%= msalary.comment %></td>
-    <td><%= msalary.pay_from %></td>
-    <td><%= msalary.pay_to %></td>
     <td><%= link_to 'см.', msalary %></td>
     <td><%= link_to 'ред.', edit_msalary_path(msalary) %></td>
     <td><%= link_to 'уд.', msalary, confirm: 'уверены?', method: :delete %></td>
@@ -63,6 +59,25 @@
                         res += parseFloat($(this).find(".sum").html());
                     }
                 });
+                $('#result').text(res);
+            }, 350 );
+        });
+
+        $('#demotable_filter_0').keyup(function() {
+            delay(function(){
+                var count = 0;
+                var res = 0;
+                $('.tr').each(function(){
+                    if ( getComputedStyle(this,null).display != "none") {
+                        res += parseFloat($(this).find(".sum").html());
+                    }
+                });
+                $('tbody tr').each(function(){
+                    if ( getComputedStyle(this,null).display != "none") {
+                        count +=1;
+                    }
+                });
+                $('#count').text(count);
                 $('#result').text(res);
             }, 350 );
         });

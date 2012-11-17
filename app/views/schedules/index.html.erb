@@ -1,6 +1,6 @@
 <h1>Список графиков</h1>
 
-<%= link_to 'новый график', new_schedule_path %>
+<%= link_to 'новый график', new_schedule_path %> | <%= link_to 'загрузить таблицу в XLS формате', schedules_to_xls_path + ".xls" %>
 <table id="demotable" class="table table-striped">
   <thead>
     <tr class="sort">

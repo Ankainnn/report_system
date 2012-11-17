@@ -72,6 +72,17 @@ Reports::Application.routes.draw do
   match 'salaries/salaries_to_excel_format', to: 'salaries#salaries_to_excel_format', as: :salaries_to_xls
   match 'msalaries/msalaries_to_excel_format', to: 'msalaries#msalaries_to_excel_format', as: :msalaries_to_xls
   match 'payments/payments_to_excel_format', to: 'payments#payments_to_excel_format', as: :payments_to_xls
+  match 'statuses/statuses_to_excel_format', to: 'statuses#statuses_to_excel_format', as: :statuses_to_xls
+  match 'resources/resources_to_excel_format', to: 'resources#resources_to_excel_format', as: :resources_to_xls
+  match 'channels/channels_to_excel_format', to: 'channels#channels_to_excel_format', as: :channels_to_xls
+  match 'courses/courses_to_excel_format', to: 'courses#courses_to_excel_format', as: :courses_to_xls
+  match 'costs/costs_to_excel_format', to: 'costs#costs_to_excel_format', as: :costs_to_xls
+  match 'offices/offices_to_excel_format', to: 'offices#offices_to_excel_format', as: :offices_to_xls
+  match 'managers/managers_to_excel_format', to: 'managers#managers_to_excel_format', as: :managers_to_xls
+  match 'teachers/teachers_to_excel_format', to: 'teachers#teachers_to_excel_format', as: :teachers_to_xls
+  match 'schedules/schedules_to_excel_format', to: 'schedules#schedules_to_excel_format', as: :schedules_to_xls
+  #match 'periods/periods_to_excel_format', to: 'periods#periods_to_excel_format', as: :periods_to_xls
+
 
   match 'help', to: 'help#index', as: :help_page
 

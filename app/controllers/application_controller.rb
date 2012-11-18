@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
       if user.ban == "true"
         render text: "Вы заблокирован. Пожалуйста свяжитесь с администраций сайта для выяснения причины блокировки, и возможности разблокировать учетную запись"
       else
-      
+
       end
     end
 

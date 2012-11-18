@@ -1,0 +1,66 @@
+@import "bootstrap-responsive.min.css";
+@import "bootstrap.min.css";
+@import "jquery-ui-timepicker-addon.css";
+
+label {margin-right: 20px;}
+.sort{
+  cursor: pointer;
+  color: #2e54ed;
+
+}
+.sort .header{
+  text-align: center;
+}
+
+#date_time{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  label{
+    float: left;
+    padding-top: 5px;
+    text-align: right;
+    width: 143px;
+  }
+  div{
+    margin-bottom: 3px;
+  }
+}
+
+.input{
+  margin-bottom: 3px;
+  label{
+    float: left;
+    padding-top: 5px;
+    text-align: right;
+    width: 160px;
+  }
+}
+
+#submit{
+  margin-left: 180px;
+  text-align: left;
+  div{
+    margin-top: 3px;
+    a{
+      line-height: 14px;
+      width: 68px;
+    }
+  }
+}
+
+#demotable .sort th{
+  border-top: 1px solid #DDDDDD;
+}
+#result{
+  border-bottom: 1px solid #DDDDDD;
+}
+
+#fix-outlays{
+  label.radio{
+   text-align: left;
+    width: 100px;
+ }
+  div{
+    display: inline-block;
+  }
+}

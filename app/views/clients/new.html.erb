@@ -1,36 +1,47 @@
-<h1>Новый клиент</h1>
+<h1>новый клиент</h1>
 
-<%= simple_form_for @client do |f| %>
-  <%= f.association :status, :label => "статус" %>
-  <%= f.input :name, :label => "имя" %>
-  <%= f.input :surname, :label => "фамилия" %>
-  <%= f.input :email %>
-  <%= f.input :phone, :label => "телефон", :input_html =>{:id => "phone"} %>
-  <%= f.input :idvk, :label => "id-vk" %>
-  <%= f.input :school, :label => "школа" %>
-  <%= f.input :parent, :label => "родитель" %>
-  <%= f.input :parent_phone, :label => "телефон родителя"%>
-  <%= f.association :resource, :label => "район" %>
+<%= simple_form_for @client, :html => { :class => 'form-horizontal' } do |f| %>
+    <%= f.association :status, :label => "статус" %>
+    <%= f.input :name, :label => "имя" %>
+    <%= f.input :surname, :label => "фамилия" %>
+    <%= f.input :email, label: 'e-mail' %>
+    <%= f.input :phone, :label => "телефон", :input_html =>{:id => "phone"} %>
+    <%= f.input :idvk, :label => "id-vk" %>
+    <%= f.input :school, :label => "школа" %>
+    <%= f.input :parent, :label => "родитель" %>
+    <%= f.input :parent_phone, :label => "телефон родителя"%>
+    <%= f.association :resource, :label => "район" %>
+    <%= f.association :channel, :label => "канал" %>
+    <%= f.association :manager, :label => "менеджер" %>
+    <div id="date_time">
+      <% %w{понедельник вторник среда четверг пятница суббота воскресение}.each do |i|%>
+          <div>
+            <%= label_tag i%>
+            <%= check_box_tag "day[]", i %>
+            <%= select_tag "hour[]", options_for_select(range_format((0..23))), :prompt => "часы"%>
+            <%= select_tag  "minute[]", options_for_select(range_format((0..59))), :prompt => "минуты"%>
+          </div>
+      <% end%>
+    </div>
 
-  <%= f.association :manager, :label => "менеджер" %>
-    <% %w{понедельник вторник среда четверг пятница суббота воскресение}.each do |i|%>
-        <%= label_tag i%>
-        <%= check_box_tag "day[]", i %>
-        <%= select_tag "hour[]", options_for_select(range_format((0..23))), :prompt => "часы"%>
-        <%= select_tag  "minute[]", options_for_select(range_format((0..59))), :prompt => "минуты"%>
-    <% end%>
-
-  <%= f.input :presumed_start, label: "Ожидаемое время начало занятий", :input_html => { :class => 'ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all' } %>
-    <br>
-  <%= f.input :course, collection: Course.all.map(&:name), as: :select, label: "Курс"%>
-    <br>
-  <%= f.label :period %>
-  <%= f.select(:period, Period.all.collect {|p| p.period }, { :include_blank => "выбирите период" })  %>
-  <%= f.association :office, :label => "офис" %>
-  <%= f.input :comment, :label => "комментария" %>
-  <%= f.input :author,:as => :hidden, :input_html => {:value => current_user.email}, :disabled => true %>
-  <%= f.button :submit, :value => "сохранить" %>
+    <div>
+      <%= f.input :presumed_start, label: "ожидаемое начало", :input_html => { :class => 'ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all' } %>
+    </div>
+    <%= f.input :course, collection: Course.all.map(&:name), as: :select, label: "курс"%>
+    <div class="input">
+      <%= f.label :period, "продолжительность" %>
+      <%= f.select(:period, Period.all.collect {|p| p.period }, {:include_blank => true})  %>
+    </div>
+    <%= f.association :office, :label => "офис" %>
+    <%= f.input :comment, :label => "комментарий", :input_html => { :cols => 50, :rows => 4 } %>
+    <%= f.input :author,:as => :hidden, :input_html => {:value => current_user.email}, :disabled => true %>
+    <div id="submit">
+    <%= f.button :submit, :value => "сохранить"%>
+      <div>
+    <%= link_to 'к списку', clients_path, class: "btn"%>
+      </div>
+    </div>
 
 <% end %>
 
-<%= link_to 'к списку', clients_path %>
+

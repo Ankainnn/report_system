@@ -1,13 +1,22 @@
 <%= simple_form_for(@schedule, :html => { :class => 'form-horizontal' }) do |f| %>
+    <div id="date_time">
   <% %w(понедельник вторник среда четверг пятница суббота воскресение ).each do |i|%>
+          <div>
   <%= label_tag i%>
   <%= check_box_tag "day[]", i %>
   <%= select_tag "hour[]", options_for_select(range_format((0..23))), :prompt => "часы"%>
   <%= select_tag  "minute[]", options_for_select(range_format((0..59))), :prompt => "минуты"%>
+          </div>
   <% end%>
+    </div>
   <%= f.association :office, label: "офис" %>
   <%= f.association :teacher, label: "преподаватель" %>
   <%= f.association :course, label: "курс" %>
   <%= f.input :hours, collection: Period.all.map(&:period) , :as => :select, label: "часы" %>
-  <%= f.button :submit, value: "сохранить" %>
+    <div id="submit">
+      <%= f.button :submit, :value => "сохранить"%>
+      <div>
+        <%= link_to 'к списку', schedules_path, class: "btn"%>
+      </div>
+    </div>
 <% end %>

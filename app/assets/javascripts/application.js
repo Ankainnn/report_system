@@ -26,7 +26,7 @@ $(document).ready(function() {
 
 	$('#demotable').tableFilter();
     $('#demotable').tablesorter();
-    $('#client_presumed_start').datetimepicker();
+   $('#client_presumed_start').datetimepicker();
     $('#payment_pay_from').datetimepicker();
     $('#payment_pay_to').datetimepicker();
     $('#msalary_pay_from').datetimepicker();

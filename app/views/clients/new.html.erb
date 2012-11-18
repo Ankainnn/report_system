@@ -1,6 +1,6 @@
 <h1>Новый клиент</h1>
 
-<%= simple_form_for @client, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @client do |f| %>
   <%= f.association :status, :label => "статус" %>
   <%= f.input :name, :label => "имя" %>
   <%= f.input :surname, :label => "фамилия" %>
@@ -11,7 +11,7 @@
   <%= f.input :parent, :label => "родитель" %>
   <%= f.input :parent_phone, :label => "телефон родителя"%>
   <%= f.association :resource, :label => "район" %>
-  <%= f.association :channel, :label => "канал" %>
+
   <%= f.association :manager, :label => "менеджер" %>
     <% %w{понедельник вторник среда четверг пятница суббота воскресение}.each do |i|%>
         <%= label_tag i%>

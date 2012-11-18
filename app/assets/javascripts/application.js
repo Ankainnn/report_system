@@ -34,6 +34,9 @@ $(document).ready(function() {
 
     $('#salary_pay_from').datetimepicker();
     $('#salary_pay_to').datetimepicker();
+    $('#client_date').datetimepicker();
+    $('#order_date').datetimepicker();
+
 
 
 

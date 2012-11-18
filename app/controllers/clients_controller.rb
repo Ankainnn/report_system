@@ -3,7 +3,7 @@ class ClientsController < ApplicationController
 include ApplicationHelper
   # GET /clients
   # GET /clients.json
-  before_filter :active_user
+  before_filter :active_user#, :only_admin
   def index
     @rand = rand(1..100)
     res = SortOption.find_by_user_id(current_user.id)

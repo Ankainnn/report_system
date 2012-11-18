@@ -51,12 +51,15 @@ Reports::Application.routes.draw do
 
   resources :resources
 
+  resources :help
+
   #devise_for :users
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   resources :users do 
     member do
       get 'change_user'
+      get 'ban'
     end
 
     collection do
@@ -84,7 +87,8 @@ Reports::Application.routes.draw do
   #match 'periods/periods_to_excel_format', to: 'periods#periods_to_excel_format', as: :periods_to_xls
 
   match 'help/admin_add_user', to: 'help#admin_add_user', as: :add_user
-  match 'help/create', to: 'help#create', as: :create_user
+
+  match 'users/create', to: 'users#create', as: :create_user
 
 
   match 'help', to: 'help#index', as: :help_page

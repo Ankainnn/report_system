@@ -1,10 +1,14 @@
 <h1>Пользователи</h1>
-<%= link_to "Добавить нового пользователя", add_user_path%>
+<%= link_to "Добавить нового пользователя", new_user_path%>
 
 <table class="table table-striped">
   <tr>
     <th>email</th>
+    <th>тип пользователя</th>
     <th>active</th>
+    <th>заблокирован?</th>
+    <th></th>
+    <th></th>
     <th></th>
 
   </tr>
@@ -12,8 +16,18 @@
 <% @users.each do |course| %>
   <tr>
     <td><%= course.email %></td>
+    <td><%= course.role %></td>
     <td><%= course.active %></td>
+    <td>
+      <%if course.ban == "true"%>
+      да
+     <%else%>
+      нет
+      <%end%>
+    </td>
     <td><%= link_to 'Activate', change_user_user_path(course.id) %></td>
+    <td><%= link_to 'ред.', edit_user_path(course.id) %></td>
+    <td><%= link_to 'уд.', course, confirm: 'Are you sure?', method: :delete %></td>
 
   </tr>
 <% end %>

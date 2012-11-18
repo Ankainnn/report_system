@@ -1,0 +1,21 @@
+<%if @user.ban == "true"%>
+    <p>Пользователь <%= @user.email%> заблокирован. <%= link_to "Разблокировать?", ban_user_path(id: @user.id, ban: "false"), confirm: 'Вы уверены?'%></p>
+<%else%>
+    <p>Заблокировать пользователя <%= @user.email%> ? <%= link_to "Блокировка", ban_user_path(id: @user.id, ban: "true"), confirm: 'Вы уверены?'%></p>
+<%end%>
+<%= simple_form_for(@user, :html => { :class => 'form-horizontal' }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :email, :required => true, :autofocus => true %>
+      <%= f.input :user_nick, :required => true, label: "логин" %>
+      <%= f.input :password, :required => true, label: "пароль" %>
+      <%= f.input :password_confirmation, :required => true, label: "повторите пароль" %>
+      <%= f.input :role, collection: [["admin", "admin"],["user", "user"]], as: :radio_buttons, label: "права"%>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, "готово" %>
+    </div>
+<% end %>
+
+

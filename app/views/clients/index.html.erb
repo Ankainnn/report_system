@@ -17,6 +17,7 @@
     <th>телефон родителя</th>
     <th>канал</th>
     <th>менеджер</th>
+    <th>дата</th>
     <th>день и время</th>
     <th>курс</th>
     <th>продолжительность</th>
@@ -44,6 +45,7 @@
         <td><%= client.parent_phone %></td>
         <td><%= client.channel.try(:name) %></td>
         <td><%= client.manager.try(:name) %></td>
+        <td><%= client.date%></td>
         <td><%= client.daysandtime %></td>
         <td><%= client.course %></td>
         <td><%= client.period %></td>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121117185604) do
+ActiveRecord::Schema.define(:version => 20121118204803) do
 
   create_table "channels", :force => true do |t|
     t.string   "name"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20121117185604) do
     t.string   "editor"
     t.string   "presumed_start"
     t.string   "course"
+    t.string   "date"
   end
 
   add_index "clients", ["channel_id"], :name => "index_clients_on_channel_id"
@@ -121,6 +122,7 @@ ActiveRecord::Schema.define(:version => 20121117185604) do
     t.float    "price"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "date"
   end
 
   add_index "orders", ["client_id"], :name => "index_orders_on_client_id"
@@ -259,6 +261,7 @@ ActiveRecord::Schema.define(:version => 20121117185604) do
     t.integer  "active"
     t.string   "user_nick"
     t.string   "role"
+    t.string   "ban"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

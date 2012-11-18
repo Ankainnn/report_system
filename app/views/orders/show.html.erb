@@ -7,7 +7,7 @@
 
 <p>
   <b>клиент:</b>
-  <%= @order.client.name %>
+  <%= @order.client.name if @order.client_id.present? %>
 </p>
 
 <p>
@@ -17,22 +17,22 @@
 
 <p>
   <b>курс:</b>
-  <%= @order.course.name %>
+  <%= @order.course.name if @order.course_id.present? %>
 </p>
 
 <p>
   <b>преподаватель:</b>
-  <%= @order.teacher.name %>
+  <%= @order.teacher.name if @order.teacher_id.present? %>
 </p>
 
 <p>
   <b>расписание:</b>
-  <%= @order.schedule.name %>
+  <%= @order.schedule.name if @order.schedule_id.present? %>
 </p>
 
 <p>
   <b>офис:</b>
-  <%= @order.office.name %>
+  <%= @order.office.name if @order.office_id.present? %>
 </p>
 
 <p>

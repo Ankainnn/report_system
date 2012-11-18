@@ -1,6 +1,7 @@
 <h1>новый клиент</h1>
 
 <%= simple_form_for @client, :html => { :class => 'form-horizontal' } do |f| %>
+    <%= f.input :date, label: "дата" %>
     <%= f.association :status, :label => "статус" %>
     <%= f.input :name, :label => "имя" %>
     <%= f.input :surname, :label => "фамилия" %>

@@ -2,10 +2,10 @@
 class PaymentsController < ApplicationController
   # GET /payments
   # GET /payments.json
+  skip_before_filter :verify_authenticity_token
   before_filter :active_user
   def index
     @payments = Payment.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @payments }
@@ -37,16 +37,17 @@ class PaymentsController < ApplicationController
 
     @collect_c = Client.includes(:orders).where(id: uniq_client_id)
 
-    @collect_c.each do |client|
-      client.orders.each do |order|
-        schedules_id << order.schedule.id
-      end
-    end
-
-    uniq_schedules_id = schedules_id.uniq
-
 
     @payment = Payment.new
+    #if params[:client] если ФИО не уникальное значение
+    client = Client.first #find(params[:client].split(" ").first.to_i)
+    @res= client.courses
+    #end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @payments }
+      format.js
+    end
   end
 
   # GET /payments/1/edit
@@ -106,5 +107,6 @@ class PaymentsController < ApplicationController
       format.xls
     end
   end
+
 
 end

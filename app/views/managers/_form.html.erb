@@ -3,5 +3,10 @@
     <%= f.input :phone, label: "телефон" %>
     <%= f.input :idvk , label: "id-vk"%>
     <%= f.input :school, label: "школа" %>
-    <%= f.button :submit, "сохранить" %>
+    <div id="submit">
+      <%= f.button :submit, :value => "сохранить"%>
+      <div>
+        <%= link_to 'к списку', managers_path, class: "btn"%>
+      </div>
+    </div>
 <% end %>

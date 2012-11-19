@@ -17,6 +17,8 @@
     <th>конец</th>
     <th>скидка</th>
     <th> <div id="result" style="text-align: center; color: #000000;"></div> стоимость </th>
+    <th>создано</th>
+    <th>отредактировано</th>
     <th></th>
     <th></th>
     <th></th>
@@ -38,6 +40,8 @@
         <td><%= order.end %></td>
         <td><%= order.discount %></td>
         <td class="sum"><%= order.price %></td>
+        <td><%= order.created_at %></td>
+        <td><%= order.updated_at %></td>
         <td><%= button_to 'оплата по договору', payment_path(id: order.id) %></td>
         <td><%= link_to 'см.', order %></td>
         <td><%= link_to 'ред.', edit_order_path(order) %></td>
@@ -59,29 +63,24 @@
     })();
     $(document).ready(function() {
         var res=0;
+        var count =0;
         $('.tr').each(function(){
             if ( getComputedStyle(this,null).display != "none") {
                 res += parseFloat($(this).find(".sum").html());
             }
         });
+        $('tbody tr').each(function(){
+            if ( getComputedStyle(this,null).display != "none") {
+                count+=1;
+            }
+        });
         $('#result').text(res);
+        $('#count').text(count);
 
         $('input').keyup(function() {
             delay(function(){
                 var res=0;
-                $('.tr').each(function(){
-                    if ( getComputedStyle(this,null).display != "none") {
-                        res += parseFloat($(this).find(".sum").html());
-                    }
-                });
-                $('#result').text(res);
-            }, 350 );
-        });
-
-        $('#demotable_filter_0').keyup(function() {
-            delay(function(){
-                var count = 0;
-                var res = 0;
+                var count =0;
                 $('.tr').each(function(){
                     if ( getComputedStyle(this,null).display != "none") {
                         res += parseFloat($(this).find(".sum").html());
@@ -89,13 +88,14 @@
                 });
                 $('tbody tr').each(function(){
                     if ( getComputedStyle(this,null).display != "none") {
-                        count +=1;
+                        count+=1;
                     }
                 });
-                $('#count').text(count);
                 $('#result').text(res);
+                $('#count').text(count);
             }, 350 );
         });
+
 
     });
 

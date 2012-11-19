@@ -4,7 +4,7 @@
 <table id="demotable" class="table table-striped">
   <thead>
     <tr class="sort">
-      <th><div id="result" style="text-align: center; color: #000000;"></div>имя</th>
+      <th><div id="result" style="text-align: center; color: #000000;"></div>ФИО</th>
       <th>телефон</th>
       <th>Email</th>
       <th>Id-vk</th>
@@ -55,7 +55,7 @@
         });
         $('#result').text(res);
 
-        $('#demotable_filter_0').keyup(function() {
+        $('input').keyup(function() {
             delay(function(){
                 var res=0;
                 $('.tr').each(function(){

@@ -1,13 +1,17 @@
 <h1>Периоды курсов</h1>
 
-<table>
-  <tr>
+
+<%= link_to 'Новый период', new_period_path %>
+<table id="demotable" class="table table-striped">
+  <thead>
+  <tr class="sort">
     <th>периоды</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
+  </thead>
+<tbody>
 <% @periods.each do |period| %>
   <tr>
     <td><%= period.period %></td>
@@ -16,8 +20,8 @@
     <td><%= link_to 'уд.', period, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
+</tbody>
 </table>
 
 <br />
 
-<%= link_to 'Новый период', new_period_path %>

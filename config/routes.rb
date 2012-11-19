@@ -22,6 +22,7 @@ Reports::Application.routes.draw do
 
   post "clients/sort_options"
   post "clients/index"
+  post "payments/new"
 
   resources :outlays
 

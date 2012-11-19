@@ -1,5 +1,10 @@
 <%= simple_form_for(@course) do |f| %>
     <%= f.input :direction, label: "направление" %>
     <%= f.input :subject, label: "предмет" %>
-    <%= f.button :submit, value: "сохранить" %>
+    <div id="submit">
+      <%= f.button :submit, :value => "сохранить"%>
+      <div>
+        <%= link_to 'к списку', courses_path, class: "btn"%>
+      </div>
+    </div>
 <% end %>

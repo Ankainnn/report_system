@@ -5,9 +5,12 @@ class Teacher < ActiveRecord::Base
 	has_many :schedules
 	has_many :salaries
 
+  validates :name, :surname, :phone, presence:true
+
   validates_format_of :email,
                       :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i,
                       :message => 'E-mail адресс введен не коректно'
+
 
 	def fio
     if self.try(:surname)

@@ -5,8 +5,10 @@ class Course < ActiveRecord::Base
 	has_many :schedules
 	has_many :orders
 
+
   attr_accessor :name
 
+  validates :direction, :subject, presence:true
 	def name
     self.direction + " / " + self.subject
   end

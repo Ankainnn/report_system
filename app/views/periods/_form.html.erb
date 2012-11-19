@@ -5,7 +5,10 @@
     <%= f.input :period, label: 'период' %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "добавить" %>
-  </div>
+    <div id="submit">
+      <%= f.button :submit, :value => "сохранить"%>
+      <div>
+        <%= link_to 'к списку', periods_path, class: "btn"%>
+      </div>
+    </div>
 <% end %>

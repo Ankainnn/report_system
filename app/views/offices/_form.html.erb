@@ -2,5 +2,10 @@
   <%= f.input :name, label: "имя" %>
   <%= f.input :address, label: "адрес" %>
   <%= f.input :phone, label: "телефон" %>
-  <%= f.button :submit,"сохранить" %>
+    <div id="submit">
+      <%= f.button :submit, :value => "сохранить"%>
+      <div>
+        <%= link_to 'к списку', offices_path, class: "btn"%>
+      </div>
+    </div>
 <% end %>

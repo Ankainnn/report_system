@@ -1,4 +1,9 @@
 <%= simple_form_for(@cost) do |f| %>
-    <%= f.input :name, label: "имя" %> 
-    <%= f.button :submit, :value => "сохранить" %>
+    <%= f.input :name, label: "имя" %>
+    <div id="submit">
+      <%= f.button :submit, :value => "сохранить"%>
+      <div>
+        <%= link_to 'к списку', costs_path, class: "btn"%>
+      </div>
+    </div>
 <% end %>

@@ -51,16 +51,41 @@ label {margin-right: 20px;}
 #demotable .sort th{
   border-top: 1px solid #DDDDDD;
 }
-#result{
+#result, #count{
   border-bottom: 1px solid #DDDDDD;
 }
 
-#fix-outlays{
+#fix-outlays, #fix-payments{
   label.radio{
    text-align: left;
     width: 100px;
  }
   div{
     display: inline-block;
+  }
+}
+
+ul.ui-autocomplete{
+  width: 200px;
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: solid 1px #999;
+  cursor: pointer;
+  li{
+    background-color: #FFF;
+    border-top: solid 1px #DDD;
+    margin: 0;
+    padding: 0;
+    a{
+      color: #000;
+      display: block;
+      padding: 3px;
+      text-decoration: none;
+    }
+    a.ui-state-hover, a.ui-state-active{
+      background-color: #FFFCB2;
+    }
   }
 }

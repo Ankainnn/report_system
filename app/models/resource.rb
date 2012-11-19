@@ -1,5 +1,6 @@
 class Resource < ActiveRecord::Base
 	has_many :clients
+  validates :name, presence:true
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|

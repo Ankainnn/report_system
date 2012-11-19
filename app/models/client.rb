@@ -29,5 +29,9 @@ class Client < ActiveRecord::Base
     end
   end
 
+  def autocomplete
+    self.id.to_s  + " " + self.surname + " " +   self.name
+  end
+
 
 end

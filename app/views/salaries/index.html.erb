@@ -15,6 +15,8 @@
     <th>комментарий</th>
     <th>период оплаты с:</th>
     <th>период оплаты по:</th>
+    <th>создано</th>
+    <th>отредактировано</th>
     <th></th>
     <th></th>
     <th></th>
@@ -34,6 +36,8 @@
     <td><%= salary.comment %></td>
     <td><%= salary.pay_from %></td>
     <td><%= salary.pay_to %></td>
+    <td><%= salary.created_at %></td>
+    <td><%= salary.updated_at %></td>
     <td><%= link_to 'см.', salary %></td>
     <td><%= link_to 'ред.', edit_salary_path(salary) %></td>
     <td><%= link_to 'уд.', salary, confirm: 'Are you sure?', method: :delete %></td>
@@ -53,29 +57,24 @@
     })();
     $(document).ready(function() {
         var res=0;
+        var count =0;
         $('.tr').each(function(){
             if ( getComputedStyle(this,null).display != "none") {
                 res += parseFloat($(this).find(".sum").html());
             }
         });
+        $('tbody tr').each(function(){
+            if ( getComputedStyle(this,null).display != "none") {
+                count+=1;
+            }
+        });
         $('#result').text(res);
+        $('#count').text(count);
 
         $('input').keyup(function() {
             delay(function(){
                 var res=0;
-                $('.tr').each(function(){
-                    if ( getComputedStyle(this,null).display != "none") {
-                        res += parseFloat($(this).find(".sum").html());
-                    }
-                });
-                $('#result').text(res);
-            }, 350 );
-        });
-
-        $('#demotable_filter_0').keyup(function() {
-            delay(function(){
-                var count = 0;
-                var res = 0;
+                var count =0;
                 $('.tr').each(function(){
                     if ( getComputedStyle(this,null).display != "none") {
                         res += parseFloat($(this).find(".sum").html());
@@ -83,13 +82,14 @@
                 });
                 $('tbody tr').each(function(){
                     if ( getComputedStyle(this,null).display != "none") {
-                        count +=1;
+                        count+=1;
                     }
                 });
-                $('#count').text(count);
                 $('#result').text(res);
+                $('#count').text(count);
             }, 350 );
         });
+
 
     });
 

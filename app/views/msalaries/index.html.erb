@@ -9,8 +9,10 @@
     <th> <div id="result" style="text-align: center; color: #000000;"></div> сумма</th>
     <th>начало</th>
     <th>конец</th>
-    <th>Форма выплаты</th>
+    <th>форма выплаты</th>
     <th>комментарий</th>
+    <th>создано</th>
+    <th>отредактировано</th>
     <th></th>
     <th></th>
     <th></th>
@@ -26,6 +28,8 @@
     <td><%= msalary.try(:end) %></td>
     <td><%= msalary.type %></td>
     <td><%= msalary.comment %></td>
+    <td><%= msalary.created_at %></td>
+    <td><%= msalary.updated_at %></td>
     <td><%= link_to 'см.', msalary %></td>
     <td><%= link_to 'ред.', edit_msalary_path(msalary) %></td>
     <td><%= link_to 'уд.', msalary, confirm: 'уверены?', method: :delete %></td>
@@ -44,29 +48,24 @@
     })();
     $(document).ready(function() {
         var res=0;
+        var count =0;
         $('.tr').each(function(){
             if ( getComputedStyle(this,null).display != "none") {
                 res += parseFloat($(this).find(".sum").html());
             }
         });
+        $('tbody tr').each(function(){
+            if ( getComputedStyle(this,null).display != "none") {
+                count+=1;
+            }
+        });
         $('#result').text(res);
+        $('#count').text(count);
 
         $('input').keyup(function() {
             delay(function(){
                 var res=0;
-                $('.tr').each(function(){
-                    if ( getComputedStyle(this,null).display != "none") {
-                        res += parseFloat($(this).find(".sum").html());
-                    }
-                });
-                $('#result').text(res);
-            }, 350 );
-        });
-
-        $('#demotable_filter_0').keyup(function() {
-            delay(function(){
-                var count = 0;
-                var res = 0;
+                var count =0;
                 $('.tr').each(function(){
                     if ( getComputedStyle(this,null).display != "none") {
                         res += parseFloat($(this).find(".sum").html());
@@ -74,13 +73,14 @@
                 });
                 $('tbody tr').each(function(){
                     if ( getComputedStyle(this,null).display != "none") {
-                        count +=1;
+                        count+=1;
                     }
                 });
-                $('#count').text(count);
                 $('#result').text(res);
+                $('#count').text(count);
             }, 350 );
         });
+
 
     });
 

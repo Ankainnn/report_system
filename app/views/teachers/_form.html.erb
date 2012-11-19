@@ -8,6 +8,10 @@
   <%= f.input :workplace, label: "рабочее место" %>
   <%= f.input :comment, label: "комментарий" %>
   <%= f.association :courses, label: "курс" %>
-
-	<%= f.button :submit, value: "сохранить" %>
+    <div id="submit">
+      <%= f.button :submit, :value => "сохранить"%>
+      <div>
+        <%= link_to 'к списку', teachers_path, class: "btn"%>
+      </div>
+    </div>
 <% end %>

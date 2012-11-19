@@ -1,5 +1,6 @@
 class Cost < ActiveRecord::Base
 	has_many :outpays
+  validates :name, presence:true
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|

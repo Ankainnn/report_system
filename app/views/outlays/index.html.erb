@@ -10,6 +10,8 @@
     <th>форма оплаты</th>
     <th>автор</th>
     <th>комментарий</th>
+    <th>создано</th>
+    <th>отредактировано</th>
     <th></th>
     <th></th>
     <th></th>
@@ -24,6 +26,8 @@
     <td><%= outlay.type %></td>
     <td><%= outlay.person %></td>
     <td><%= outlay.comment %></td>
+    <td><%= outlay.created_at %></td>
+    <td><%= outlay.updated_at %></td>
     <td><%= link_to 'см.', outlay %></td>
     <td><%= link_to 'ред.', edit_outlay_path(outlay) %></td>
     <td><%= link_to 'уд.', outlay, confirm: 'Are you sure?', method: :delete %></td>

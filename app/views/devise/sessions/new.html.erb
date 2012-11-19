@@ -4,14 +4,15 @@
   <div class="form-inputs">
     <%= f.input :email, :required => false, :autofocus => true %>
     <%= f.input :password, :required => false, label: "пароль" %>
+    <div id="remember_me">
     <%= f.input :remember_me, :as => :boolean, label: "запомнить меня" if devise_mapping.rememberable? %>
+    </div>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit, "вход" %>
   </div>
 <% end %>
-<%= link_to "регистрация", new_user_registration_path %>
 <% if User.all.empty? %>
 	<%= render "devise/shared/links" %>
 <% end %>

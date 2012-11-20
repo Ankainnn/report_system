@@ -57,8 +57,8 @@ class PaymentsController < ApplicationController
       if @order.present?
         @order_number = @order.id
         @schedule = @order.schedule.graphic
-        #session[:client] = nil
-        #session[:course] = nil
+        session[:client] = nil
+        session[:course] = nil
 
       end
     end

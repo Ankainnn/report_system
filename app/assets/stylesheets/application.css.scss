@@ -96,3 +96,17 @@ ul.ui-autocomplete{
   }
 
 }
+
+#new_salary{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  label{
+    float: left;
+    padding-top: 5px;
+    text-align: right;
+    width: 160px;
+  }
+  div{
+    margin-bottom: 3px;
+  }
+}

@@ -1,7 +1,17 @@
+
+
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'редактировать', edit_order_path(@order) %> |
+<%= link_to 'к списку', orders_path %>
+
 <p>
-  <b>номер:</b>
+  <b>дата:</b>
+  <%= @order.date %>
+</p>
+
+<p>
+  <b>номер договора:</b>
   <%= @order.number %>
 </p>
 
@@ -57,5 +67,4 @@
 </p>
 
 
-<%= link_to 'редактировать', edit_order_path(@order) %> |
-<%= link_to 'к списку', orders_path %>
+

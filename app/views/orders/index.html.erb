@@ -18,7 +18,9 @@
     <th>скидка</th>
     <th> <div id="result" style="text-align: center; color: #000000;"></div> стоимость </th>
     <th>создано</th>
+    <th>создал</th>
     <th>отредактировано</th>
+    <th>редактировал</th>
     <th></th>
     <th></th>
     <th></th>
@@ -41,8 +43,10 @@
         <td><%= order.discount %></td>
         <td class="sum"><%= order.price %></td>
         <td><%= order.created_at %></td>
+        <td><%= order.author %></td>
         <td><%= order.updated_at %></td>
-        <td><%= button_to 'оплата по договору', payment_path(id: order.id) %></td>
+        <td><%= order.editor %></td>
+        <td><%= button_to 'оплата по договору', payment_to_order_path(id: order.id) %></td>
         <td><%= link_to 'см.', order %></td>
         <td><%= link_to 'ред.', edit_order_path(order) %></td>
         <td><%= link_to 'уд.', order, confirm: 'уверены?', method: :delete %></td>

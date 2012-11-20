@@ -4,8 +4,15 @@
   <%= f.association :manager, label: "менеджер" %>
   <%= f.input :start, label: "начало периода" %>
   <%= f.input :end, label: "конец периода" %>
+    <div id="fix-outlays" class="input">
   <%= f.input :type, label: "форма оплаты", :collection => ["Наличные", "По безналу"], :as => :radio_buttons %>
-  <%= f.input :comment, label: "комментарий" %>
-  <%= f.button :submit,"комментарий" %>
+    </div>
+  <%= f.input :comment, label: "комментарий", :input_html => { :cols => 50, :rows => 4 } %>
+    <div id="submit">
+      <%= f.button :submit, :value => "сохранить"%>
+      <div>
+        <%= link_to 'к списку', msalaries_path, class: "btn"%>
+      </div>
+    </div>
   
 <% end %>

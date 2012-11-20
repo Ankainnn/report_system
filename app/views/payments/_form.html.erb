@@ -7,27 +7,27 @@
 
     <div>
   <%= f.label "клиент"%>
-  <%= text_field_tag :client, nil , data: {autocomplete_source: @collect_c.map(&:autocomplete)} %>
+  <%= text_field_tag :client, nil , data: {autocomplete_source: @collect_c.map(&:autocomplete) } %>
   </div>
 
     <div>
-  <%= f.label "курс"%>
-  <%= f.input :start, collection: @res, as: :select, :include_blank => true, label:false %>
-  </div>
+      <%= f.label "курс"%>
+      <%= collection_select(:course , nil, @res, :id, :name, {include_blank:true}, {onchange: "$.post('new', $('#course_').serialize(), {}, 'script' );" })  %>
+    </div>
 
 
     <div>
       <%= f.label "график"%>
-      <%= f.grouped_collection_select :end, @res, :schedules, :name, :id, :graphic, :include_blank => true%>
+      <%= text_field :schedule, nil%>
     </div>
+
+
     <div>
       <%= f.input :pay_from, label: "c"%>
       <%= f.input :pay_to, label: "по"%>
     </div>
 
-    <%= f.association :order, label: "договор" %>
-  <%= f.input :start, label: "начало периода" %>
-  <%= f.input :end, label: "конец периода" %>
+    <%= f.input :order_id, label: "договор" %>
   <%= f.button :submit,"сохранить" %>
 
 <% end %>

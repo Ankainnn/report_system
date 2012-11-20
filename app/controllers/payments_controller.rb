@@ -26,23 +26,42 @@ class PaymentsController < ApplicationController
   # GET /payments/new
   # GET /payments/new.json
   def new
+    @payment = Payment.new
+
     client_id = []
-    schedules_id = []
 
-    Payment.includes(:order).each do |p|
-      client_id << p.order.client_id if p.order_id.present?
+    Order.all.each do |order|
+      client_id << order.client_id
     end
-
     uniq_client_id = client_id.uniq
 
-    @collect_c = Client.includes(:orders).where(id: uniq_client_id)
+    @collect_c = Client.where(id: uniq_client_id)
 
 
-    @payment = Payment.new
-    #if params[:client] если ФИО не уникальное значение
-    client = Client.first #find(params[:client].split(" ").first.to_i)
-    @res= client.courses
-    #end
+    if params[:client] #если ФИО не уникальное значение
+      client = params[:client].split(" ")
+      session[:client]= Client.where(name: client[0] + " " + client[1], surname: client[2]).first
+    end
+
+    if params[:course]
+      if params[:course][0].present?
+      session[:course] = Course.find(params[:course][0])
+      else
+      session[:course] = nil
+      end
+    end
+
+    if session[:client].present? && session[:course].present?
+      @order = Order.where(client_id: session[:client].id, course_id: session[:course]).first
+      if @order.present?
+        @order_number = @order.id
+        @schedule = @order.schedule.graphic
+        session[:client] = nil
+        session[:course] = nil
+      end
+    end
+
+    @res = Client.first.courses
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @payments }

@@ -69,7 +69,7 @@ Reports::Application.routes.draw do
   end
 
   resources :statuses
-  match 'orders/payment', to: 'orders#payment', as: :payment
+  match 'orders/payment', to: 'orders#payment', as: :payment_to_order
   match 'clients/date_to_excel_format', to: 'clients#date_to_excel_format', as: :clients_to_xls
   match 'orders/orders_to_excel_format', to: 'orders#orders_to_excel_format', as: :orders_to_xls
   match 'outlays/outlays_to_excel_format', to: 'outlays#outlays_to_excel_format', as: :outlays_to_xls

@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>менеджер:</b>
-  <%= @msalary.manager.name if @msalary.manager_id.present? %>
-</p>
+
+<%= link_to 'редактировать', edit_msalary_path(@msalary) %> |
+<%= link_to 'к списку', msalaries_path %>
 
 <p>
   <b>дата:</b>
@@ -14,6 +13,12 @@
   <b>сумма:</b>
   <%= @msalary.summ %>
 </p>
+
+<p>
+  <b>менеджер:</b>
+  <%= @msalary.manager.name if @msalary.manager_id.present? %>
+</p>
+
 <p>
   <b>начало:</b>
   <%= @msalary.start %>
@@ -34,5 +39,4 @@
 </p>
 
 
-<%= link_to 'редактировать', edit_msalary_path(@msalary) %> |
-<%= link_to 'к списку', msalaries_path %>
+

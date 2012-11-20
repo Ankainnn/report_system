@@ -25,7 +25,7 @@
         <td><%= payment.date %></td>
         <td class="sum"><%= payment.summ %></td>
         <td><%= payment.type %></td>
-        <td><%= payment.order.name if payment.order_id.present? %></td>
+        <td><%= payment.order.number if payment.order_id.present? %></td>
         <td><%= payment.try(:start) %></td>
         <td><%= payment.try(:end) %></td>
         <td><%= payment.pay_from %></td>

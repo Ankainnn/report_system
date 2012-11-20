@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+
+<%= link_to 'редактировать', edit_payment_path(@payment) %> |
+<%= link_to 'к списку', payments_path %>
+
 <p>
   <b>дата:</b>
   <%= @payment.date %>
@@ -16,8 +20,18 @@
 </p>
 
 <p>
+  <b>c:</b>
+  <%= @payment.pay_from %>
+</p>
+
+<p>
+  <b>по:</b>
+  <%= @payment.pay_to %>
+</p>
+
+<p>
   <b>договор:</b>
-  <%= @payment.order.name %>
+  <%= @payment.order.number %>
 </p>
 
 <p>
@@ -30,5 +44,4 @@
 </p>
 
 
-<%= link_to 'редактировать', edit_payment_path(@payment) %> |
-<%= link_to 'к списку', payments_path %>
+

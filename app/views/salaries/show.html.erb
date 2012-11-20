@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'редактировать', edit_salary_path(@salary) %> |
+<%= link_to 'к списку', salaries_path %>
+
+
 <p>
   <b>дата:</b>
   <%= @salary.date %>
@@ -11,12 +15,17 @@
 </p>
 
 <p>
+  <b>преподаватель:</b>
+  <%= @salary.teacher.name %>
+</p>
+
+<p>
   <b>курс:</b>
   <%= @salary.course.name %>
 </p>
 <p>
-  <b>преподаватель:</b>
-  <%= @salary.teacher.name %>
+  <b>график:</b>
+  <%= @salary.schedule.graphic %>
 </p>
 
 <p>
@@ -29,15 +38,25 @@
 </p>
 
 <p>
+  <b>с:</b>
+  <%= @salary.pay_from %>
+</p>
+
+
+<p>
+  <b>по:</b>
+  <%= @salary.pay_to %>
+</p>
+
+<p>
   <b>форма выплаты:</b>
   <%= @salary.type %>
 </p>
 
 <p>
-  <b>коммент:</b>
+  <b>комментарий:</b>
   <%= @salary.comment %>
 </p>
 
 
-<%= link_to 'редактировать', edit_salary_path(@salary) %> |
-<%= link_to 'к списку', salaries_path %>
+

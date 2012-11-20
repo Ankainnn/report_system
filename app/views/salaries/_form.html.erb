@@ -1,36 +1,36 @@
-<%= form_for(@salary) do |g|%>
+<%= simple_form_for(@salary, :html => { :class => 'form-horizontal' }) do |g|%>
     <div>
-    <%= g.label :date %>
+    <%= g.label :date, "дата" %>
     <%= g.datetime_select :date %>
     </div>
 
     <div>
-    <%= g.label :summ %>
+    <%= g.label :summ, "сумма" %>
     <%= g.text_field :summ %>
     </div>
 
     <div>
-    <%= g.label :teacher_id%>
+    <%= g.label :teacher_id, "преподаватель"%>
     <%= g.collection_select :teacher_id, Teacher.order(:name), :id, :name, {include_blank: true}%>
     </div>
 
     <div>
-      <%= g.label :course_id%>
+      <%= g.label :course_id, "курс"%>
       <%= g.grouped_collection_select :course_id, Teacher.order(:name), :courses, :name, :id, :name, :include_blank => true %>
     </div>
 
     <div>
-      <%= g.label :schedule_id%>
+      <%= g.label :schedule_id, "график"%>
       <%= g.grouped_collection_select :schedule_id, Course.order(:id), :schedules, :name, :id, :graphic, :include_blank => true%>
     </div>
 
     <div>
-    <%= g.label :start %>
+    <%= g.label :start, "начало"%>
     <%= g.date_select :start %>
     </div>
 
     <div>
-    <%= g.label :end %>
+    <%= g.label :end, "конец" %>
     <%= g.date_select :end %>
     </div>
 
@@ -44,23 +44,22 @@
     </div>
 
 
-    <div id="pay_type">
-    <% ["Наличные", "По безналу"].each do |r| %>
-          <div>
-    <%= g.label :type, r%>
-    <%= g.radio_button :type, r %>
-          </div>
+    <div id="fix-outlays" class="input">
+      <%= g.label :type, "форма оплаты"%>
+      <%= g.input :type, :collection => ["Наличные", "По безналу"], :as => :radio_buttons, label: false %>
     </div>
-    <%end%>
-      <br>
 
 
     <div>
-    <%= g.label :comment%>
-    <%= g.text_field :comment%>
+    <%= g.label :comment, "комментарий"%>
+    <%= g.text_area :comment, size: "50x4"%>
     </div>
 
-    <div>
-    <%= g.submit "отправить" %>
+    <div id="submit">
+      <%= g.button :submit, :value => "сохранить"%>
+      <div>
+        <%= link_to 'к списку', salaries_path, class: "btn"%>
+      </div>
     </div>
+
 <%end%>

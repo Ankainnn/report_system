@@ -10,11 +10,11 @@ class Client < ActiveRecord::Base
   validates_format_of :email,
                       :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i,
                       :message => 'E-mail адресс введен не коректно'
-  validates :email, presence: true
+  validates :email, :surname, :name, :middle_name, presence: true
 
   def fio
     if self.try(:surname)
-    	self.try(:name) + " " + self.try(:surname)
+      self.try(:surname)  + " " +  	self.try(:name) + " " + self.try(:middle_name)
     else
     	self.try(:name)
     end
@@ -28,10 +28,5 @@ class Client < ActiveRecord::Base
       end
     end
   end
-
-  def autocomplete
-    self.name   + " " +    self.surname
-  end
-
 
 end

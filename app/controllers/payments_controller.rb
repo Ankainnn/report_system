@@ -26,6 +26,7 @@ class PaymentsController < ApplicationController
   # GET /payments/new
   # GET /payments/new.json
   def new
+
     @payment = Payment.new
 
     client_id = []
@@ -40,7 +41,7 @@ class PaymentsController < ApplicationController
 
     if params[:client] #если ФИО не уникальное значение
       client = params[:client].split(" ")
-      session[:client]= Client.where(name: client[0] + " " + client[1], surname: client[2]).first
+      session[:client]= Client.where(surname: client[0], name: client[1], middle_name: client[2]).first
     end
 
     if params[:course]
@@ -56,8 +57,9 @@ class PaymentsController < ApplicationController
       if @order.present?
         @order_number = @order.id
         @schedule = @order.schedule.graphic
-        session[:client] = nil
-        session[:course] = nil
+        #session[:client] = nil
+        #session[:course] = nil
+
       end
     end
 
@@ -81,6 +83,8 @@ class PaymentsController < ApplicationController
 
     respond_to do |format|
       if @payment.save
+        session[:client] = nil
+        session[:course] = nil
         format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
         format.json { render json: @payment, status: :created, location: @payment }
       else

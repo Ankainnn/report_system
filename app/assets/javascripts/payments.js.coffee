@@ -19,7 +19,7 @@ jQuery ->
           #  $('body').append "AJAX Error: #{textStatus}"
           #success: (data, textStatus, jqXHR) ->
           #  $('body').append "Successful AJAX call: #{data}"
-    $('#payment_order_id, #schedule_').keypress ->
+    $('#payment_order_id, #schedule_ , #order_number_').keypress ->
       return false
 
 

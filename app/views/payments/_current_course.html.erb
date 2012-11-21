@@ -1,0 +1,2 @@
+<%= label_tag "курс"%>
+<%= collection_select(:course , nil, @res, :id, :name, {include_blank:true}, {onchange: "$.post('current_order', $('#course_').serialize(), {}, 'script' );" })  %>

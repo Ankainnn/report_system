@@ -27,10 +27,11 @@ class PaymentsController < ApplicationController
   # GET /payments/new.json
   def new
 
+    session[:course] = nil
+    session[:client] = nil
     @payment = Payment.new
 
     client_id = []
-
     Order.all.each do |order|
       client_id << order.client_id
     end
@@ -39,16 +40,28 @@ class PaymentsController < ApplicationController
     @collect_c = Client.where(id: uniq_client_id)
 
 
-    if params[:client] #если ФИО не уникальное значение
+    if params[:client]
       client = params[:client].split(" ")
-      session[:client]= Client.where(surname: client[0], name: client[1], middle_name: client[2]).first
+      session[:client] ||= Client.where(surname: client[0], name: client[1], middle_name: client[2]).first
+      session[:client_id] ||= session[:client].id
     end
 
+      @res = Client.find(session[:client_id]).courses if session[:client_id]
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @payments }
+      format.js
+    end
+  end
+
+
+  def current_order
     if params[:course]
       if params[:course][0].present?
-      session[:course] = Course.find(params[:course][0])
+        session[:course] = Course.find(params[:course][0])
       else
-      session[:course] = nil
+        session[:course] = nil
       end
     end
 
@@ -57,13 +70,9 @@ class PaymentsController < ApplicationController
       if @order.present?
         @order_number = @order.id
         @schedule = @order.schedule.graphic
-        session[:client] = nil
-        session[:course] = nil
-
       end
     end
 
-    @res = Client.first.courses
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @payments }

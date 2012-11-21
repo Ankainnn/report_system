@@ -1,7 +1,4 @@
 <h1>Клиенты</h1>
-<%if user_role == "admin"%>
-<%= link_to "добавить пользователя", add_user_path%> |
-<%end%>
  <%=  link_to 'новый клиент', new_client_path  %> |
 
  <%= link_to 'загрузить таблицу в XLS формате', statuses_to_xls_path + ".xls" %> | сортировать по:  <%= render 'sort_by'%>

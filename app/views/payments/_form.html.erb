@@ -17,7 +17,7 @@
 
     <div id="graphic">
       <%= f.label "график"%>
-      <%= text_field :schedule, nil%>
+      <%= text_field :schedule, nil, :autocomplete => 'off'%>
     </div>
 
 
@@ -27,7 +27,7 @@
     </div>
 
     <%= f.label "договор"%>
-    <%= text_field :order_number, nil%>
+    <%= text_field :order_number, nil, :autocomplete => 'off'%>
 
     <%= f.input :order_id, as: :hidden, label: "договор"%>
 

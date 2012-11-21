@@ -42,11 +42,11 @@ class PaymentsController < ApplicationController
 
     if params[:client]
       client = params[:client].split(" ")
-      session[:client] ||= Client.where(surname: client[0], name: client[1], middle_name: client[2]).first
-      session[:client_id] ||= session[:client].id
+      session[:client] = Client.where(surname: client[0], name: client[1], middle_name: client[2]).first
+      session[:client_id] = session[:client].id
     end
 
-      @res = Client.find(session[:client_id]).courses if session[:client_id]
+      @res = Client.find(session[:client_id]).courses if session[:client_id].present?
 
     respond_to do |format|
       format.html # index.html.erb
@@ -68,7 +68,8 @@ class PaymentsController < ApplicationController
     if session[:client].present? && session[:course].present?
       @order = Order.where(client_id: session[:client].id, course_id: session[:course]).first
       if @order.present?
-        @order_number = @order.id
+        @order_id = @order.id
+        @order_number = @order.number
         @schedule = @order.schedule.graphic
       end
     end

@@ -24,6 +24,7 @@ $(document).ready(function() {
 		additionalFilterTriggers: [$('#quickfind')]
 	};*/
 
+
 	$('#demotable').tableFilter();
     $('#demotable').tablesorter();
    $('#client_presumed_start').datetimepicker();
@@ -53,6 +54,7 @@ $(document).ready(function() {
         $( "#order_client_id" ).autocomplete({
             source: $('#order_client_id').data('autocomplete-source')
         });
+
 
 
 

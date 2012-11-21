@@ -26,8 +26,16 @@
       <%= f.input :pay_to, label: "по"%>
     </div>
 
-    <%= f.input :order_id, label: "договор"%>
+    <%= f.label "договор"%>
+    <%= text_field :order_number, nil%>
 
-  <%= f.button :submit,"сохранить" %>
+    <%= f.input :order_id, as: :hidden, label: "договор"%>
+
+    <div id="submit">
+      <%= f.button :submit, :value => "сохранить"%>
+      <div>
+        <%= link_to 'к списку', payments_path, class: "btn"%>
+      </div>
+    </div>
 
 <% end %>

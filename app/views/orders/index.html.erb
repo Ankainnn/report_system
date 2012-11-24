@@ -1,6 +1,6 @@
 <h1>договоры</h1>
 
-<%= link_to 'новый договор', new_order_path %> | <%= link_to 'загрузить таблицу в XLS формате', orders_to_xls_path + ".xls" %>
+<%= link_to 'новый договор', new_order_path %> | <%= link_to 'загрузить таблицу в XLS формате', orders_to_xls_path + ".xls" %> | сортировать по:  <%= render 'sort_by'%>
 
 <table id="demotable" class="table table-striped tablesorter">
   <thead>

@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+require "rubygems"
+require "bundler/setup"
+require "mailman"
+require 'enc/koi8_r'
+
+#Mailman.config.logger = Logger.new("log/mailman.log")
+
+Mailman.config.pop3 = {
+    server: 'pop.gmail.com', port: 995, ssl: true,
+    username: 'yourprofspbsys@gmail.com',
+    password: 'asKDe67wOvg'
+
+#'yourprofspbsys@gmail.com',
+#'asKDe67wOvg'
+}
+
+Mailman::Application.run do
+  default do
+    Client.receive_mail(message)
+  end
+end

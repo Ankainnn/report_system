@@ -5,11 +5,10 @@ include ApplicationHelper
   # GET /clients.json
   before_filter :active_user#, :only_admin
   def index
-    @rand = rand(1..100)
     res = SortOption.find_by_user_id(current_user.id)
     @current_user = current_user.id
     @options = [['статус', 'status_id'],
-                ['источник', 'resource_id'],
+                ['район', 'resource_id'],
                 ['имя','name'],
                 ['телефон','phone'],
                 ['email','email'],

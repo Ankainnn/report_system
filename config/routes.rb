@@ -21,6 +21,7 @@ Reports::Application.routes.draw do
   get "schedules/schedules_to_excel_format"
 
   post "clients/sort_options"
+  post "orders/sort_options"
   post "clients/index"
   post "payments/new"
   post "payments/current_order"

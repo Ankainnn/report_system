@@ -7,7 +7,7 @@ gem 'rails', '3.2.2'
 
 gem 'mysql2'
 gem 'execjs'
-#gem 'therubyracer'
+gem 'therubyracer'
 #gem 'json'
 gem  'simple_form'
 gem 'rails3-jquery-autocomplete'

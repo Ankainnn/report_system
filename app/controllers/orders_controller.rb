@@ -4,7 +4,33 @@ class OrdersController < ApplicationController
   # GET /orders.json
   before_filter :active_user
   def index
-    @orders = Order.all
+    res = SortOption.find_by_user_id(current_user.id)
+    @current_user = current_user.id
+    @options = [['номер', 'number'],
+                ['клиент', 'client_id'],
+                ['дата','date'],
+                ['дата заключения','contract'],
+                ['курс','course_id'],
+                ['преподаватель','teacher_id'],
+                ['расписание','schedule_id'],
+                ['офис','office_id'],
+                ['начало','start'],
+                ['конец','end'],
+                ['скидка','discount'],
+                ['цена','price'],
+                ['создано','created_at'],
+                ['создал','author'],
+                ['отредактировано','updated_at'],
+                ['редактировал','editor']]
+    if res
+      if res.orders.present?
+        @orders = Order.order("#{res.orders} ASC")
+      else
+        @orders = Order.all
+      end
+    else
+      @orders = Order.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -116,6 +142,14 @@ class OrdersController < ApplicationController
       format.csv { send_data @order.to_csv }
       format.xls
     end
+  end
+
+  def sort_options
+    if params[:selected].present?
+      res = SortOption.find_or_create_by_user_id(current_user.id)
+      res.update_attribute(:orders, params[:selected])
+    end
+    redirect_to orders_path
   end
 
 end

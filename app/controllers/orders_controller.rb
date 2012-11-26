@@ -68,6 +68,7 @@ class OrdersController < ApplicationController
   # GET /orders/1/edit
   def edit
     @order = Order.find(params[:id])
+    @client_collection = Client.all
     @sts = Status.all.to_a
     @sts.delete(Status.where(:name => "Договор"))
     @sts.delete(Status.where(:name => "Отказ"))
@@ -78,8 +79,9 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    client = Client.find_by_name(params[:order][:client_id])
     @order = Order.new(params[:order])
+    fio = params[:client].split(" ")
+    client = Client.where(surname: fio[0], name: fio[1], middle_name: fio[2]).first
     @order.client_id = client.id
     @order.author = current_user.user_nick
 
@@ -99,6 +101,10 @@ class OrdersController < ApplicationController
   # PUT /orders/1.json
   def update
     @order = Order.find(params[:id])
+    fio = params[:client].split(" ")
+    client = Client.where(surname: fio[0], name: fio[1], middle_name: fio[2]).first
+    @order.client_id = client.id
+    @order.author = current_user.user_nick
 
     respond_to do |format|
       if @order.update_attributes(params[:order])  && @order.update_attribute(:editor, current_user.user_nick)

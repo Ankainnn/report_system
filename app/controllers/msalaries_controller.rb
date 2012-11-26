@@ -4,7 +4,28 @@ class MsalariesController < ApplicationController
   # GET /msalaries.json
   before_filter :active_user
   def index
-    @msalaries = Msalary.all
+    res = SortOption.find_by_user_id(current_user.id)
+    @current_user = current_user.id
+    @options = [['менеджер','manager_id'],
+                ['дата', 'date'],
+                ['сумма', 'summ'],
+                ['начало','start'],
+                ['конец','end'],
+                ['форма выплаты','type'],
+                ['комментарий','comment'],
+                ['оплата с','pay_from'],
+                ['оплата по','pay_to'],
+                ['создано','created_at'],
+                ['отредактировано','updated_at']]
+    if res
+      if res.msalaries.present?
+        @msalaries = Msalary.order("#{res.msalaries} ASC")
+      else
+        @msalaries = Msalary.all
+      end
+    else
+      @msalaries =  Msalary.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -90,6 +111,14 @@ class MsalariesController < ApplicationController
       format.csv { send_data @msalaries.to_csv }
       format.xls
     end
+  end
+
+  def sort_options
+    if params[:selected].present?
+      res = SortOption.find_or_create_by_user_id(current_user.id)
+      res.update_attribute(:msalaries, params[:selected])
+    end
+    redirect_to msalaries_path
   end
 
 end

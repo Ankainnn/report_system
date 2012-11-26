@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121120210236) do
+ActiveRecord::Schema.define(:version => 20121124141020) do
 
   create_table "channels", :force => true do |t|
     t.string   "name"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20121120210236) do
     t.string   "course"
     t.string   "date"
     t.string   "middle_name"
+    t.text     "subjects"
   end
 
   add_index "clients", ["channel_id"], :name => "index_clients_on_channel_id"

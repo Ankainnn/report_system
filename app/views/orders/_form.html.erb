@@ -2,12 +2,8 @@
     <%= f.input :date, label: "дата" %>
     <%= f.input :number, label: "номер договора" %>
     <div class="input">
-    <%= f.label :client, "клиент"%>
-    <% if action_name == "new"%>
-    <%= f.text_field :client_id , data: {autocomplete_source: @client_collection.map(&:name)} %>
-    <% else %>
-    <%= f.text_field :client_id%>
-    <% end %>
+    <%= label :client, "клиент"%>
+    <%= text_field_tag :client, nil, data: {autocomplete_source: @client_collection.map(&:fio)}, :html => { :id => 'order_client_id' } %>
     </div>
     <%= f.input :contract, label: "дата заключения"%>
     <%= f.association :course, label: "курс" %>

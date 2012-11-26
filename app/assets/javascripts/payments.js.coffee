@@ -15,10 +15,10 @@ jQuery ->
           type: 'POST'
           dataType: 'script'
           data: "client=#{res}"
-          #error: (jqXHR, textStatus, errorThrown) ->
-          #  $('body').append "AJAX Error: #{textStatus}"
-          #success: (data, textStatus, jqXHR) ->
-          #  $('body').append "Successful AJAX call: #{data}"
+    #error: (jqXHR, textStatus, errorThrown) ->
+    # $('body').append "AJAX Error: #{textStatus}"
+    #success: (data, textStatus, jqXHR) ->
+    # $('body').append "Successful AJAX call: #{data}"
     $('#payment_order_id, #schedule_ , #order_number_').keypress ->
       return false
 
@@ -29,19 +29,19 @@ jQuery ->
 
 
 # if options_t
-#   $('#payment_order').html(options_t)
-#   $('#payment_order').parent().show()
+# $('#payment_order').html(options_t)
+# $('#payment_order').parent().show()
 # else
-#   $('#payment_order').empty()
-#   $('#payment_order').parent().hide()
+# $('#payment_order').empty()
+# $('#payment_order').parent().hide()
 
 
 
 
 #options_t = $(courses).filter("optgroup[label='#{res}']").html()
 #if options_t
-#  $('#payment_start').html(options_t)
-#  $('#payment_start').parent().show()
+# $('#payment_start').html(options_t)
+# $('#payment_start').parent().show()
 #else
-#  $('#payment_start').empty()
-#  $('#payment_start').parent().hide()
+# $('#payment_start').empty()
+# $('#payment_start').parent().hide()

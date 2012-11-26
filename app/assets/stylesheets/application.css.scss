@@ -1,6 +1,6 @@
-@import "bootstrap-responsive.min.css";
 @import "bootstrap.min.css";
 @import "jquery-ui-timepicker-addon.css";
+@import "jquery-ui.css";
 
 label {margin-right: 20px;}
 .sort{
@@ -39,11 +39,15 @@ label {margin-right: 20px;}
 #submit{
   margin-left: 180px;
   text-align: left;
+  input{
+    width: 99px;
+  }
   div{
     margin-top: 3px;
+    width: 99px;
     a{
-      line-height: 14px;
-      width: 68px;
+      padding: 2px 0px;
+      display: block;
     }
   }
 }
@@ -126,3 +130,22 @@ ul.ui-autocomplete{
 #graphic, #order_number_{
   margin-bottom: 3px;
 }
+
+  #outlay_date_1i, #salary_date_1i, #msalary_date_1i, #payment_date_1i{
+    width: 68px;
+  }
+ #outlay_date_2i, #salary_date_2i, #msalary_date_2i, #payment_date_2i{
+    width: 105px;
+ }
+ #outlay_date_3i, #outlay_date_4i, #outlay_date_5i,
+ #salary_date_3i, #salary_date_4i, #salary_date_5i,
+ #msalary_date_3i, #msalary_date_4i, #msalary_date_5i,
+ #payment_date_3i, #payment_date_4i, #payment_date_5i{
+    width: 50px;
+ }
+
+.ui-widget-header .ui-icon {
+  background-image: url("ui-icons_222222_256x240.png");
+}
+
+

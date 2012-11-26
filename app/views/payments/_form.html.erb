@@ -1,14 +1,14 @@
 <%= simple_form_for(@payment, :html => { :class => 'form-horizontal' }) do |f| %>
-  <%= f.input :date, label: "дата" %>
-  <%= f.input :summ, label: "сумма" %>
+    <%= f.input :date, label: "дата" %>
+    <%= f.input :summ, label: "сумма" %>
     <div id="fix-payments">
-  <%= f.input :type, :collection => ["наличный расчет", "безналичный расчет"], :as => :radio_buttons, label: "форма оплаты" %>
+      <%= f.input :type, :collection => ["наличный расчет", "безналичный расчет"], :as => :radio_buttons, label: "форма оплаты" %>
     </div>
 
     <div>
-  <%= f.label "клиент"%>
-  <%= text_field_tag :client, nil , data: {autocomplete_source: @collect_c.map(&:fio) } %>
-  </div>
+      <%= f.label "клиент"%>
+      <%= text_field_tag :client, nil , data: {autocomplete_source: @collect_c.map(&:fio) } %>
+    </div>
 
     <div id="current_course" >
 
@@ -35,7 +35,7 @@
       <%= f.button :submit, :value => "сохранить"%>
       <div>
         <%= link_to 'к списку', payments_path, class: "btn"%>
-      </div>
-    </div>
+            </div>
+            </div>
 
-<% end %>
+        <% end %>

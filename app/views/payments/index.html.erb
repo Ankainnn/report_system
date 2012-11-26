@@ -1,6 +1,6 @@
 <h1>Платежи по договорам</h1>
 
-<%= link_to 'новый платеж', new_payment_path %> | <%= link_to 'загрузить таблицу в XLS формате', payments_to_xls_path + ".xls" %>
+<%= link_to 'новый платеж', new_payment_path %> | <%= link_to 'загрузить таблицу в XLS формате', payments_to_xls_path + ".xls" %> | сортировать по:  <%= render 'sort_by'%>
 <table id="demotable" class="table table-striped">
   <thead>
     <tr class="sort">

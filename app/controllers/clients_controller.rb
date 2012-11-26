@@ -95,6 +95,18 @@ include ApplicationHelper
   # PUT /clients/1.json
   def update
     @client = Client.find(params[:id])
+    times =[]
+    (0..6).each do |i|
+      if params[:hour][i].present? && params[:minute][i].present?
+        times << "#{params[:hour][i]}:#{ params[:minute][i]}"
+      end
+    end
+    if params[:day].present?
+      days = params[:day]
+      days = days.collect{|x| x + " | #{times[days.index(x)]}"}
+      days = days.join(", ")
+      @client.daysandtime = days
+    end
 
     respond_to do |format|
       if @client.update_attributes(params[:client]) && @client.update_attribute(:editor, current_user.user_nick)

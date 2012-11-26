@@ -10,6 +10,7 @@
     <th>ФИО</th>
     <th>телефон</th>
     <th>школа</th>
+    <th>предметы</th>
     <th>родитель</th>
     <th>телефон родителя</th>
     <th>канал</th>
@@ -38,6 +39,7 @@
         <td><%= client.fio%></td>
         <td><%= client.phone %></td>
         <td class="sum"> <%= client.school %></td>
+        <td><%= client.subjects%></td>
         <td><%= client.parent %></td>
         <td><%= client.parent_phone %></td>
         <td><%= client.channel.try(:name) %></td>

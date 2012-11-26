@@ -19,6 +19,7 @@ jQuery ->
         $('#salary_schedule_id').parent().show()
     else
       $('#salary_course_id').empty()
+      $('#salary_schedule_id').empty()       #Добавил
       $('#salary_course_id').parent().hide()
       $('#salary_schedule_id').parent().hide()
 

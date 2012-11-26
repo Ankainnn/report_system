@@ -22,8 +22,16 @@ Reports::Application.routes.draw do
 
   post "clients/sort_options"
   post "orders/sort_options"
+  post "outlays/sort_options"
+  post "salaries/sort_options"
+  post "msalaries/sort_options"
+  post "payments/sort_options"
   post "clients/index"
   post "payments/new"
+
+  #post 'payments/:id/edit' => 'payments#edit'
+  #post 'payments/:id/current_order' => 'payments#current_order'
+
   post "payments/current_order"
 
   resources :outlays

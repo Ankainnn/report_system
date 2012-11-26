@@ -27,7 +27,7 @@
     </div>
 
     <div>
-      <%= f.input :presumed_start, label: "ожидаемое начало", :input_html => { :class => 'ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all' } %>
+      <%= f.input :presumed_start, label: "ожидаемое начало" %>
     </div>
     <%= f.input :course, collection: Course.all.map(&:name), as: :select, label: "курс"%>
     <div class="input">

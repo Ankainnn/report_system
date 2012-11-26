@@ -4,7 +4,31 @@ class SalariesController < ApplicationController
   # GET /salaries.json
   before_filter :active_user
   def index
-    @salaries = Salary.all
+    res = SortOption.find_by_user_id(current_user.id)
+    @current_user = current_user.id
+    @options = [['дата', 'date'],
+                ['сумма', 'sum'],
+                ['курс','course_id'],
+                ['преподаватель','teacher_id'],
+                ['график','schedule_id'],
+                ['начало','start'],
+                ['конец','end'],
+                ['форма выплаты','type'],
+                ['комментарий','comment'],
+                ['оплата с','pay_from'],
+                ['оплата по','pay_to'],
+                ['создано','created_at'],
+                ['отредактировано','updated_at']]
+    if res
+      if res.salaries.present?
+        @salaries = Salary.order("#{res.salaries} ASC")
+      else
+        @salaries = Salary.all
+      end
+    else
+      @salaries =  Salary.all
+    end
+
 
     respond_to do |format|
       format.html # index.html.erb
@@ -92,5 +116,13 @@ class SalariesController < ApplicationController
       format.csv { send_data @salaries.to_csv }
       format.xls
     end
+  end
+
+  def sort_options
+    if params[:selected].present?
+      res = SortOption.find_or_create_by_user_id(current_user.id)
+      res.update_attribute(:salaries, params[:selected])
+    end
+    redirect_to salaries_path
   end
 end

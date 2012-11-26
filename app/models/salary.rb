@@ -2,6 +2,8 @@ class Salary < ActiveRecord::Base
   belongs_to :course
   belongs_to :schedule
   belongs_to :teacher
+
+  validates :teacher_id, :course_id, :schedule_id, presence: true
   self.inheritance_column = nil
 
   def self.to_csv(options = {})

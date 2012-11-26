@@ -4,7 +4,26 @@ class OutlaysController < ApplicationController
   # GET /outlays.json
   before_filter :active_user
   def index
-    @outlays = Outlay.all
+    res = SortOption.find_by_user_id(current_user.id)
+    @current_user = current_user.id
+    @options = [['дата', 'date'],
+                ['сумма', 'sum'],
+                ['тип расходов','type'],
+                ['форма оплаты','cost_id'],
+                ['автор','person'],
+                ['комментарий','comment'],
+                ['создано','created_at'],
+                ['отредактировано','updated_at']]
+    if res
+      if res.outlays.present?
+        @outlays = Outlay.order("#{res.outlays} ASC")
+      else
+        @outlays =  Outlay.all
+      end
+    else
+      @outlays =  Outlay.all
+    end
+
 
     respond_to do |format|
       format.html # index.html.erb
@@ -90,6 +109,14 @@ class OutlaysController < ApplicationController
       format.csv { send_data @outlays.to_csv }
       format.xls
     end
+  end
+
+  def sort_options
+    if params[:selected].present?
+      res = SortOption.find_or_create_by_user_id(current_user.id)
+      res.update_attribute(:outlays, params[:selected])
+    end
+    redirect_to outlays_path
   end
 
 end

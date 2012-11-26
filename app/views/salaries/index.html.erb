@@ -1,6 +1,6 @@
 <h1>Выплаты преподавателям</h1>
 
-<%= link_to 'новая выплата', new_salary_path %> | <%= link_to 'загрузить таблицу в XLS формате', salaries_to_xls_path + ".xls" %>
+<%= link_to 'новая выплата', new_salary_path %> | <%= link_to 'загрузить таблицу в XLS формате', salaries_to_xls_path + ".xls" %>  | сортировать по:  <%= render 'sort_by'%>
 <table id="demotable" class="table table-striped">
   <thead>
   <tr class="sort">

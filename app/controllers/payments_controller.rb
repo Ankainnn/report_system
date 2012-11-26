@@ -5,7 +5,28 @@ class PaymentsController < ApplicationController
   skip_before_filter :verify_authenticity_token
   before_filter :active_user
   def index
-    @payments = Payment.all
+    res = SortOption.find_by_user_id(current_user.id)
+    @current_user = current_user.id
+    @options = [['дата', 'date'],
+                ['сумма', 'summ'],
+                ['форма оплаты','type'],
+                ['договор','order_id'],
+                ['начало','start'],
+                ['конец','end'],
+                ['оплата с','pay_from'],
+                ['оплата по','pay_to'],
+                ['создано','created_at'],
+                ['отредактировано','updated_at']]
+    if res
+      if res.payments.present?
+        @payments = Payment.order("#{res.payments} ASC")
+      else
+        @payments = Payment.all
+      end
+    else
+      @payments =  Payment.all
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @payments }
@@ -84,6 +105,13 @@ class PaymentsController < ApplicationController
   # GET /payments/1/edit
   def edit
     @payment = Payment.find(params[:id])
+    client_id = []
+    Order.all.each do |order|
+      client_id << order.client_id
+    end
+    uniq_client_id = client_id.uniq
+
+    @collect_c = Client.where(id: uniq_client_id)
   end
 
   # POST /payments
@@ -141,5 +169,11 @@ class PaymentsController < ApplicationController
     end
   end
 
-
+  def sort_options
+    if params[:selected].present?
+      res = SortOption.find_or_create_by_user_id(current_user.id)
+      res.update_attribute(:payments, params[:selected])
+    end
+    redirect_to payments_path
+  end
 end

@@ -29,8 +29,8 @@ Reports::Application.routes.draw do
   post "clients/index"
   post "payments/new"
 
-  #post 'payments/:id/edit' => 'payments#edit'
-  #post 'payments/:id/current_order' => 'payments#current_order'
+  post 'payments/:id/edit' => 'payments#edit'
+  post 'payments/:id/current_order' => 'payments#current_order'
 
   post "payments/current_order"
 

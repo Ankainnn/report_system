@@ -7,7 +7,7 @@
 
     <div>
       <%= f.label "клиент"%>
-      <%= text_field_tag :client, nil , data: {autocomplete_source: @collect_c.map(&:fio) } %>
+      <%= text_field_tag :client, nil, id: "client_#{action_name}", data: {autocomplete_source: @collect_c.map(&:fio) } %>
     </div>
 
     <div id="current_course" >

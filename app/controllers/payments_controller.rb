@@ -104,7 +104,10 @@ class PaymentsController < ApplicationController
 
   # GET /payments/1/edit
   def edit
+    session[:course] = nil
+    session[:client] = nil
     @payment = Payment.find(params[:id])
+
     client_id = []
     Order.all.each do |order|
       client_id << order.client_id
@@ -112,6 +115,21 @@ class PaymentsController < ApplicationController
     uniq_client_id = client_id.uniq
 
     @collect_c = Client.where(id: uniq_client_id)
+
+
+    if params[:client]
+      client = params[:client].split(" ")
+      session[:client] = Client.where(surname: client[0], name: client[1], middle_name: client[2]).first
+      session[:client_id] = session[:client].id
+    end
+
+    @res = Client.find(session[:client_id]).courses if session[:client_id].present?
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @payments }
+      format.js
+    end
   end
 
   # POST /payments

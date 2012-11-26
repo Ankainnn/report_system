@@ -2,40 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de743223-6f17-4e43-88be-9660287a7a29" name="Default" comment="Задачи: 1, 5, 9, 11, 20">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/payments.js.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/payments.js.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/salaries.js.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/salaries.js.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/jquery-ui-timepicker-addon.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/jquery-ui-timepicker-addon.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/clients_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/clients_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/msalaries_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/msalaries_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/orders_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/orders_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/outlays_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/outlays_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/payments_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/payments_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/salaries_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/salaries_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/client.rb" afterPath="$PROJECT_DIR$/app/models/client.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/salary.rb" afterPath="$PROJECT_DIR$/app/models/salary.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/clients/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/clients/edit.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/clients/index.html.erb" afterPath="$PROJECT_DIR$/app/views/clients/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/clients/new.html.erb" afterPath="$PROJECT_DIR$/app/views/clients/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/msalaries/index.html.erb" afterPath="$PROJECT_DIR$/app/views/msalaries/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/orders/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/orders/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/orders/index.html.erb" afterPath="$PROJECT_DIR$/app/views/orders/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/orders/show.html.erb" afterPath="$PROJECT_DIR$/app/views/orders/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/outlays/index.html.erb" afterPath="$PROJECT_DIR$/app/views/outlays/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/payments/_current_course.html.erb" afterPath="$PROJECT_DIR$/app/views/payments/_current_course.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/payments/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/payments/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/payments/index.html.erb" afterPath="$PROJECT_DIR$/app/views/payments/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/payments/new.html.erb" afterPath="$PROJECT_DIR$/app/views/payments/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/salaries/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/salaries/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/salaries/index.html.erb" afterPath="$PROJECT_DIR$/app/views/salaries/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script/mailman_server" afterPath="$PROJECT_DIR$/script/mailman_server" />
     </list>
     <ignored path="report_system-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,55 +24,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="payments_controller.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="payments_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/payments_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="78" selection-start="848" selection-end="848" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mailman_server_2" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/script/mailman_server_2">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="52" selection-start="586" selection-end="586" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mailman_server" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/script/mailman_server">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="53" selection-start="586" selection-end="586" vertical-scroll-proportion="0.6936416">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="payments.js.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/payments.js.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="61" selection-start="1003" selection-end="1003" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new.js.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/payments/new.js.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="47" selection-start="159" selection-end="159" vertical-scroll-proportion="-1.875">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/payments/index.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="6" column="0" selection-start="194" selection-end="194" vertical-scroll-proportion="-3.2872927">
               <folding />
             </state>
           </provider>
@@ -128,20 +53,20 @@
         <option value="$PROJECT_DIR$/app/views/payments/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/payments/current_order.js.erb" />
         <option value="$PROJECT_DIR$/app/views/payments/edit.js.erb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/views/payments/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/payments/_current_course.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/salaries.js.coffee" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/payments.js.coffee" />
         <option value="$PROJECT_DIR$/app/views/payments/new.js.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/payments_controller.rb" />
         <option value="$PROJECT_DIR$/script/mailman_server_2" />
         <option value="$PROJECT_DIR$/script/mailman_server" />
+        <option value="$PROJECT_DIR$/app/controllers/payments_controller.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/payments.js.coffee" />
+        <option value="$PROJECT_DIR$/app/views/payments/_form.html.erb" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="145" />
+    <option name="x" value="66" />
     <option name="y" value="93" />
     <option name="width" value="1482" />
     <option name="height" value="674" />
@@ -160,7 +85,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="RailsProjectView" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -187,20 +112,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="report_system-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="report_system-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="report_system-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="script" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -231,6 +142,24 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="Assets" />
               <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.AssetsTopLevelFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="report_system-master" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="report_system-master" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assets" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.AssetsTopLevelFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Javascripts" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.AssetsPredefinedGroupFolderNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -528,7 +457,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="145" y="93" width="1482" height="674" extended-state="0" />
+    <frame x="66" y="93" width="1482" height="674" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -612,13 +541,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/payments/edit.js.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="46" selection-start="159" selection-end="159" vertical-scroll-proportion="0.0867052">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/jquery-ui-timepicker-ru.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -642,23 +564,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="79" selection-start="1159" selection-end="1159" vertical-scroll-proportion="1.1049724">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/payments/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="21" selection-start="44" selection-end="44" vertical-scroll-proportion="0.0867052">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/payments/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="68" selection-start="524" selection-end="524" vertical-scroll-proportion="0.46242774">
           <folding />
         </state>
       </provider>
@@ -670,13 +578,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/payments/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/salaries.js.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="1" selection-start="935" selection-end="987" vertical-scroll-proportion="0.47513813">
@@ -684,23 +585,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/payments.js.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="61" selection-start="1003" selection-end="1003" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/payments/new.js.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="47" selection-start="159" selection-end="159" vertical-scroll-proportion="-1.875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/payments_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="78" selection-start="848" selection-end="848" vertical-scroll-proportion="0.0">
+        <state line="3" column="47" selection-start="159" selection-end="159" vertical-scroll-proportion="0.0867052">
           <folding />
         </state>
       </provider>
@@ -714,7 +601,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script/mailman_server">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="53" selection-start="586" selection-end="586" vertical-scroll-proportion="0.6936416">
+        <state line="24" column="53" selection-start="586" selection-end="586" vertical-scroll-proportion="0.6629834">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="56" selection-start="1135" selection-end="1135" vertical-scroll-proportion="0.7513812">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/payments/edit.js.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="42" selection-start="159" selection-end="159" vertical-scroll-proportion="0.0867052">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/payments.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="56" selection-start="918" selection-end="918" vertical-scroll-proportion="0.6353591">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/payments/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="90" selection-start="689" selection-end="689" vertical-scroll-proportion="0.6647399">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/payments/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="66" selection-start="1129" selection-end="1129" vertical-scroll-proportion="0.5928854">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/payments_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="194" selection-end="194" vertical-scroll-proportion="-3.2872927">
           <folding />
         </state>
       </provider>

@@ -7,18 +7,24 @@ jQuery ->
     #$('#payment_start').parent().hide()
     courses = $("#payment_start").html()
     schedule = $("#payment_end").html()
-    $('#client').autocomplete
-      source: $('#client').data('autocomplete-source')
+    $('#client_new').autocomplete
+      source: $('#client_new').data('autocomplete-source')
       select: (event,ui) ->
         res = ui.item.value
         $.ajax 'new',
           type: 'POST'
           dataType: 'script'
           data: "client=#{res}"
-    #error: (jqXHR, textStatus, errorThrown) ->
-    # $('body').append "AJAX Error: #{textStatus}"
-    #success: (data, textStatus, jqXHR) ->
-    # $('body').append "Successful AJAX call: #{data}"
+
+    $('#client_edit').autocomplete
+      source: $('#client_edit').data('autocomplete-source')
+      select: (event,ui) ->
+        res = ui.item.value
+        $.ajax 'edit',
+          type: 'POST'
+          dataType: 'script'
+          data: "client=#{res}"
+
     $('#payment_order_id, #schedule_ , #order_number_').keypress ->
       return false
 

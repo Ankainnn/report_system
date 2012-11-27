@@ -41,7 +41,7 @@ class Client < ActiveRecord::Base
     name = fio[1]
     middle_name = fio[2]
 
-    email = array_hash[1].split(":").last
+    email = array_hash[1].split(":").last.lstrip
     phone = array_hash[2].split(":").last
     school = array_hash[3].split(":").last
     vk_page = array_hash[4].split(":").last
@@ -50,7 +50,7 @@ class Client < ActiveRecord::Base
     subjects.delete_at(0)
     subjects = subjects.join(", ")
 
-    Client.create surname: surname, name: name, middle_name: middle_name, email: "tester@yandex.ru", phone: phone, school: school, idvk: vk_page, subjects: subjects
+    Client.create surname: surname, name: name, middle_name: middle_name, email: email, phone: phone, school: school, idvk: vk_page, subjects: subjects
   end
 
 end

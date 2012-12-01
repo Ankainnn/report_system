@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>email:</b>
+  <%= @mail_box.email %>
+</p>
+
+<p>
+  <b>пароль:</b>
+  <%= @mail_box.password %>
+</p>
+
+<p>
+  <b>ресурс:</b>
+  <%= @mail_box.resource %>
+</p>
+
+
+<%= link_to 'изменить', edit_mail_box_path(@mail_box) %> |
+<%= link_to 'назад', mail_boxes_path %>

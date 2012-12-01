@@ -26,7 +26,9 @@ end
 gem 'jquery-rails'
 gem 'devise'
 #gem 'localtunnel'
-gem 'mailman', require: false
+gem "ruby-gmail"
+gem "mime"
+#gem "activerecord-mysql-adapter", "~> 0.0.1"
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

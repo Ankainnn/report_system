@@ -31,11 +31,13 @@
       <%= link_to "Клиенты", clients_path %> | 
       <%= link_to "Договоры", orders_path %> | 
       <%= link_to "Расходы", outlays_path %> | 
-      <%= link_to "Выплаты преподователю", salaries_path %> | 
-      <%= link_to "Выплаты менеджеру", msalaries_path %> | 
+      <%= link_to "Выплаты преподователям", salaries_path %> |
+      <%= link_to "Выплаты менеджерам", msalaries_path %> |
       <%= link_to "Выплаты по договорам", payments_path %>
       <br>
       Страница с инструкцией по фильтрам: <%= link_to "инструкция", help_page_path %>
+    <br>
+      Страница с элекронными ящиками для обработки: <%= link_to "mail boxes", mail_boxes_path %>
     <% end %>
 
 <%= yield %>

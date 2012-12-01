@@ -1,4 +1,6 @@
 Reports::Application.routes.draw do
+  resources :mail_boxes
+
   resources :periods
 
   get "help/index"

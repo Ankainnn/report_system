@@ -29,10 +29,9 @@ class Client < ActiveRecord::Base
     end
   end
 
-  def self.receive_mail(message)
-    array_hash = []
-    array_info = message.body.decoded
-    array_hash = array_info.split(";")
+  def self.receive(m, resource)
+    mail = m.to_s
+    array_hash = mail.split(";")
 
     array_hash.pop
 

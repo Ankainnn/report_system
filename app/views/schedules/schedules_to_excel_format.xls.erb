@@ -12,22 +12,24 @@
         <Cell><Data ss:Type="String">ID</Data></Cell>
         <Cell><Data ss:Type="String">дни</Data></Cell>
         <Cell><Data ss:Type="String">время</Data></Cell>
+        <Cell><Data ss:Type="String">начало занятий</Data></Cell>
+        <Cell><Data ss:Type="String">конец занятий</Data></Cell>
         <Cell><Data ss:Type="String">адрес</Data></Cell>
         <Cell><Data ss:Type="String">преподаватель</Data></Cell>
         <Cell><Data ss:Type="String">курс</Data></Cell>
         <Cell><Data ss:Type="String">часы</Data></Cell>
-        <Cell><Data ss:Type="String">начало</Data></Cell>
       </Row>
       <% @schedules.each do |schedule| %>
           <Row>
             <Cell><Data ss:Type="Number"><%= schedule.id %></Data></Cell>
             <Cell><Data ss:Type="String"><%= schedule.day %></Data></Cell>
             <Cell><Data ss:Type="String"><%= schedule.time %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= schedule.start.strftime("%d.%m.%Y") if schedule.start.present? %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= schedule.end.strftime("%d.%m.%Y") if schedule.start.present? %></Data></Cell>
             <Cell><Data ss:Type="String"><%= schedule.office.address if schedule.office_id.present? %></Data></Cell>
             <Cell><Data ss:Type="String"><%= schedule.teacher.name if schedule.teacher_id.present? %></Data></Cell>
             <Cell><Data ss:Type="String"><%= schedule.course.name if schedule.course_id.present? %></Data></Cell>
             <Cell><Data ss:Type="String"><%= schedule.hours %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= schedule.start.strftime("%d.%m.%Y") if schedule.start.present? %></Data></Cell>
           </Row>
       <% end %>
     </Table>

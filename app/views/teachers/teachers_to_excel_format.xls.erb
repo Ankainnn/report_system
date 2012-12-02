@@ -16,6 +16,10 @@
         <Cell><Data ss:Type="String">vk(id)</Data></Cell>
         <Cell><Data ss:Type="String">место работы</Data></Cell>
         <Cell><Data ss:Type="String">коментарий</Data></Cell>
+        <Cell><Data ss:Type="String">оклад</Data></Cell>
+        <Cell><Data ss:Type="String">процент</Data></Cell>
+        <Cell><Data ss:Type="String">создано</Data></Cell>
+        <Cell><Data ss:Type="String">отредактировано</Data></Cell>
       </Row>
       <% @teachers.each do |teacher| %>
           <Row>
@@ -26,6 +30,10 @@
             <Cell><Data ss:Type="String"><%= teacher.idvk %></Data></Cell>
             <Cell><Data ss:Type="String"><%= teacher.workplace %></Data></Cell>
             <Cell><Data ss:Type="String"><%= teacher.comment %></Data></Cell>
+            <Cell><Data ss:Type="Number"><%= teacher.salary %></Data></Cell>
+            <Cell><Data ss:Type="Number"><%= teacher.percent %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= teacher.created_at %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= teacher.updated_at %></Data></Cell>
           </Row>
       <% end %>
     </Table>

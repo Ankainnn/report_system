@@ -11,6 +11,8 @@
       <th>Id-vk</th>
       <th>рабочее место</th>
       <th>комментарий</th>
+      <th>оклад</th>
+      <th>процент</th>
       <th></th>
       <th></th>
       <th></th>
@@ -30,6 +32,8 @@
         <td><%= teacher.idvk %></td>
         <td><%= teacher.workplace %></td>
         <td><%= teacher.comment %></td>
+        <td><%= teacher.salary %></td>
+        <td><%= teacher.percent %></td>
         <td><%= link_to 'см.', teacher %></td>
         <td><%= link_to 'ред.', edit_teacher_path(teacher) %></td>
         <td><%= link_to 'уд.', teacher, confirm: 'Вы уверены?', method: :delete %></td>

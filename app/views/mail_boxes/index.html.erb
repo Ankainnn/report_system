@@ -17,7 +17,7 @@
   <tr>
     <td><%= mail_box.email %></td>
     <td><%= mail_box.password %></td>
-    <td><%= mail_box.resource %></td>
+    <td><%= mail_box.resource.name if mail_box.resource_id.present? %></td>
     <td><%= link_to 'Show', mail_box %></td>
     <td><%= link_to 'Edit', edit_mail_box_path(mail_box) %></td>
     <td><%= link_to 'Destroy', mail_box, confirm: 'Are you sure?', method: :delete %></td>

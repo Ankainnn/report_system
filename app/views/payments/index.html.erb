@@ -34,7 +34,7 @@
         <td><%= payment.updated_at %></td>
         <td><%= link_to 'см.', payment %></td>
         <td><%= link_to 'ред.', edit_payment_path(payment) %></td>
-        <td><%= link_to 'уд.', payment, confirm: 'Are you sure?', method: :delete %></td>
+        <td><%= link_to 'уд.', payment, confirm: 'Вы уверены?', method: :delete %></td>
       </tr>
     <% end %>
   </tbody>

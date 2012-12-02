@@ -58,7 +58,7 @@
         <td><%= link_to 'см.', client %></td>
         <% if user_role == "admin"%>
             <td><%= link_to 'ред.', edit_client_path(client) %></td>
-            <td><%= link_to 'уд.', client, confirm: 'Are you sure?', method: :delete %></td>
+            <td><%= link_to 'уд.', client, confirm: 'Вы уверены?', method: :delete %></td>
         <%end%>
       </tr>
   <% end %>

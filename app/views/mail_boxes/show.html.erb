@@ -12,7 +12,7 @@
 
 <p>
   <b>ресурс:</b>
-  <%= @mail_box.resource %>
+  <%= @mail_box.resource.name if @mail_box.resource_id.present? %>
 </p>
 
 

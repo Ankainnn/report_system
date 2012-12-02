@@ -33,11 +33,22 @@
   <b>коммент:</b>
   <%= @teacher.comment %>
 </p>
+
 <p>
   <b>курсы:</b>
   <% @teacher.courses.each do |x| %>
     <%=  x.name + ", " %>
   <% end %>
+</p>
+
+<p>
+  <b>оклад:</b>
+  <%= @teacher.salary %>
+</p>
+
+<p>
+  <b>оклад:</b>
+  <%= @teacher.percent %>
 </p>
 
 

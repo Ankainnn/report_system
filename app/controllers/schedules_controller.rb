@@ -53,6 +53,12 @@ include ApplicationHelper
       times<< "#{params[:hour][i]}:#{ params[:minute][i]}"
       end
     end
+
+    count_days = params[:day].count if params[:day]
+    count_times = times.count
+
+    if count_days == count_times
+
     times =  times.join(", ")
     @schedule = Schedule.new(params[:schedule])
     @schedule.day = days
@@ -66,6 +72,10 @@ include ApplicationHelper
         format.html { render action: "new" }
         format.json { render json: @schedule.errors, status: :unprocessable_entity }
       end
+    end
+
+    else
+     redirect_to new_schedule_path, notice: "даныне введены некорректно (день-время)"
     end
   end
 

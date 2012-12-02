@@ -20,6 +20,15 @@
   <%= @manager.school %>
 </p>
 
+<p>
+  <b>оклад:</b>
+  <%= @manager.salary %>
+</p>
+
+<p>
+  <b>оклад:</b>
+  <%= @manager.percent %>
+</p>
 
 <%= link_to 'редактировать', edit_manager_path(@manager) %> |
 <%= link_to 'к списку', managers_path %>

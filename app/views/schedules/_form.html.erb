@@ -9,6 +9,8 @@
           </div>
   <% end%>
     </div>
+  <%= f.input :start, label: "начало занятий" %>
+  <%= f.input :end, label: "конец занятий" %>
   <%= f.association :office, label: "офис" %>
   <%= f.association :teacher, label: "преподаватель" %>
   <%= f.association :course, label: "курс" %>

@@ -8,6 +8,8 @@
     <th>телефон</th>
     <th>Id-vk</th>
     <th>школа</th>
+    <th>оклад</th>
+    <th>процент</th>
     <th></th>
     <th></th>
     <th></th>
@@ -20,6 +22,8 @@
     <td><%= manager.phone %></td>
     <td><%= manager.idvk %></td>
     <td><%= manager.school %></td>
+    <td><%= manager.salary %></td>
+    <td><%= manager.percent %></td>
     <td><%= link_to 'см.', manager %></td>
     <td><%= link_to 'ред.', edit_manager_path(manager) %></td>
     <td><%= link_to 'уд.', manager, confirm: 'Вы уверены?', method: :delete %></td>

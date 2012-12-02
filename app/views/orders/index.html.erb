@@ -49,7 +49,7 @@
         <td><%= button_to 'оплата по договору', payment_to_order_path(id: order.id) %></td>
         <td><%= link_to 'см.', order %></td>
         <td><%= link_to 'ред.', edit_order_path(order) %></td>
-        <td><%= link_to 'уд.', order, confirm: 'уверены?', method: :delete %></td>
+        <td><%= link_to 'уд.', order, confirm: 'Вы уверены?', method: :delete %></td>
       </tr>
   <% end %>
   </tbody>

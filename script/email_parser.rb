@@ -22,7 +22,7 @@ begin
 
   mailboxes.each do |mail_box|
     Gmail.new("#{mail_box.email}", "#{mail_box.password}").inbox.emails(:unread, :from => "yourprof@cc-srv").each do |m|
-      Client.receive(m.body, mail_box.resource)
+      Client.receive(m.body, mail_box.resource_id)
       m.mark(:read)
     end
   end

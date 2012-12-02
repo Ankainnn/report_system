@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121201150458) do
+ActiveRecord::Schema.define(:version => 20121202224253) do
 
   create_table "channels", :force => true do |t|
     t.string   "name"
@@ -79,9 +79,9 @@ ActiveRecord::Schema.define(:version => 20121201150458) do
   create_table "mail_boxes", :force => true do |t|
     t.string   "email"
     t.string   "password"
-    t.string   "resource"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "resource_id"
   end
 
   create_table "managers", :force => true do |t|
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20121201150458) do
     t.integer  "percent"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "salary"
   end
 
   create_table "msalaries", :force => true do |t|
@@ -172,7 +173,7 @@ ActiveRecord::Schema.define(:version => 20121201150458) do
   add_index "payments", ["order_id"], :name => "index_payments_on_order_id"
 
   create_table "periods", :force => true do |t|
-    t.string   "period"
+    t.integer  "period"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -208,9 +209,10 @@ ActiveRecord::Schema.define(:version => 20121201150458) do
     t.integer  "teacher_id"
     t.integer  "course_id"
     t.integer  "hours"
-    t.datetime "start"
+    t.date     "start"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.date     "end"
   end
 
   add_index "schedules", ["course_id"], :name => "index_schedules_on_course_id"
@@ -255,6 +257,8 @@ ActiveRecord::Schema.define(:version => 20121201150458) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "surname"
+    t.integer  "salary"
+    t.integer  "percent"
   end
 
   create_table "users", :force => true do |t|

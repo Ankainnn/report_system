@@ -1,6 +1,6 @@
 <h1>Районы</h1>
 
-<%= link_to 'новый источник', new_resource_path %> | <%= link_to 'загрузить таблицу в XLS формате', resources_to_xls_path + ".xls" %>
+<%= link_to 'новый район', new_resource_path %> | <%= link_to 'загрузить таблицу в XLS формате', district_to_xls_path + ".xls" %>
 <table id="demotable" class="table table-striped">
   <thead>
   <tr class="sort">
@@ -16,7 +16,7 @@
     <td><%= resource.name %></td>
     <td><%= link_to 'см.', resource %></td>
     <td><%= link_to 'ред.', edit_resource_path(resource) %></td>
-    <td><%= link_to 'уд.', resource, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'уд.', resource, confirm: 'Вы уверены?', method: :delete %></td>
   </tr>
 <% end %>
   </tbody>

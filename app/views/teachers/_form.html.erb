@@ -6,7 +6,7 @@
   <%= f.input :email %>
   <%= f.input :idvk, :label => "id-vk" %>
   <%= f.input :workplace, label: "рабочее место" %>
-  <%= f.input :comment, label: "комментарий" %>
+  <%= f.input :comment, label: "комментарий", :input_html => { :cols => 50, :rows => 4 }  %>
   <%= f.association :courses, label: "курс" %>
     <div id="submit">
       <%= f.button :submit, :value => "сохранить"%>

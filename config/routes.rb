@@ -13,7 +13,7 @@ Reports::Application.routes.draw do
   get "msalaries/msalaries_to_excel_format"
   get "payments/payments_to_excel_format"
   get "statuses/statuses_to_excel_format"
-  get "resources/resources_to_excel_format"
+  get "resources/districts_to_excel_format"
   get "channels/channels_to_excel_format"
   get "courses/courses_to_excel_format"
   get "costs/costs_to_excel_format"
@@ -97,6 +97,8 @@ Reports::Application.routes.draw do
   match 'managers/managers_to_excel_format', to: 'managers#managers_to_excel_format', as: :managers_to_xls
   match 'teachers/teachers_to_excel_format', to: 'teachers#teachers_to_excel_format', as: :teachers_to_xls
   match 'schedules/schedules_to_excel_format', to: 'schedules#schedules_to_excel_format', as: :schedules_to_xls
+  match 'resources/districts_to_excel_format', to: 'resources#districts_to_excel_format', as: :district_to_xls
+
   #match 'periods/periods_to_excel_format', to: 'periods#periods_to_excel_format', as: :periods_to_xls
 
   match 'help/admin_add_user', to: 'help#admin_add_user', as: :add_user

@@ -56,6 +56,10 @@ $(document).ready(function() {
             source: $('#order_client_id').data('autocomplete-source')
         });
 
+        $( "#client" ).autocomplete({
+            source: $('#client').data('autocomplete-source')
+        });
+
 
 
 

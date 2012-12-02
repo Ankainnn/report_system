@@ -16,7 +16,7 @@
     <td><%= status.name %></td>
     <td><%= link_to 'см.', status %></td>
     <td><%= link_to 'ред.', edit_status_path(status) %></td>
-    <td><%= link_to 'уд.', status, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'уд.', status, confirm: 'Вы уверены?', method: :delete %></td>
   </tr>
 <% end %>
   </tbody>

@@ -27,7 +27,7 @@
             <Cell><Data ss:Type="String"><%= schedule.teacher.name if schedule.teacher_id.present? %></Data></Cell>
             <Cell><Data ss:Type="String"><%= schedule.course.name if schedule.course_id.present? %></Data></Cell>
             <Cell><Data ss:Type="String"><%= schedule.hours %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= schedule.start.strftime("%d.%m.%Y") %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= schedule.start.strftime("%d.%m.%Y") if schedule.start.present? %></Data></Cell>
           </Row>
       <% end %>
     </Table>

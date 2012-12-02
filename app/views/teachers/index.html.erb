@@ -1,16 +1,16 @@
 <h1>Преподаватели</h1>
 
-<%= link_to 'Новый преподаватель', new_teacher_path %> | <%= link_to 'загрузить таблицу в XLS формате', teachers_to_xls_path + ".xls" %>
+<%= link_to 'новый преподаватель', new_teacher_path %> | <%= link_to 'загрузить таблицу в XLS формате', teachers_to_xls_path + ".xls" %>
 <table id="demotable" class="table table-striped">
   <thead>
     <tr class="sort">
       <th><div id="result" style="text-align: center; color: #000000;"></div>ФИО</th>
       <th>телефон</th>
+      <th>курсы</th>
       <th>Email</th>
       <th>Id-vk</th>
       <th>рабочее место</th>
       <th>комментарий</th>
-      <th>курсы</th>
       <th></th>
       <th></th>
       <th></th>
@@ -21,18 +21,18 @@
       <tr class="tr">
         <td><%= teacher.fio %></td>
         <td><%= teacher.phone %></td>
+        <td>
+          <% teacher.courses.each do |x| %>
+              <%=  x.name + ", " %>
+          <% end %>
+        </td>
         <td><%= teacher.email %></td>
         <td><%= teacher.idvk %></td>
         <td><%= teacher.workplace %></td>
         <td><%= teacher.comment %></td>
-        <td>
-          <% teacher.courses.each do |x| %>
-            <%=  x.name + ", " %>
-          <% end %>
-        </td>
         <td><%= link_to 'см.', teacher %></td>
         <td><%= link_to 'ред.', edit_teacher_path(teacher) %></td>
-        <td><%= link_to 'уд.', teacher, confirm: 'Are you sure?', method: :delete %></td>
+        <td><%= link_to 'уд.', teacher, confirm: 'Вы уверены?', method: :delete %></td>
       </tr>
     <% end %>
   </tbody>

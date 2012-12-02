@@ -83,7 +83,7 @@ class ResourcesController < ApplicationController
     end
   end
 
-  def resources_to_excel_format
+  def districts_to_excel_format
     @resources = Resource.all
     respond_to do |format|
       format.html

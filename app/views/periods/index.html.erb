@@ -1,7 +1,7 @@
 <h1>Периоды</h1>
 
 
-<%= link_to 'Новый период', new_period_path %>
+<%= link_to 'новый период', new_period_path %>
 <table id="demotable" class="table table-striped">
   <thead>
   <tr class="sort">
@@ -17,7 +17,7 @@
     <td><%= period.period %></td>
     <td><%= link_to 'см.', period %></td>
     <td><%= link_to 'ред.', edit_period_path(period) %></td>
-    <td><%= link_to 'уд.', period, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'уд.', period, confirm: 'Вы уверены?', method: :delete %></td>
   </tr>
 <% end %>
 </tbody>

@@ -34,10 +34,10 @@
         <td><%= order.client.fio %></td>
         <td><%= order.date%></td>
         <td><%= order.contract %></td>
-        <td><%= order.course.name %></td>
-        <td><%= order.teacher.name %></td>
-        <td><%= order.schedule.name%></td>
-        <td><%= order.office.name %></td>
+        <td><%= order.course.name if order.course_id.present? %></td>
+        <td><%= order.teacher.name if order.teacher_id.present? %></td>
+        <td><%= order.schedule.name if order.schedule_id.present?%></td>
+        <td><%= order.office.name if order.office_id.present?%></td>
         <td><%= order.start %></td>
         <td><%= order.end %></td>
         <td><%= order.discount %></td>

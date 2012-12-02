@@ -1,4 +1,4 @@
-<h1>Справочник менеджеров фирмы</h1>
+<h1>менеджеры</h1>
 
 <%= link_to 'новый менеджер', new_manager_path %> | <%= link_to 'загрузить таблицу в XLS формате', managers_to_xls_path + ".xls" %>
 <table id="demotable" class="table table-striped">
@@ -22,7 +22,7 @@
     <td><%= manager.school %></td>
     <td><%= link_to 'см.', manager %></td>
     <td><%= link_to 'ред.', edit_manager_path(manager) %></td>
-    <td><%= link_to 'уд.', manager, confirm: 'уверены?', method: :delete %></td>
+    <td><%= link_to 'уд.', manager, confirm: 'Вы уверены?', method: :delete %></td>
   </tr>
 <% end %>
   </tbody>

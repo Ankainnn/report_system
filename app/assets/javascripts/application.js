@@ -38,13 +38,6 @@ $(document).ready(function() {
 
 
 
-
-
-
-
-
-
-
     jQuery(function($){
    $("#date").mask("99/99/9999");
    $.mask.definitions['#']='[0123456789.]';

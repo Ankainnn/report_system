@@ -23,9 +23,9 @@ include ApplicationHelper
                 ['офис','office_id'],
                 ['комментарий','comment']]
     if res
-      @clients = Client.order("#{res.clients} ASC")
+      @clients = Client.order("#{res.clients} ASC").page(params[:page]).per_page(3)
     else
-      @clients = Client.all
+      @clients = Client.all.page(params[:page]).per_page(3)
     end
 
 
@@ -131,7 +131,7 @@ include ApplicationHelper
     end
   end
 
-  def date_to_excel_format
+  def clients_to_excel_format
     @clients = Client.all
     respond_to do |format|
       format.html

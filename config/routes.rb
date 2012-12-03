@@ -6,7 +6,7 @@ Reports::Application.routes.draw do
   get "help/index"
 
   get "orders/payment"
-  get "clients/date_to_excel_format"
+  get "clients/clients_to_excel_format"
   get "orders/orders_to_excel_format"
   get "outlays/outlays_to_excel_format"
   get "salaries/salaries_to_excel_format"
@@ -28,7 +28,7 @@ Reports::Application.routes.draw do
   post "salaries/sort_options"
   post "msalaries/sort_options"
   post "payments/sort_options"
-  post "clients/index"
+  #post "clients/index"
   post "payments/new"
 
   post 'payments/:id/edit' => 'payments#edit'
@@ -82,7 +82,7 @@ Reports::Application.routes.draw do
 
   resources :statuses
   match 'orders/payment', to: 'orders#payment', as: :payment_to_order
-  match 'clients/date_to_excel_format', to: 'clients#date_to_excel_format', as: :clients_to_xls
+  match 'clients/clients_to_excel_format', to: 'clients#clients_to_excel_format', as: :clients_to_xls
   match 'orders/orders_to_excel_format', to: 'orders#orders_to_excel_format', as: :orders_to_xls
   match 'outlays/outlays_to_excel_format', to: 'outlays#outlays_to_excel_format', as: :outlays_to_xls
   match 'salaries/salaries_to_excel_format', to: 'salaries#salaries_to_excel_format', as: :salaries_to_xls
@@ -99,16 +99,12 @@ Reports::Application.routes.draw do
   match 'schedules/schedules_to_excel_format', to: 'schedules#schedules_to_excel_format', as: :schedules_to_xls
   match 'resources/districts_to_excel_format', to: 'resources#districts_to_excel_format', as: :district_to_xls
 
-  #match 'periods/periods_to_excel_format', to: 'periods#periods_to_excel_format', as: :periods_to_xls
-
   match 'help/admin_add_user', to: 'help#admin_add_user', as: :add_user
 
   match 'users/create', to: 'users#create', as: :create_user
 
 
   match 'help', to: 'help#index', as: :help_page
-
-  match 'clients', to: 'clients#sort_options', as: :ajax
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

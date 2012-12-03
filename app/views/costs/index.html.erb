@@ -1,6 +1,8 @@
 <h1>Типы расходов</h1>
-
-<%= link_to 'новый тип расходов', new_cost_path %> | <%= link_to 'загрузить таблицу в XLS формате', costs_to_xls_path + ".xls" %>
+<%if user_role != "visitor"%>
+<%= link_to 'новый тип расходов', new_cost_path %> |
+<%end%>
+<%= link_to 'загрузить таблицу в XLS формате', costs_to_xls_path + ".xls" %>
 <table id="demotable" class="table table-striped">
   <thead>
   <tr class="sort">
@@ -16,8 +18,10 @@
   <tr>
     <td><%= cost.name %></td>
     <td><%= link_to 'см.', cost %></td>
+    <%if user_role != "visitor"%>
     <td><%= link_to 'ред.', edit_cost_path(cost) %></td>
     <td><%= link_to 'уд.', cost, confirm: 'Вы уверены?', method: :delete %></td>
+    <%end%>
   </tr>
 <% end %>
   </tbody>

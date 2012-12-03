@@ -13,7 +13,7 @@
       <%= f.input :user_nick, :required => true, label: "логин" %>
       <%= f.input :password, :required => true, label: "пароль" %>
       <%= f.input :password_confirmation, :required => true, label: "повторите пароль" %>
-      <%= f.input :role, collection: [["admin", "admin"],["user", "user"]], as: :radio_buttons, label: "права"%>
+      <%= f.input :role, collection: [["admin", "admin"],["user", "user"],["visitor", "visitor"]], as: :radio_buttons, label: "права"%>
     </div>
     <div class="form-actions">
       <%= f.button :submit, "готово" %>

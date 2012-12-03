@@ -14,7 +14,8 @@
 <body>
     <% if current_user %>
     	<%= link_to "Выйти", destroy_user_session_path, :method => :delete %>
-    	<%= link_to "Пользователи", list_users_path %></br>
+    	<%= link_to "Пользователи", list_users_path if user_role == "admin"%>
+    </br>
       СПРАВОЧНИКИ:  
       <%= link_to "Статусы", statuses_path %> |
       <%= link_to "Районы", resources_path %> |
@@ -37,7 +38,9 @@
       <br>
       Страница с инструкцией по фильтрам: <%= link_to "инструкция", help_page_path %>
     <br>
+    <%if user_role == "admin"%>
       Страница с элекронными ящиками для обработки: <%= link_to "mail boxes", mail_boxes_path %>
+    <%end%>
     <% end %>
 
 <%= yield %>

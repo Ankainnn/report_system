@@ -1,6 +1,8 @@
 <h1>Договоры</h1>
-
-<%= link_to 'новый договор', new_order_path %> | <%= link_to 'загрузить таблицу в XLS формате', orders_to_xls_path + ".xls" %> | сортировать по:  <%= render 'sort_by'%>
+<%if user_role != "visitor"%>
+<%= link_to 'новый договор', new_order_path %> |
+   <%end%>
+    <%= link_to 'загрузить таблицу в XLS формате', orders_to_xls_path + ".xls" %> | сортировать по:  <%= render 'sort_by'%>
 
 <table id="demotable" class="table table-striped tablesorter">
   <thead>
@@ -48,8 +50,10 @@
         <td><%= order.editor %></td>
         <td><%= button_to 'оплата по договору', payment_to_order_path(id: order.id) %></td>
         <td><%= link_to 'см.', order %></td>
+        <%if user_role != "visitor"%>
         <td><%= link_to 'ред.', edit_order_path(order) %></td>
         <td><%= link_to 'уд.', order, confirm: 'Вы уверены?', method: :delete %></td>
+         <%end%>
       </tr>
   <% end %>
   </tbody>

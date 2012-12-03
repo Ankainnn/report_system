@@ -1,8 +1,12 @@
 <h1>Клиенты</h1>
+<%if user_role != "visitor"%>
  <%=  link_to 'новый клиент', new_client_path  %> |
-
+<%end%>
  <%= link_to 'загрузить таблицу в XLS формате', clients_to_xls_path + ".xls" %> | сортировать по:  <%= render 'sort_by'%>
  <%= will_paginate @clients, previous_label: h("<"), next_label: h(">") %>
+<%if flash[:notice]%>
+    <span style="color: #ff0000;"><%= flash[:notice]%></span>
+<%end%>
 <table id="demotable" class="table table-striped tablesorter">
   <thead>
   <tr class="sort">
@@ -57,7 +61,7 @@
         <td><%= client.updated_at.strftime('%d/%m/%Y %H:%M:%S') %></td>
         <td><%= client.editor %></td>
         <td><%= link_to 'см.', client %></td>
-        <% if user_role == "admin"%>
+        <%if user_role != "visitor"%>
             <td><%= link_to 'ред.', edit_client_path(client) %></td>
             <td><%= link_to 'уд.', client, confirm: 'Вы уверены?', method: :delete %></td>
         <%end%>

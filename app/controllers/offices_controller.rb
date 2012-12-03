@@ -3,6 +3,7 @@ class OfficesController < ApplicationController
   # GET /offices
   # GET /offices.json
   before_filter :active_user
+  before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
     @offices = Office.all
 

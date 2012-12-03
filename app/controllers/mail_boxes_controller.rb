@@ -3,6 +3,7 @@ require "gmail"
 class MailBoxesController < ApplicationController
   # GET /mail_boxes
   # GET /mail_boxes.json
+  before_filter :only_admin
   def index
     @mail_boxes = MailBox.all
     respond_to do |format|

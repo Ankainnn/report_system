@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   before_filter :user_ban
   #before_filter :active_user
 
+  def user_role
+    current_user.role
+  end
+
   def active_user
   	if current_user && current_user.active == 0 && current_user != User.first
   		#redirect_to new_user_session_path
@@ -15,23 +19,31 @@ class ApplicationController < ActionController::Base
   end
 
   def only_admin
-   if current_user.role == "admin"
+   if user_role == "admin"
    else
-     render text: "У вас нет прав для просмотра даного раздела, или редактирования информации"
-     end
+     redirect_to clients_path, notice: "У вас нет прав для просмотра даного раздела, или редактирования информации"
+   end
   end
+
+  def only_admin_and_user
+    if user_role == "admin" || user_role == "user"
+    else
+      redirect_to clients_path, notice: "У вас нет прав для просмотра даного раздела, или редактирования информации"
+    end
+  end
+
+
+
 
   def user_ban
     user = current_user if current_user.object_id.present?
     if user
       if user.ban == "true"
-        render text: "Вы заблокирован. Пожалуйста свяжитесь с администраций сайта для выяснения причины блокировки, и возможности разблокировать учетную запись"
+        render text: "Вы заблокированы. Пожалуйста свяжитесь с администраций сайта для выяснения причины блокировки, и возможности разблокировать учетную запись"
       else
 
       end
     end
-
-
   end
 
 

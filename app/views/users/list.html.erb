@@ -4,6 +4,11 @@
 <table class="table table-striped">
   <tr>
     <th>email</th>
+    <th>имя</th>
+    <th>фамилия</th>
+    <th>должность</th>
+    <th>телефон</th>
+    <th>офис</th>
     <th>тип пользователя</th>
     <th>active</th>
     <th>заблокирован?</th>
@@ -16,6 +21,11 @@
 <% @users.each do |course| %>
   <tr>
     <td><%= course.email %></td>
+    <td><%= course.name %></td>
+    <td><%= course.surname %></td>
+    <td><%= course.position %></td>
+    <td><%= course.phone %></td>
+    <td><%= course.office.name if course.office_id.present?%></td>
     <td><%= course.role %></td>
     <td><%= course.active %></td>
     <td>

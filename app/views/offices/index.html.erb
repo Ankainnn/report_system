@@ -1,5 +1,8 @@
 <h1>Офисы</h1>
-<%= link_to 'новый офис', new_office_path %> | <%= link_to 'загрузить таблицу в XLS формате', offices_to_xls_path + ".xls" %>
+<%if user_role != "visitor"%>
+<%= link_to 'новый офис', new_office_path %> |
+<%end%>
+    <%= link_to 'загрузить таблицу в XLS формате', offices_to_xls_path + ".xls" %>
 
 <table id="demotable" class="table table-striped">
   <thead>
@@ -20,8 +23,10 @@
     <td><%= office.address %></td>
     <td><%= office.phone %></td>
     <td><%= link_to 'см.', office %></td>
+    <%if user_role != "visitor"%>
     <td><%= link_to 'ред.', edit_office_path(office) %></td>
     <td><%= link_to 'уд.', office, confirm: 'Вы уверены?', method: :delete %></td>
+        <%end%>
   </tr>
 <% end %>
   </tbody>

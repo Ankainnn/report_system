@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
 	#before_filter :authenticate_user!
 	before_filter :active_user, :except => [:show]
+  before_filter  :only_admin
   def change_user
   	user = User.find(params[:id])
     user.active = 1

@@ -3,6 +3,7 @@ class TeachersController < ApplicationController
   # GET /teachers
   # GET /teachers.json
   before_filter :active_user
+  before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
     @teachers = Teacher.all
 

@@ -1,6 +1,8 @@
 <h1>Менеджеры</h1>
-
-<%= link_to 'новая выплата', new_msalary_path %> | <%= link_to 'загрузить таблицу в XLS формате', msalaries_to_xls_path + ".xls" %> | сортировать по:  <%= render 'sort_by'%>
+<%if user_role != "visitor"%>
+<%= link_to 'новая выплата', new_msalary_path %> |
+<%end%>
+    <%= link_to 'загрузить таблицу в XLS формате', msalaries_to_xls_path + ".xls" %> | сортировать по:  <%= render 'sort_by'%>
 <table id="demotable" class="table table-striped">
   <thead>
   <tr class="sort">
@@ -35,8 +37,10 @@
     <td><%= msalary.created_at %></td>
     <td><%= msalary.updated_at %></td>
     <td><%= link_to 'см.', msalary %></td>
+    <%if user_role != "visitor"%>
     <td><%= link_to 'ред.', edit_msalary_path(msalary) %></td>
     <td><%= link_to 'уд.', msalary, confirm: 'Вы уверены?', method: :delete %></td>
+        <%end%>
   </tr>
 <% end %>
 </tbody>

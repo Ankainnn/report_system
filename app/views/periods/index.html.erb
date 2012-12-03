@@ -1,7 +1,8 @@
 <h1>Периоды</h1>
 
-
+<%if user_role != "visitor"%>
 <%= link_to 'новый период', new_period_path %>
+    <%end%>
 <table id="demotable" class="table table-striped">
   <thead>
   <tr class="sort">
@@ -16,8 +17,10 @@
   <tr>
     <td><%= period.period %></td>
     <td><%= link_to 'см.', period %></td>
+    <%if user_role != "visitor"%>
     <td><%= link_to 'ред.', edit_period_path(period) %></td>
     <td><%= link_to 'уд.', period, confirm: 'Вы уверены?', method: :delete %></td>
+    <%end%>
   </tr>
 <% end %>
 </tbody>

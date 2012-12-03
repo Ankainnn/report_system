@@ -1,6 +1,8 @@
 <h1>Выплаты по договорам</h1>
-
-<%= link_to 'новый платеж', new_payment_path %> | <%= link_to 'загрузить таблицу в XLS формате', payments_to_xls_path + ".xls" %> | сортировать по:  <%= render 'sort_by'%>
+<%if user_role != "visitor"%>
+<%= link_to 'новый платеж', new_payment_path %> |
+    <%end%>
+    <%= link_to 'загрузить таблицу в XLS формате', payments_to_xls_path + ".xls" %> | сортировать по:  <%= render 'sort_by'%>
 <table id="demotable" class="table table-striped">
   <thead>
     <tr class="sort">
@@ -33,8 +35,10 @@
         <td><%= payment.created_at %></td>
         <td><%= payment.updated_at %></td>
         <td><%= link_to 'см.', payment %></td>
+        <%if user_role != "visitor"%>
         <td><%= link_to 'ред.', edit_payment_path(payment) %></td>
         <td><%= link_to 'уд.', payment, confirm: 'Вы уверены?', method: :delete %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>

@@ -3,6 +3,7 @@ class StatusesController < ApplicationController
   # GET /statuses
   # GET /statuses.json
   before_filter :active_user
+  before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
     @statuses = Status.all
 

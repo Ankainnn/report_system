@@ -3,6 +3,7 @@ class ManagersController < ApplicationController
   # GET /managers
   # GET /managers.json
   before_filter :active_user
+  before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
     @managers = Manager.all
 

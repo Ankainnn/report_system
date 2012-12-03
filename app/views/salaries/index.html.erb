@@ -1,6 +1,8 @@
 <h1>Выплаты преподавателям</h1>
-
-<%= link_to 'новая выплата', new_salary_path %> | <%= link_to 'загрузить таблицу в XLS формате', salaries_to_xls_path + ".xls" %>  | сортировать по:  <%= render 'sort_by'%>
+<%if user_role != "visitor"%>
+<%= link_to 'новая выплата', new_salary_path %> |
+    <%end%>
+    <%= link_to 'загрузить таблицу в XLS формате', salaries_to_xls_path + ".xls" %>  | сортировать по:  <%= render 'sort_by'%>
 <table id="demotable" class="table table-striped">
   <thead>
   <tr class="sort">
@@ -39,8 +41,10 @@
     <td><%= salary.created_at %></td>
     <td><%= salary.updated_at %></td>
     <td><%= link_to 'см.', salary %></td>
+    <%if user_role != "visitor"%>
     <td><%= link_to 'ред.', edit_salary_path(salary) %></td>
     <td><%= link_to 'уд.', salary, confirm: 'Вы уверены?', method: :delete %></td>
+        <%end%>
   </tr>
 <% end %>
 </tbody>

@@ -1,6 +1,8 @@
 <h1>Преподаватели</h1>
-
-<%= link_to 'новый преподаватель', new_teacher_path %> | <%= link_to 'загрузить таблицу в XLS формате', teachers_to_xls_path + ".xls" %>
+<%if user_role != "visitor"%>
+<%= link_to 'новый преподаватель', new_teacher_path %> |
+<%end%>
+    <%= link_to 'загрузить таблицу в XLS формате', teachers_to_xls_path + ".xls" %>
 <table id="demotable" class="table table-striped">
   <thead>
     <tr class="sort">
@@ -35,8 +37,10 @@
         <td><%= teacher.salary %></td>
         <td><%= teacher.percent %></td>
         <td><%= link_to 'см.', teacher %></td>
+        <%if user_role != "visitor"%>
         <td><%= link_to 'ред.', edit_teacher_path(teacher) %></td>
         <td><%= link_to 'уд.', teacher, confirm: 'Вы уверены?', method: :delete %></td>
+         <%end%>
       </tr>
     <% end %>
   </tbody>

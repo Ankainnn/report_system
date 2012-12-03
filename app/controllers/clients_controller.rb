@@ -3,7 +3,8 @@ class ClientsController < ApplicationController
 include ApplicationHelper
   # GET /clients
   # GET /clients.json
-  before_filter :active_user#, :only_admin
+  before_filter :active_user
+before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
     res = SortOption.find_by_user_id(current_user.id)
     @current_user = current_user.id

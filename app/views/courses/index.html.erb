@@ -1,6 +1,8 @@
 <h1>Курсы</h1>
-
-<%= link_to 'новый курс', new_course_path %> | <%= link_to 'загрузить таблицу в XLS формате', courses_to_xls_path + ".xls" %>
+<%if user_role != "visitor"%>
+<%= link_to 'новый курс', new_course_path %> |
+<%end%>
+    <%= link_to 'загрузить таблицу в XLS формате', courses_to_xls_path + ".xls" %>
 <table id="demotable"  class="table table-striped">
   <thead>
   <tr class="sort">
@@ -17,8 +19,10 @@
     <td><%= course.direction %></td>
     <td><%= course.subject %></td>
     <td><%= link_to 'см.', course %></td>
+    <%if user_role != "visitor"%>
     <td><%= link_to 'ред.', edit_course_path(course) %></td>
     <td><%= link_to 'уд.', course, confirm: 'Вы уверены?', method: :delete %></td>
+    <%end%>
   </tr>
 <% end %>
   </tbody>

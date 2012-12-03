@@ -3,5 +3,4 @@ class HelpController < ApplicationController
   end
 
 
-
 end

@@ -1,6 +1,7 @@
 class PeriodsController < ApplicationController
   # GET /periods
   # GET /periods.json
+  before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
     @periods = Period.all
 

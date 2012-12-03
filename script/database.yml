@@ -1,6 +1,6 @@
 adapter: mysql2
-host: localhost #используемый хост например: host: localhost
-username: root #ник пользователя mysql например: username: root
-password: abc # пароль пользователя mysql например: password: 123
-database: report_system_development #к какой бд конектимся напримре: database: report_system_development
+host:#используемый хост например: host: localhost
+username:#ник пользователя mysql например: username: root
+password:# пароль пользователя mysql например: password: 123
+database: #к какой бд конектимся напримре: database: report_system_development
 

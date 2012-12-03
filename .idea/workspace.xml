@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de743223-6f17-4e43-88be-9660287a7a29" name="Default" comment="Задачи: 1, 5, 9, 11, 20">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/client.rb" afterPath="$PROJECT_DIR$/app/models/client.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script/database.yml" afterPath="$PROJECT_DIR$/script/database.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script/email_parser.rb" afterPath="$PROJECT_DIR$/script/email_parser.rb" />
     </list>
     <ignored path="report_system-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,10 +30,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="client.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="client.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/client.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="80" selection-start="613" selection-end="613" vertical-scroll-proportion="0.5368421">
+            <state line="28" column="53" selection-start="840" selection-end="840" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -62,10 +57,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="database.yml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="database.yml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script/database.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0">
+            <state line="6" column="21" selection-start="265" selection-end="265" vertical-scroll-proportion="0.18442623">
               <folding />
             </state>
           </provider>
@@ -97,9 +92,9 @@
         <option value="$PROJECT_DIR$/app/views/mail_boxes/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/mail_boxes/_form.html.erb" />
         <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/script/database.yml" />
         <option value="$PROJECT_DIR$/script/email_parser.rb" />
         <option value="$PROJECT_DIR$/app/models/client.rb" />
+        <option value="$PROJECT_DIR$/script/database.yml" />
       </list>
     </option>
   </component>
@@ -725,16 +720,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/script/database.yml">
+    <entry file="file://$PROJECT_DIR$/app/models/client.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/email_parser.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="67" selection-start="927" selection-end="927" vertical-scroll-proportion="0.0">
+        <state line="28" column="53" selection-start="840" selection-end="840" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -746,9 +734,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/client.rb">
+    <entry file="file://$PROJECT_DIR$/script/email_parser.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="80" selection-start="613" selection-end="613" vertical-scroll-proportion="0.5368421">
+        <state line="35" column="67" selection-start="927" selection-end="927" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/database.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="21" selection-start="265" selection-end="265" vertical-scroll-proportion="0.18442623">
           <folding />
         </state>
       </provider>

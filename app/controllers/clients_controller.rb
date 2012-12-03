@@ -24,9 +24,9 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
                 ['офис','office_id'],
                 ['комментарий','comment']]
     if res
-      @clients = Client.order("#{res.clients} ASC").page(params[:page]).per_page(3)
+      @clients = Client.order("#{res.clients} ASC")
     else
-      @clients = Client.all.page(params[:page]).per_page(3)
+      @clients = Client.all
     end
 
 

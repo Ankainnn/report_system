@@ -3,7 +3,6 @@
  <%=  link_to 'новый клиент', new_client_path  %> |
 <%end%>
  <%= link_to 'загрузить таблицу в XLS формате', clients_to_xls_path + ".xls" %> | сортировать по:  <%= render 'sort_by'%>
- <%= will_paginate @clients, previous_label: h("<"), next_label: h(">") %>
 <%if flash[:notice]%>
     <span style="color: #ff0000;"><%= flash[:notice]%></span>
 <%end%>

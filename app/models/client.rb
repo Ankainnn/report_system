@@ -10,7 +10,7 @@ class Client < ActiveRecord::Base
   validates_format_of :email,
                       :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i,
                       :message => 'E-mail адресс введен не коректно'
-  #validates :email, :surname, :name, :middle_name, presence: true
+  validates :email, :surname, :name, :middle_name, :date, :status_id, :course, presence: true
 
   def fio
     if self.try(:surname)

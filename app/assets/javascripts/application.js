@@ -26,7 +26,21 @@ $(document).ready(function() {
 
 
 	$('#demotable').tableFilter();
-    $('#demotable').tablesorter();
+    $('#demotable').tablesorter({
+        /*dateFormat: 'dd/mm/yyyy',
+        headers:
+        {
+            0: { sorter: "text" },
+            1: { sorter: "shortDate" } //buggy
+        } */
+        dateFormat : "mmddyyyy", // set the default date format
+
+        // or to change the format for specific columns, add the dateFormat to the headers option:
+        headers: {
+            0: { sorter: "shortDate" }
+        }
+
+        });
 
 
     $('#order_date, #client_date, #salary_pay_to, #salary_pay_from, #msalary_pay_to, #msalary_pay_from, #payment_pay_to, #payment_pay_from, #client_presumed_start' ).datepicker({

@@ -67,7 +67,7 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
   # POST /clients.json
   def create
     @client = Client.new(params[:client])
-    @client.author = current_user.user_nick
+    @client.author = current_user.fio
     times =[]
     (0..6).each do |i|
       if params[:hour][i].present? && params[:minute][i].present?
@@ -110,7 +110,7 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
     end
 
     respond_to do |format|
-      if @client.update_attributes(params[:client]) && @client.update_attribute(:editor, current_user.user_nick)
+      if @client.update_attributes(params[:client]) && @client.update_attribute(:editor, current_user.fio)
         format.html { redirect_to @client, notice: 'Client was successfully updated.' }
         format.json { head :no_content }
       else

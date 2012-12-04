@@ -84,7 +84,7 @@ class OrdersController < ApplicationController
     fio = params[:client].split(" ")
     client = Client.where(surname: fio[0], name: fio[1], middle_name: fio[2]).first
     @order.client_id = client.id
-    @order.author = current_user.user_nick
+    @order.author = current_user.fio
 
     respond_to do |format|
       if @order.save
@@ -108,7 +108,7 @@ class OrdersController < ApplicationController
     @order.author = current_user.user_nick
 
     respond_to do |format|
-      if @order.update_attributes(params[:order])  && @order.update_attribute(:editor, current_user.user_nick)
+      if @order.update_attributes(params[:order])  && @order.update_attribute(:editor, current_user.fio)
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { head :no_content }
       else

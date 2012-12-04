@@ -17,7 +17,7 @@
 
 <p>
   <b>преподаватель:</b>
-  <%= @schedule.teacher.name %>
+  <%= @schedule.teacher.try(:name) %>
 </p>
 
 <p>

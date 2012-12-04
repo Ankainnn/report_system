@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   end
 
   def fio
-      self.try(:name)  + " " +  	self.try(:surname)
+      "#{self.try(:name)}	#{self.try(:surname)}"
   end
 
   

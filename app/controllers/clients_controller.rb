@@ -124,11 +124,16 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
   # DELETE /clients/1.json
   def destroy
     @client = Client.find(params[:id])
+    client_has_orders = @client.orders
+    if client_has_orders.blank?
     @client.destroy
 
     respond_to do |format|
       format.html { redirect_to clients_url }
       format.json { head :no_content }
+    end
+    else
+    redirect_to clients_path, notice: "Удалить данного клиента нельзя, на клиенте записаны договоры"
     end
   end
 

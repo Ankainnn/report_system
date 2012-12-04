@@ -1,7 +1,7 @@
 <%= simple_form_for(@salary, :html => { :class => 'form-horizontal', id: 'new_salary' }) do |g|%>
     <div>
     <%= g.label :date, "дата" %>
-    <%= g.datetime_select :date %>
+    <%= g.text_field :date %>
     </div>
 
     <div>
@@ -26,21 +26,12 @@
 
     <div>
     <%= g.label :start, "начало"%>
-    <%= g.date_select :start %>
+    <%= g.text_field :start %>
     </div>
 
     <div>
     <%= g.label :end, "конец" %>
-    <%= g.date_select :end %>
-    </div>
-
-    <div>
-      <%= g.label :pay_from, "с"%>
-      <%= g.text_field :pay_from%>
-    </div>
-    <div>
-      <%= g.label :pay_to, "по"%>
-      <%= g.text_field :pay_to%>
+    <%= g.text_field :end %>
     </div>
 
 

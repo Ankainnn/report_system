@@ -38,7 +38,11 @@ $(document).ready(function() {
         });
 
 
-    $('#order_date, #client_date, #salary_pay_to, #salary_pay_from, #msalary_pay_to, #msalary_pay_from, #payment_pay_to, #payment_pay_from, #client_presumed_start, #schedule_start, #schedule_end' ).datepicker({
+    $('#order_date, #client_date, #salary_pay_to, #salary_pay_from, #msalary_pay_to,' +
+        ' #msalary_pay_from, #payment_pay_to, #payment_pay_from, #client_presumed_start, ' +
+        '#schedule_start, #schedule_end, #order_contract, #order_start, #order_end, #outlay_date,' +
+        ' #salary_date, #salary_start, #salary_end, #msalary_date, #msalary_start, #msalary_end,' +
+        '#payment_date, #payment_start, #payment_end').datepicker({
         dateFormat: "dd-mm-yy",
         monthNames: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
         dayNamesMin: ["пн", "вт", "ср", "чт", "пт", "сб", "вс"]

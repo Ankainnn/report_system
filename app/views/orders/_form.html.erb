@@ -2,16 +2,29 @@
     <%= f.input :date, label: "дата" %>
     <%= f.input :number, label: "номер договора" %>
     <div class="input">
-    <%= label :client, "клиент"%>
+    <%= label :client,  "клиент"%>
     <%= text_field_tag :client, nil, data: {autocomplete_source: @client_collection.map(&:fio)}, :html => { :id => 'order_client_id' } %>
     </div>
-    <%= f.input :contract, label: "дата заключения"%>
+    <div class="input">
+      <%= f.label :contract, "дата заключения"%>
+      <%= f.text_field :contract%>
+    </div>
+
     <%= f.association :course, label: "курс" %>
     <%= f.association :teacher, label: "преподаватель" %>
     <%= f.association :schedule, label: "расписание" %>
     <%= f.association :office, label: "офис" %>
-    <%= f.input :start, label: "начало"%>
-    <%= f.input :end, label: "конец" %>
+
+    <div class="input">
+      <%= f.label :start, "начлао"%>
+      <%= f.text_field :start%>
+    </div>
+
+    <div class="input">
+      <%= f.label :end, "конец"%>
+      <%= f.text_field :end%>
+    </div>
+
     <%= f.input :discount, label: "скидка" %>
     <%= f.input :price, label: "стоимость" %>
     <div id="submit">

@@ -15,8 +15,6 @@
     <th>конец</th>
     <th>форма выплаты</th>
     <th>комментарий</th>
-    <th>период оплаты с:</th>
-    <th>период оплаты по:</th>
     <th>создано</th>
     <th>отредактировано</th>
     <th></th>
@@ -27,7 +25,7 @@
   <tbody>
 <% @salaries.each do |salary| %>
   <tr class=<%= "tr" if salary.summ.present?%>>
-    <td><%= salary.date %></td>
+    <td><%= salary.date.strftime('%d-%m-%Y') if salary.date %></td>
     <td class="sum"><%= salary.summ %></td>
     <td><%= salary.course.try(:name) %></td>
     <td><%= salary.teacher.try(:name) %></td>
@@ -36,10 +34,8 @@
     <td><%= salary.try(:end) %></td>
     <td><%= salary.type %></td>
     <td><%= salary.comment %></td>
-    <td><%= salary.pay_from %></td>
-    <td><%= salary.pay_to %></td>
-    <td><%= salary.created_at %></td>
-    <td><%= salary.updated_at %></td>
+    <td><%= salary.created_at.strftime('%d-%m-%Y %H:%M:%S') %></td>
+    <td><%= salary.updated_at.strftime('%d-%m-%Y %H:%M:%S') %></td>
     <td><%= link_to 'см.', salary %></td>
     <%if user_role != "visitor"%>
     <td><%= link_to 'ред.', edit_salary_path(salary) %></td>

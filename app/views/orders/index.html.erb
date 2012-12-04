@@ -13,7 +13,7 @@
     <th>дата заключения</th>
     <th>курс</th>
     <th>преподаватель</th>
-    <th>расписание</th>
+    <th>график</th>
     <th>офис</th>
     <th>начало</th>
     <th>конец</th>
@@ -43,7 +43,7 @@
         <td><%= order.start%></td>
         <td><%= order.end%></td>
         <td><%= order.discount %></td>
-        <td class="sum"><%= order.price %></td>
+        <td class="sum"><%= number_to_currency(order.price) %></td>
         <td><%= order.created_at.strftime('%d-%m-%Y %H:%M:%S') %></td>
         <td><%= order.author %></td>
         <td><%= order.updated_at.strftime('%d-%m-%Y %H:%M:%S') %></td>

@@ -1,6 +1,9 @@
 <%= simple_form_for(@outlay, :html => { :class => 'form-horizontal' }) do |f| %>
-  <%= f.input :date, label: "дата" %>
-  <%= f.input :summ, label: "сумма" %>
+    <div class="input">
+    <%= f.label :date, "дата" %>
+    <%= f.text_field :date%>
+    </div>
+    <%= f.input :summ, label: "сумма" %>
   <%= f.association :cost, label: "типа расходов" %>
   <%= f.input :person, label: "автор" %>
 

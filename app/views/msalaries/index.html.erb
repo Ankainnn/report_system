@@ -13,8 +13,6 @@
     <th>конец</th>
     <th>форма выплаты</th>
     <th>комментарий</th>
-    <th>период оплаты с:</th>
-    <th>период оплаты по:</th>
     <th>создано</th>
     <th>отредактировано</th>
     <th></th>
@@ -26,16 +24,14 @@
 <% @msalaries.each do |msalary| %>
   <tr class=<%= "tr" if msalary.summ.present?%>>
     <td><%= msalary.manager.try(:name)%></td>
-    <td><%= msalary.date %></td>
+    <td><%= msalary.try(:date).strftime('%d-%m-%Y') %></td>
     <td class="sum"><%= msalary.summ %></td>
-    <td><%= msalary.try(:start) %></td>
-    <td><%= msalary.try(:end) %></td>
+    <td><%= msalary.try(:start).strftime('%d-%m-%Y') %></td>
+    <td><%= msalary.try(:end).strftime('%d-%m-%Y') %></td>
     <td><%= msalary.type %></td>
     <td><%= msalary.comment %></td>
-    <td><%= msalary.pay_from %></td>
-    <td><%= msalary.pay_to %></td>
-    <td><%= msalary.created_at %></td>
-    <td><%= msalary.updated_at %></td>
+    <td><%= msalary.created_at.strftime('%d-%m-%Y %H:%M:%S') %></td>
+    <td><%= msalary.updated_at.strftime('%d-%m-%Y %H:%M:%S') %></td>
     <td><%= link_to 'см.', msalary %></td>
     <%if user_role != "visitor"%>
     <td><%= link_to 'ред.', edit_msalary_path(msalary) %></td>

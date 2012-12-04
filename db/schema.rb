@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121204170109) do
+ActiveRecord::Schema.define(:version => 20121204220951) do
 
   create_table "channels", :force => true do |t|
     t.string   "name"
@@ -146,7 +146,7 @@ ActiveRecord::Schema.define(:version => 20121204170109) do
 
   create_table "outlays", :force => true do |t|
     t.datetime "date"
-    t.float    "summ"
+    t.integer  "summ"
     t.integer  "cost_id"
     t.string   "type"
     t.string   "person"
@@ -159,7 +159,7 @@ ActiveRecord::Schema.define(:version => 20121204170109) do
 
   create_table "payments", :force => true do |t|
     t.datetime "date"
-    t.float    "summ"
+    t.integer  "summ"
     t.string   "type"
     t.integer  "order_id"
     t.datetime "created_at", :null => false

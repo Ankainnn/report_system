@@ -1,7 +1,7 @@
 <h1>новый клиент</h1>
 <%= flash[:notice]%>
 <%= simple_form_for @client, :html => { :class => 'form-horizontal' } do |f| %>
-    <%= f.input :date, label: "дата" %>
+    <%= f.input :date,:input_html => { :value => Time.now.strftime('%d-%m-%Y') }, label: "дата" %>
     <%= f.association :status, :label => "статус" %>
     <%= f.input :surname, :label => "фамилия" %>
     <%= f.input :name, :label => "имя" %>

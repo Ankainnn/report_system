@@ -1,8 +1,10 @@
 <%= simple_form_for(@order, :html => { :class => 'form-horizontal' }) do |f| %>
+
+
     <%= f.input :date, label: "дата" %>
     <%= f.input :number, label: "номер договора" %>
     <div class="input">
-    <%= label :client,  "клиент"%>
+      <label for="client" class="select required control-label"><abbr title="required">*</abbr> клиент</label>
     <%= text_field_tag :client, nil, data: {autocomplete_source: @client_collection.map(&:fio)}, :html => { :id => 'order_client_id' } %>
     </div>
     <div class="input">

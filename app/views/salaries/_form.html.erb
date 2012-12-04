@@ -1,42 +1,42 @@
 <%= simple_form_for(@salary, :html => { :class => 'form-horizontal', id: 'new_salary' }) do |g|%>
     <div>
-    <%= g.label :date, "дата" %>
+      <label for="date" class="select required control-label"><abbr title="required">*</abbr> дата</label>
     <%= g.text_field :date %>
     </div>
 
     <div>
-    <%= g.label :summ, "сумма" %>
+      <label for="summ" class="select required control-label"><abbr title="required">*</abbr> сумма</label>
     <%= g.text_field :summ %>
     </div>
 
     <div>
-    <%= g.label :teacher_id, "преподаватель"%>
+    <label for="teacher" class="select required control-label"><abbr title="required">*</abbr> преподаватель</label>
     <%= g.collection_select :teacher_id, Teacher.order(:name), :id, :name, {include_blank: true}%>
     </div>
 
     <div>
-      <%= g.label :course_id, "курс"%>
+      <label for="course_id" class="select required control-label"><abbr title="required">*</abbr> курс</label>
       <%= g.grouped_collection_select :course_id, Teacher.order(:name), :courses, :name, :id, :name, :include_blank => true %>
     </div>
 
     <div>
-      <%= g.label :schedule_id, "график"%>
+      <label for="schedule_id" class="select required control-label"><abbr title="required">*</abbr> график</label>
       <%= g.grouped_collection_select :schedule_id, Course.order(:id), :schedules, :name, :id, :graphic, :include_blank => true%>
     </div>
 
     <div>
-    <%= g.label :start, "начало"%>
+    <label for="start" class="select required control-label"><abbr title="required">*</abbr> начало</label>
     <%= g.text_field :start %>
     </div>
 
     <div>
-    <%= g.label :end, "конец" %>
+    <label for="end" class="select required control-label"><abbr title="required">*</abbr> конец</label>
     <%= g.text_field :end %>
     </div>
 
 
     <div id="fix-outlays" class="input">
-      <%= g.label :type, "форма оплаты"%>
+      <label for="type" class="select required control-label"><abbr title="required">*</abbr> форма оплаты</label>
       <%= g.input :type, :collection => ["Наличные", "По безналу"], :as => :radio_buttons, label: false %>
     </div>
 

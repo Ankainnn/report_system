@@ -24,12 +24,12 @@
             <Cell><Data ss:Type="Number"><%= salaries.id %></Data></Cell>
             <Cell><Data ss:Type="String"><%=salaries.date%></Data></Cell>
             <Cell><Data ss:Type="String"><%= salaries.summ %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= salaries.course.name if salaries.course_id.present? %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= salaries.course.try(:name)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= salaries.type %></Data></Cell>
             <Cell><Data ss:Type="String"><%= salaries.comment %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= salaries.teacher.name if salaries.teacher_id.present? %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= salaries.teacher.try(:name) %></Data></Cell>
             <Cell><Data ss:Type="String"><%= salaries.start %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= order.end %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= salaries.end %></Data></Cell>
           </Row>
       <% end %>
     </Table>

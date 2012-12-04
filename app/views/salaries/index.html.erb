@@ -29,9 +29,9 @@
   <tr class=<%= "tr" if salary.summ.present?%>>
     <td><%= salary.date %></td>
     <td class="sum"><%= salary.summ %></td>
-    <td><%= salary.course.name %></td>
-    <td><%= salary.teacher.name %></td>
-    <td><%= "#{salary.schedule.day} / #{salary.schedule.time}" if salary.schedule_id.present?%> </td>
+    <td><%= salary.course.try(:name) %></td>
+    <td><%= salary.teacher.try(:name) %></td>
+    <td><%= "#{salary.schedule.try(:day)} / #{salary.schedule.try(:time)}" if salary.schedule_id.present?%> </td>
     <td><%= salary.try(:start) %></td>
     <td><%= salary.try(:end) %></td>
     <td><%= salary.type %></td>

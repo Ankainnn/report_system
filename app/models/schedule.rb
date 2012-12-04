@@ -10,7 +10,7 @@ class Schedule < ActiveRecord::Base
 
   attr_accessor :name, :graphic
   def name
-  	self.course.name + " - " + self.teacher.name + " - " + self.office.name + " - " + self.day
+  	self.course.try(:name) + " - " + self.teacher.try(:name) + " - " + self.office.try(:name) + " - " + self.day
   end
 
   def graphic

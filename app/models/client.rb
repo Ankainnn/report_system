@@ -7,16 +7,13 @@ class Client < ActiveRecord::Base
   belongs_to :office
   has_and_belongs_to_many :courses
   has_many :orders
-  validates_format_of :email,
-                      :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i,
-                      :message => 'E-mail адресс введен не коректно'
   #validates :email, :surname, :name, :middle_name, :date, :status_id, :course, presence: true
 
   def fio
     if self.try(:surname)
-      self.try(:surname)  + " " +  	self.try(:name) + " " + self.try(:middle_name)
+      "#{self.try(:surname)} #{self.try(:name)} #{self.try(:middle_name)}"
     else
-    	self.try(:name)
+    	"#{self.try(:name)}"
     end
   end
 

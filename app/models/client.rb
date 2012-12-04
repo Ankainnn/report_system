@@ -7,6 +7,9 @@ class Client < ActiveRecord::Base
   belongs_to :office
   has_and_belongs_to_many :courses
   has_many :orders
+  validates :email,
+            :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i},
+            :allow_blank => true
   #validates :email, :surname, :name, :middle_name, :date, :status_id, :course, presence: true
 
   def fio
@@ -46,7 +49,7 @@ class Client < ActiveRecord::Base
     subjects.delete_at(0)
     subjects = subjects.join(", ")
 
-    Client.create surname: surname, name: name, middle_name: middle_name, email: email, phone: phone, school: school, idvk: vk_page, subjects: subjects, resource_id: resource
+    Client.create surname: surname, name: name, middle_name: middle_name, email: email, phone: phone, school: school, idvk: vk_page, course: subjects, resource_id: resource
   end
 
 end

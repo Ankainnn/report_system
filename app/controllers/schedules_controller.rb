@@ -48,6 +48,7 @@ include ApplicationHelper
   # POST /schedules.json
   def create
     times =[]
+    count_days = 0
     days = params[:day].join(", ") if params[:day]
     (0..6).each do |i|
       if params[:hour][i].present? && params[:minute][i].present?
@@ -59,12 +60,13 @@ include ApplicationHelper
     count_times = times.count
 
     if count_days == count_times
-
-    times =  times.join(", ")
     @schedule = Schedule.new(params[:schedule])
+
+    if count_days && count_times != 0
+    times =  times.join(", ")
     @schedule.day = days
     @schedule.time = times
-
+    end
     respond_to do |format|
       if @schedule.save
         format.html { redirect_to @schedule, notice: 'Schedule was successfully created.' }

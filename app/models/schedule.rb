@@ -5,7 +5,7 @@ class Schedule < ActiveRecord::Base
   has_many :orders
   has_many :salaries
 
-  validates :day, :time, :office_id, :course_id, :hours, presence:true
+  validates :office_id, :course_id, :hours, presence:true
 
 
   attr_accessor :name, :graphic

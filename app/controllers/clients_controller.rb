@@ -10,7 +10,7 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
     @current_user = current_user.id
     @options = [['статус', 'status_id'],
                 ['район', 'resource_id'],
-                ['имя','name'],
+                ['фамилия','surname'],
                 ['телефон','phone'],
                 ['email','email'],
                 ['vk(id)','idvk'],
@@ -66,19 +66,28 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
   # POST /clients
   # POST /clients.json
   def create
-    @client = Client.new(params[:client])
-    @client.author = current_user.fio
     times =[]
+    count_days = 0
+    days = params[:day].join(", ") if params[:day]
+
     (0..6).each do |i|
       if params[:hour][i].present? && params[:minute][i].present?
         times << "#{params[:hour][i]}:#{ params[:minute][i]}"
       end
     end
-    if params[:day].present?
-    days = params[:day]
-    days = days.collect{|x| x + " | #{times[days.index(x)]}"}
-    days = days.join(", ")
-    @client.daysandtime = days
+
+    count_days = params[:day].count if params[:day]
+    count_times = times.count
+
+    if count_days == count_times
+
+    @client = Client.new(params[:client])
+    @client.author = current_user.fio
+
+    if count_days && count_times != 0
+      times =  times.join(", ")
+      @client.day = days
+      @client.time = times
     end
 
     respond_to do |format|
@@ -89,6 +98,10 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
         format.html { render action: "new" }
         format.json { render json: @client.errors, status: :unprocessable_entity }
       end
+    end
+
+    else
+      redirect_to new_client_path, notice: "даныне введены некорректно (день-время)"
     end
   end
 

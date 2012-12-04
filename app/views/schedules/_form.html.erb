@@ -9,8 +9,15 @@
           </div>
   <% end%>
     </div>
-  <%= f.input :start, label: "начало занятий" %>
-  <%= f.input :end, label: "конец занятий" %>
+
+    <div class="input">
+      <%=f.label :start, "начало занятий"%>
+      <%= f.text_field :start%>
+    </div>
+    <div class="input">
+      <%=f.label :end, "конец занятий"%>
+      <%= f.text_field :end%>
+    </div>
   <%= f.association :office, label: "офис" %>
   <%= f.association :teacher, label: "преподаватель" %>
   <%= f.association :course, label: "курс" %>

@@ -122,7 +122,7 @@ class SalariesController < ApplicationController
         format.html { redirect_to @salary, notice: 'Salary was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { redirect_to edit_salary_path(@salary) }
         format.json { render json: @salary.errors, status: :unprocessable_entity }
       end
     end

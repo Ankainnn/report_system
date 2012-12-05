@@ -27,12 +27,6 @@ $(document).ready(function() {
 
 	$('#demotable').tableFilter();
     $('#demotable').tablesorter({
-        dateFormat: 'dd/mm/yyyy',
-        headers:
-        {
-            0: { sorter: "text" },
-            1: { sorter: "shortDate" } //buggy
-        }
 
 
         });

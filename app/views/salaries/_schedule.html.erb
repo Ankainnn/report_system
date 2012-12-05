@@ -1,0 +1,4 @@
+<div class="input">
+  <label for="schedule_id" class="select required control-label"><abbr title="required">*</abbr>график</label>
+  <%= collection_select(:schedule_id , nil, @schedules, :id, :name, {include_blank:true}) %>
+</div>

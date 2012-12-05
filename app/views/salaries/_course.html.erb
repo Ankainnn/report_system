@@ -1,0 +1,4 @@
+<div class="input">
+  <label for="course_id" class="select required control-label"><abbr title="required">*</abbr>курс</label>
+<%= collection_select(:course_id , nil, @res, :id, :name, {include_blank:true}, {onchange: "$.post('schedules',  {teacher_id: #{params[:teacher_id]}, course_id: $(this).val()}, {}, 'script' );" }) %>
+</div>

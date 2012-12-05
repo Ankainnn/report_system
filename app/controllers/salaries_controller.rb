@@ -2,6 +2,7 @@
 class SalariesController < ApplicationController
   # GET /salaries
   # GET /salaries.json
+  skip_before_filter :verify_authenticity_token
   before_filter :active_user
   before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
@@ -54,11 +55,30 @@ class SalariesController < ApplicationController
     @salary = Salary.new
     @teacher_collect = Teacher.order(:name)
     @course_collect = Course.order(:id)
+    if params[:teacher_id].present?
+    @res = Teacher.find(params[:teacher_id]).courses
+
+    end
+
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @salary }
+      format.js
     end
+  end
+
+
+  def schedules
+    if params[:teacher_id].present? && params[:course_id].present?
+      @schedules = Schedule.where("teacher_id = ? AND course_id = ?", params[:teacher_id], params[:course_id])
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   # GET /salaries/1/edit
@@ -70,12 +90,14 @@ class SalariesController < ApplicationController
   # POST /salaries.json
   def create
     @salary = Salary.new(params[:salary])
+    @salary.course_id = params[:course_id].first if params[:course_id].present?
+    @salary.schedule_id = params[:schedule_id].first if params[:schedule_id].present?
     respond_to do |format|
       if @salary.save
         format.html { redirect_to @salary, notice: 'Salary was successfully created.' }
         format.json { render json: @salary, status: :created, location: @salary }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to new_salary_path }
         format.json { render json: @salary.errors, status: :unprocessable_entity }
       end
     end

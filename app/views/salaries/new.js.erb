@@ -1,0 +1,7 @@
+<% if params[:teacher_id].present? && @res.present?%>
+$('#course').html("<%=j render partial: 'course' %>");
+$('#course_and_schedule').show();
+<%else%>
+$('#course_and_schedule').hide();
+$('#course').empty();
+<%end%>

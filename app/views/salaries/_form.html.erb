@@ -11,18 +11,19 @@
 
     <div>
     <label for="teacher" class="select required control-label"><abbr title="required">*</abbr> преподаватель</label>
-    <%= g.collection_select :teacher_id, Teacher.order(:name), :id, :name, {include_blank: true}%>
+    <%= g.collection_select(:teacher_id, Teacher.order(:name), :id, :name, {include_blank: true}, {onchange: "$.post('new', {teacher_id: $(this).val()}, {}, 'script' );" })%>
     </div>
 
-    <div>
-      <label for="course_id" class="select required control-label"><abbr title="required">*</abbr> курс</label>
-      <%= g.grouped_collection_select :course_id, Teacher.order(:name), :courses, :name, :id, :name, :include_blank => true %>
+    <div id="course_and_schedule">
+
+      <div id="course">
+      </div>
+
+      <div id="schedule">
+      </div>
+
     </div>
 
-    <div>
-      <label for="schedule_id" class="select required control-label"><abbr title="required">*</abbr> график</label>
-      <%= g.grouped_collection_select :schedule_id, Course.order(:id), :schedules, :name, :id, :graphic, :include_blank => true%>
-    </div>
 
     <div>
     <label for="start" class="select required control-label"><abbr title="required">*</abbr> начало</label>

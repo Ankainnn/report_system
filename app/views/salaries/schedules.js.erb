@@ -1,0 +1,7 @@
+<% if @schedules.present? %>
+$('#schedule').html("<%=j render partial: 'schedule' %>");
+$('#schedule').show();
+<%else%>
+$('#schedule').hide();
+$('#schedule').empty();
+<%end%>

@@ -30,6 +30,8 @@ Reports::Application.routes.draw do
   post "payments/sort_options"
   #post "clients/index"
   post "payments/new"
+  post "salaries/new"
+  post "salaries/schedules"
 
   post 'payments/:id/edit' => 'payments#edit'
   post 'payments/:id/current_order' => 'payments#current_order'

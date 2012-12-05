@@ -84,6 +84,13 @@ class SalariesController < ApplicationController
   # GET /salaries/1/edit
   def edit
     @salary = Salary.find(params[:id])
+    @res = Teacher.find(@salary.teacher_id).courses
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @salary }
+      format.js
+    end
   end
 
   # POST /salaries
@@ -106,8 +113,10 @@ class SalariesController < ApplicationController
   # PUT /salaries/1
   # PUT /salaries/1.json
   def update
+    #render text: params
     @salary = Salary.find(params[:id])
-
+    @salary.course_id = params[:course_id].first if params[:course_id].present?
+    @salary.schedule_id = params[:schedule_id].first if params[:schedule_id].present?
     respond_to do |format|
       if @salary.update_attributes(params[:salary])
         format.html { redirect_to @salary, notice: 'Salary was successfully updated.' }

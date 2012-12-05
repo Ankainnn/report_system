@@ -28,7 +28,8 @@ Reports::Application.routes.draw do
   post "salaries/sort_options"
   post "msalaries/sort_options"
   post "payments/sort_options"
-  #post "clients/index"
+  post "salaries/:id/edit" => 'salaries#edit'
+  post "salaries/:id/schedules" => 'salaries#schedules'
   post "payments/new"
   post "salaries/new"
   post "salaries/schedules"

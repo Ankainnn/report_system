@@ -26,10 +26,7 @@ $(document).ready(function() {
 
 
 	$('#demotable').tableFilter();
-    $('#demotable').tablesorter({
-
-
-        });
+    $('#demotable').tablesorter();
 
 
     $('#order_date, #client_date, #salary_pay_to, #salary_pay_from, #msalary_pay_to,' +

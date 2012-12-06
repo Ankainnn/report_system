@@ -1,0 +1,19 @@
+$('#select_list').html("<%=j render partial: 'select_list' %>");
+
+<%if params[:teacher_id].present? %>
+$("#teacher_id_ [value='<%= params[:teacher_id]%>']").attr("selected", "selected");
+
+<%if params[:schedule_id].present? %>
+$("#schedule_id_ [value='<%= params[:schedule_id]%>']").attr("selected", "selected");
+
+<%if @office.present? %>
+$('#office_name_').val("<%= @office.name%>");
+$('#office_id_').val("<%= @office.id%>");
+<%end%>
+
+<%end%>
+
+
+<%end%>
+
+

@@ -2,6 +2,7 @@
 class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
+  skip_before_filter :verify_authenticity_token
   before_filter :active_user
   before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
@@ -66,6 +67,30 @@ class OrdersController < ApplicationController
     end
   end
 
+  def search_options
+    if params[:course_id].present?
+      t_collect = Course.find(params[:course_id]).teachers
+      @t_select_list = []
+      t_collect.each do |t|
+          @t_select_list << t if t.schedules.where(course_id: params[:course_id]).present?
+      end
+
+      if params[:teacher_id].present?
+        @s_select_list = Teacher.find(params[:teacher_id]).schedules.where(course_id: params[:course_id])
+
+        if params[:schedule_id].present?
+          @office = Schedule.find(params[:schedule_id]).office
+        end
+
+      end
+    end
+    respond_to do |format|
+      format.html # new.html.erb
+      format.js
+    end
+
+  end
+
   # GET /orders/1/edit
   def edit
     @order = Order.find(params[:id])
@@ -80,11 +105,15 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+    if params[:client].present? && params[:client].split(" ").count == 3
     @order = Order.new(params[:order])
     fio = params[:client].split(" ")
     client = Client.where(surname: fio[0], name: fio[1], middle_name: fio[2]).first
     @order.client_id = client.id
     @order.author = current_user.fio
+    @order.teacher_id = params[:teacher_id].first if params[:teacher_id].present?
+    @order.schedule_id = params[:schedule_id].first if params[:schedule_id].present?
+    @order.office_id = params[:office_id] if params[:office_id].present?
 
     respond_to do |format|
       if @order.save
@@ -96,26 +125,36 @@ class OrdersController < ApplicationController
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
+    else
+      redirect_to new_order_path, notice: "поле 'клиент обезательно для заполнения'"
+    end
 
   end
 
   # PUT /orders/1
   # PUT /orders/1.json
   def update
+    if params[:client].present? && params[:client].split(" ").count == 3
     @order = Order.find(params[:id])
     fio = params[:client].split(" ")
     client = Client.where(surname: fio[0], name: fio[1], middle_name: fio[2]).first
     @order.client_id = client.id
-    @order.author = current_user.user_nick
+    @order.author = current_user.fio
+    @order.teacher_id = params[:teacher_id].first if params[:teacher_id].present?
+    @order.schedule_id = params[:schedule_id].first if params[:schedule_id].present?
+    @order.office_id = params[:office_id] if params[:office_id].present?
 
     respond_to do |format|
       if @order.update_attributes(params[:order])  && @order.update_attribute(:editor, current_user.fio)
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { redirect_to edit_order_path(@order) }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
+    end
+    else
+     redirect_to edit_order_path(@order), notice: "поле 'клиент обезательно для заполнения'"
     end
   end
 

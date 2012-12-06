@@ -33,6 +33,8 @@ Reports::Application.routes.draw do
   post "payments/new"
   post "salaries/new"
   post "salaries/schedules"
+  post "orders/search_options"
+  post "orders/:id/search_options" => 'orders#search_options'
 
   post 'payments/:id/edit' => 'payments#edit'
   post 'payments/:id/current_order' => 'payments#current_order'

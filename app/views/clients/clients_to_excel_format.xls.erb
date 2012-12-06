@@ -1,5 +1,3 @@
-
-
 <?xml version="1.0"?>
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
           xmlns:o="urn:schemas-microsoft-com:office:office"
@@ -37,17 +35,17 @@
             <Cell><Data ss:Type="String"><%= client.try(:surname) %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.try(:name) %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.try(:middle_name) %></Data></Cell>
-            <Cell><Data ss:Type="Number"><%= client.phone %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.phone %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.email %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.idvk %></Data></Cell>
-            <Cell><Data ss:Type="Number"><%= client.school %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.school %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.parent %></Data></Cell>
-            <Cell><Data ss:Type="Number"><%= client.parent_phone %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.parent_phone %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.channel.try(:name)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.manager.try(:name)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.day %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.time %></Data></Cell>
-            <Cell><Data ss:Type="Number"><%= client.period %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.period %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.office.try(:address)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.comment %></Data></Cell>
           </Row>

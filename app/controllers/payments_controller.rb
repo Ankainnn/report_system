@@ -145,7 +145,7 @@ class PaymentsController < ApplicationController
         format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
         format.json { render json: @payment, status: :created, location: @payment }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to new_payment_path}
         format.json { render json: @payment.errors, status: :unprocessable_entity }
       end
     end

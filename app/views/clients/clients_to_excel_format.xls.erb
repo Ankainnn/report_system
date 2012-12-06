@@ -12,7 +12,9 @@
         <Cell><Data ss:Type="String">ID</Data></Cell>
         <Cell><Data ss:Type="String">статус</Data></Cell>
         <Cell><Data ss:Type="String">ресурс</Data></Cell>
+        <Cell><Data ss:Type="String">фамилия</Data></Cell>
         <Cell><Data ss:Type="String">имя</Data></Cell>
+        <Cell><Data ss:Type="String">отчевство</Data></Cell>
         <Cell><Data ss:Type="String">телефон</Data></Cell>
         <Cell><Data ss:Type="String">e-mail</Data></Cell>
         <Cell><Data ss:Type="String">vk</Data></Cell>
@@ -21,7 +23,8 @@
         <Cell><Data ss:Type="String">телефон родителя</Data></Cell>
         <Cell><Data ss:Type="String">канал</Data></Cell>
         <Cell><Data ss:Type="String">менеджер</Data></Cell>
-        <Cell><Data ss:Type="String">дни и время</Data></Cell>
+        <Cell><Data ss:Type="String">дни</Data></Cell>
+        <Cell><Data ss:Type="String">время</Data></Cell>
         <Cell><Data ss:Type="String">период</Data></Cell>
         <Cell><Data ss:Type="String">офис</Data></Cell>
         <Cell><Data ss:Type="String">комментарий</Data></Cell>
@@ -31,7 +34,9 @@
             <Cell><Data ss:Type="Number"><%= client.id %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.status.try(:name)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.resource.try(:name)%></Data></Cell>
-            <Cell><Data ss:Type="String"><%= client.name %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.try(:surname) %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.try(:name) %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.try(:middle_name) %></Data></Cell>
             <Cell><Data ss:Type="Number"><%= client.phone %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.email %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.idvk %></Data></Cell>
@@ -40,7 +45,8 @@
             <Cell><Data ss:Type="Number"><%= client.parent_phone %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.channel.try(:name)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.manager.try(:name)%></Data></Cell>
-            <Cell><Data ss:Type="String"><%= client.daysandtime %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.day %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.time %></Data></Cell>
             <Cell><Data ss:Type="Number"><%= client.period %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.office.try(:address)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.comment %></Data></Cell>

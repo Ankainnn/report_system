@@ -13,6 +13,10 @@ class Order < ActiveRecord::Base
   	self.id
   end
 
+  def fio
+      "#{self.try(:surname)} #{self.try(:name)} #{self.try(:middle_name)}"
+  end
+
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       csv << column_names

@@ -10,32 +10,42 @@
     <Table>
       <Row>
         <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">номер</Data></Cell>
         <Cell><Data ss:Type="String">клиент</Data></Cell>
-        <Cell><Data ss:Type="String">контракт</Data></Cell>
+        <Cell><Data ss:Type="String">дата</Data></Cell>
+        <Cell><Data ss:Type="String">дата заключения</Data></Cell>
         <Cell><Data ss:Type="String">курс</Data></Cell>
-        <Cell><Data ss:Type="String">преподаватель</Data></Cell>
-        <Cell><Data ss:Type="String">график</Data></Cell>
-        <Cell><Data ss:Type="String">офис</Data></Cell>
-        <Cell><Data ss:Type="String">начало занятий</Data></Cell>
-        <Cell><Data ss:Type="String">number?</Data></Cell>
-        <Cell><Data ss:Type="String">конец занятий</Data></Cell>
-        <Cell><Data ss:Type="String">скидка</Data></Cell>
-        <Cell><Data ss:Type="String">цена</Data></Cell>
+        <Cell><Data ss:Type="String"></Data>преподаватель</Cell>
+        <Cell><Data ss:Type="String"></Data>график</Cell>
+        <Cell><Data ss:Type="String"></Data>офис</Cell>
+        <Cell><Data ss:Type="String">начало</Data></Cell>
+        <Cell><Data ss:Type="String"></Data>конец</Cell>
+        <Cell><Data ss:Type="String"></Data>скидка</Cell>
+        <Cell><Data ss:Type="String"></Data>стоимость</Cell>
+        <Cell><Data ss:Type="String"></Data>создано</Cell>
+        <Cell><Data ss:Type="String"></Data>создал</Cell>
+        <Cell><Data ss:Type="String"></Data>отредактировано</Cell>
+        <Cell><Data ss:Type="String"></Data>редактировал</Cell>
       </Row>
       <% @orders.each do |order| %>
           <Row>
             <Cell><Data ss:Type="Number"><%= order.id %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= order.client.try(:name)%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.number %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.client.try(:fio)%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.date %></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.contract %></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.course.try(:name)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.teacher.try(:name)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.schedule.try(:name)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.office.try(:address)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.start %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= order.number %></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.end %></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.discount%></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.price%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.created_at.strftime('%d-%m-%Y %H:%M:%S')%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.author%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.updated_at.strftime('%d-%m-%Y %H:%M:%S')%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.editor%></Data></Cell>
           </Row>
       <% end %>
     </Table>

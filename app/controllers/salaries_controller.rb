@@ -7,6 +7,7 @@ class SalariesController < ApplicationController
   before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
     res = SortOption.find_by_user_id(current_user.id)
+
     @current_user = current_user.id
     @options = [['дата', 'date'],
                 ['сумма', 'sum'],

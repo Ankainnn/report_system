@@ -26,6 +26,10 @@
         <Cell><Data ss:Type="String">период</Data></Cell>
         <Cell><Data ss:Type="String">офис</Data></Cell>
         <Cell><Data ss:Type="String">комментарий</Data></Cell>
+        <Cell><Data ss:Type="String">создано</Data></Cell>
+        <Cell><Data ss:Type="String">создал</Data></Cell>
+        <Cell><Data ss:Type="String">отредактировано</Data></Cell>
+        <Cell><Data ss:Type="String">редактировал</Data></Cell>
       </Row>
       <% @clients.each do |client| %>
           <Row>
@@ -48,6 +52,10 @@
             <Cell><Data ss:Type="String"><%= client.period %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.office.try(:address)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.comment %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.created_at %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.author %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.updated_at %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.editor %></Data></Cell>
           </Row>
       <% end %>
     </Table>

@@ -60,7 +60,7 @@ class OrdersController < ApplicationController
     @sts.delete(Status.where(:name => "Отказ"))
     @sts.collect!{|s| s.id}
     @cls = Client.where(:status_id => @sts)
-    @client_collection = Client.all
+    @client_collection = Client.where("status_id != ? AND status_id != ?", 8, 9)
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @order }
@@ -68,6 +68,13 @@ class OrdersController < ApplicationController
   end
 
   def search_options
+    #if params[:id].present?
+    #  edit_record = Order.find(params[:id])
+    #  edit_record.teacher_id = nil if edit_record.teacher_id.present?
+    #  edit_record.schedule_id = nil if edit_record.schedule_id.present?
+    #  edit_record.office_id = nil if edit_record.office_id.present?
+    #
+    #end
     if params[:course_id].present?
       t_collect = Course.find(params[:course_id]).teachers
       @t_select_list = []
@@ -105,10 +112,15 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+
     if params[:client].present? && params[:client].split(" ").count == 3
     @order = Order.new(params[:order])
     fio = params[:client].split(" ")
+
     client = Client.where(surname: fio[0], name: fio[1], middle_name: fio[2]).first
+
+    course = Course.find(params[:order][:course_id])
+
     @order.client_id = client.id
     @order.author = current_user.fio
     @order.teacher_id = params[:teacher_id].first if params[:teacher_id].present?
@@ -118,6 +130,13 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.save
         client.update_attribute(:status_id, 1)
+        if client.courses.blank?
+          client.courses<<course
+        else
+          unless client.courses.exists?(params[:order][:course_id])
+            client.courses<<course
+          end
+        end
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render json: @order, status: :created, location: @order }
       else
@@ -134,10 +153,24 @@ class OrdersController < ApplicationController
   # PUT /orders/1
   # PUT /orders/1.json
   def update
+
+
     if params[:client].present? && params[:client].split(" ").count == 3
     @order = Order.find(params[:id])
     fio = params[:client].split(" ")
     client = Client.where(surname: fio[0], name: fio[1], middle_name: fio[2]).first
+
+
+    res = Order.find(params[:id]).course.id
+
+
+    old_record = Course.find(res)
+
+    client.courses.delete(old_record)
+
+    new_record = Course.find(params[:order][:course_id])
+    client.courses<<new_record
+
     @order.client_id = client.id
     @order.author = current_user.fio
     @order.teacher_id = params[:teacher_id].first if params[:teacher_id].present?
@@ -154,7 +187,7 @@ class OrdersController < ApplicationController
       end
     end
     else
-     redirect_to edit_order_path(@order), notice: "поле 'клиент обезательно для заполнения'"
+    redirect_to edit_order_path(@order), notice: "поле 'клиент обезательно для заполнения'"
     end
   end
 

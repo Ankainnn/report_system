@@ -68,7 +68,7 @@ class PaymentsController < ApplicationController
       session[:client_id] = session[:client].id
     end
 
-      @res = Client.find(session[:client_id]).courses if session[:client_id].present?
+    @res = Client.find(session[:client_id]).courses if session[:client_id].present?
 
     respond_to do |format|
       format.html # index.html.erb

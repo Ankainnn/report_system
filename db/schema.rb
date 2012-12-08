@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121204220951) do
+ActiveRecord::Schema.define(:version => 20121207162324) do
 
   create_table "channels", :force => true do |t|
     t.string   "name"
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(:version => 20121204220951) do
   create_table "msalaries", :force => true do |t|
     t.integer  "manager_id"
     t.datetime "date"
-    t.float    "summ"
+    t.integer  "summ"
     t.string   "type"
     t.text     "comment"
     t.datetime "created_at", :null => false
@@ -130,7 +130,7 @@ ActiveRecord::Schema.define(:version => 20121204220951) do
     t.string   "number"
     t.date     "end"
     t.string   "discount"
-    t.float    "price"
+    t.integer  "price"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "date"
@@ -186,7 +186,7 @@ ActiveRecord::Schema.define(:version => 20121204220951) do
 
   create_table "salaries", :force => true do |t|
     t.datetime "date"
-    t.float    "summ"
+    t.integer  "summ"
     t.integer  "course_id"
     t.string   "type"
     t.text     "comment"

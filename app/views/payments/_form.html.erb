@@ -35,6 +35,18 @@
       <%= f.text_field :end%>
     </div>
 
+    <div class="input">
+      <%=f.label :pay_from, "с" %>
+      <%= f.text_field :pay_from%>
+    </div>
+
+    <div class="input">
+      <%=f.label :end, "по" %>
+      <%= f.text_field :pay_to%>
+    </div>
+
+
+
     <%= f.label "договор"%>
     <%= text_field :order_number, nil, :autocomplete => 'off'%>
 

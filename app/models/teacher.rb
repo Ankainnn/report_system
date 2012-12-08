@@ -5,14 +5,23 @@ class Teacher < ActiveRecord::Base
 	has_many :schedules
 	has_many :salaries
 
+  validate :has_courses?
+
+
+
   validates :name, :surname, :phone, presence:true
 
-  validates_format_of :email,
-                      :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i,
-                      :message => 'E-mail адресс введен не коректно'
+  validates :email,
+            :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i},
+            :allow_blank => true
 
 
-	def fio
+
+  def has_courses?
+    errors[:base] << "Поле 'курс' не может быть пустым" if self.courses.blank?
+  end
+
+  def fio
     if self.try(:surname)
     	self.try(:name) + " " + self.try(:surname)
     else

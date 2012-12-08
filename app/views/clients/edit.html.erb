@@ -1,8 +1,8 @@
 <h1>Редактирование клиента</h1>
 
 <%= simple_form_for @client, :html => { :class => 'form-horizontal' } do |f| %>
-    <%= f.input :date, label: "дата" %>
     <%= f.association :status, :label => "статус" %>
+    <%= f.input :date, label: "дата" %>
     <%= f.input :surname, :label => "фамилия" %>
     <%= f.input :name, :label => "имя" %>
     <%= f.input :middle_name, :label => "отчество" %>

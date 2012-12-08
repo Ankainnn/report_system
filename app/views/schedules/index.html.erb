@@ -27,7 +27,7 @@
         <td><%= schedule.start %></td>
         <td><%= schedule.end %></td>
         <td><%= schedule.office.name %></td>
-        <td><%= schedule.teacher.fio if schedule.teacher_id.present? %></td>
+        <td><%= schedule.teacher.try(:fio)%></td>
         <td><%= schedule.course.name %></td>
         <td><%= schedule.hours %></td>
         <td><%= link_to 'см.', schedule %></td>

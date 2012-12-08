@@ -8,12 +8,10 @@
     <%= text_field_tag :client, nil, data: {autocomplete_source: @client_collection.map(&:fio)}, :html => { :id => 'order_client_id' } %>
     </div>
     <div class="input">
-      <%= f.label :contract, "дата заключения"%>
+      <label for="contract" class="select required control-label"><abbr title="required">*</abbr>дата заключения</label>
       <%= f.text_field :contract%>
     </div>
-
     <%= f.association :course, label: "курс", :input_html => {onchange: "$.post('search_options',  {course_id: $(this).val()}, {}, 'script' );"}%>
-
     <div id="select_list">
 
     </div>
@@ -29,6 +27,7 @@
     </div>
 
     <%= f.input :discount, label: "скидка" %>
+
     <%= f.input :price, label: "стоимость" %>
     <div id="submit">
       <%= f.button :submit, :value => "сохранить"%>

@@ -19,7 +19,7 @@
       <% @msalaries.each do |msalaries| %>
           <Row>
             <Cell><Data ss:Type="Number"><%= msalaries.id %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= msalaries.try(:name)%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= msalaries.manager.try(:name)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= msalaries.date%></Data></Cell>
             <Cell><Data ss:Type="String"><%= msalaries.summ %></Data></Cell>
             <Cell><Data ss:Type="String"><%= msalaries.type %></Data></Cell>

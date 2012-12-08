@@ -12,6 +12,11 @@
         <Cell><Data ss:Type="String">сумма</Data></Cell>
         <Cell><Data ss:Type="String">форма оплаты</Data></Cell>
         <Cell><Data ss:Type="String">договор</Data></Cell>
+        <Cell><Data ss:Type="String">клиент</Data></Cell>
+        <Cell><Data ss:Type="String">курс</Data></Cell>
+        <Cell><Data ss:Type="String">график</Data></Cell>
+        <Cell><Data ss:Type="String">часы</Data></Cell>
+        <Cell><Data ss:Type="String">офис</Data></Cell>
         <Cell><Data ss:Type="String">начало</Data></Cell>
         <Cell><Data ss:Type="String">конец</Data></Cell>
         <Cell><Data ss:Type="String">создано</Data></Cell>
@@ -24,6 +29,11 @@
             <Cell><Data ss:Type="String"><%= payments.summ %></Data></Cell>
             <Cell><Data ss:Type="String"><%= payments.type %></Data></Cell>
             <Cell><Data ss:Type="String"><%= payments.order.try(:number)%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= payments.client%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= payments.course%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= payments.schedule%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= payments.hours%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= payments.office%></Data></Cell>
             <Cell><Data ss:Type="String"><%= payments.start.strftime('%d-%m-%Y %H:%M:%S') if payments.start.present?%></Data></Cell>
             <Cell><Data ss:Type="String"><%= payments.end.strftime('%d-%m-%Y %H:%M:%S') if payments.end.present?%></Data></Cell>
             <Cell><Data ss:Type="String"><%= payments.created_at.strftime('%d-%m-%Y %H:%M:%S') %></Data></Cell>

@@ -1,8 +1,8 @@
-<h1>Редактирование клиента</h1>
-
+<h1>редактирование</h1>
+<%= flash[:notice]%>
 <%= simple_form_for @client, :html => { :class => 'form-horizontal' } do |f| %>
     <%= f.association :status, :label => "статус" %>
-    <%= f.input :date, label: "дата" %>
+    <%= f.input :date,:input_html => { :value => Time.now.strftime('%d-%m-%Y') }, label: "дата" %>
     <%= f.input :surname, :label => "фамилия" %>
     <%= f.input :name, :label => "имя" %>
     <%= f.input :middle_name, :label => "отчество" %>
@@ -27,7 +27,7 @@
     </div>
 
     <div>
-      <%= f.input :presumed_start, label: "ожидаемое начало", :input_html => { :class => 'ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all' } %>
+      <%= f.input :presumed_start, label: "ожидаемое начало" %>
     </div>
     <%= f.input :course, collection: Course.all.map(&:name), as: :select, label: "курс"%>
     <div class="input">
@@ -41,7 +41,9 @@
       <%= f.button :submit, :value => "сохранить"%>
       <div>
         <%= link_to 'к списку', clients_path, class: "btn"%>
-            </div>
-            </div>
+      </div>
+    </div>
 
-        <% end %>
+<% end %>
+
+

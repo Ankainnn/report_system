@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121207162324) do
+ActiveRecord::Schema.define(:version => 20121208171450) do
 
   create_table "channels", :force => true do |t|
     t.string   "name"
@@ -168,6 +168,11 @@ ActiveRecord::Schema.define(:version => 20121207162324) do
     t.date     "end"
     t.string   "pay_from"
     t.string   "pay_to"
+    t.string   "office"
+    t.string   "client"
+    t.string   "schedule"
+    t.integer  "hours"
+    t.string   "course"
   end
 
   add_index "payments", ["order_id"], :name => "index_payments_on_order_id"

@@ -10,7 +10,7 @@ class Course < ActiveRecord::Base
 
   validates :direction, :subject, presence:true
 	def name
-    self.direction + " / " + self.subject
+    "#{self.direction}/#{self.subject}"
   end
 
   def self.to_csv(options = {})

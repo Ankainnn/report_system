@@ -110,17 +110,27 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
   def update
     @client = Client.find(params[:id])
     times =[]
+    count_days = 0
+    days = params[:day].join(", ") if params[:day]
+
+
     (0..6).each do |i|
       if params[:hour][i].present? && params[:minute][i].present?
         times << "#{params[:hour][i]}:#{ params[:minute][i]}"
       end
     end
-    if params[:day].present?
-      days = params[:day]
-      days = days.collect{|x| x + " | #{times[days.index(x)]}"}
-      days = days.join(", ")
-      @client.daysandtime = days
+
+    count_days = params[:day].count if params[:day]
+    count_times = times.count
+
+    if count_days == count_times
+
+    if count_days && count_times != 0
+      times =  times.join(", ")
+      @client.day = days
+      @client.time = times
     end
+
 
     respond_to do |format|
       if @client.update_attributes(params[:client]) && @client.update_attribute(:editor, current_user.fio)
@@ -130,6 +140,10 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
         format.html { render action: "edit" }
         format.json { render json: @client.errors, status: :unprocessable_entity }
       end
+    end
+
+    else
+      render action: "edit"
     end
   end
 

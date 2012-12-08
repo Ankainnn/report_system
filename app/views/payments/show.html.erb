@@ -20,6 +20,31 @@
 </p>
 
 <p>
+  <b>курс:</b>
+  <%= @payment.course %>
+</p>
+
+<p>
+  <b>договор:</b>
+  <%= @payment.order.number %>
+</p>
+
+<p>
+  <b>график:</b>
+  <%= @payment.schedule %>
+</p>
+
+<p>
+  <b>часы:</b>
+  <%= @payment.hours %>
+</p>
+
+<p>
+  <b>офис:</b>
+  <%= @payment.office %>
+</p>
+
+<p>
   <b>c:</b>
   <%= @payment.pay_from %>
 </p>
@@ -29,10 +54,7 @@
   <%= @payment.pay_to %>
 </p>
 
-<p>
-  <b>договор:</b>
-  <%= @payment.order.number %>
-</p>
+
 
 <p>
   <b>начало:</b>

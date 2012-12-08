@@ -153,16 +153,15 @@ class OrdersController < ApplicationController
   # PUT /orders/1
   # PUT /orders/1.json
   def update
-
-
-    if params[:client].present? && params[:client].split(" ").count == 3
     @order = Order.find(params[:id])
+    @client_collection = Client.where("status_id != ? AND status_id != ?", 8, 9)
+    if params[:teacher_id].present? && params[:schedule_id].present? && params[:office_id].present?
+    if params[:client].present? && params[:client].split(" ").count == 3
     fio = params[:client].split(" ")
     client = Client.where(surname: fio[0], name: fio[1], middle_name: fio[2]).first
 
 
     res = Order.find(params[:id]).course.id
-
 
     old_record = Course.find(res)
 
@@ -189,7 +188,14 @@ class OrdersController < ApplicationController
     else
     redirect_to edit_order_path(@order), notice: "поле 'клиент обезательно для заполнения'"
     end
-  end
+    else
+      respond_to do |format|
+          format.html { render action: 'edit'}
+          format.json { render json: @order.errors, status: "не достаточно данных, убедитесь что поля 'преподаватель', 'расписание', 'офис' - заполнены" }
+        end
+    end
+    end
+
 
   # DELETE /orders/1
   # DELETE /orders/1.json

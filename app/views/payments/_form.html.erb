@@ -9,8 +9,8 @@
       <%= f.input :type, :collection => ["наличный расчет", "безналичный расчет"], :as => :radio_buttons, label: "форма оплаты" %>
     </div>
 
-    <div>
-      <%= f.label "клиент"%>
+    <div class="input">
+      <label for="client" class="select required control-label"><abbr title="required">*</abbr>клиент</label>
       <%= text_field_tag :client, nil, id: "client_#{action_name}", data: {autocomplete_source: @collect_c.map(&:fio) } %>
     </div>
 
@@ -18,10 +18,23 @@
 
     </div>
 
+    <%= f.label "договор"%>
+    <%= text_field :order_number, nil, :autocomplete => 'off'%>
+
+    <%= f.input :order_id, as: :hidden%>
 
     <div id="graphic">
       <%= f.label "график"%>
       <%= text_field :schedule, nil, :autocomplete => 'off'%>
+    </div>
+
+
+      <%= f.input :hours, :label => "кол. часов"%>
+
+
+    <div id="office" class="input">
+      <%= f.label "офис"%>
+      <%= text_field :office, nil, :autocomplete => 'off'%>
     </div>
 
 
@@ -47,10 +60,7 @@
 
 
 
-    <%= f.label "договор"%>
-    <%= text_field :order_number, nil, :autocomplete => 'off'%>
 
-    <%= f.input :order_id, as: :hidden%>
 
     <div id="submit">
       <%= f.button :submit, :value => "сохранить"%>

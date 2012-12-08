@@ -10,6 +10,11 @@
       <th> <div id="result" style="text-align: center; color: #000000;"></div> сумма</th>
       <th>форма оплаты</th>
       <th>договор</th>
+      <th>клиент</th>
+      <th>курс</th>
+      <th>график</th>
+      <th>часы</th>
+      <th>офис</th>
       <th>создано</th>
       <th>отредактировано</th>
       <th></th>
@@ -24,6 +29,11 @@
         <td class="sum"><%= payment.summ %></td>
         <td><%= payment.type %></td>
         <td><%= payment.order.try(:number) %></td>
+        <td><%= payment.client %></td>
+        <td><%= payment.course %></td>
+        <td><%= payment.schedule %></td>
+        <td><%= payment.hours %></td>
+        <td><%= payment.office %></td>
         <td><%= payment.created_at.strftime('%d-%m-%Y %H:%M:%S') %></td>
         <td><%= payment.updated_at.strftime('%d-%m-%Y %H:%M:%S') %></td>
         <td><%= link_to 'см.', payment %></td>

@@ -91,6 +91,7 @@ class PaymentsController < ApplicationController
       @order = Order.where(client_id: session[:client].id, course_id: session[:course]).first
       if @order.present?
         @order_id = @order.id
+        @office = @order.office.name
         @order_number = @order.number
         @schedule = @order.schedule.graphic
       end
@@ -136,7 +137,15 @@ class PaymentsController < ApplicationController
   # POST /payments
   # POST /payments.json
   def create
+    #render text: Course.find(params[:course].first).name
     @payment = Payment.new(params[:payment])
+
+    fio = params[:client].split(" ")
+    client = Client.where(surname: fio[0], name: fio[1], middle_name: fio[2]).first.fio
+    @payment.client = client
+    @payment.course = Course.find(params[:course].first).name if params[:course].present?
+    @payment.schedule = params[:schedule].first if params[:schedule].present?
+    @payment.office = params[:office].first if params[:office].present?
 
     respond_to do |format|
       if @payment.save
@@ -156,6 +165,22 @@ class PaymentsController < ApplicationController
   def update
     @payment = Payment.find(params[:id])
 
+    client_id = []
+    Order.all.each do |order|
+      client_id << order.client_id
+    end
+    uniq_client_id = client_id.uniq
+
+    @collect_c = Client.where(id: uniq_client_id)
+
+    if params[:client].present? && params[:course].present? && params[:schedule].present? && params[:office].present?
+    fio = params[:client].split(" ")
+    client = Client.where(surname: fio[0], name: fio[1], middle_name: fio[2]).first.fio
+    @payment.client = client
+    @payment.course = Course.find(params[:course].first).name if params[:course].present?
+    @payment.schedule = params[:schedule].first if params[:schedule].present?
+    @payment.office = params[:office].first if params[:office].present?
+
     respond_to do |format|
       if @payment.update_attributes(params[:payment])
         format.html { redirect_to @payment, notice: 'Payment was successfully updated.' }
@@ -164,6 +189,9 @@ class PaymentsController < ApplicationController
         format.html { render action: "edit" }
         format.json { render json: @payment.errors, status: :unprocessable_entity }
       end
+    end
+    else
+      redirect_to edit_payment_path(@payment)
     end
   end
 

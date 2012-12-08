@@ -87,6 +87,28 @@ include ApplicationHelper
   def update
     @schedule = Schedule.find(params[:id])
 
+    times =[]
+    count_days = 0
+    days = params[:day].join(", ") if params[:day]
+
+    (0..6).each do |i|
+      if params[:hour][i].present? && params[:minute][i].present?
+        times<< "#{params[:hour][i]}:#{ params[:minute][i]}"
+      end
+    end
+
+    count_days = params[:day].count if params[:day]
+    count_times = times.count
+
+    if count_days == count_times
+
+      if count_days && count_times != 0
+        times =  times.join(", ")
+        @schedule.day = days
+        @schedule.time = times
+      end
+
+
     respond_to do |format|
       if @schedule.update_attributes(params[:schedule])
         format.html { redirect_to @schedule, notice: 'Schedule was successfully updated.' }
@@ -96,6 +118,10 @@ include ApplicationHelper
         format.json { render json: @schedule.errors, status: :unprocessable_entity }
       end
     end
+    else
+      render action: "edit"
+    end
+
   end
 
   # DELETE /schedules/1

@@ -16,14 +16,14 @@ class Client < ActiveRecord::Base
     if self.try(:surname)
       "#{self.try(:surname)} #{self.try(:name)} #{self.try(:middle_name)}"
     else
-    	"#{self.try(:name)}"
+      "#{self.try(:name)}"
     end
   end
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       csv << column_names
-     each do |client|
+      each do |client|
         csv << client.attributes.values_at(*column_names)
       end
     end
@@ -47,7 +47,7 @@ class Client < ActiveRecord::Base
 
     subjects = array_hash[5].split(":").last.split(",").delete_if{|x| x == " "}.sort
     subjects.delete_at(0)
-    #subjects = subjects.collect{|x| 'ЕГЭ/'.force_encoding('utf-8') + x}.first
+    #subjects = subjects.collect{|x| r + x}.first
     subjects = subjects.join(", ")
 
     Client.create surname: surname, name: name, middle_name: middle_name, email: email, phone: phone, school: school, idvk: vk_page, course: subjects, resource_id: resource, date: Time.now.strftime('%d-%m-%Y')

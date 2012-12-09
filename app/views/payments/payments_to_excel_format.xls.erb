@@ -16,9 +16,9 @@
         <Cell><Data ss:Type="String">курс</Data></Cell>
         <Cell><Data ss:Type="String">график</Data></Cell>
         <Cell><Data ss:Type="String">часы</Data></Cell>
+        <Cell><Data ss:Type="String">с</Data></Cell>
+        <Cell><Data ss:Type="String">по</Data></Cell>
         <Cell><Data ss:Type="String">офис</Data></Cell>
-        <Cell><Data ss:Type="String">начало</Data></Cell>
-        <Cell><Data ss:Type="String">конец</Data></Cell>
         <Cell><Data ss:Type="String">создано</Data></Cell>
         <Cell><Data ss:Type="String">отредактировано</Data></Cell>
       </Row>
@@ -33,9 +33,9 @@
             <Cell><Data ss:Type="String"><%= payments.course%></Data></Cell>
             <Cell><Data ss:Type="String"><%= payments.schedule%></Data></Cell>
             <Cell><Data ss:Type="String"><%= payments.hours%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= payments.pay_from%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= payments.pay_to%></Data></Cell>
             <Cell><Data ss:Type="String"><%= payments.office%></Data></Cell>
-            <Cell><Data ss:Type="String"><%= payments.start.strftime('%d-%m-%Y %H:%M:%S') if payments.start.present?%></Data></Cell>
-            <Cell><Data ss:Type="String"><%= payments.end.strftime('%d-%m-%Y %H:%M:%S') if payments.end.present?%></Data></Cell>
             <Cell><Data ss:Type="String"><%= payments.created_at.strftime('%d-%m-%Y %H:%M:%S') %></Data></Cell>
             <Cell><Data ss:Type="String"><%= payments.updated_at.strftime('%d-%m-%Y %H:%M:%S') %></Data></Cell>
           </Row>

@@ -8,7 +8,7 @@ class OutlaysController < ApplicationController
     res = SortOption.find_by_user_id(current_user.id)
     @current_user = current_user.id
     @options = [['дата', 'date'],
-                ['сумма', 'sum'],
+                ['сумма', 'summ'],
                 ['тип расходов','type'],
                 ['форма оплаты','cost_id'],
                 ['автор','person'],

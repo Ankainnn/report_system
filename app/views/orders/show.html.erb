@@ -36,8 +36,8 @@
 </p>
 
 <p>
-  <b>расписание:</b>
-  <%= @order.schedule.name if @order.schedule_id.present? %>
+  <b>график:</b>
+  <%= @order.schedule.try(:graphic)%>
 </p>
 
 <p>

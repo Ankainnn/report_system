@@ -12,8 +12,8 @@
     <%= f.input :school, :label => "школа" %>
     <%= f.input :parent, :label => "родитель" %>
     <%= f.input :parent_phone, :label => "телефон родителя"%>
-    <%= f.association :resource, :label => "район" %>
-    <%= f.association :channel, :label => "канал" %>
+    <%= f.association :resource, :label => "источник" %>
+    <%= f.association :channel, :label => "район" %>
     <%= f.association :manager, :label => "менеджер" %>
     <div id="date_time">
       <% %w{понедельник вторник среда четверг пятница суббота воскресение}.each do |i|%>

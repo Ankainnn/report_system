@@ -47,6 +47,7 @@ include ApplicationHelper
   # POST /schedules
   # POST /schedules.json
   def create
+    @schedule = Schedule.new(params[:schedule])
     times =[]
     count_days = 0
     days = params[:day].join(", ") if params[:day]
@@ -60,7 +61,6 @@ include ApplicationHelper
     count_times = times.count
 
     if count_days == count_times
-    @schedule = Schedule.new(params[:schedule])
 
     if count_days && count_times != 0
     times =  times.join(", ")
@@ -78,7 +78,8 @@ include ApplicationHelper
     end
 
     else
-     redirect_to new_schedule_path, notice: "даныне введены некорректно (день-время)"
+     #redirect_to new_schedule_path, notice: "даныне введены некорректно (день-время)"
+     render action: "new"
     end
   end
 

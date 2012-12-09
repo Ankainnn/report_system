@@ -10,15 +10,15 @@
   <thead>
   <tr class="sort">
     <th><div id="result" style="text-align: center; color: #000000;"></div>статус</th>
-    <th>район</th>
+    <th>дата</th>
+    <th>источник</th>
     <th>ФИО</th>
     <th>телефон</th>
     <th>школа</th>
     <th>родитель</th>
     <th>телефон родителя</th>
-    <th>канал</th>
+    <th>район</th>
     <th>менеджер</th>
-    <th>дата</th>
     <th>день</th>
     <th>время</th>
     <th>курс</th>
@@ -39,6 +39,7 @@
   <% @clients.each do |client| %>
       <tr class="tr">
         <td><%= client.status.try(:name) %></td>
+        <td><%= client.date%></td>
         <td><%= client.resource.try(:name) %></td>
         <td><%= client.fio%></td>
         <td><%= client.phone %></td>
@@ -47,7 +48,6 @@
         <td><%= client.parent_phone %></td>
         <td><%= client.channel.try(:name) %></td>
         <td><%= client.manager.try(:name) %></td>
-        <td><%= client.date%></td>
         <td><%= client.day %></td>
         <td><%= client.time %></td>
         <td><%= client.course %></td>

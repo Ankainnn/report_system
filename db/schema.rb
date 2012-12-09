@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121208171450) do
+ActiveRecord::Schema.define(:version => 20121209144052) do
 
   create_table "channels", :force => true do |t|
     t.string   "name"
@@ -121,14 +121,14 @@ ActiveRecord::Schema.define(:version => 20121208171450) do
 
   create_table "orders", :force => true do |t|
     t.integer  "client_id"
-    t.date     "contract"
+    t.string   "contract"
     t.integer  "course_id"
     t.integer  "teacher_id"
     t.integer  "schedule_id"
     t.integer  "office_id"
-    t.date     "start"
+    t.string   "start"
     t.string   "number"
-    t.date     "end"
+    t.string   "end"
     t.string   "discount"
     t.integer  "price"
     t.datetime "created_at",  :null => false
@@ -198,8 +198,8 @@ ActiveRecord::Schema.define(:version => 20121208171450) do
     t.integer  "teacher_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.date     "start"
-    t.date     "end"
+    t.string   "start"
+    t.string   "end"
     t.integer  "schedule_id"
     t.string   "pay_from"
     t.string   "pay_to"

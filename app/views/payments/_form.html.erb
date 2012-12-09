@@ -37,28 +37,15 @@
       <%= text_field :office, nil, :autocomplete => 'off'%>
     </div>
 
-
     <div class="input">
-      <%=f.label :start, "начало" %>
-      <%= f.text_field :start%>
-    </div>
-
-    <div class="input">
-      <%=f.label :end, "конец" %>
-      <%= f.text_field :end%>
-    </div>
-
-    <div class="input">
-      <%=f.label :pay_from, "с" %>
+      <label for="pay_from" class="select required control-label"><abbr title="required">*</abbr>с</label>
       <%= f.text_field :pay_from%>
     </div>
 
     <div class="input">
-      <%=f.label :end, "по" %>
+      <label for="pay_to" class="select required control-label"><abbr title="required">*</abbr>по</label>
       <%= f.text_field :pay_to%>
     </div>
-
-
 
 
 

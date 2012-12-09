@@ -68,13 +68,6 @@ class OrdersController < ApplicationController
   end
 
   def search_options
-    #if params[:id].present?
-    #  edit_record = Order.find(params[:id])
-    #  edit_record.teacher_id = nil if edit_record.teacher_id.present?
-    #  edit_record.schedule_id = nil if edit_record.schedule_id.present?
-    #  edit_record.office_id = nil if edit_record.office_id.present?
-    #
-    #end
     if params[:course_id].present?
       t_collect = Course.find(params[:course_id]).teachers
       @t_select_list = []
@@ -129,7 +122,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        client.update_attribute(:status_id, 1)
+        client.update_attribute(:status_id, 6)
         if client.courses.blank?
           client.courses<<course
         else

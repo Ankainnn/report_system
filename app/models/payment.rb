@@ -3,7 +3,7 @@ class Payment < ActiveRecord::Base
 
   attr_accessible :type, :date, :summ, :order_id, :course, :schedule, :client, :hours, :office, :end, :start, :pay_from, :pay_to
 
-  validates :date, :summ, :order_id, :course, :schedule, :client, :hours, :office, :start, :end, :type, presence: true
+  validates :date, :summ, :order_id, :course, :schedule, :client, :hours, :office, :pay_from, :pay_to, :type, presence: true
 
   self.inheritance_column = nil
   def self.to_csv(options = {})

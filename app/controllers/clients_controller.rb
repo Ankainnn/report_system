@@ -22,7 +22,8 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
                 ['день и время','daysandtime'],
                 ['период','period'],
                 ['офис','office_id'],
-                ['комментарий','comment']]
+                ['комментарий','comment'],
+                ['создано','created_at']]
     if res
       @clients = Client.order("#{res.clients} ASC")
     else
@@ -66,6 +67,7 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
   # POST /clients
   # POST /clients.json
   def create
+    @client = Client.new(params[:client])
     times =[]
     count_days = 0
     days = params[:day].join(", ") if params[:day]
@@ -81,7 +83,7 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
 
     if count_days == count_times
 
-    @client = Client.new(params[:client])
+
     @client.author = current_user.fio
 
     if count_days && count_times != 0
@@ -101,7 +103,8 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
     end
 
     else
-      redirect_to new_client_path, notice: "даныне введены некорректно (день-время)"
+      #redirect_to new_client_path, notice: "даныне введены некорректно (день-время)"
+      render action: "new"
     end
   end
 

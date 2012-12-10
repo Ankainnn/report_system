@@ -1,3 +1,0 @@
-<label for="course" class="select required control-label"><abbr title="required">*</abbr>курс</label>
-<%= collection_select(:course , nil, @res, :id, :name, {include_blank:true}, {onchange: "$.post('current_order', $('#course_').serialize(), {}, 'script' );" }) %>
-

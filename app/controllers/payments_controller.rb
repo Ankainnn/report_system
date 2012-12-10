@@ -48,9 +48,6 @@ class PaymentsController < ApplicationController
   # GET /payments/new
   # GET /payments/new.json
   def new
-
-    session[:course] = nil
-    session[:client] = nil
     @payment = Payment.new
 
     client_id = []
@@ -61,15 +58,6 @@ class PaymentsController < ApplicationController
 
     @collect_c = Client.where(id: uniq_client_id)
 
-
-    if params[:client]
-      client = params[:client].split(" ")
-      session[:client] = Client.where(surname: client[0], name: client[1], middle_name: client[2]).first
-      session[:client_id] = session[:client].id
-    end
-
-    @res = Client.find(session[:client_id]).courses if session[:client_id].present?
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @payments }
@@ -78,36 +66,29 @@ class PaymentsController < ApplicationController
   end
 
 
-  def current_order
-    if params[:course]
-      if params[:course][0].present?
-        session[:course] = Course.find(params[:course][0])
-      else
-        session[:course] = nil
-      end
+  def search_options
+    fio = params[:client].split(" ")
+    client = Client.where(surname: fio[0], name: fio[1], middle_name: fio[2]).first
+    @client_id = client.id
+    @client_courses = Client.find(@client_id).courses
+    if params[:course_id].present?
+    @current_order =  client.orders.where("course_id = ?", params[:course_id]).first
+    if @current_order.present?
+    @schedule = @current_order.schedule.graphic
+    @order_number = @current_order.number
+    @office = @current_order.office.try(:name)
+    @order_id = @current_order.id
     end
-
-    if session[:client].present? && session[:course].present?
-      @order = Order.where(client_id: session[:client].id, course_id: session[:course]).first
-      if @order.present?
-        @order_id = @order.id
-        @office = @order.office.name
-        @order_number = @order.number
-        @schedule = @order.schedule.graphic
-      end
     end
-
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @payments }
+      format.html
       format.js
     end
   end
+
 
   # GET /payments/1/edit
   def edit
-    session[:course] = nil
-    session[:client] = nil
     @payment = Payment.find(params[:id])
 
     client_id = []
@@ -117,15 +98,6 @@ class PaymentsController < ApplicationController
     uniq_client_id = client_id.uniq
 
     @collect_c = Client.where(id: uniq_client_id)
-
-
-    if params[:client]
-      client = params[:client].split(" ")
-      session[:client] = Client.where(surname: client[0], name: client[1], middle_name: client[2]).first
-      session[:client_id] = session[:client].id
-    end
-
-    @res = Client.find(session[:client_id]).courses if session[:client_id].present?
 
     respond_to do |format|
       format.html # index.html.erb
@@ -137,20 +109,14 @@ class PaymentsController < ApplicationController
   # POST /payments
   # POST /payments.json
   def create
-    #render text: Course.find(params[:course].first).name
     @payment = Payment.new(params[:payment])
-
-    fio = params[:client].split(" ")
-    client = Client.where(surname: fio[0], name: fio[1], middle_name: fio[2]).first.fio
-    @payment.client = client
-    @payment.course = Course.find(params[:course].first).name if params[:course].present?
+    @payment.client = params[:client] if params[:client].present?
+    @payment.course = Course.find(params[:course_id].first).name if params[:course_id].present?
     @payment.schedule = params[:schedule].first if params[:schedule].present?
     @payment.office = params[:office].first if params[:office].present?
 
     respond_to do |format|
       if @payment.save
-        session[:client] = nil
-        session[:course] = nil
         format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
         format.json { render json: @payment, status: :created, location: @payment }
       else
@@ -173,13 +139,11 @@ class PaymentsController < ApplicationController
 
     @collect_c = Client.where(id: uniq_client_id)
 
-    if params[:client].present? && params[:course].present? && params[:schedule].present? && params[:office].present?
-    fio = params[:client].split(" ")
-    client = Client.where(surname: fio[0], name: fio[1], middle_name: fio[2]).first.fio
-    @payment.client = client
-    @payment.course = Course.find(params[:course].first).name if params[:course].present?
-    @payment.schedule = params[:schedule].first if params[:schedule].present?
-    @payment.office = params[:office].first if params[:office].present?
+    if params[:client].present? && params[:course_id].present? && params[:schedule].present? && params[:office].present?
+    @payment.client = params[:client]
+    @payment.course = Course.find(params[:course_id].first).name
+    @payment.schedule = params[:schedule].first
+    @payment.office = params[:office].first
 
     respond_to do |format|
       if @payment.update_attributes(params[:payment])
@@ -191,7 +155,7 @@ class PaymentsController < ApplicationController
       end
     end
     else
-      redirect_to edit_payment_path(@payment)
+      render action: "edit"
     end
   end
 

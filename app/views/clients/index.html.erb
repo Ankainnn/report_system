@@ -50,7 +50,7 @@
         <td><%= client.manager.try(:name) %></td>
         <td><%= client.day %></td>
         <td><%= client.time %></td>
-        <td><%= client.course %></td>
+        <td><%= format_subject(client.course) %></td>
         <td><%= client.period %></td>
         <td><%= client.presumed_start %></td>
         <td><%= client.office.try(:name) %></td>

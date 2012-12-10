@@ -10,7 +10,7 @@ class Client < ActiveRecord::Base
   validates :email,
             :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i},
             :allow_blank => true
-  validates :email, :surname, :name, :middle_name, :date, :course, presence: true
+  validates :email, :surname, :name, :middle_name, :date, :course, :status_id, presence: true
 
   def fio
     if self.try(:surname)
@@ -47,10 +47,10 @@ class Client < ActiveRecord::Base
 
     subjects = array_hash[5].split(":").last.split(",").delete_if{|x| x == " "}.sort
     subjects.delete_at(0)
-    #subjects = subjects.collect{|x| r + x}.first
+    subjects = subjects.collect{|x| "EGE /" + x}
     subjects = subjects.join(", ")
 
-    Client.create surname: surname, name: name, middle_name: middle_name, email: email, phone: phone, school: school, idvk: vk_page, course: subjects, resource_id: resource, date: Time.now.strftime('%d-%m-%Y')
+    Client.create surname: surname, name: name, middle_name: middle_name, email: email, phone: phone, school: school, idvk: vk_page, course: subjects, status_id: 10, resource_id: resource, date: Time.now.strftime('%d-%m-%Y')
   end
 
 end

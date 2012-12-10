@@ -11,19 +11,19 @@ jQuery ->
       source: $('#client_new').data('autocomplete-source')
       select: (event,ui) ->
         res = ui.item.value
-        $.ajax 'new',
+        $.ajax 'search_options',
           type: 'POST'
           dataType: 'script'
           data: "client=#{res}"
 
-    $('#client_edit').autocomplete
-      source: $('#client_edit').data('autocomplete-source')
-      select: (event,ui) ->
-        res = ui.item.value
-        $.ajax 'edit',
-          type: 'POST'
-          dataType: 'script'
-          data: "client=#{res}"
+#    $('#client_edit').autocomplete
+#      source: $('#client_edit').data('autocomplete-source')
+#      select: (event,ui) ->
+#        res = ui.item.value
+#        $.ajax 'search_options',
+#          type: 'POST'
+#          dataType: 'script'
+#          data: "client=#{res}"
 
     $('#payment_order_id, #schedule_ , #order_number_').keypress ->
       return false

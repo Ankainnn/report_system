@@ -61,6 +61,12 @@ $(document).ready(function() {
             source: $('#client_update').data('autocomplete-source')
         });
 
+        $( "#client_edit" ).autocomplete({
+            source: $('#client_edit').data('autocomplete-source')
+        });
+
+
+
 
 
 

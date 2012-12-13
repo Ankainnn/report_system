@@ -12,9 +12,9 @@
     <div>
     <label for="teacher" class="select required control-label"><abbr title="required">*</abbr> преподаватель</label>
       <%if action_name == "new"%>
-    <%= g.collection_select(:teacher_id, Teacher.order(:name), :id, :name, {include_blank: true}, {onchange: "$.post('new', {teacher_id: $(this).val()}, {}, 'script' );" })%>
+    <%= g.collection_select(:teacher_id, Teacher.order(:name), :id, :fio, {include_blank: true}, {onchange: "$.post('new', {teacher_id: $(this).val()}, {}, 'script' );" })%>
       <%else%>
-    <%= g.collection_select(:teacher_id, Teacher.order(:name), :id, :name, {include_blank: true})%>
+    <%= g.collection_select(:teacher_id, Teacher.order(:name), :id, :fio, {include_blank: true})%>
       <%end%>
     </div>
 

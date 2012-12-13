@@ -25,6 +25,8 @@ $(document).ready(function() {
 	};*/
 
 
+
+
 	$('#demotable').tableFilter();
     $('#demotable').tablesorter();
 

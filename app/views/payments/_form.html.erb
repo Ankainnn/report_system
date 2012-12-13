@@ -1,6 +1,6 @@
 <%= simple_form_for(@payment, :html => { :class => 'form-horizontal' }) do |f| %>
     <div class="input">
-      <%=f.label :date, "дата" %>
+    <label for="date" class="select required control-label"><abbr title="required">*</abbr>дата</label>
     <%= f.text_field :date%>
     </div>
 
@@ -38,12 +38,12 @@
     </div>
 
     <div class="input">
-      <label for="pay_from" class="select required control-label"><abbr title="required">*</abbr>с</label>
+      <%= f.label :pay_from, "с"%>
       <%= f.text_field :pay_from%>
     </div>
 
     <div class="input">
-      <label for="pay_to" class="select required control-label"><abbr title="required">*</abbr>по</label>
+      <%= f.label :pay_to, "по"%>
       <%= f.text_field :pay_to%>
     </div>
 

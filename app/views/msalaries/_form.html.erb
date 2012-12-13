@@ -1,6 +1,6 @@
 <%= simple_form_for(@msalary, :html => { :class => 'form-horizontal' }) do |f| %>
     <div class="input">
-    <%= f.label :date, "дата"%>
+    <label for="date" class="select required control-label"><abbr title="required">*</abbr>дата</label>
     <%= f.text_field :date%>
     </div>
   <%= f.input :summ, label: "сумма" %>

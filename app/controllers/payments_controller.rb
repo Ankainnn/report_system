@@ -85,13 +85,7 @@ class PaymentsController < ApplicationController
   def edit
     @payment = Payment.find(params[:id])
 
-    client_id = []
-    Order.all.each do |order|
-      client_id << order.client_id
-    end
-    uniq_client_id = client_id.uniq
-
-    @collect_c = Client.where(id: uniq_client_id)
+    @collect_c = collect_c
 
     respond_to do |format|
       format.html # index.html.erb
@@ -108,7 +102,7 @@ class PaymentsController < ApplicationController
     if params[:client].present?
     @payment.client = Client.find_by_phone(params[:client].split(" - ").last).fio
     end
-    if params[:course_id].first.present?
+    if params[:course_id].present?  && params[:course_id].first.present?
     @payment.course = Course.find(params[:course_id].first).name
     end
     @payment.schedule = params[:schedule].first if params[:schedule].present?

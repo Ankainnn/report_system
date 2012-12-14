@@ -6,7 +6,7 @@
 
     <%= f.input :summ, label: "сумма" %>
     <div id="fix-payments">
-      <%= f.input :type, :collection => ["наличный расчет", "безналичный расчет"], :as => :radio_buttons, label: "форма оплаты" %>
+      <%= f.input :type, :collection => ["наличный расчет", "безналичный расчет"], :as => :radio_buttons, label: "форма оплаты"%>
     </div>
 
     <div class="input">
@@ -21,7 +21,7 @@
     <%= f.label "договор"%>
     <%= text_field :order_number, nil, :autocomplete => 'off'%>
 
-    <%= f.input :order_id, as: :hidden%>
+    <%= f.input :order_id, as: :hidden, error: false%>
 
     <div id="graphic">
       <%= f.label "график"%>

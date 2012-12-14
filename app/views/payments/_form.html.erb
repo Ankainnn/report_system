@@ -11,7 +11,7 @@
 
     <div class="input">
       <label for="client" class="select required control-label"><abbr title="required">*</abbr>клиент</label>
-      <%= text_field_tag :client, nil, id: "client_new", data: {autocomplete_source: @collect_c.map(&:fio) } %>
+      <%= text_field_tag :client, nil, id: "client_new", data: {autocomplete_source: @collect_c.map(&:fi_and_phone) } %>
     </div>
 
     <div id="select_list" >

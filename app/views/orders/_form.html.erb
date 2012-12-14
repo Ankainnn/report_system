@@ -5,7 +5,7 @@
     <%= f.input :number, label: "номер договора" %>
     <div class="input">
       <label for="client" class="select required control-label"><abbr title="required">*</abbr> клиент</label>
-    <%= text_field_tag :client, nil, data: {autocomplete_source: @client_collection.map(&:fio)}, :html => { :id => 'order_client_id' } %>
+    <%= text_field_tag :client, nil, data: {autocomplete_source: @client_collection.map(&:fi_and_phone)}, :html => { :id => 'order_client_id' } %>
     </div>
     <div class="input">
       <label for="contract" class="select required control-label"><abbr title="required">*</abbr>дата заключения</label>

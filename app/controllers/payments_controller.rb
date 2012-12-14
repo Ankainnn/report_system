@@ -67,8 +67,8 @@ class PaymentsController < ApplicationController
 
 
   def search_options
-    fio = params[:client].split(" ")
-    client = Client.where(surname: fio[0], name: fio[1], middle_name: fio[2]).first
+    phone = params[:client].split(" - ").last
+    client = Client.find_by_phone(phone)
     @client_id = client.id
     @client_courses = Client.find(@client_id).courses
     if params[:course_id].present?
@@ -110,7 +110,9 @@ class PaymentsController < ApplicationController
   # POST /payments.json
   def create
     @payment = Payment.new(params[:payment])
-    @payment.client = params[:client] if params[:client].present?
+    if params[:client].present?
+    @payment.client = Client.find_by_phone(params[:client].split(" - ").last).fio
+    end
     @payment.course = Course.find(params[:course_id].first).name if params[:course_id].present?
     @payment.schedule = params[:schedule].first if params[:schedule].present?
     @payment.office = params[:office].first if params[:office].present?
@@ -140,7 +142,7 @@ class PaymentsController < ApplicationController
     @collect_c = Client.where(id: uniq_client_id)
 
     if params[:client].present? && params[:course_id].present? && params[:schedule].present? && params[:office].present?
-    @payment.client = params[:client]
+    @payment.client = Client.find_by_phone(params[:client].split(" - ").last).fio
     @payment.course = Course.find(params[:course_id].first).name
     @payment.schedule = params[:schedule].first
     @payment.office = params[:office].first

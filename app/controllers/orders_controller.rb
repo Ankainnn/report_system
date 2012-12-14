@@ -106,11 +106,11 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
 
-    if params[:client].present? && params[:client].split(" ").count == 3
+    if params[:client].present? && params[:client].split(" - ").count == 2
     @order = Order.new(params[:order])
-    fio = params[:client].split(" ")
+    phone = params[:client].split(" - ").last
 
-    client = Client.where(surname: fio[0], name: fio[1], middle_name: fio[2]).first
+    client = Client.find_by_phone(phone)
 
     course = Course.find(params[:order][:course_id])
 
@@ -149,9 +149,9 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @client_collection = Client.where("status_id != ? AND status_id != ?", 8, 9)
     if params[:teacher_id].present? && params[:schedule_id].present? && params[:office_id].present?
-    if params[:client].present? && params[:client].split(" ").count == 3
-    fio = params[:client].split(" ")
-    client = Client.where(surname: fio[0], name: fio[1], middle_name: fio[2]).first
+    if params[:client].present? && params[:client].split(" - ").count == 2
+    phone = params[:client].split(" - ").last
+    client = Client.find_by_phone(phone)
 
 
     res = Order.find(params[:id]).course.id

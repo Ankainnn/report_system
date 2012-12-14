@@ -20,6 +20,10 @@ class Client < ActiveRecord::Base
     end
   end
 
+  def fi_and_phone
+    "#{self.try(:surname)} #{self.try(:name)} - #{self.try(:phone)}"
+  end
+
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       csv << column_names

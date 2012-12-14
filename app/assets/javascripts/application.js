@@ -23,12 +23,14 @@ $(document).ready(function() {
 	/*var options = {
 		additionalFilterTriggers: [$('#quickfind')]
 	};*/
+    var options = {
+        enableCookies: false
+    };
 
 
-
-
-	$('#demotable').tableFilter();
+	$('#demotable').tableFilter(options);
     $('#demotable').tablesorter();
+
 
 
     $('#order_date, #client_date, #salary_pay_to, #salary_pay_from, #msalary_pay_to,' +
@@ -66,13 +68,6 @@ $(document).ready(function() {
         $( "#client_edit" ).autocomplete({
             source: $('#client_edit').data('autocomplete-source')
         });
-
-
-
-
-
-
-
 
     });
 

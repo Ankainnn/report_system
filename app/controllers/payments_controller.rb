@@ -135,7 +135,9 @@ class PaymentsController < ApplicationController
 
     if params[:client].present? && params[:course_id].present? && params[:schedule].present? && params[:office].present?
     @payment.client = Client.find_by_phone(params[:client].split(" - ").last).fio
-    @payment.course = Course.find(params[:course_id].first).name
+    if params[:course_id].first.present?
+      @payment.course = Course.find(params[:course_id].first).name
+    end
     @payment.schedule = params[:schedule].first
     @payment.office = params[:office].first
 

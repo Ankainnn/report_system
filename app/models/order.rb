@@ -6,7 +6,7 @@ class Order < ActiveRecord::Base
   belongs_to :office # may be we should make this relations through the schedule
   has_many :payments
 
-  validates :date, :number, :client_id, :contract, :course_id, :office_id, :price, presence: true
+  validates :date, :number, :client_id, :contract, :course_id, :office_id, :teacher_id, :schedule_id, :price, presence: true
 
   attr_accessor :name
   def name

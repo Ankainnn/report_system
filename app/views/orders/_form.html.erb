@@ -12,8 +12,9 @@
       <%= f.text_field :contract%>
     </div>
     <%= f.association :course, label: "курс", :input_html => {onchange: "$.post('search_options',  {course_id: $(this).val()}, {}, 'script' );"}%>
-    <div id="select_list">
 
+    <div id="select_list">
+    <%= render 'select_list'%>
     </div>
 
     <div class="input">

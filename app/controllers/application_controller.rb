@@ -32,6 +32,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def collect_c
+    client_id = []
+    Order.all.each do |order|
+      client_id << order.client_id
+    end
+    uniq_client_id = client_id.uniq
+    Client.where(id: uniq_client_id)
+  end
+
 
 
 

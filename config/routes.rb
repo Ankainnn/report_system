@@ -37,6 +37,7 @@ Reports::Application.routes.draw do
   post "orders/:id/search_options" => 'orders#search_options'
 
   post "payments/search_options"
+  post "/search_options" =>  'payments#search_options'
   post "payments/:id/search_options" => 'payments#search_options'
 
   resources :outlays

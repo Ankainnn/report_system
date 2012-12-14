@@ -50,13 +50,7 @@ class PaymentsController < ApplicationController
   def new
     @payment = Payment.new
 
-    client_id = []
-    Order.all.each do |order|
-      client_id << order.client_id
-    end
-    uniq_client_id = client_id.uniq
-
-    @collect_c = Client.where(id: uniq_client_id)
+    @collect_c = collect_c
 
     respond_to do |format|
       format.html # index.html.erb
@@ -109,11 +103,14 @@ class PaymentsController < ApplicationController
   # POST /payments
   # POST /payments.json
   def create
+    @collect_c = collect_c
     @payment = Payment.new(params[:payment])
     if params[:client].present?
     @payment.client = Client.find_by_phone(params[:client].split(" - ").last).fio
     end
-    @payment.course = Course.find(params[:course_id].first).name if params[:course_id].present?
+    if params[:course_id].first.present?
+    @payment.course = Course.find(params[:course_id].first).name
+    end
     @payment.schedule = params[:schedule].first if params[:schedule].present?
     @payment.office = params[:office].first if params[:office].present?
 
@@ -121,9 +118,11 @@ class PaymentsController < ApplicationController
       if @payment.save
         format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
         format.json { render json: @payment, status: :created, location: @payment }
+        format.js
       else
-        format.html { redirect_to new_payment_path}
+        format.html { render 'new'}
         format.json { render json: @payment.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -132,14 +131,7 @@ class PaymentsController < ApplicationController
   # PUT /payments/1.json
   def update
     @payment = Payment.find(params[:id])
-
-    client_id = []
-    Order.all.each do |order|
-      client_id << order.client_id
-    end
-    uniq_client_id = client_id.uniq
-
-    @collect_c = Client.where(id: uniq_client_id)
+    @collect_c = collect_c
 
     if params[:client].present? && params[:course_id].present? && params[:schedule].present? && params[:office].present?
     @payment.client = Client.find_by_phone(params[:client].split(" - ").last).fio

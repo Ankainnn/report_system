@@ -1,4 +1,4 @@
-<%if params[:course_id].present? && @t_select_list.present?%>
+<%if (params[:course_id].present? && @t_select_list.present?)%>
     <div class="input">
       <label for="course_id" class="select required control-label"><abbr title="required">*</abbr>преподаватель</label>
       <%= collection_select(:teacher_id , nil, @t_select_list, :id, :name, {:include_blank => true}, {onchange: "$.post('search_options',  {course_id: #{params[:course_id]}, teacher_id: $(this).val()}, {}, 'script' );"}) %>

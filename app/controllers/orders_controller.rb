@@ -60,7 +60,7 @@ class OrdersController < ApplicationController
     @sts.delete(Status.where(:name => "Отказ"))
     @sts.collect!{|s| s.id}
     @cls = Client.where(:status_id => @sts)
-    @client_collection = Client.where("status_id != ? AND status_id != ?", 8, 9)
+    @client_collection = Client.where("status_id != ? AND status_id != ?", 11, 13)
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @order }
@@ -100,6 +100,11 @@ class OrdersController < ApplicationController
     @sts.delete(Status.where(:name => "Отказ"))
     @sts.collect!{|s| s.id}
     @cls = Client.where(:status_id => @sts)
+    @t_select_list = Teacher.where(id: @order.teacher_id)
+    @s_select_list = Schedule.where(id: @order.schedule_id)
+    @f_select_list = Office.where(id: @order.office_id)
+    @client = Client.find(@order.client_id).fi_and_phone
+    #<%= render 'form' %>
   end
 
   # POST /orders
@@ -122,7 +127,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        client.update_attribute(:status_id, 6)
+        client.update_attribute(:status_id, 1)
         if client.courses.blank?
           client.courses<<course
         else
@@ -146,9 +151,16 @@ class OrdersController < ApplicationController
   # PUT /orders/1
   # PUT /orders/1.json
   def update
+    #render text: params
     @order = Order.find(params[:id])
+
+    @t_select_list = Teacher.where(id: @order.teacher_id)
+    @s_select_list = Schedule.where(id: @order.schedule_id)
+    @f_select_list = Office.where(id: @order.office_id)
+    @client = Client.find(@order.client_id).fi_and_phone
+
     @client_collection = Client.where("status_id != ? AND status_id != ?", 8, 9)
-    if params[:teacher_id].present? && params[:schedule_id].present? && params[:office_id].present?
+    if ((params[:teacher_id].present? || params[:order][:teacher_id].present?) && (params[:schedule_id].present? || params[:order][:schedule_id].present?) && (params[:office_id].present? || params[:order][:office_id].present?))
     if params[:client].present? && params[:client].split(" - ").count == 2
     phone = params[:client].split(" - ").last
     client = Client.find_by_phone(phone)
@@ -163,11 +175,14 @@ class OrdersController < ApplicationController
     new_record = Course.find(params[:order][:course_id])
     client.courses<<new_record
 
-    @order.client_id = client.id
+
     @order.author = current_user.fio
-    @order.teacher_id = params[:teacher_id].first if params[:teacher_id].present?
-    @order.schedule_id = params[:schedule_id].first if params[:schedule_id].present?
-    @order.office_id = params[:office_id] if params[:office_id].present?
+    @order.client_id = client.id
+    if params[:teacher_id].present? && params[:schedule_id].present? && params[:office_id].present?
+    @order.teacher_id = params[:teacher_id].first# if params[:teacher_id].present?
+    @order.schedule_id = params[:schedule_id].first# if params[:schedule_id].present?
+    @order.office_id = params[:office_id]# if params[:office_id].present?
+    end
 
     respond_to do |format|
       if @order.update_attributes(params[:order])  && @order.update_attribute(:editor, current_user.fio)

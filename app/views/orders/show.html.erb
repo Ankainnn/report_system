@@ -17,7 +17,7 @@
 
 <p>
   <b>клиент:</b>
-  <%= @order.client.fio if @order.client_id.present? %>
+  <%= @order.client.try(:fio)%>
 </p>
 
 <p>
@@ -27,12 +27,12 @@
 
 <p>
   <b>курс:</b>
-  <%= @order.course.name if @order.course_id.present? %>
+  <%= @order.course.try(:name)%>
 </p>
 
 <p>
   <b>преподаватель:</b>
-  <%= @order.teacher.name if @order.teacher_id.present? %>
+  <%= @order.teacher.try(:name)%>
 </p>
 
 <p>
@@ -42,7 +42,7 @@
 
 <p>
   <b>офис:</b>
-  <%= @order.office.name if @order.office_id.present? %>
+  <%= @order.office.try(:name)%>
 </p>
 
 <p>

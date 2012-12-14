@@ -25,7 +25,7 @@
     <td><%= course.surname %></td>
     <td><%= course.position %></td>
     <td><%= course.phone %></td>
-    <td><%= course.office.name if course.office_id.present?%></td>
+    <td><%= course.office.try(:name)%></td>
     <td><%= course.role %></td>
     <td><%= course.active %></td>
     <td>

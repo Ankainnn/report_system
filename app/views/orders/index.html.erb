@@ -37,7 +37,7 @@
         <td><%= order.date%></td>
         <td><%= order.contract %></td>
         <td><%= order.course.try(:name) %></td>
-        <td><%= order.teacher.try(:name)%></td>
+        <td><%= order.teacher.try(:fio)%></td>
         <td><%= order.schedule.try(:graphic)%></td>
         <td><%= order.office.try(:name)%></td>
         <td><%= order.start%></td>

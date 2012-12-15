@@ -1,5 +1,3 @@
-
-
 <?xml version="1.0"?>
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
           xmlns:o="urn:schemas-microsoft-com:office:office"
@@ -12,6 +10,7 @@
         <Cell><Data ss:Type="String">ID</Data></Cell>
         <Cell><Data ss:Type="String">имя</Data></Cell>
         <Cell><Data ss:Type="String">телефон</Data></Cell>
+        <Cell><Data ss:Type="String">курсы</Data></Cell>
         <Cell><Data ss:Type="String">email</Data></Cell>
         <Cell><Data ss:Type="String">vk(id)</Data></Cell>
         <Cell><Data ss:Type="String">место работы</Data></Cell>
@@ -24,8 +23,13 @@
       <% @teachers.each do |teacher| %>
           <Row>
             <Cell><Data ss:Type="Number"><%= teacher.id %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= teacher.name %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= teacher.fio%></Data></Cell>
             <Cell><Data ss:Type="String"><%= teacher.phone %></Data></Cell>
+            <Cell><Data ss:Type="String">
+              <% teacher.courses.each do |x| %>
+                  <%=  x.name + ", " %>
+              <% end %>
+            </Data></Cell>
             <Cell><Data ss:Type="String"><%= teacher.email %></Data></Cell>
             <Cell><Data ss:Type="String"><%= teacher.idvk %></Data></Cell>
             <Cell><Data ss:Type="String"><%= teacher.workplace %></Data></Cell>

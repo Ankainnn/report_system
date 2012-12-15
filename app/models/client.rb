@@ -10,7 +10,7 @@ class Client < ActiveRecord::Base
   validates :email,
             :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i},
             :allow_blank => true
-  validates :phone, :surname, :name, :date, :status_id, :resource_id, presence: true
+  validates :phone, :surname, :name, :date, :status_id, presence: true
 
   def fio
     if self.try(:surname)

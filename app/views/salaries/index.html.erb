@@ -28,7 +28,7 @@
     <td><%= salary.date.strftime('%d-%m-%Y') if salary.date %></td>
     <td class="sum"><%= salary.summ %></td>
     <td><%= salary.course.try(:name) %></td>
-    <td><%= salary.teacher.try(:name) %></td>
+    <td><%= salary.teacher.try(:fio) %></td>
     <td><%= "#{salary.schedule.try(:day)} / #{salary.schedule.try(:time)}" if salary.schedule_id.present?%> </td>
     <td><%= salary.try(:start) %></td>
     <td><%= salary.try(:end) %></td>

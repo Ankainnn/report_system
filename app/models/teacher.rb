@@ -22,11 +22,7 @@ class Teacher < ActiveRecord::Base
   end
 
   def fio
-    if self.try(:surname)
-    	self.try(:name) + " " + self.try(:surname)
-    else
-    	self.try(:name)
-    end
+    "#{self.try(:name)} #{self.try(:surname)}"
   end
 
   def self.to_csv(options = {})

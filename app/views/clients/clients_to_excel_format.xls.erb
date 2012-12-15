@@ -9,21 +9,20 @@
       <Row>
         <Cell><Data ss:Type="String">ID</Data></Cell>
         <Cell><Data ss:Type="String">статус</Data></Cell>
-        <Cell><Data ss:Type="String">ресурс</Data></Cell>
-        <Cell><Data ss:Type="String">фамилия</Data></Cell>
-        <Cell><Data ss:Type="String">имя</Data></Cell>
-        <Cell><Data ss:Type="String">отчевство</Data></Cell>
+        <Cell><Data ss:Type="String">дата</Data></Cell>
+        <Cell><Data ss:Type="String">источник</Data></Cell>
+        <Cell><Data ss:Type="String">ФИО</Data></Cell>
         <Cell><Data ss:Type="String">телефон</Data></Cell>
-        <Cell><Data ss:Type="String">e-mail</Data></Cell>
-        <Cell><Data ss:Type="String">vk</Data></Cell>
         <Cell><Data ss:Type="String">школа</Data></Cell>
         <Cell><Data ss:Type="String">родитель</Data></Cell>
         <Cell><Data ss:Type="String">телефон родителя</Data></Cell>
-        <Cell><Data ss:Type="String">канал</Data></Cell>
+        <Cell><Data ss:Type="String">район</Data></Cell>
         <Cell><Data ss:Type="String">менеджер</Data></Cell>
-        <Cell><Data ss:Type="String">дни</Data></Cell>
+        <Cell><Data ss:Type="String">день</Data></Cell>
         <Cell><Data ss:Type="String">время</Data></Cell>
-        <Cell><Data ss:Type="String">период</Data></Cell>
+        <Cell><Data ss:Type="String">курс</Data></Cell>
+        <Cell><Data ss:Type="String">продолжительность</Data></Cell>
+        <Cell><Data ss:Type="String">ожидаемое начало</Data></Cell>
         <Cell><Data ss:Type="String">офис</Data></Cell>
         <Cell><Data ss:Type="String">комментарий</Data></Cell>
         <Cell><Data ss:Type="String">создано</Data></Cell>
@@ -35,13 +34,10 @@
           <Row>
             <Cell><Data ss:Type="Number"><%= client.id %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.status.try(:name)%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.date%></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.resource.try(:name)%></Data></Cell>
-            <Cell><Data ss:Type="String"><%= client.try(:surname) %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= client.try(:name) %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= client.try(:middle_name) %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.try(:fio) %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.phone %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= client.email %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= client.idvk %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.school %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.parent %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.parent_phone %></Data></Cell>
@@ -49,12 +45,14 @@
             <Cell><Data ss:Type="String"><%= client.manager.try(:name)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.day %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.time %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.course %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.period %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= client.office.try(:address)%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.presumed_start%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.office.try(:name)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.comment %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= client.created_at %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.created_at.strftime('%d-%m-%Y %H:%M:%S') %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.author %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= client.updated_at %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.updated_at.strftime('%d-%m-%Y %H:%M:%S') %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.editor %></Data></Cell>
           </Row>
       <% end %>

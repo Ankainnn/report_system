@@ -19,7 +19,7 @@
       <%= f.text_field :end%>
     </div>
   <%= f.association :office, label: "офис" %>
-  <%= f.association :teacher, label: "преподаватель" %>
+  <%= f.association :teacher, :label_method => :fio, label: "преподаватель" %>
   <%= f.association :course, label: "курс" %>
   <%= f.input :hours, collection: Period.all.map(&:period) , :as => :select, label: "часы" %>
     <div id="submit">

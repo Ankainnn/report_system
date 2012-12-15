@@ -110,7 +110,6 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-
     if params[:client].present? && params[:client].split(" - ").count == 2
     @order = Order.new(params[:order])
     phone = params[:client].split(" - ").last
@@ -123,11 +122,11 @@ class OrdersController < ApplicationController
     @order.author = current_user.fio
     @order.teacher_id = params[:teacher_id].first if params[:teacher_id].present?
     @order.schedule_id = params[:schedule_id].first if params[:schedule_id].present?
-    @order.office_id = params[:office_id] if params[:office_id].present?
+    @order.office_id = params[:office_id].first if params[:office_id].present?
 
     respond_to do |format|
       if @order.save
-        client.update_attribute(:status_id, 1)
+        client.update_attribute(:status_id, 15)
         if client.courses.blank?
           client.courses<<course
         else
@@ -181,7 +180,7 @@ class OrdersController < ApplicationController
     if params[:teacher_id].present? && params[:schedule_id].present? && params[:office_id].present?
     @order.teacher_id = params[:teacher_id].first# if params[:teacher_id].present?
     @order.schedule_id = params[:schedule_id].first# if params[:schedule_id].present?
-    @order.office_id = params[:office_id]# if params[:office_id].present?
+    @order.office_id = params[:office_id].first# if params[:office_id].present?
     end
 
     respond_to do |format|

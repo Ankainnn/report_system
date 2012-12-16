@@ -85,8 +85,9 @@ class SalariesController < ApplicationController
   # GET /salaries/1/edit
   def edit
     @salary = Salary.find(params[:id])
+    @teacher = Teacher.where(id: @salary.teacher_id)
     @res = Teacher.find(@salary.teacher_id).courses
-
+    params[:teacher_id] = @teacher.first.id
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @salary }
@@ -97,6 +98,7 @@ class SalariesController < ApplicationController
   # POST /salaries
   # POST /salaries.json
   def create
+    #render text: params
     @salary = Salary.new(params[:salary])
     @salary.course_id = params[:course_id].first if params[:course_id].present?
     @salary.schedule_id = params[:schedule_id].first if params[:schedule_id].present?

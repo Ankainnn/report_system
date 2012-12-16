@@ -69,6 +69,10 @@ $(document).ready(function() {
             source: $('#client_edit').data('autocomplete-source')
         });
 
+
+
+
+
     });
 
 });

@@ -84,8 +84,9 @@ class PaymentsController < ApplicationController
   # GET /payments/1/edit
   def edit
     @payment = Payment.find(params[:id])
-
+    @order_number = Order.find(@payment.order_id)
     @collect_c = collect_c
+    @client_courses_edit = Client.find_by_phone(@payment.client.split(" - ").last).courses
 
     respond_to do |format|
       format.html # index.html.erb
@@ -97,17 +98,14 @@ class PaymentsController < ApplicationController
   # POST /payments
   # POST /payments.json
   def create
-    @collect_c = collect_c
     @payment = Payment.new(params[:payment])
-    if params[:client].present?
-    @payment.client = Client.find_by_phone(params[:client].split(" - ").last).fio
-    end
+    @collect_c = collect_c
+    current_client = Client.find_by_phone(params[:payment][:client].split(" - ").last) if params[:payment][:client].present?
+    if current_client.present?
+    @client_courses_edit = current_client.courses
     if params[:course_id].present?  && params[:course_id].first.present?
-    @payment.course = Course.find(params[:course_id].first).name
+      @payment.course_id = params[:course_id].first
     end
-    @payment.schedule = params[:schedule].first if params[:schedule].present?
-    @payment.office = params[:office].first if params[:office].present?
-
     respond_to do |format|
       if @payment.save
         format.html { redirect_to @payment, notice: 'Payment was successfully created.' }
@@ -119,6 +117,9 @@ class PaymentsController < ApplicationController
         format.js
       end
     end
+    else
+      render "new"
+     end
   end
 
   # PUT /payments/1
@@ -126,14 +127,16 @@ class PaymentsController < ApplicationController
   def update
     @payment = Payment.find(params[:id])
     @collect_c = collect_c
+    @order_number = Order.find(@payment.order_id)
+    @client_courses_edit = Client.find_by_phone(@payment.client.split(" - ").last).courses
 
-    if params[:client].present? && params[:course_id].present? && params[:schedule].present? && params[:office].present?
-    @payment.client = Client.find_by_phone(params[:client].split(" - ").last).fio
+    if params[:course_id].present?
     if params[:course_id].first.present?
-      @payment.course = Course.find(params[:course_id].first).name
+      @payment.course_id = params[:course_id].first
     end
-    @payment.schedule = params[:schedule].first
-    @payment.office = params[:office].first
+
+    current_client = Client.find_by_phone(params[:payment][:client].split(" - ").last) if params[:payment][:client].present?
+    if current_client.present?
 
     respond_to do |format|
       if @payment.update_attributes(params[:payment])
@@ -143,6 +146,9 @@ class PaymentsController < ApplicationController
         format.html { render action: "edit" }
         format.json { render json: @payment.errors, status: :unprocessable_entity }
       end
+    end
+    else
+      render action: "edit"
     end
     else
       render action: "edit"

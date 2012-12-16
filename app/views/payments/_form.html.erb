@@ -9,33 +9,33 @@
       <%= f.input :type, :collection => ["наличный расчет", "безналичный расчет"], :as => :radio_buttons, label: "форма оплаты"%>
     </div>
 
-    <div class="input">
-      <label for="client" class="select required control-label"><abbr title="required">*</abbr>клиент</label>
-      <%= text_field_tag :client, nil, id: "client_new", data: {autocomplete_source: @collect_c.map(&:fi_and_phone) } %>
-    </div>
+
+
+    <%=f.input :client, label: "клиент", :input_html => { data: {autocomplete_source: @collect_c.map(&:fi_and_phone) }, id: "client_new"}%>
 
     <div id="select_list" >
 
+      <div class="input">
+        <%if @client_courses_edit.present?%>
+        <label for="course_id" class="select required control-label"><abbr title="required">*</abbr>курс</label>
+        <%= collection_select(:course_id , nil, @client_courses_edit, :id, :name, {:include_blank => true}, {onchange: "$.post('search_options',  {course_id: $(this).val(), client: $('#client_new').val()}, {}, 'script' );"}) %>
+        <%end%>
+      </div>
+
     </div>
 
-    <%= f.label "договор"%>
-    <%= text_field :order_number, nil, :autocomplete => 'off'%>
+
+    <%= f.input :order_name, label: "договор", :input_html => { :autocomplete => 'off'}%>
+
 
     <%= f.input :order_id, as: :hidden, error: false%>
 
-    <div id="graphic">
-      <%= f.label "график"%>
-      <%= text_field :schedule, nil, :autocomplete => 'off'%>
-    </div>
 
+    <%= f.input :schedule, label: "график", :input_html => { :autocomplete => 'off'}%>
 
-      <%= f.input :hours, :label => "кол. часов"%>
+    <%= f.input :hours, :label => "кол. часов"%>
 
-
-    <div id="office" class="input">
-      <%= f.label "офис"%>
-      <%= text_field :office, nil, :autocomplete => 'off'%>
-    </div>
+    <%= f.input :office, label: "офис", :input_html => { :autocomplete => 'off'}%>
 
     <div class="input">
       <%= f.label :pay_from, "с"%>

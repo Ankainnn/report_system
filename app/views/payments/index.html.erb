@@ -31,8 +31,8 @@
         <td class="sum"><%= payment.summ %></td>
         <td><%= payment.type %></td>
         <td><%= payment.order.try(:number) %></td>
-        <td><%= payment.client %></td>
-        <td><%= payment.course %></td>
+        <td><%= client_fio_normalize(payment.client)%></td>
+        <td><%= payment.course.try(:name) %></td>
         <td><%= payment.schedule %></td>
         <td><%= payment.hours %></td>
         <td><%= payment.pay_from %></td>

@@ -9,7 +9,7 @@ class Teacher < ActiveRecord::Base
 
 
 
-  validates :name, :surname, :phone, presence:true
+  validates :name, :surname, :phone, :courses, presence:true
 
   validates :email,
             :format => {:with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i},

@@ -1,14 +1,14 @@
 $('#select_list').html("<%=j render partial: 'select_list' %>");
 
 <%if @schedule.present? %>
-$('#schedule_').val("<%= @schedule%>");
-$('#order_number_').val("<%= @order_number%>");
-$('#office_').val("<%= @office%>");
+$('#payment_schedule').val("<%= @schedule%>");
+$('#payment_order_name').val("<%= @order_number%>");
+$('#payment_office').val("<%= @office%>");
 $('#payment_order_id').val("<%= @order_id%>");
 $("#course_id_ [value='<%= params[:course_id]%>']").attr("selected", "selected");
 <%else%>
-$('#schedule_').val("");
-$('#order_number_').val("");
-$('#office_').val("");
+$('#payment_schedule').val("");
+$('#payment_order_name').val("");
+$('#payment_office').val("");
 $('#payment_order_id').val("");
 <%end%>

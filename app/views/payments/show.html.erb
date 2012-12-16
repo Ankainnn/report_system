@@ -26,12 +26,12 @@
 
 <p>
   <b>клиент:</b>
-  <%= @payment.client %>
+  <%= client_fio_normalize(@payment.client)%>
 </p>
 
 <p>
   <b>курс:</b>
-  <%= @payment.course %>
+  <%= @payment.course.try(:name) %>
 </p>
 
 <p>

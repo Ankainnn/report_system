@@ -1,7 +1,8 @@
 class Payment < ActiveRecord::Base
   belongs_to :order
+  belongs_to :course
 
-  attr_accessible :type, :date, :summ, :order_id, :course, :schedule, :client, :hours, :office, :end, :start, :pay_from, :pay_to
+  attr_accessible :type, :date, :summ, :order_id, :course, :schedule, :client, :hours, :office, :end, :start, :pay_from, :order_name, :pay_to
 
   validates :date, :summ, :order_id, :course, :schedule, :client, :hours, :office, :type, presence: true
 

@@ -25,5 +25,5 @@ jQuery ->
 #          dataType: 'script'
 #          data: "client=#{res}"
 
-    $('#payment_order_id, #schedule_ , #order_number_').keypress ->
+    $('#payment_order_id, #payment_schedule, #order_number_number, #payment_office, #payment_order_name').keypress ->
       return false

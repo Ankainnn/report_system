@@ -1,4 +1,8 @@
 ru:
+  devise:
+    sessions:
+      signed_in: "Вход в систему выполнен."
+      signed_out: "Выход из системы выполнен."
   date:
     abbr_day_names:
     - Вс

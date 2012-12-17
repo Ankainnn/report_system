@@ -78,6 +78,7 @@ class SalariesController < ApplicationController
     @salary = Salary.find(params[:id])
     @current_teacher_courses = Course.where(id: @salary.course_id)
     @current_teacher_schedules = Schedule.where(id: @salary.schedule_id)
+    @teachers = Teacher.order(:name)
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @salary }
@@ -98,6 +99,7 @@ class SalariesController < ApplicationController
         format.json { render json: @salary, status: :created, location: @salary }
       else
         #format.html { redirect_to new_salary_path }
+        @salary.teacher_id = nil
         format.html { render action: "new"}
         format.json { render json: @salary.errors, status: :unprocessable_entity }
       end

@@ -1,13 +1,13 @@
 <%if (params[:course_id].present? && @t_select_list.present?)%>
     <div class="input">
       <label for="course_id" class="select required control-label"><abbr title="required">*</abbr>преподаватель</label>
-      <%= collection_select(:teacher_id , nil, @t_select_list, :id, :fio, {:include_blank => true}, {onchange: "$.post('search_options',  {course_id: #{params[:course_id]}, teacher_id: $(this).val()}, {}, 'script' );"}) %>
+      <%= collection_select(:teacher_id , nil, @t_select_list, :id, :fio, {:include_blank => true}, {onchange: "$.post('search_optionss',  {course_id: #{params[:course_id]}, teacher_id: $(this).val()}, {}, 'script' );"}) %>
     </div>
 
     <%if params[:teacher_id].present? && @s_select_list.present?%>
         <div class="input">
           <label for="course_id" class="select required control-label"><abbr title="required">*</abbr>график</label>
-          <%= collection_select(:schedule_id , nil, @s_select_list, :id, :graphic, {:include_blank => true}, {onchange: "$.post('search_options',  {course_id: #{params[:course_id]}, teacher_id: #{params[:teacher_id]}, schedule_id: $(this).val()}, {}, 'script' );"}) %>
+          <%= collection_select(:schedule_id , nil, @s_select_list, :id, :graphic, {:include_blank => true}, {onchange: "$.post('search_optionss',  {course_id: #{params[:course_id]}, teacher_id: #{params[:teacher_id]}, schedule_id: $(this).val()}, {}, 'script' );"}) %>
         </div>
 
         <%if params[:schedule_id].present? && @office.present?%>

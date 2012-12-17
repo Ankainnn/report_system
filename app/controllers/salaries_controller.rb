@@ -54,40 +54,30 @@ class SalariesController < ApplicationController
   # GET /salaries/new.json
   def new
     @salary = Salary.new
-    @teacher_collect = Teacher.order(:name)
-    @course_collect = Course.order(:id)
-    if params[:teacher_id].present?
-    @res = Teacher.find(params[:teacher_id]).courses
-
-    end
-
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @salary }
-      format.js
     end
   end
 
-
-  def schedules
-    if params[:teacher_id].present? && params[:course_id].present?
-      @schedules = Schedule.where("teacher_id = ? AND course_id = ?", params[:teacher_id], params[:course_id])
+  def salary_search_options
+    if params[:teacher_id].present?
+    @teacher_courses = Teacher.find(params[:teacher_id]).courses
+      if params[:course_id].present?
+      @teacher_schedules = Schedule.where("teacher_id = ? AND course_id = ?",params[:teacher_id], params[:course_id] )
+      end
     end
-
     respond_to do |format|
-      format.html
+      format.html # new.html.erb
       format.js
     end
-
   end
 
   # GET /salaries/1/edit
   def edit
     @salary = Salary.find(params[:id])
-    @teacher = Teacher.where(id: @salary.teacher_id)
-    @res = Teacher.find(@salary.teacher_id).courses
-    params[:teacher_id] = @teacher.first.id
+    @current_teacher_courses = Course.where(id: @salary.course_id)
+    @current_teacher_schedules = Schedule.where(id: @salary.schedule_id)
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @salary }
@@ -107,7 +97,8 @@ class SalariesController < ApplicationController
         format.html { redirect_to @salary, notice: 'Salary was successfully created.' }
         format.json { render json: @salary, status: :created, location: @salary }
       else
-        format.html { redirect_to new_salary_path }
+        #format.html { redirect_to new_salary_path }
+        format.html { render action: "new"}
         format.json { render json: @salary.errors, status: :unprocessable_entity }
       end
     end

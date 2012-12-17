@@ -67,7 +67,7 @@ class OrdersController < ApplicationController
     end
   end
 
-  def search_options
+  def search_optionss
     if params[:course_id].present?
       t_collect = Course.find(params[:course_id]).teachers
       @t_select_list = []
@@ -94,7 +94,7 @@ class OrdersController < ApplicationController
   # GET /orders/1/edit
   def edit
     @order = Order.find(params[:id])
-    @client_collection = Client.all
+    @client_collection = Client.where("status_id != ? AND status_id != ?", 11, 13)
     @sts = Status.all.to_a
     @sts.delete(Status.where(:name => "Договор"))
     @sts.delete(Status.where(:name => "Отказ"))
@@ -110,13 +110,16 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    if params[:client].present? && params[:client].split(" - ").count == 2
     @order = Order.new(params[:order])
+    @client_collection = Client.where("status_id != ? AND status_id != ?", 11, 13)
+    if params[:client].present? && params[:client].split(" - ").count == 2
+
     phone = params[:client].split(" - ").last
 
     client = Client.find_by_phone(phone)
+    @current_client = client.fi_and_phone
 
-    course = Course.find(params[:order][:course_id])
+    course = Course.find(params[:order][:course_id]) if params[:order][:course_id].present?
 
     @order.client_id = client.id
     @order.author = current_user.fio
@@ -137,12 +140,14 @@ class OrdersController < ApplicationController
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render json: @order, status: :created, location: @order }
       else
-        format.html { redirect_to new_order_path}
+        #format.html { redirect_to new_order_path}
+        format.html { render action: "new"}
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
     else
-      redirect_to new_order_path, notice: "поле 'клиент обезательно для заполнения'"
+      render action: "new"
+      #notice: "поле 'клиент обезательно для заполнения'"
     end
 
   end

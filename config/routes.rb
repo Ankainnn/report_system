@@ -32,9 +32,15 @@ Reports::Application.routes.draw do
   post "salaries/:id/schedules" => 'salaries#schedules'
   post "payments/new"
   post "salaries/new"
-  post "salaries/schedules"
-  post "orders/search_options"
-  post "orders/:id/search_options" => 'orders#search_options'
+
+
+  post "salaries/salary_search_options"
+  post "/salary_search_options" =>  'salaries#salary_search_options'
+  post "salaries/:id/salary_search_options" => 'salaries#salary_search_options'
+
+  post "orders/search_optionss"
+  post "/search_optionss" =>  'orders#search_optionss'
+  post "orders/:id/search_optionss" => 'orders#search_optionss'
 
   post "payments/search_options"
   post "/search_options" =>  'payments#search_options'

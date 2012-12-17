@@ -16,7 +16,7 @@
 
 <p>
   <b>преподаватель:</b>
-  <%= @salary.teacher.name %>
+  <%= @salary.teacher.try(:fio) %>
 </p>
 
 <p>

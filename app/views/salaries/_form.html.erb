@@ -10,28 +10,11 @@
     </div>
 
     <div>
-      <%if action_name == "new"%>
     <label for="teacher" class="select required control-label"><abbr title="required">*</abbr> преподаватель</label>
-    <%= g.collection_select(:teacher_id, Teacher.order(:name), :id, :fio, {include_blank: true}, {onchange: "$.post('new', {teacher_id: $(this).val()}, {}, 'script' );" })%>
-      <%else%>
-    <%= g.association :teacher, collection: @teacher, label: "преподаватель", include_blank: false%>
-      <%end%>
+    <%= g.collection_select(:teacher_id, Teacher.order(:name), :id, :fio, {include_blank: true}, {onchange: "$.post('salary_search_options', {teacher_id: $(this).val()}, {}, 'script' );" })%>
     </div>
 
-    <div id="course_and_schedule">
-     <%if action_name == "new"%>
-      <div id="course">
-      </div>
-     <%else%>
-          <div class="input">
-            <label for="course_id" class="select required control-label"><abbr title="required">*</abbr>курс</label>
-            <%= collection_select(:course_id , nil, @res, :id, :name, {include_blank:true}, {onchange: "$.post('schedules',  {teacher_id: #{params[:teacher_id]}, course_id: $(this).val()}, {}, 'script' );" }) %>
-          </div>
-      <%end%>
-
-      <div id="schedule">
-
-      </div>
+    <div id="salary_search_options">
 
     </div>
 
@@ -49,7 +32,7 @@
 
     <div id="fix-outlays" class="input">
       <label for="type" class="select required control-label"><abbr title="required">*</abbr> форма оплаты</label>
-      <%= g.input :type, :collection => ["Наличные", "По безналу"], :as => :radio_buttons, label: false %>
+      <%= g.input :type, :collection => ["Наличные", "По безналу"], :as => :radio_buttons, label: false, error: false %>
     </div>
 
 

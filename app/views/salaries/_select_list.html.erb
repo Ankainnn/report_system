@@ -1,0 +1,14 @@
+<%if @teacher_courses.present?%>
+<div class="input">
+  <label for="course_id" class="select required control-label"><abbr title="required">*</abbr>курс</label>
+  <%= collection_select(:course_id , nil, @teacher_courses, :id, :name, {include_blank:true}, {onchange: "$.post('salary_search_options',  {teacher_id: #{params[:teacher_id]}, course_id: $(this).val()}, {}, 'script' );" }) %>
+</div>
+
+
+<% if @teacher_schedules.present?%>
+<div class="input">
+  <label for="schedule_id" class="select required control-label"><abbr title="required">*</abbr>график</label>
+  <%= collection_select(:schedule_id , nil, @teacher_schedules, :id, :graphic, {include_blank:true}) %>
+</div>
+<%end%>
+<%end%>

@@ -33,7 +33,7 @@
             <Cell><Data ss:Type="String"><%= order.date %></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.contract %></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.course.try(:name)%></Data></Cell>
-            <Cell><Data ss:Type="String"><%= order.teacher.try(:name)%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.teacher.try(:fio)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.schedule.try(:graphic)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.office.try(:name)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.start %></Data></Cell>

@@ -1,0 +1,5 @@
+$('#salary_search_options').html("<%=j render partial: 'select_list' %>");
+
+<%if params[:course_id].present?%>
+$("#course_id_ [value='<%= params[:course_id]%>']").attr("selected", "selected");
+<%end%>

@@ -5,20 +5,20 @@
     <%= f.input :number, label: "номер договора" %>
     <div class="input">
       <label for="client" class="select required control-label"><abbr title="required">*</abbr> клиент</label>
-    <%= text_field_tag :client, nil, data: {autocomplete_source: @client_collection.map(&:fi_and_phone)}, :html => { :id => 'order_client_id' } %>
+    <%= text_field_tag :client, @current_client, data: {autocomplete_source: @client_collection.map(&:fi_and_phone)}, :html => { :id => 'order_client_id' } %>
     </div>
     <div class="input">
       <label for="contract" class="select required control-label"><abbr title="required">*</abbr>дата заключения</label>
       <%= f.text_field :contract%>
     </div>
-    <%= f.association :course, label: "курс", :input_html => {onchange: "$.post('search_options',  {course_id: $(this).val()}, {}, 'script' );"}%>
+    <%= f.association :course, label: "курс", :input_html => {onchange: "$.post('search_optionss',  {course_id: $(this).val()}, {}, 'script' );"}%>
 
     <div id="select_list">
     <%= render 'select_list'%>
     </div>
 
     <div class="input">
-      <%= f.label :start, "начлао"%>
+      <%= f.label :start, "начало"%>
       <%= f.text_field :start%>
     </div>
 

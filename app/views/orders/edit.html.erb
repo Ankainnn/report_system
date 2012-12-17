@@ -13,7 +13,7 @@
       <label for="contract" class="select required control-label"><abbr title="required">*</abbr>дата заключения</label>
       <%= f.text_field :contract%>
     </div>
-    <%= f.association :course, label: "курс", :input_html => {onchange: "$.post('search_options',  {course_id: $(this).val()}, {}, 'script' );"}%>
+    <%= f.association :course, label: "курс", :input_html => {onchange: "$.post('search_optionss',  {course_id: $(this).val()}, {}, 'script' );"}%>
 
         <div id="select_list">
           <%if @t_select_list.present?%>
@@ -28,7 +28,7 @@
         </div>
 
     <div class="input">
-      <%= f.label :start, "начлао"%>
+      <%= f.label :start, "начало"%>
       <%= f.text_field :start%>
     </div>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121216180456) do
+ActiveRecord::Schema.define(:version => 20121217220630) do
 
   create_table "channels", :force => true do |t|
     t.string   "name"
@@ -191,7 +191,7 @@ ActiveRecord::Schema.define(:version => 20121216180456) do
   end
 
   create_table "salaries", :force => true do |t|
-    t.datetime "date"
+    t.string   "date"
     t.integer  "summ"
     t.integer  "course_id"
     t.string   "type"

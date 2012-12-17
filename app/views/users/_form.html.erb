@@ -1,11 +1,10 @@
 <%= simple_form_for(@user, :url => create_user_path, :html => { :class => 'form-horizontal' }) do |f| %>
-    <%= f.error_notification %>
 
     <div class="form-inputs">
       <%= f.input :email, :required => true, :autofocus => true %>
       <%= f.input :password, :required => true, label: "пароль" %>
       <%= f.input :password_confirmation, :required => true, label: "повторите пароль" %>
-      <%= f.input :name, :required => true, label: "имя" %>
+      <%= f.input :name, :required => true, label: "имя"%>
       <%= f.input :surname, :required => true, label: "фамилия" %>
       <%= f.input :position, :required => true, label: "должность" %>
       <%= f.input :phone, :required => true, label: "телефон" %>

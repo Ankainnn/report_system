@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :user_nick, :role, :user_ban, :name, :surname, :position, :phone, :office_id
+  validates :phone, :surname, :name, :position, :role, :office, presence: true
 
   def activate
   	self.active = 1

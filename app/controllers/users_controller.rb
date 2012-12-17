@@ -27,8 +27,15 @@ class UsersController < ApplicationController
   end
 
   def create
-    User.create(params[:user])
-    redirect_to list_users_path
+    @user = User.create(params[:user])
+
+    respond_to do |format|
+      if @user.save
+      redirect_to list_users_path
+      else
+        format.html { render action: "new" }
+      end
+    end
   end
 
 

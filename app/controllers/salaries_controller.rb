@@ -10,7 +10,7 @@ class SalariesController < ApplicationController
 
     @current_user = current_user.id
     @options = [['дата', 'date'],
-                ['сумма', 'sum'],
+                ['сумма', 'summ'],
                 ['курс','course_id'],
                 ['преподаватель','teacher_id'],
                 ['график','schedule_id'],
@@ -22,14 +22,13 @@ class SalariesController < ApplicationController
                 ['оплата по','pay_to'],
                 ['создано','created_at'],
                 ['отредактировано','updated_at']]
-    if res
-      if res.salaries.present?
-        @salaries = Salary.order("#{res.salaries} ASC")
-      else
-        @salaries = Salary.all
-      end
+    if res.salaries.present?
+      @prompt = @options.rassoc(res.salaries).first
+      @options.delete_if{|x| x.last == res.salaries}
+      @salaries = Salary.order("#{res.salaries} ASC")
     else
-      @salaries =  Salary.all
+      @prompt = 'варианты'
+      @salaries = Salary.all
     end
 
 

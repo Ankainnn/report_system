@@ -18,14 +18,13 @@ class PaymentsController < ApplicationController
                 ['оплата по','pay_to'],
                 ['создано','created_at'],
                 ['отредактировано','updated_at']]
-    if res
-      if res.payments.present?
-        @payments = Payment.order("#{res.payments} ASC")
-      else
-        @payments = Payment.all
-      end
+    if res.payments.present?
+      @prompt = @options.rassoc(res.payments).first
+      @options.delete_if{|x| x.last == res.payments}
+      @payments = Payment.order("#{res.payments} ASC")
     else
-      @payments =  Payment.all
+      @prompt = 'варианты'
+      @payments = Payment.all
     end
 
     respond_to do |format|
@@ -87,7 +86,7 @@ class PaymentsController < ApplicationController
     @order_number = Order.find(@payment.order_id)
     @collect_c = collect_c
     @client_courses_edit = Client.find_by_phone(@payment.client.split(" - ").last).courses
-
+    @current_course = Course.find(@payment.course_id).name
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @payments }

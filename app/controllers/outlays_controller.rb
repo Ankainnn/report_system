@@ -15,14 +15,13 @@ class OutlaysController < ApplicationController
                 ['комментарий','comment'],
                 ['создано','created_at'],
                 ['отредактировано','updated_at']]
-    if res
-      if res.outlays.present?
-        @outlays = Outlay.order("#{res.outlays} ASC")
-      else
-        @outlays =  Outlay.all
-      end
+    if res.outlays.present?
+      @prompt = @options.rassoc(res.outlays).first
+      @options.delete_if{|x| x.last == res.outlays}
+      @outlays = Outlay.order("#{res.outlays} ASC")
     else
-      @outlays =  Outlay.all
+      @prompt = 'варианты'
+      @outlays = Outlay.all
     end
 
 

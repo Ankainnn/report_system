@@ -9,7 +9,8 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
     res = SortOption.find_by_user_id(current_user.id)
     @current_user = current_user.id
     @options = [['статус', 'status_id'],
-                ['район', 'resource_id'],
+                ['дата', 'date'],
+                ['источник', 'resource_id'],
                 ['фамилия','surname'],
                 ['телефон','phone'],
                 ['email','email'],
@@ -17,16 +18,24 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
                 ['школа','school'],
                 ['родитель','parent'],
                 ['телефон родителя','parent_phone'],
-                ['канал','channel_id'],
+                ['район','channel_id'],
                 ['менеджер','manager_id'],
-                ['день и время','daysandtime'],
-                ['период','period'],
+                ['день','day'],
+                ['время','time'],
+                ['продолжительность','period'],
+                ['ожидаемое начало','presumed_start'],
                 ['офис','office_id'],
                 ['комментарий','comment'],
-                ['создано','created_at']]
-    if res
+                ['создано','created_at'],
+                ['создал','author'],
+                ['отредактировано','updated_at'],
+                ['редактировал','editor']]
+    if res.clients.present?
+      @prompt = @options.rassoc(res.clients).first
+      @options.delete_if{|x| x.last == res.clients}
       @clients = Client.order("#{res.clients} ASC")
     else
+      @prompt = 'варианты'
       @clients = Client.all
     end
 

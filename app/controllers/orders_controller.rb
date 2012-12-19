@@ -24,13 +24,12 @@ class OrdersController < ApplicationController
                 ['создал','author'],
                 ['отредактировано','updated_at'],
                 ['редактировал','editor']]
-    if res
-      if res.orders.present?
-        @orders = Order.order("#{res.orders} ASC")
-      else
-        @orders = Order.all
-      end
+    if res.orders.present?
+      @prompt = @options.rassoc(res.orders).first
+      @options.delete_if{|x| x.last == res.orders}
+      @orders = Order.order("#{res.orders} ASC")
     else
+      @prompt = 'варианты'
       @orders = Order.all
     end
 
@@ -146,6 +145,7 @@ class OrdersController < ApplicationController
       end
     end
     else
+      @order.course_id = nil
       render action: "new"
       #notice: "поле 'клиент обезательно для заполнения'"
     end

@@ -18,14 +18,13 @@ class MsalariesController < ApplicationController
                 ['оплата по','pay_to'],
                 ['создано','created_at'],
                 ['отредактировано','updated_at']]
-    if res
-      if res.msalaries.present?
-        @msalaries = Msalary.order("#{res.msalaries} ASC")
-      else
-        @msalaries = Msalary.all
-      end
+    if res.msalaries.present?
+      @prompt = @options.rassoc(res.msalaries).first
+      @options.delete_if{|x| x.last == res.msalaries}
+      @msalaries = Msalary.order("#{res.msalaries} ASC")
     else
-      @msalaries =  Msalary.all
+      @prompt = 'варианты'
+      @msalaries = Msalary.all
     end
 
     respond_to do |format|

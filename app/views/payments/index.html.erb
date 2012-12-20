@@ -27,7 +27,7 @@
   <tbody>
     <% @payments.each do |payment| %>
       <tr class=<%= "tr" if payment.summ.present?%>>
-        <td><%= payment.date.strftime('%d-%m-%Y') %></td>
+        <td><%= payment.date%></td>
         <td class="sum"><%= payment.summ %></td>
         <td><%= payment.type %></td>
         <td><%= payment.order.try(:number) %></td>

@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
                 ['начало','start'],
                 ['конец','end'],
                 ['скидка','discount'],
-                ['цена','price'],
+                ['стоимость','price'],
                 ['создано','created_at'],
                 ['создал','author'],
                 ['отредактировано','updated_at'],

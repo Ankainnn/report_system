@@ -24,7 +24,7 @@
             <Cell><Data ss:Type="String"><%= schedule.time %></Data></Cell>
             <Cell><Data ss:Type="String"><%= schedule.start.strftime("%d.%m.%Y") if schedule.start.present? %></Data></Cell>
             <Cell><Data ss:Type="String"><%= schedule.end.strftime("%d.%m.%Y") if schedule.end.present? %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= schedule.office.try(:fio) %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= schedule.office.try(:name) %></Data></Cell>
             <Cell><Data ss:Type="String"><%= schedule.teacher.name if schedule.teacher_id.present? %></Data></Cell>
             <Cell><Data ss:Type="String"><%= schedule.course.name if schedule.course_id.present? %></Data></Cell>
             <Cell><Data ss:Type="String"><%= schedule.hours %></Data></Cell>

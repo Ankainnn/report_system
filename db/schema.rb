@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121217220630) do
+ActiveRecord::Schema.define(:version => 20121220213521) do
 
   create_table "channels", :force => true do |t|
     t.string   "name"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20121217220630) do
     t.string   "parent_phone"
     t.integer  "channel_id"
     t.integer  "manager_id"
-    t.string   "period"
+    t.integer  "period"
     t.integer  "office_id"
     t.text     "comment"
     t.datetime "created_at",     :null => false
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(:version => 20121217220630) do
 
   create_table "msalaries", :force => true do |t|
     t.integer  "manager_id"
-    t.datetime "date"
+    t.string   "date"
     t.integer  "summ"
     t.string   "type"
     t.text     "comment"
@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(:version => 20121217220630) do
     t.integer  "schedule_id"
     t.integer  "office_id"
     t.string   "start"
-    t.string   "number"
+    t.integer  "number"
     t.string   "end"
     t.string   "discount"
     t.integer  "price"
@@ -145,7 +145,7 @@ ActiveRecord::Schema.define(:version => 20121217220630) do
   add_index "orders", ["teacher_id"], :name => "index_orders_on_teacher_id"
 
   create_table "outlays", :force => true do |t|
-    t.datetime "date"
+    t.string   "date"
     t.integer  "summ"
     t.integer  "cost_id"
     t.string   "type"
@@ -158,7 +158,7 @@ ActiveRecord::Schema.define(:version => 20121217220630) do
   add_index "outlays", ["cost_id"], :name => "index_outlays_on_cost_id"
 
   create_table "payments", :force => true do |t|
-    t.datetime "date"
+    t.string   "date"
     t.integer  "summ"
     t.string   "type"
     t.integer  "order_id"

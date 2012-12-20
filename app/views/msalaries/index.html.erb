@@ -24,7 +24,7 @@
 <% @msalaries.each do |msalary| %>
   <tr class=<%= "tr" if msalary.summ.present?%>>
     <td><%= msalary.manager.try(:name)%></td>
-    <td><%= msalary.try(:date).strftime('%d-%m-%Y') %></td>
+    <td><%= msalary.date%></td>
     <td class="sum"><%= msalary.summ %></td>
     <td><%= msalary.try(:start).strftime('%d-%m-%Y') %></td>
     <td><%= msalary.try(:end).strftime('%d-%m-%Y') %></td>

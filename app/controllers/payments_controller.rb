@@ -64,7 +64,15 @@ class PaymentsController < ApplicationController
     phone = params[:client].split(" - ").last
     client = Client.find_by_phone(phone)
     @client_id = client.id
-    @client_courses = Client.find(@client_id).courses
+    client_courses = Client.find(@client_id).courses.includes(:schedules)
+    @client_courses = []
+    orders_schedule_id = []
+    client.orders.each do |i|
+      orders_schedule_id <<  i.schedule.try(:id) if i.schedule.present?
+    end
+    client_courses.each do |course|
+      @client_courses << course if course.schedules.where(id: orders_schedule_id).present?
+    end
     if params[:course_id].present?
     @current_order =  client.orders.where("course_id = ?", params[:course_id]).first
     if @current_order.present?

@@ -22,7 +22,7 @@
   <tbody>
 <% @outlays.each do |outlay| %>
   <tr class=<%= "tr" if outlay.summ.present?%>>
-    <td><%= outlay.date.strftime('%d-%m-%Y') %></td>
+    <td><%= outlay.date %></td>
     <td class="sum"><%= outlay.summ %></td>
     <td><%= outlay.cost.try(:name)%></td>
     <td><%= outlay.type %></td>

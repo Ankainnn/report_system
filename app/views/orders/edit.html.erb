@@ -17,10 +17,10 @@
 
         <div id="select_list">
           <%if @t_select_list.present?%>
-              <%= f.association :teacher, collection: @t_select_list.map(&:fio), label: "преподаватель", :include_blank => false%>
+              <%= f.association :teacher, collection: @t_select_list, :label_method => :fio, :value_method => :id, label: "преподаватель", :include_blank => false%>
           <%end%>
           <%if @s_select_list.present?%>
-              <%= f.association :schedule, collection: @s_select_list.map(&:graphic), label: "график", :include_blank => false%>
+              <%= f.association :schedule, collection: @s_select_list, :label_method => :graphic, :value_method => :id, label: "график", :include_blank => false%>
           <%end%>
           <%if @f_select_list.present?%>
               <%= f.association :office, collection: @f_select_list, label: "офис", :include_blank => false%>

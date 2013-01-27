@@ -36,14 +36,19 @@
     </div>
 
 
-    <div>
-      <label for="start" class="select required control-label"><abbr title="required">*</abbr> начало</label>
-      <%= g.text_field :start %>
-    </div>
+    <!--<div>-->
+      <!--<label for="start" class="select required control-label"><abbr title="required">*</abbr> начало</label>-->
+      <!--<%#g.text_field :start %>-->
+    <!--</div>-->
+
+    <!--<div>-->
+      <!--<label for="end" class="select required control-label"><abbr title="required">*</abbr> конец</label>-->
+      <!--<%#g.text_field :end %>-->
+    <!--</div>-->
 
     <div>
-      <label for="end" class="select required control-label"><abbr title="required">*</abbr> конец</label>
-      <%= g.text_field :end %>
+      <%= g.label :hours, "кол. часов"%>
+      <%= g.text_field :hours%>
     </div>
 
 

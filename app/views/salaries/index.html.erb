@@ -11,8 +11,7 @@
     <th>курс</th>
     <th>преподаватель</th>
     <th>график</th>
-    <th>начало</th>
-    <th>конец</th>
+    <th>кол. часов</th>
     <th>форма выплаты</th>
     <th>комментарий</th>
     <th>создано</th>
@@ -30,8 +29,7 @@
     <td><%= salary.course.try(:name) %></td>
     <td><%= salary.teacher.try(:fio) %></td>
     <td><%= "#{salary.schedule.try(:day)} / #{salary.schedule.try(:time)}" if salary.schedule_id.present?%> </td>
-    <td><%= salary.try(:start) %></td>
-    <td><%= salary.try(:end) %></td>
+    <td><%= salary.hours %></td>
     <td><%= salary.type %></td>
     <td><%= salary.comment %></td>
     <td><%= salary.created_at.strftime('%d-%m-%Y %H:%M:%S') %></td>

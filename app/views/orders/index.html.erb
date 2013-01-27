@@ -9,12 +9,12 @@
   <tr class="sort">
     <th> <div id="count" style="text-align: center; color: #000000;"></div> номер</th>
     <th>клиент</th>
-    <th>дата</th>
     <th>дата заключения</th>
     <th>курс</th>
     <th>преподаватель</th>
     <th>график</th>
     <th>офис</th>
+    <th>часы</th>
     <th>начало</th>
     <th>конец</th>
     <th>скидка</th>
@@ -34,12 +34,12 @@
       <tr class=<%= "tr" if order.price.present?%>>
         <td><%= order.number %></td>
         <td><%= order.client.try(:fio) %></td>
-        <td><%= order.date%></td>
         <td><%= order.contract %></td>
         <td><%= order.course.try(:name) %></td>
         <td><%= order.teacher.try(:fio)%></td>
         <td><%= order.schedule.try(:graphic)%></td>
         <td><%= order.office.try(:name)%></td>
+        <td><%= order.schedule.try(:hours)%></td>
         <td><%= order.start%></td>
         <td><%= order.end%></td>
         <td><%= order.discount %></td>

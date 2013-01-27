@@ -24,7 +24,7 @@ class MsalariesController < ApplicationController
       @msalaries = Msalary.order("#{res.msalaries} ASC")
     else
       @prompt = 'варианты'
-      @msalaries = Msalary.all
+      @msalaries = Msalary.order("created_at DESC")
     end
 
     respond_to do |format|

@@ -1,8 +1,9 @@
 class Outlay < ActiveRecord::Base
   belongs_to :cost
-  attr_accessible :type, :date, :summ, :cost_id, :person, :name, :comment
+  belongs_to :objects_of_expenditure
+  attr_accessible :type, :date, :summ, :cost_id, :objects_of_expenditure_id, :person, :name, :comment
 
-  validates :date, :summ, :cost_id, :type, presence: true
+  validates :date, :summ, :cost_id, :type, :objects_of_expenditure_id, presence: true
 
   self.inheritance_column = nil
 

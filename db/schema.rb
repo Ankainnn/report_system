@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121224214716) do
+ActiveRecord::Schema.define(:version => 20130127194702) do
 
   create_table "channels", :force => true do |t|
     t.string   "name"
@@ -111,6 +111,12 @@ ActiveRecord::Schema.define(:version => 20121224214716) do
 
   add_index "msalaries", ["manager_id"], :name => "index_msalaries_on_manager_id"
 
+  create_table "objects_of_expenditures", :force => true do |t|
+    t.text     "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "offices", :force => true do |t|
     t.string   "name"
     t.string   "address"
@@ -151,8 +157,9 @@ ActiveRecord::Schema.define(:version => 20121224214716) do
     t.string   "type"
     t.string   "person"
     t.string   "comment"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "objects_of_expenditure_id"
   end
 
   add_index "outlays", ["cost_id"], :name => "index_outlays_on_cost_id"
@@ -204,6 +211,7 @@ ActiveRecord::Schema.define(:version => 20121224214716) do
     t.integer  "schedule_id"
     t.string   "pay_from"
     t.string   "pay_to"
+    t.integer  "hours"
   end
 
   add_index "salaries", ["course_id"], :name => "index_salaries_on_course_id"
@@ -219,6 +227,7 @@ ActiveRecord::Schema.define(:version => 20121224214716) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.date     "end"
+    t.text     "comment"
   end
 
   add_index "schedules", ["course_id"], :name => "index_schedules_on_course_id"

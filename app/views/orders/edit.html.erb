@@ -2,8 +2,6 @@
 
 <%= simple_form_for(@order, :html => { :class => 'form-horizontal' }) do |f| %>
 
-
-    <%= f.input :date, label: "дата" %>
     <%= f.input :number, label: "номер договора" %>
     <div class="input">
       <label for="client" class="select required control-label"><abbr title="required">*</abbr> клиент</label>
@@ -26,6 +24,11 @@
               <%= f.association :office, collection: @f_select_list, label: "офис", :include_blank => false%>
           <%end%>
         </div>
+
+    <div class="input">
+      <%= label_tag :hours, "часы"%>
+      <%= text_field_tag :hours, @hours%>
+    </div>
 
     <div class="input">
       <%= f.label :start, "начало"%>

@@ -9,6 +9,7 @@
     <th>дата</th>
     <th> <div id="result" style="text-align: center; color: #000000;"></div> сумма</th>
     <th>типа расходов</th>
+    <th>объект расходов</th>
     <th>форма оплаты</th>
     <th>автор</th>
     <th>комментарий</th>
@@ -25,6 +26,7 @@
     <td><%= outlay.date %></td>
     <td class="sum"><%= outlay.summ %></td>
     <td><%= outlay.cost.try(:name)%></td>
+    <td><%=outlay.objects_of_expenditure.try(:name)%></td>
     <td><%= outlay.type %></td>
     <td><%= outlay.person %></td>
     <td><%= outlay.comment %></td>

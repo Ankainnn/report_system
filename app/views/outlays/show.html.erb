@@ -18,6 +18,14 @@
   <%= @outlay.cost.name %>
 </p>
 
+
+<p>
+  <b>объект расходов:</b>
+  <%= @outlay.objects_of_expenditure.try(:name) %>
+</p>
+
+
+
 <p>
   <b>автор:</b>
   <%= @outlay.person %>

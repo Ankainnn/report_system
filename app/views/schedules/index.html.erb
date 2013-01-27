@@ -14,6 +14,7 @@
       <th>преподаватель</th>
       <th>курс</th>
       <th>часы</th>
+      <th>комментарий</th>
       <th></th>
       <th></th>
       <th></th>
@@ -30,6 +31,7 @@
         <td><%= schedule.teacher.try(:fio)%></td>
         <td><%= schedule.course.name %></td>
         <td><%= schedule.hours %></td>
+        <td><%= schedule.comment %></td>
         <td><%= link_to 'см.', schedule %></td>
         <%if user_role != "visitor"%>
         <td><%= link_to 'ред.', edit_schedule_path(schedule) %></td>

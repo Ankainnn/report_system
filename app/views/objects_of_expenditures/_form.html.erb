@@ -1,0 +1,11 @@
+<%= simple_form_for @objects_of_expenditure, :html => { :class => 'form-horizontal' } do |f| %>
+
+    <%= f.input :name, label: "название", :input_html => { :cols => 50, :rows => 4 } %>
+    <div id="submit">
+      <%= f.button :submit, :value => "сохранить"%>
+      <div>
+        <%= link_to 'к списку', objects_of_expenditures_path, class: "btn"%>
+            </div>
+            </div>
+        <% end %>
+

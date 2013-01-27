@@ -14,8 +14,6 @@
       <th>курс</th>
       <th>график</th>
       <th>часы</th>
-      <th>с</th>
-      <th>по</th>
       <th>офис</th>
       <th>создано</th>
       <th>отредактировано</th>
@@ -35,8 +33,6 @@
         <td><%= payment.course.try(:name) %></td>
         <td><%= payment.schedule %></td>
         <td><%= payment.hours %></td>
-        <td><%= payment.pay_from %></td>
-        <td><%= payment.pay_to %></td>
         <td><%= payment.office %></td>
         <td><%= payment.created_at.strftime('%d-%m-%Y %H:%M:%S') %></td>
         <td><%= payment.updated_at.strftime('%d-%m-%Y %H:%M:%S') %></td>

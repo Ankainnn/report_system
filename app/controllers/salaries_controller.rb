@@ -28,7 +28,7 @@ class SalariesController < ApplicationController
       @salaries = Salary.order("#{res.salaries} ASC")
     else
       @prompt = 'варианты'
-      @salaries = Salary.all
+      @salaries = Salary.order("created_at DESC")
     end
 
 

@@ -1,4 +1,6 @@
 Reports::Application.routes.draw do
+  resources :objects_of_expenditures
+
   resources :mail_boxes
 
   resources :periods

@@ -1,0 +1,32 @@
+<h1>Объекты расходов</h1>
+<%if user_role != "visitor"%>
+    <%= link_to 'новый объек расходов', new_objects_of_expenditure_path %> |
+<%end%>
+<%= link_to 'загрузить таблицу в XLS формате', objects_of_expenditures_path %>
+<table id="demotable" class="table table-striped">
+  <thead>
+  <tr class="sort">
+    <th>название</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <% @objects_of_expenditures.each do |expenditure| %>
+      <tr>
+        <td><%= expenditure.name %></td>
+        <td><%= link_to 'см.', expenditure %></td>
+        <%if user_role != "visitor"%>
+            <td><%= link_to 'ред.', edit_objects_of_expenditure_path(expenditure) %></td>
+            <td><%= link_to 'уд.', expenditure, confirm: 'Вы уверены?', method: :delete %></td>
+        <%end%>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br />
+
+

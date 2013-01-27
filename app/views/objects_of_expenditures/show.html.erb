@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>название:</b>
+  <%= @objects_of_expenditure.name %>
+</p>
+
+
+<%= link_to 'Ред.', edit_objects_of_expenditure_path(@objects_of_expenditure) %> |
+<%= link_to 'к списку', objects_of_expenditures_path %>

@@ -21,7 +21,7 @@ class OutlaysController < ApplicationController
       @outlays = Outlay.order("#{res.outlays} ASC")
     else
       @prompt = 'варианты'
-      @outlays = Outlay.all
+      @outlays = Outlay.order("created_at DESC")
     end
 
 

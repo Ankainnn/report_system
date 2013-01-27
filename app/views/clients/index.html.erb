@@ -39,7 +39,7 @@
   <% @clients.each do |client| %>
       <tr class="tr">
         <td><%= client.status.try(:name) %></td>
-        <td><%= client.date%></td>
+        <td><%= formating_month(client.date)%></td>
         <td><%= client.resource.try(:name) %></td>
         <td><%= client.fio%></td>
         <td><%= client.phone %></td>
@@ -55,9 +55,9 @@
         <td><%= client.presumed_start %></td>
         <td><%= client.office.try(:name) %></td>
         <td><%= client.comment %></td>
-        <td><%= client.created_at.strftime('%d-%m-%Y %H:%M:%S') %></td>
+        <td><%= client.created_at.strftime("#{formating_month(client.created_at)} %H:%M:%S") %></td>
         <td><%= client.author %></td>
-        <td><%= client.updated_at.strftime('%d-%m-%Y %H:%M:%S') %></td>
+        <td><%= client.updated_at.strftime("#{formating_month(client.updated_at)} %H:%M:%S") %></td>
         <td><%= client.editor %></td>
         <td><%= link_to 'см.', client %></td>
         <%if user_role != "visitor"%>

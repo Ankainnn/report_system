@@ -5,10 +5,6 @@
 <%= link_to 'редактировать', edit_order_path(@order) %> |
 <%= link_to 'к списку', orders_path %>
 
-<p>
-  <b>дата:</b>
-  <%= @order.date %>
-</p>
 
 <p>
   <b>номер договора:</b>
@@ -43,6 +39,11 @@
 <p>
   <b>офис:</b>
   <%= @order.office.try(:name)%>
+</p>
+
+<p>
+  <b>часы:</b>
+  <%= @order.schedule.try(:hours) %>
 </p>
 
 <p>

@@ -30,7 +30,7 @@ class OrdersController < ApplicationController
       @orders = Order.order("#{res.orders} ASC")
     else
       @prompt = 'варианты'
-      @orders = Order.all
+      @orders = Order.order("created_at DESC")
     end
 
     respond_to do |format|
@@ -78,7 +78,11 @@ class OrdersController < ApplicationController
         @s_select_list = Teacher.find(params[:teacher_id]).schedules.where(course_id: params[:course_id])
 
         if params[:schedule_id].present?
-          @office = Schedule.find(params[:schedule_id]).office
+          selected_schedlue = Schedule.find(params[:schedule_id])
+          @office = selected_schedlue.office
+          @hours = selected_schedlue.hours
+          @start = selected_schedlue.start
+          @end   = selected_schedlue.end
         end
 
       end
@@ -103,6 +107,7 @@ class OrdersController < ApplicationController
     @s_select_list = Schedule.where(id: @order.schedule_id)
     @f_select_list = Office.where(id: @order.office_id)
     @client = Client.find(@order.client_id).fi_and_phone
+    @hours = @order.schedule.try(:hours)
     #<%= render 'form' %>
   end
 

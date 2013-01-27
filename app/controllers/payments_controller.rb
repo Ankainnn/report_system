@@ -25,7 +25,7 @@ class PaymentsController < ApplicationController
       @payments = Payment.order("#{res.payments} ASC")
     else
       @prompt = 'варианты'
-      @payments = Payment.all
+      @payments = Payment.order("created_at DESC")
     end
 
     respond_to do |format|

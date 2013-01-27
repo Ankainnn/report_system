@@ -36,7 +36,7 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
       @clients = Client.order("#{res.clients} ASC")
     else
       @prompt = 'варианты'
-      @clients = Client.all
+      @clients = Client.order("created_at DESC")
     end
 
 
@@ -77,42 +77,34 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
   # POST /clients.json
   def create
     @client = Client.new(params[:client])
-    times =[]
-    count_days = 0
-    days = params[:day].join(", ") if params[:day]
 
-    (0..6).each do |i|
-      if params[:hour][i].present? && params[:minute][i].present?
-        times << "#{params[:hour][i]}:#{ params[:minute][i]}"
+    if params[:day].present?
+
+      days = params[:day]
+      @client.day = days.join(", ")
+
+      times=[]
+
+      (0..6).each do |i|
+        if params[:hour][i].present? && params[:minute][i].present?
+          times << "#{params[:hour][i]}:#{ params[:minute][i]}"
+        end
       end
-    end
 
-    count_days = params[:day].count if params[:day]
-    count_times = times.count
-
-    if count_days == count_times
-
-
-    @client.author = current_user.fio
-
-    if count_days && count_times != 0
-      times =  times.join(", ")
-      @client.day = days
-      @client.time = times
-    end
-
-    respond_to do |format|
-      if @client.save
-        format.html { redirect_to @client, notice: 'Client was successfully created.' }
-        format.json { render json: @client, status: :created, location: @client }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @client.errors, status: :unprocessable_entity }
+      if days.count == times.count
+        @client.time = times.join(", ")
       end
-    end
 
+      respond_to do |format|
+        if @client.save
+          format.html { redirect_to @client, notice: 'Client was successfully created.' }
+          format.json { render json: @client, status: :created, location: @client }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @client.errors, status: :unprocessable_entity }
+        end
+      end
     else
-      #redirect_to new_client_path, notice: "даныне введены некорректно (день-время)"
       render action: "new"
     end
   end
@@ -121,27 +113,25 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
   # PUT /clients/1.json
   def update
     @client = Client.find(params[:id])
-    times =[]
-    count_days = 0
-    days = params[:day].join(", ") if params[:day]
 
+    if params[:day].present?
 
-    (0..6).each do |i|
-      if params[:hour][i].present? && params[:minute][i].present?
-        times << "#{params[:hour][i]}:#{ params[:minute][i]}"
+      days = params[:day]
+      @client.day = days.join(", ")
+
+      times=[]
+
+      (0..6).each do |i|
+        if params[:hour][i].present? && params[:minute][i].present?
+          times << "#{params[:hour][i]}:#{ params[:minute][i]}"
+        end
       end
-    end
 
-    count_days = params[:day].count if params[:day]
-    count_times = times.count
-
-    if count_days == count_times
-
-    if count_days && count_times != 0
-      times =  times.join(", ")
-      @client.day = days
-      @client.time = times
-    end
+      if days.count == times.count
+        @client.time = times.join(", ")
+      else
+        @client.time = nil
+      end
 
 
     respond_to do |format|
@@ -153,7 +143,6 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
         format.json { render json: @client.errors, status: :unprocessable_entity }
       end
     end
-
     else
       render action: "edit"
     end

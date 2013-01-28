@@ -23,15 +23,15 @@
   <tbody>
 <% @outlays.each do |outlay| %>
   <tr class=<%= "tr" if outlay.summ.present?%>>
-    <td><%= outlay.date %></td>
+    <td><%= formating_month(outlay.date) %></td>
     <td class="sum"><%= outlay.summ %></td>
     <td><%= outlay.cost.try(:name)%></td>
     <td><%=outlay.objects_of_expenditure.try(:name)%></td>
     <td><%= outlay.type %></td>
     <td><%= outlay.person %></td>
     <td><%= outlay.comment %></td>
-    <td><%= outlay.created_at.strftime('%d-%m-%Y %H:%M:%S') %></td>
-    <td><%= outlay.updated_at.strftime('%d-%m-%Y %H:%M:%S') %></td>
+    <td><%= outlay.created_at.strftime("#{formating_month(outlay.created_at)} %H:%M:%S") %></td>
+    <td><%= outlay.updated_at.strftime("#{formating_month(outlay.updated_at)} %H:%M:%S") %></td>
     <td><%= link_to 'см.', outlay %></td>
     <%if user_role != "visitor"%>
     <td><%= link_to 'ред.', edit_outlay_path(outlay) %></td>

@@ -25,7 +25,7 @@
   <tbody>
     <% @payments.each do |payment| %>
       <tr class=<%= "tr" if payment.summ.present?%>>
-        <td><%= payment.date%></td>
+        <td><%=  formating_month(payment.date)%></td>
         <td class="sum"><%= payment.summ %></td>
         <td><%= payment.type %></td>
         <td><%= payment.order.try(:number) %></td>
@@ -34,8 +34,8 @@
         <td><%= payment.schedule %></td>
         <td><%= payment.hours %></td>
         <td><%= payment.office %></td>
-        <td><%= payment.created_at.strftime('%d-%m-%Y %H:%M:%S') %></td>
-        <td><%= payment.updated_at.strftime('%d-%m-%Y %H:%M:%S') %></td>
+        <td><%= payment.created_at.strftime("#{formating_month(payment.created_at)} %H:%M:%S") %></td>
+        <td><%= payment.updated_at.strftime("#{formating_month(payment.updated_at)} %H:%M:%S") %></td>
         <td><%= link_to 'см.', payment %></td>
         <%if user_role != "visitor"%>
         <td><%= link_to 'ред.', edit_payment_path(payment) %></td>

@@ -17,6 +17,7 @@ module ApplicationHelper
   end
 
   def formating_month(date)
+    if date.present?
     count = date.to_s.split(" ").count
     month_hash={ "01" => "янв","02" => "фев", "03" => "мрт",
                  "04" => "апр", "05" => "май", "06" => "июн",
@@ -30,6 +31,7 @@ module ApplicationHelper
      result = "#{date[2]}-#{month_hash[date[1]]}-#{date[0]}"
     end
     return result
+    end
   end
 
 end

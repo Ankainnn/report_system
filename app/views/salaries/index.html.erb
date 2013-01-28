@@ -24,7 +24,7 @@
   <tbody>
 <% @salaries.each do |salary| %>
   <tr class=<%= "tr" if salary.summ.present?%>>
-    <td><%= salary.date%></td>
+    <td><%=formating_month(salary.date)%></td>
     <td class="sum"><%= salary.summ %></td>
     <td><%= salary.course.try(:name) %></td>
     <td><%= salary.teacher.try(:fio) %></td>
@@ -32,8 +32,8 @@
     <td><%= salary.hours %></td>
     <td><%= salary.type %></td>
     <td><%= salary.comment %></td>
-    <td><%= salary.created_at.strftime('%d-%m-%Y %H:%M:%S') %></td>
-    <td><%= salary.updated_at.strftime('%d-%m-%Y %H:%M:%S') %></td>
+    <td><%= salary.created_at.strftime("#{formating_month(salary.created_at)} %H:%M:%S") %></td>
+    <td><%= salary.updated_at.strftime("#{formating_month(salary.updated_at)} %H:%M:%S") %></td>
     <td><%= link_to 'см.', salary %></td>
     <%if user_role != "visitor"%>
     <td><%= link_to 'ред.', edit_salary_path(salary) %></td>

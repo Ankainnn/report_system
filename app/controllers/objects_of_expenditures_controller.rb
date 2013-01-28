@@ -2,7 +2,7 @@ class ObjectsOfExpendituresController < ApplicationController
   # GET /objects_of_expenditures
   # GET /objects_of_expenditures.json
   def index
-    @objects_of_expenditures = ObjectsOfExpenditure.all
+    @objects_of_expenditures = ObjectsOfExpenditure.order(:created_at).reverse_order
 
     respond_to do |format|
       format.html # index.html.erb

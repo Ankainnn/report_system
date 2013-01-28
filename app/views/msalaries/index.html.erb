@@ -24,14 +24,14 @@
 <% @msalaries.each do |msalary| %>
   <tr class=<%= "tr" if msalary.summ.present?%>>
     <td><%= msalary.manager.try(:name)%></td>
-    <td><%= msalary.date%></td>
+    <td><%= formating_month(msalary.date)%></td>
     <td class="sum"><%= msalary.summ %></td>
-    <td><%= msalary.try(:start).strftime('%d-%m-%Y') %></td>
-    <td><%= msalary.try(:end).strftime('%d-%m-%Y') %></td>
+    <td><%= formating_month(msalary.start)%></td>
+    <td><%=  formating_month(msalary.end) %></td>
     <td><%= msalary.type %></td>
     <td><%= msalary.comment %></td>
-    <td><%= msalary.created_at.strftime('%d-%m-%Y %H:%M:%S') %></td>
-    <td><%= msalary.updated_at.strftime('%d-%m-%Y %H:%M:%S') %></td>
+    <td><%= msalary.created_at.strftime("#{ formating_month(msalary.created_at)} %H:%M:%S") %></td>
+    <td><%= msalary.updated_at.strftime("#{ formating_month(msalary.updated_at)} %H:%M:%S") %></td>
     <td><%= link_to 'см.', msalary %></td>
     <%if user_role != "visitor"%>
     <td><%= link_to 'ред.', edit_msalary_path(msalary) %></td>

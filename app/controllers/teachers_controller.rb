@@ -5,7 +5,7 @@ class TeachersController < ApplicationController
   before_filter :active_user
   before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
-    @teachers = Teacher.all
+    @teachers = Teacher.order(:created_at).reverse_order
 
     respond_to do |format|
       format.html # index.html.erb

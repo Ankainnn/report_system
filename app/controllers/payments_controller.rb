@@ -95,7 +95,8 @@ class PaymentsController < ApplicationController
     @order_number = Order.find(@payment.order_id)
     @collect_c = collect_c
     @client_courses_edit = Client.find_by_phone(@payment.client.split(" - ").last).courses
-    @current_course = Course.find(@payment.course_id).name
+    #@current_course = Course.find(@payment.course_id).name
+    @current_course = Course.find(@payment.course_id).id
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @payments }

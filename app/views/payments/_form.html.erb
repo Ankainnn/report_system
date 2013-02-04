@@ -18,7 +18,7 @@
       <div class="input">
         <%if @client_courses_edit.present?%>
         <label for="course_id" class="select required control-label"><abbr title="required">*</abbr>курс</label>
-        <%= collection_select(:course_id , nil, @client_courses_edit, :id, :name, {:include_blank => true}, {onchange: "$.post('search_options',  {course_id: $(this).val(), client: $('#client_new').val()}, {}, 'script' );"}) %>
+        <%= collection_select(:course_id , nil, @client_courses_edit, :id, :name, {:selected => @current_course, :include_blank => true}, {onchange: "$.post('search_options',  {course_id: $(this).val(), client: $('#client_new').val()}, {}, 'script' );"}) %>
         <%end%>
       </div>
 

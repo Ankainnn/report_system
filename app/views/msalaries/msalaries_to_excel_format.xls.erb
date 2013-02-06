@@ -21,13 +21,13 @@
           <Row>
             <Cell><Data ss:Type="Number"><%= msalaries.id %></Data></Cell>
             <Cell><Data ss:Type="String"><%= msalaries.manager.try(:name)%></Data></Cell>
-            <Cell><Data ss:Type="String"><%= msalaries.date%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= formating_month(msalaries.date)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= msalaries.summ %></Data></Cell>
             <Cell><Data ss:Type="String"><%= msalaries.type %></Data></Cell>
             <Cell><Data ss:Type="String"><%= msalaries.comment %></Data></Cell>
             <Cell><Data ss:Type="String"><%= msalaries.type%></Data></Cell>
-            <Cell><Data ss:Type="String"><%= msalaries.start %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= msalaries.end %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= formating_month(msalaries.start) %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= formating_month(msalaries.end) %></Data></Cell>
           </Row>
       <% end %>
     </Table>

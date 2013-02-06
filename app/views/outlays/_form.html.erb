@@ -9,8 +9,7 @@
   <%= f.input :person, label: "автор" %>
 
     <div id="fix-outlays" class="input">
-  <%= f.label :type, "форма оплаты"%>
-  <%= f.input :type, :collection => ["Наличные", "По безналу"], :as => :radio_buttons, label: false %>
+  <%= f.input :type, :collection => ["Наличные", "По безналу"], :as => :radio_buttons, label: "форма оплаты" %>
     </div>
 
     <div class="input">

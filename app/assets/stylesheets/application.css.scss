@@ -53,27 +53,17 @@ label {margin-right: 20px;}
 }
 
 #demotable{
-.sort th{
-  border-top: 1px solid #dddddd;
-}
-  input{
-    padding: 0px;
-  }
-  border: 1px solid #dddddd;
-  td, th{
-    /*border: 2px solid rgb(87, 87, 87) !important;   думаю что нужно так*/
-    border-left: 1px solid #dddddd;
-    border-right: 1px solid #dddddd;
-    border-collapse: collapse;
-    text-align: center;
-  }
-  th{
-    border-top: 1px solid #dddddd !important;
-    border-bottom: 1px solid #dddddd;
+  thead, tbody{
+    th, td{
+      border: 2px solid #696969;
+    }
+    input{
+      padding: 0;
+    }
   }
 }
 #result, #count{
-  border-bottom: 1px solid #DDDDDD;
+  border-bottom: 1px solid #696969;
 }
 
 #fix-outlays, #fix-payments{

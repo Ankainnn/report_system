@@ -16,6 +16,7 @@
         <Cell><Data ss:Type="String">преподаватель</Data></Cell>
         <Cell><Data ss:Type="String">курс</Data></Cell>
         <Cell><Data ss:Type="String">часы</Data></Cell>
+        <Cell><Data ss:Type="String">комментарий</Data></Cell>
       </Row>
       <% @schedules.each do |schedule| %>
           <Row>
@@ -28,6 +29,7 @@
             <Cell><Data ss:Type="String"><%= schedule.teacher.try(:fio)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= schedule.course.try(:name) %></Data></Cell>
             <Cell><Data ss:Type="String"><%= schedule.hours %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= schedule.comment %></Data></Cell>
           </Row>
       <% end %>
     </Table>

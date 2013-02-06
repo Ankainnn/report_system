@@ -34,7 +34,7 @@
           <Row>
             <Cell><Data ss:Type="Number"><%= client.id %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.status.try(:name)%></Data></Cell>
-            <Cell><Data ss:Type="String"><%= client.date%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= formating_month(client.date)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.resource.try(:name)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.try(:fio) %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.phone %></Data></Cell>
@@ -50,9 +50,9 @@
             <Cell><Data ss:Type="String"><%= client.presumed_start%></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.office.try(:name)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.comment %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= client.created_at.strftime('%d-%m-%Y %H:%M:%S') %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.created_at.strftime("#{formating_month(client.created_at)} %H:%M:%S") %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.author %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= client.updated_at.strftime('%d-%m-%Y %H:%M:%S') %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= client.updated_at.strftime("#{formating_month(client.updated_at)} %H:%M:%S") %></Data></Cell>
             <Cell><Data ss:Type="String"><%= client.editor %></Data></Cell>
           </Row>
       <% end %>

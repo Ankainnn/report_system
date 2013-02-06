@@ -25,8 +25,8 @@
       <tr class="tr">
         <td><%= schedule.day %></td>
         <td><%= schedule.time %></td>
-        <td><%= schedule.start %></td>
-        <td><%= schedule.end %></td>
+        <td><%= formating_month(schedule.start) %></td>
+        <td><%= formating_month(schedule.end) %></td>
         <td><%= schedule.office.name %></td>
         <td><%= schedule.teacher.try(:fio)%></td>
         <td><%= schedule.course.name %></td>

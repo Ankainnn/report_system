@@ -16,8 +16,6 @@
         <Cell><Data ss:Type="String">курс</Data></Cell>
         <Cell><Data ss:Type="String">график</Data></Cell>
         <Cell><Data ss:Type="String">часы</Data></Cell>
-        <Cell><Data ss:Type="String">с</Data></Cell>
-        <Cell><Data ss:Type="String">по</Data></Cell>
         <Cell><Data ss:Type="String">офис</Data></Cell>
         <Cell><Data ss:Type="String">создано</Data></Cell>
         <Cell><Data ss:Type="String">отредактировано</Data></Cell>
@@ -25,7 +23,7 @@
       <% @payments.each do |payments| %>
           <Row>
             <Cell><Data ss:Type="Number"><%= payments.id %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= payments.date%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= formating_month(payments.date)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= payments.summ %></Data></Cell>
             <Cell><Data ss:Type="String"><%= payments.type %></Data></Cell>
             <Cell><Data ss:Type="String"><%= payments.order.try(:number)%></Data></Cell>
@@ -33,11 +31,9 @@
             <Cell><Data ss:Type="String"><%= payments.course.try(:name)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= payments.schedule%></Data></Cell>
             <Cell><Data ss:Type="String"><%= payments.hours%></Data></Cell>
-            <Cell><Data ss:Type="String"><%= payments.pay_from%></Data></Cell>
-            <Cell><Data ss:Type="String"><%= payments.pay_to%></Data></Cell>
             <Cell><Data ss:Type="String"><%= payments.office%></Data></Cell>
-            <Cell><Data ss:Type="String"><%= payments.created_at.strftime('%d-%m-%Y %H:%M:%S') %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= payments.updated_at.strftime('%d-%m-%Y %H:%M:%S') %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= payments.created_at.strftime("#{formating_month(payments.created_at)} %H:%M:%S") %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= payments.updated_at.strftime("#{formating_month(payments.created_at)} %H:%M:%S") %></Data></Cell>
           </Row>
       <% end %>
     </Table>

@@ -40,8 +40,8 @@
         <td><%= order.schedule.try(:graphic)%></td>
         <td><%= order.office.try(:name)%></td>
         <td><%= order.schedule.try(:hours)%></td>
-        <td><%= formating_month(order.start)%></td>
-        <td><%= formating_month(order.end)%></td>
+        <td><%= formating_month(order.schedule.try(:start))%></td>
+        <td><%= formating_month(order.schedule.try(:end))%></td>
         <td><%= order.discount %></td>
         <td class="sum"><%=order.price%></td>
         <td><%= order.created_at.strftime("#{formating_month(order.created_at)} %H:%M:%S") %></td>

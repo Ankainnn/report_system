@@ -9,11 +9,11 @@ $("#teacher_id_ [value='<%= params[:teacher_id]%>']").attr("selected", "selected
         $('#hours').val("<%= @hours%>");
 
         <%if @start%>
-        $('#order_start').val("<%= @start%>");
+        $('#start').val("<%= @start%>");
         <%end%>
 
         <%if @end%>
-        $('#order_end').val("<%= @end%>");
+        $('#end').val("<%= @end%>");
         <%end%>
 
         <%if @office.present? %>

@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
     if res.orders.present?
       @prompt = @options.rassoc(res.orders).first
       @options.delete_if{|x| x.last == res.orders}
-      @orders = Order.order("#{res.orders} ASC")
+      @orders = Order.order("#{res.orders} DESC").order("#{res.orders} DESC")
     else
       @prompt = 'варианты'
       @orders = Order.order("created_at DESC")
@@ -108,6 +108,8 @@ class OrdersController < ApplicationController
     @f_select_list = Office.where(id: @order.office_id)
     @client = Client.find(@order.client_id).fi_and_phone
     @hours = @order.schedule.try(:hours)
+    @start = @order.schedule.try(:start)
+    @end = @order.schedule.try(:end)
     #<%= render 'form' %>
   end
 

@@ -48,13 +48,13 @@
 
 <p>
   <b>начало:</b>
-  <%= @order.start %>
+  <%= formating_month(@order.schedule.try(:start)) %>
 </p>
 
 
 <p>
   <b>конец:</b>
-  <%= @order.end %>
+  <%= formating_month(@order.schedule.try(:end)) %>
 </p>
 
 <p>

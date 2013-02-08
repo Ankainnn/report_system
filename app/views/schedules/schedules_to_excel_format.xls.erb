@@ -23,8 +23,8 @@
             <Cell><Data ss:Type="Number"><%= schedule.id %></Data></Cell>
             <Cell><Data ss:Type="String"><%= schedule.day %></Data></Cell>
             <Cell><Data ss:Type="String"><%= schedule.time %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= schedule.start.strftime("%d.%m.%Y") if schedule.start.present? %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= schedule.end.strftime("%d.%m.%Y") if schedule.end.present? %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= formating_month(schedule.start)%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= formating_month(schedule.end)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= schedule.office.try(:name) %></Data></Cell>
             <Cell><Data ss:Type="String"><%= schedule.teacher.try(:fio)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= schedule.course.try(:name) %></Data></Cell>

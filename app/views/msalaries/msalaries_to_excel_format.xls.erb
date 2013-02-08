@@ -11,7 +11,6 @@
         <Cell><Data ss:Type="String">менеджер</Data></Cell>
         <Cell><Data ss:Type="String">дата</Data></Cell>
         <Cell><Data ss:Type="String">сумма</Data></Cell>
-        <Cell><Data ss:Type="String">тип</Data></Cell>
         <Cell><Data ss:Type="String">комментарий</Data></Cell>
         <Cell><Data ss:Type="String">формат выплаты</Data></Cell>
         <Cell><Data ss:Type="String">начало</Data></Cell>
@@ -23,7 +22,6 @@
             <Cell><Data ss:Type="String"><%= msalaries.manager.try(:name)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= formating_month(msalaries.date)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= msalaries.summ %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= msalaries.type %></Data></Cell>
             <Cell><Data ss:Type="String"><%= msalaries.comment %></Data></Cell>
             <Cell><Data ss:Type="String"><%= msalaries.type%></Data></Cell>
             <Cell><Data ss:Type="String"><%= formating_month(msalaries.start) %></Data></Cell>

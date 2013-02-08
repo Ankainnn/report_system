@@ -11,6 +11,7 @@
         <Cell><Data ss:Type="String">дата</Data></Cell>
         <Cell><Data ss:Type="String">сумма</Data></Cell>
         <Cell><Data ss:Type="String">тип расходов</Data></Cell>
+        <Cell><Data ss:Type="String">объект расходов</Data></Cell>
         <Cell><Data ss:Type="String">форма оплаты</Data></Cell>
         <Cell><Data ss:Type="String">автор</Data></Cell>
         <Cell><Data ss:Type="String">комментарий</Data></Cell>
@@ -21,6 +22,7 @@
             <Cell><Data ss:Type="String"><%= formating_month(outlays.date) %></Data></Cell>
             <Cell><Data ss:Type="String"><%= outlays.summ %></Data></Cell>
             <Cell><Data ss:Type="String"><%= outlays.cost.try(:name)%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= outlays.objects_of_expenditure.try(:name)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= outlays.type %></Data></Cell>
             <Cell><Data ss:Type="String"><%= outlays.person %></Data></Cell>
             <Cell><Data ss:Type="String"><%= outlays.comment %></Data></Cell>

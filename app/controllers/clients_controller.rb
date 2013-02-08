@@ -33,7 +33,7 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
     if res.clients.present?
       @prompt = @options.rassoc(res.clients).first
       @options.delete_if{|x| x.last == res.clients}
-      @clients = Client.order("#{res.clients} ASC")
+      @clients = Client.order("#{res.clients} DESC").order("created_at DESC")
     else
       @prompt = 'варианты'
       @clients = Client.order("created_at DESC")
@@ -77,12 +77,9 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
   # POST /clients.json
   def create
     @client = Client.new(params[:client])
-
+    flag = true
     if params[:day].present?
-
       days = params[:day]
-      @client.day = days.join(", ")
-
       times=[]
 
       (0..6).each do |i|
@@ -93,10 +90,16 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
 
       if days.count == times.count
         @client.time = times.join(", ")
+        @client.day = days.join(", ")
+      elsif times.blank? && days
+        @client.day = days.join(", ")
+      else
+        flag = false
       end
+    end
 
       respond_to do |format|
-        if @client.save
+        if @client.save && flag == true
           format.html { redirect_to @client, notice: 'Client was successfully created.' }
           format.json { render json: @client, status: :created, location: @client }
         else
@@ -104,9 +107,6 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
           format.json { render json: @client.errors, status: :unprocessable_entity }
         end
       end
-    else
-      render action: "new"
-    end
   end
 
   # PUT /clients/1
@@ -114,11 +114,9 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
   def update
     @client = Client.find(params[:id])
 
+    flag = true
     if params[:day].present?
-
       days = params[:day]
-      @client.day = days.join(", ")
-
       times=[]
 
       (0..6).each do |i|
@@ -129,22 +127,25 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
 
       if days.count == times.count
         @client.time = times.join(", ")
-      else
+        @client.day = days.join(", ")
+      elsif times.blank? && days
+        @client.day = days.join(", ")
         @client.time = nil
+      else
+        flag = false
       end
+    end
+
 
 
     respond_to do |format|
-      if @client.update_attributes(params[:client]) && @client.update_attribute(:editor, current_user.fio)
+      if @client.update_attributes(params[:client]) && @client.update_attribute(:editor, current_user.fio) && flag == true
         format.html { redirect_to @client, notice: 'Client was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
         format.json { render json: @client.errors, status: :unprocessable_entity }
       end
-    end
-    else
-      render action: "edit"
     end
   end
 

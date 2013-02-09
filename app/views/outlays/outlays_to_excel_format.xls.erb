@@ -19,7 +19,7 @@
       <% @outlays.each do |outlays| %>
           <Row>
             <Cell><Data ss:Type="Number"><%= outlays.id %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= formating_month(outlays.date) %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= outlays.date %></Data></Cell>
             <Cell><Data ss:Type="String"><%= outlays.summ %></Data></Cell>
             <Cell><Data ss:Type="String"><%= outlays.cost.try(:name)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= outlays.objects_of_expenditure.try(:name)%></Data></Cell>

@@ -24,7 +24,7 @@
   <tbody>
 <% @salaries.each do |salary| %>
   <tr class=<%= "tr" if salary.summ.present?%>>
-    <td><%=formating_month(salary.date)%></td>
+    <td><%=salary.date%></td>
     <td class="sum"><%= salary.summ %></td>
     <td><%= salary.course.try(:name) %></td>
     <td><%= salary.teacher.try(:fio) %></td>

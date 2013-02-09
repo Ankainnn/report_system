@@ -24,10 +24,10 @@
 <% @msalaries.each do |msalary| %>
   <tr class=<%= "tr" if msalary.summ.present?%>>
     <td><%= msalary.manager.try(:name)%></td>
-    <td><%= formating_month(msalary.date)%></td>
+    <td><%= msalary.date%></td>
     <td class="sum"><%= msalary.summ %></td>
-    <td><%= formating_month(msalary.start)%></td>
-    <td><%=  formating_month(msalary.end) %></td>
+    <td><%= msalary.start%></td>
+    <td><%= msalary.end%></td>
     <td><%= msalary.type %></td>
     <td><%= msalary.comment %></td>
     <td><%= msalary.created_at.strftime("#{ formating_month(msalary.created_at)} %H:%M:%S") %></td>

@@ -2,7 +2,7 @@
 <%= flash[:notice]%>
 <%= simple_form_for @client, :html => { :class => 'form-horizontal' } do |f| %>
     <%= f.association :status, :label => "статус" %>
-    <%= f.input :date,:input_html => { :value => Time.now.strftime('%d-%m-%Y') }, label: "дата" %>
+    <%= f.input :date,:input_html => { :value => formating_month(Time.now)}, label: "дата" %>
     <%= f.input :surname, :label => "фамилия" %>
     <%= f.input :name, :label => "имя" %>
     <%= f.input :middle_name, :label => "отчество" %>

@@ -23,7 +23,7 @@
   <tbody>
 <% @outlays.each do |outlay| %>
   <tr class=<%= "tr" if outlay.summ.present?%>>
-    <td><%= formating_month(outlay.date) %></td>
+    <td><%=outlay.date %></td>
     <td class="sum"><%= outlay.summ %></td>
     <td><%= outlay.cost.try(:name)%></td>
     <td><%=outlay.objects_of_expenditure.try(:name)%></td>

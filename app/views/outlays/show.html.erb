@@ -15,7 +15,7 @@
 
 <p>
   <b>тип расходов:</b>
-  <%= @outlay.cost.name %>
+  <%= @outlay.cost.try(:name) %>
 </p>
 
 

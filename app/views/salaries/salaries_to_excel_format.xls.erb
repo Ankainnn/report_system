@@ -23,7 +23,7 @@
       <% @salaries.each do |salaries| %>
           <Row>
             <Cell><Data ss:Type="Number"><%= salaries.id %></Data></Cell>
-            <Cell><Data ss:Type="String"><%=formating_month(salaries.date)%></Data></Cell>
+            <Cell><Data ss:Type="String"><%=salaries.date%></Data></Cell>
             <Cell><Data ss:Type="String"><%= salaries.summ %></Data></Cell>
             <Cell><Data ss:Type="String"><%= salaries.course.try(:name)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= salaries.teacher.try(:fio) %></Data></Cell>

@@ -19,10 +19,10 @@ module ApplicationHelper
   def formating_month(date)
     if date.present?
     count = date.to_s.split(" ").count
-    month_hash={ "01" => "янв","02" => "фев", "03" => "мрт",
+    month_hash={ "01" => "янв","02" => "фев", "03" => "мар",
                  "04" => "апр", "05" => "май", "06" => "июн",
                  "07" => "июл", "08" =>"авг", "09" =>"сен",
-                 "10" => "окт", "11" => "нрб", "12" => "дек"}
+                 "10" => "окт", "11" => "ноя", "12" => "дек"}
     if count == 1
     date =  date.to_s.split(" ")[0].split("-")
     result ="#{date[0]}-#{month_hash[date[1]]}-#{date[2]}"

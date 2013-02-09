@@ -2,25 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de743223-6f17-4e43-88be-9660287a7a29" name="Default" comment="Задачи: 1, 5, 9, 11, 20">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/clients_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/clients_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/msalaries_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/msalaries_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/orders_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/orders_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/outlays_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/outlays_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/payments_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/payments_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/salaries_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/salaries_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/application_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/application_helper.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/clients/clients_to_excel_format.xls.erb" afterPath="$PROJECT_DIR$/app/views/clients/clients_to_excel_format.xls.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/clients/index.html.erb" afterPath="$PROJECT_DIR$/app/views/clients/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/clients/new.html.erb" afterPath="$PROJECT_DIR$/app/views/clients/new.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/clients/show.html.erb" afterPath="$PROJECT_DIR$/app/views/clients/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/msalaries/index.html.erb" afterPath="$PROJECT_DIR$/app/views/msalaries/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/msalaries/msalaries_to_excel_format.xls.erb" afterPath="$PROJECT_DIR$/app/views/msalaries/msalaries_to_excel_format.xls.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/orders/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/orders/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/orders/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/orders/edit.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/orders/index.html.erb" afterPath="$PROJECT_DIR$/app/views/orders/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/orders/orders_to_excel_format.xls.erb" afterPath="$PROJECT_DIR$/app/views/orders/orders_to_excel_format.xls.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/orders/search_optionss.js.erb" afterPath="$PROJECT_DIR$/app/views/orders/search_optionss.js.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/orders/show.html.erb" afterPath="$PROJECT_DIR$/app/views/orders/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/outlays/index.html.erb" afterPath="$PROJECT_DIR$/app/views/outlays/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/outlays/outlays_to_excel_format.xls.erb" afterPath="$PROJECT_DIR$/app/views/outlays/outlays_to_excel_format.xls.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/outlays/show.html.erb" afterPath="$PROJECT_DIR$/app/views/outlays/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/payments/index.html.erb" afterPath="$PROJECT_DIR$/app/views/payments/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/payments/payments_to_excel_format.xls.erb" afterPath="$PROJECT_DIR$/app/views/payments/payments_to_excel_format.xls.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/salaries/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/salaries/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/salaries/index.html.erb" afterPath="$PROJECT_DIR$/app/views/salaries/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/salaries/salaries_to_excel_format.xls.erb" afterPath="$PROJECT_DIR$/app/views/salaries/salaries_to_excel_format.xls.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/salaries/show.html.erb" afterPath="$PROJECT_DIR$/app/views/salaries/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/schedules/index.html.erb" afterPath="$PROJECT_DIR$/app/views/schedules/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/schedules/schedules_to_excel_format.xls.erb" afterPath="$PROJECT_DIR$/app/views/schedules/schedules_to_excel_format.xls.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/schedules/show.html.erb" afterPath="$PROJECT_DIR$/app/views/schedules/show.html.erb" />
     </list>
     <ignored path="report_system-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,10 +45,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="clients_controller.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/clients_controller.rb">
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/msalaries/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="125" column="63" selection-start="3565" selection-end="3565" vertical-scroll-proportion="0.3592233">
+            <state line="26" column="63" selection-start="883" selection-end="883" vertical-scroll-proportion="-10.625">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="msalaries_to_excel_format.xls.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/msalaries/msalaries_to_excel_format.xls.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="17" selection-start="1607" selection-end="1607" vertical-scroll-proportion="0.7894737">
               <folding />
             </state>
           </provider>
@@ -61,30 +76,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-        <option value="$PROJECT_DIR$/app/views/orders/search_optionss.js.erb" />
+        <option value="$PROJECT_DIR$/app/views/payments/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/payments/payments_to_excel_format.xls.erb" />
         <option value="$PROJECT_DIR$/app/views/orders/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/orders/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/orders/orders_to_excel_format.xls.erb" />
         <option value="$PROJECT_DIR$/app/views/orders/_form.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/orders/edit.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/salaries/salaries_to_excel_format.xls.erb" />
-        <option value="$PROJECT_DIR$/app/views/outlays/outlays_to_excel_format.xls.erb" />
-        <option value="$PROJECT_DIR$/app/views/msalaries/msalaries_to_excel_format.xls.erb" />
         <option value="$PROJECT_DIR$/app/controllers/orders_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/salaries_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/msalaries_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/outlays_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/payments_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/clients_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/outlays/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/outlays/outlays_to_excel_format.xls.erb" />
+        <option value="$PROJECT_DIR$/app/views/outlays/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/salaries/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/salaries/salaries_to_excel_format.xls.erb" />
+        <option value="$PROJECT_DIR$/app/views/salaries/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/salaries/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/msalaries/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/msalaries/msalaries_to_excel_format.xls.erb" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="104" />
-    <option name="y" value="137" />
-    <option name="width" value="1029" />
-    <option name="height" value="556" />
+    <option name="x" value="65" />
+    <option name="y" value="792" />
+    <option name="width" value="1301" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -264,8 +279,8 @@
               <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Assets" />
-              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.AssetsTopLevelFolderNode" />
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.ControllersFolderNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -281,6 +296,54 @@
               <option name="myItemId" value="Controllers" />
               <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.ControllersFolderNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MsalariesController" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.ControllerClassNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="report_system-master" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="report_system-master" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.ControllersFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MsalariesController" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.ControllerClassNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="msalaries_to_excel_format" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.ActionNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="report_system-master" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="report_system-master" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.ControllersFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MsalariesController" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.ControllerClassNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="index" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.ActionNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -289,13 +352,13 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="preferences.updates" />
     <property name="recentsLimit" value="5" />
-    <property name="restartRequiresConfirmation" value="true" />
+    <property name="options.lastSelected" value="preferences.updates" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="Ruby.ViewRefParam.DefaultExtension" value="js.erb" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -530,14 +593,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="104" y="137" width="1029" height="556" extended-state="0" />
-    <editor active="false" />
+    <frame x="65" y="792" width="1301" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39427987" sideWeight="0.95638627" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24540368" sideWeight="0.95638627" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4785276" sideWeight="0.16891892" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5576324" sideWeight="0.49720225" order="7" side_tool="true" content_ui="tabs" />
@@ -607,20 +670,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/orders/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="75" selection-start="708" selection-end="708" vertical-scroll-proportion="0.7640068">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/orders/orders_to_excel_format.xls.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="81" selection-start="1454" selection-end="1454" vertical-scroll-proportion="0.21875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/orders/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -630,91 +679,105 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/orders/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="1140" selection-end="1242" vertical-scroll-proportion="0.41666666">
+        <state line="26" column="61" selection-start="1133" selection-end="1133" vertical-scroll-proportion="0.5128866">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/salaries/salary_search_options.js.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/payments/_select_list.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/orders/edit.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/payments/current_order.js.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="71" selection-start="1767" selection-end="1767" vertical-scroll-proportion="-13.125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/salaries/salaries_to_excel_format.xls.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="43" selection-start="2183" selection-end="2183" vertical-scroll-proportion="0.8333333">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/outlays/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="8" selection-start="455" selection-end="470" vertical-scroll-proportion="0.20833333">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/outlays/outlays_to_excel_format.xls.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="76" selection-start="1649" selection-end="1649" vertical-scroll-proportion="-19.375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/msalaries/msalaries_to_excel_format.xls.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="74" selection-start="851" selection-end="851" vertical-scroll-proportion="0.4074703">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/payments_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="83" selection-start="1030" selection-end="1030" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/outlays_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="73" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/orders_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="75" selection-start="1227" selection-end="1227" vertical-scroll-proportion="0.0">
+        <state line="227" column="65" selection-start="7773" selection-end="7773" vertical-scroll-proportion="0.4">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/msalaries_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/outlays/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="67" selection-start="1089" selection-end="1089" vertical-scroll-proportion="0.6362153">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/outlays/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="41" selection-start="1461" selection-end="1461" vertical-scroll-proportion="-15.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/outlays/outlays_to_excel_format.xls.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="79" selection-start="1588" selection-end="1588" vertical-scroll-proportion="-17.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/outlays/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="38" selection-start="434" selection-end="434" vertical-scroll-proportion="0.7894737">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/salaries_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="81" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.675">
+        <state line="7" column="6" selection-start="286" selection-end="286" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/clients_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/salaries/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="63" selection-start="3565" selection-end="3565" vertical-scroll-proportion="0.3592233">
+        <state line="32" column="51" selection-start="1191" selection-end="1191" vertical-scroll-proportion="-12.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/salaries/salaries_to_excel_format.xls.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="83" selection-start="1037" selection-end="1037" vertical-scroll-proportion="-12.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/salaries/edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="69" selection-start="1652" selection-end="1652" vertical-scroll-proportion="0.46354166">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/salaries/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="42" selection-start="424" selection-end="424" vertical-scroll-proportion="0.7640068">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/msalaries/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="63" selection-start="883" selection-end="883" vertical-scroll-proportion="-10.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/msalaries/msalaries_to_excel_format.xls.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="17" selection-start="1607" selection-end="1607" vertical-scroll-proportion="0.7894737">
           <folding />
         </state>
       </provider>

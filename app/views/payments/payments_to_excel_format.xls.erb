@@ -23,7 +23,7 @@
       <% @payments.each do |payments| %>
           <Row>
             <Cell><Data ss:Type="Number"><%= payments.id %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= formating_month(payments.date)%></Data></Cell>
+            <Cell><Data ss:Type="String"><%= payments.date%></Data></Cell>
             <Cell><Data ss:Type="String"><%= payments.summ %></Data></Cell>
             <Cell><Data ss:Type="String"><%= payments.type %></Data></Cell>
             <Cell><Data ss:Type="String"><%= payments.order.try(:number)%></Data></Cell>

@@ -30,14 +30,14 @@
             <Cell><Data ss:Type="Number"><%= order.id %></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.number %></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.client.try(:fio)%></Data></Cell>
-            <Cell><Data ss:Type="String"><%= formating_month(order.contract) %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.contract %></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.course.try(:name)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.teacher.try(:fio)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.schedule.try(:graphic)%></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.office.try(:name)%></Data></Cell>
             <Cell><Data ss:Type="Number"><%= order.schedule.try(:hours)%></Data></Cell>
-            <Cell><Data ss:Type="String"><%= formating_month(order.schedule.try(:start)) %></Data></Cell>
-            <Cell><Data ss:Type="String"><%= formating_month(order.schedule.try(:end)) %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.schedule.try(:start) %></Data></Cell>
+            <Cell><Data ss:Type="String"><%= order.schedule.try(:end) %></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.discount%></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.price%></Data></Cell>
             <Cell><Data ss:Type="String"><%= order.created_at.strftime("#{formating_month(order.created_at)} %H:%M:%S")%></Data></Cell>

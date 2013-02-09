@@ -39,7 +39,7 @@
   <% @clients.each do |client| %>
       <tr class="tr">
         <td><%= client.status.try(:name) %></td>
-        <td><%= formating_month(client.date)%></td>
+        <td><%= client.date%></td>
         <td><%= client.resource.try(:name) %></td>
         <td><%= client.fio%></td>
         <td><%= client.phone %></td>

@@ -19,10 +19,27 @@
 
 $(document).ready(function() {
 
-	// Initialise Plugin
-	/*var options = {
-		additionalFilterTriggers: [$('#quickfind')]
-	};*/
+    $.datepicker.regional['ru'] = {
+        closeText: 'Закрыть',
+        prevText: '<',
+        nextText: '>',
+        currentText: 'Сегодня',
+        monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь',
+            'Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+        monthNamesShort: ['янв','фев','мар','апр','май','июн',
+            'июл','авг','сен','окт','ноя','дек'],
+        dayNames: ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
+        dayNamesShort: ['вск','пнд','втр','срд','чтв','птн','сбт'],
+        dayNamesMin: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+        weekHeader: 'Не',
+        dateFormat: 'dd-M-yy',
+        firstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: ''
+    };
+    $.datepicker.setDefaults($.datepicker.regional['ru']);
+
     var options = {
         enableCookies: false
     };
@@ -37,11 +54,7 @@ $(document).ready(function() {
         ' #msalary_pay_from, #payment_pay_to, #payment_pay_from, #client_presumed_start, ' +
         '#schedule_start, #schedule_end, #order_contract, #start, #end, #outlay_date,' +
         ' #salary_date, #salary_start, #salary_end, #msalary_date, #msalary_start, #msalary_end,' +
-        '#payment_date, #payment_start, #payment_end').datepicker({
-        dateFormat: "dd-mm-yy",
-        monthNames: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
-        dayNamesMin: ["пн", "вт", "ср", "чт", "пт", "сб", "вс"]
-    });
+      '#payment_date, #payment_start, #payment_end').datepicker();
 
 
 

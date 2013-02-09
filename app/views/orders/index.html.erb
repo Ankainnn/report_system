@@ -34,14 +34,14 @@
       <tr class=<%= "tr" if order.price.present?%>>
         <td><%= order.number %></td>
         <td><%= order.client.try(:fio) %></td>
-        <td><%= formating_month(order.contract) %></td>
+        <td><%= order.contract %></td>
         <td><%= order.course.try(:name) %></td>
         <td><%= order.teacher.try(:fio)%></td>
         <td><%= order.schedule.try(:graphic)%></td>
         <td><%= order.office.try(:name)%></td>
         <td><%= order.schedule.try(:hours)%></td>
-        <td><%= formating_month(order.schedule.try(:start))%></td>
-        <td><%= formating_month(order.schedule.try(:end))%></td>
+        <td><%= order.schedule.try(:start)%></td>
+        <td><%= order.schedule.try(:end)%></td>
         <td><%= order.discount %></td>
         <td class="sum"><%=order.price%></td>
         <td><%= order.created_at.strftime("#{formating_month(order.created_at)} %H:%M:%S") %></td>

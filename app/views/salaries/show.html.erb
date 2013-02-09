@@ -25,7 +25,7 @@
 </p>
 <p>
   <b>график:</b>
-  <%= @salary.schedule.graphic %>
+  <%= @salary.schedule.try(:graphic) %>
 </p>
 
 <p>

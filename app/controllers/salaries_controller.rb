@@ -25,7 +25,7 @@ class SalariesController < ApplicationController
     if res.salaries.present?
       @prompt = @options.rassoc(res.salaries).first
       @options.delete_if{|x| x.last == res.salaries}
-      @salaries = Salary.order("#{res.salaries} DESC").order("#{res.salaries} DESC")
+      @salaries = Salary.order("#{res.salaries} ASC").order("created_at DESC")
     else
       @prompt = 'варианты'
       @salaries = Salary.order("created_at DESC")

@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
     if res.orders.present?
       @prompt = @options.rassoc(res.orders).first
       @options.delete_if{|x| x.last == res.orders}
-      @orders = Order.order("#{res.orders} DESC").order("#{res.orders} DESC")
+      @orders = Order.order("#{res.orders} ASC").order("created_at DESC")
     else
       @prompt = 'варианты'
       @orders = Order.order("created_at DESC")

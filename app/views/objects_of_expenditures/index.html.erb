@@ -2,7 +2,7 @@
 <%if user_role != "visitor"%>
     <%= link_to 'новый объек расходов', new_objects_of_expenditure_path %> |
 <%end%>
-<%= link_to 'загрузить таблицу в XLS формате', objects_of_expenditures_path %>
+<%= link_to 'загрузить таблицу в XLS формате', obj_of_expend_to_xls_path + ".xls" %>
 <table id="demotable" class="table table-striped">
   <thead>
   <tr class="sort">

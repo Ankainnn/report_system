@@ -1,9 +1,4 @@
 Reports::Application.routes.draw do
-  resources :objects_of_expenditures
-
-  resources :mail_boxes
-
-  resources :periods
 
   get "help/index"
 
@@ -23,6 +18,7 @@ Reports::Application.routes.draw do
   get "managers/managers_to_excel_format"
   get "teachers/teachers_to_excel_format"
   get "schedules/schedules_to_excel_format"
+  get "objects_of_expenditures/obj_of_expend_to_excel_format"
 
   post "clients/sort_options"
   post "orders/sort_options"
@@ -78,6 +74,12 @@ Reports::Application.routes.draw do
 
   resources :help
 
+  resources :objects_of_expenditures
+
+  resources :mail_boxes
+
+  resources :periods
+
   #devise_for :users
   devise_for :users, :controllers => { :registrations => "registrations" }
 
@@ -110,6 +112,7 @@ Reports::Application.routes.draw do
   match 'teachers/teachers_to_excel_format', to: 'teachers#teachers_to_excel_format', as: :teachers_to_xls
   match 'schedules/schedules_to_excel_format', to: 'schedules#schedules_to_excel_format', as: :schedules_to_xls
   match 'resources/districts_to_excel_format', to: 'resources#districts_to_excel_format', as: :district_to_xls
+  match 'objects_of_expenditures/obj_of_expend_to_excel_format', to: 'objects_of_expenditures#obj_of_expend_to_excel_format', as: :obj_of_expend_to_xls
 
   match 'help/admin_add_user', to: 'help#admin_add_user', as: :add_user
 

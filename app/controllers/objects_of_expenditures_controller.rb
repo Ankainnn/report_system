@@ -80,4 +80,13 @@ class ObjectsOfExpendituresController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def obj_of_expend_to_excel_format
+    @obj_of_expend = ObjectsOfExpenditure.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @obj_of_expend.to_csv }
+      format.xls
+    end
+  end
 end

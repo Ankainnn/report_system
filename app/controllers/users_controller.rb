@@ -29,13 +29,11 @@ class UsersController < ApplicationController
   def create
     @user = User.create(params[:user])
 
-    respond_to do |format|
       if @user.save
       redirect_to list_users_path
       else
-        format.html { render action: "new" }
+       render action: "new"
       end
-    end
   end
 
 
@@ -46,8 +44,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update_attributes(params[:user])
+   if @user.update_attributes(params[:user])
     redirect_to list_users_path
+   else
+   render action: "edit"
+   end
   end
 
   def destroy

@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     @user = User.create(params[:user])
 
       if @user.save
-      redirect_to list_users_path
+      redirect_to action: "list"
       else
        render action: "new"
       end

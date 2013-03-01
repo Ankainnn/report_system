@@ -6,6 +6,7 @@
 <table id="demotable" class="table table-striped">
   <thead>
   <tr class="sort">
+    <th>id</th>
     <th>периоды</th>
     <th></th>
     <th></th>
@@ -15,6 +16,7 @@
 <tbody>
 <% @periods.each do |period| %>
   <tr>
+    <td><%= period.id %></td>
     <td><%= period.period %></td>
     <td><%= link_to 'см.', period %></td>
     <%if user_role != "visitor"%>

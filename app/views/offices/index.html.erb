@@ -7,6 +7,7 @@
 <table id="demotable" class="table table-striped">
   <thead>
   <tr class="sort">
+    <th>id</th>
     <th>название</th>
     <th>адрес</th>
     <th>телефон</th>
@@ -19,6 +20,7 @@
   <tbody>
 <% @offices.each do |office| %>
   <tr>
+    <td><%= office.id %></td>
     <td><%= office.name %></td>
     <td><%= office.address %></td>
     <td><%= office.phone %></td>

@@ -22,7 +22,7 @@ class SalariesController < ApplicationController
                 ['оплата по','pay_to'],
                 ['создано','created_at'],
                 ['отредактировано','updated_at']]
-    if res.salaries.present?
+    if res && res.salaries.present?
       @prompt = @options.rassoc(res.salaries).first
       @options.delete_if{|x| x.last == res.salaries}
       @salaries = Salary.order("#{res.salaries} ASC").order("created_at DESC")

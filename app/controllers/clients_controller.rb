@@ -30,7 +30,7 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
                 ['создал','author'],
                 ['отредактировано','updated_at'],
                 ['редактировал','editor']]
-    if res.clients.present?
+    if res && res.clients.present?
       @prompt = @options.rassoc(res.clients).first
       @options.delete_if{|x| x.last == res.clients}
       @clients = Client.order("#{res.clients} ASC").order("created_at DESC")

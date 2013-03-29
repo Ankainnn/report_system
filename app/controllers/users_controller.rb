@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       #format.json { head :no_content }
     else
       #format.html { render action: "list" }
-      render action: "list"
+      render action: 'list'
       #format.json { head :no_content }
     end
   end

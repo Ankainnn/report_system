@@ -19,7 +19,7 @@ class PaymentsController < ApplicationController
                 ['оплата по','pay_to'],
                 ['создано','created_at'],
                 ['отредактировано','updated_at']]
-    if res.payments.present?
+    if res && res.payments.present?
       @prompt = @options.rassoc(res.payments).first
       @options.delete_if{|x| x.last == res.payments}
       @payments = Payment.order("#{res.payments} ASC").order("created_at DESC")

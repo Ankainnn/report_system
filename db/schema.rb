@@ -176,10 +176,10 @@ ActiveRecord::Schema.define(:version => 20130206174755) do
     t.string   "pay_from"
     t.string   "pay_to"
     t.string   "office"
+    t.string   "client"
     t.string   "schedule"
     t.integer  "hours"
     t.integer  "course_id"
-    t.string   "client"
     t.string   "order_name"
   end
 
@@ -289,7 +289,6 @@ ActiveRecord::Schema.define(:version => 20130206174755) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.integer  "active"
     t.string   "user_nick"
     t.string   "role"
     t.string   "ban"

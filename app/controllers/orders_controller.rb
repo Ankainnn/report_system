@@ -3,7 +3,6 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   skip_before_filter :verify_authenticity_token
-  before_filter :active_user
   before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
     res = SortOption.find_by_user_id(current_user.id)

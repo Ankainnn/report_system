@@ -3,8 +3,8 @@ class ClientsController < ApplicationController
 include ApplicationHelper
   # GET /clients
   # GET /clients.json
-  before_filter :active_user
-before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
+  #before_filter :active_user
+#before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
     res = SortOption.find_by_user_id(current_user.id)
     @current_user = current_user.id
@@ -33,10 +33,10 @@ before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :crea
     if res && res.clients.present?
       @prompt = @options.rassoc(res.clients).first
       @options.delete_if{|x| x.last == res.clients}
-      @clients = Client.order("#{res.clients} ASC").order("created_at DESC")
+      @clients = Client.order("#{res.clients} ASC").order("created_at DESC").page(params[:page]).per(50)
     else
       @prompt = 'варианты'
-      @clients = Client.order("created_at DESC")
+      @clients = Client.order("created_at DESC").page(params[:page]).per(50)
     end
 
 

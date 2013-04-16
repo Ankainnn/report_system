@@ -1,6 +1,7 @@
 <span style="display: inline-block;">
-  <%= form_tag url_for(action: 'sort_options'), :id => "sort_form" do %>
-      <%=  select_tag :selected, options_for_select(@options), prompt: "#{@prompt}", onchange: "this.form.submit()" %>
+  <%= form_tag url_for(action: 'sort_options'), class: 'select-form-styler' do %>
+      <%=label_tag :selected, 'Сортировать по: '%>
+      <%=  select_tag :selected, options_for_select(@options), prompt: "#{@prompt}", onchange: "this.form.submit()", id: 'sorter'%>
   <% end %>
 </span>
 

@@ -10,7 +10,6 @@
     <th>телефон</th>
     <th>офис</th>
     <th>тип пользователя</th>
-    <th>active</th>
     <th>заблокирован?</th>
     <th></th>
     <th></th>
@@ -27,7 +26,6 @@
     <td><%= course.phone %></td>
     <td><%= course.office.try(:name)%></td>
     <td><%= course.role %></td>
-    <td><%= course.active %></td>
     <td>
       <%if course.ban == "true"%>
       да
@@ -35,7 +33,6 @@
       нет
       <%end%>
     </td>
-    <td><%= link_to 'Activate', change_user_user_path(course.id) %></td>
     <td><%= link_to 'ред.', edit_user_path(course.id) %></td>
     <td><%= link_to 'уд.', course, confirm: 'Are you sure?', method: :delete %></td>
 

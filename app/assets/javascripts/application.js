@@ -47,7 +47,7 @@ $(document).ready(function() {
 
 	$('#demotable').tableFilter(options);
     $('#demotable').tablesorter();
-
+//    $("select").styler();
 
 
     $('#order_date, #client_date, #salary_pay_to, #salary_pay_from, #msalary_pay_to,' +
@@ -55,7 +55,7 @@ $(document).ready(function() {
         '#schedule_start, #schedule_end, #order_contract, #start, #end, #outlay_date,' +
         ' #salary_date, #salary_start, #salary_end, #msalary_date, #msalary_start, #msalary_end,' +
       '#payment_date, #payment_start, #payment_end').datepicker();
-
+    $(".filters").find('td').first().addClass('no-display');
 
 
 

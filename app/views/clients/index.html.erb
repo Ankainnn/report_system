@@ -1,15 +1,33 @@
-<h1>Клиенты</h1>
-<%if user_role != "visitor"%>
- <%=  link_to 'новый клиент', new_client_path  %> |
-<%end%>
- <%= link_to 'загрузить таблицу в XLS формате', clients_to_xls_path + ".xls" %> | сортировать по:  <%= render 'sort_by'%>
-<%if flash[:notice]%>
-    <span style="color: #0fef1c;"><%= flash[:notice]%></span>
-<%end%>
+<div class='table-actions'>
+    <h1 class='page-title'>Клиенты</h1>
+    <ul class='create-download'>
+      <% if user_role != "visitor" %>
+          <li>
+            <%= link_to new_client_path do %>
+                <i class='icon-plus-sign icon-2x'></i>
+            <% end %>
+          </li>
+      <% end %>
+      <li>
+        <%= link_to clients_to_xls_path + ".xls" do %>
+            <i class='icon-save icon-2x'></i>
+        <% end %>
+      </li>
+        </ul>
+    <% if flash[:notice] %>
+        <span style="color: #41b140;"><%= flash[:notice] %></span>
+    <% end %>
+  <hr>
+  <%= paginate @clients, :window =>2%>
+  </div>
 <table id="demotable" class="table table-striped tablesorter">
   <thead>
   <tr class="sort">
-    <th><div id="result" style="text-align: center; color: #000000;"></div>статус</th>
+    <th class='record-manipulate'></th>
+    <th>
+      <div id="result" style="text-align: center; color: #000000;"></div>
+      статус
+    </th>
     <th>дата</th>
     <th>источник</th>
     <th>ФИО</th>
@@ -30,18 +48,24 @@
     <th>создал</th>
     <th>отредактировано</th>
     <th>редактировал</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
   </thead>
   <tbody id="clients_tabel">
   <% @clients.each do |client| %>
       <tr class="tr">
+        <td class="manipulate-box">
+          <ul>
+            <li><%= link_to client do%> <i class="icon-search"></i><%end%></li>
+            <% if user_role != "visitor" %>
+                <li><%= link_to edit_client_path(client) do%> <i class="icon-pencil"></i><%end%></li>
+                <li><%= link_to client, confirm: 'Вы уверены?', method: :delete do%><i class="icon-trash"></i> <%end%></li>
+            <% end %>
+          </ul>
+        </td>
         <td><%= client.status.try(:name) %></td>
-        <td><%= client.date%></td>
+        <td><%= client.date %></td>
         <td><%= client.resource.try(:name) %></td>
-        <td><%= client.fio%></td>
+        <td><%= client.fio %></td>
         <td><%= client.phone %></td>
         <td class="sum"> <%= client.school %></td>
         <td><%= client.parent %></td>
@@ -59,46 +83,43 @@
         <td><%= client.author %></td>
         <td><%= client.updated_at.strftime("#{formating_month(client.updated_at)} %H:%M:%S") %></td>
         <td><%= client.editor %></td>
-        <td><%= link_to 'см.', client %></td>
-        <%if user_role != "visitor"%>
-            <td><%= link_to 'ред.', edit_client_path(client) %></td>
-            <td><%= link_to 'уд.', client, confirm: 'Вы уверены?', method: :delete %></td>
-        <%end%>
       </tr>
   <% end %>
   </tbody>
 </table>
 
-<br />
+<div class="pagination-block">
+<%= paginate @clients, :window =>2%>
+</div>
 
 
 <script>
-    var delay = (function(){
+    var delay = (function () {
         var timer = 0;
-        return function(callback, ms){
-            clearTimeout (timer);
+        return function (callback, ms) {
+            clearTimeout(timer);
             timer = setTimeout(callback, ms);
         };
     })();
-    $(document).ready(function() {
-        var res=0;
-        $('.tr').each(function(){
-            if ( getComputedStyle(this,null).display != "none") {
+    $(document).ready(function () {
+        var res = 0;
+        $('.tr').each(function () {
+            if (getComputedStyle(this, null).display != "none") {
                 res += 1;
             }
         });
         $('#result').text(res);
 
-        $('input').keyup(function() {
-            delay(function(){
-                var res=0;
-                $('.tr').each(function(){
-                    if ( getComputedStyle(this,null).display != "none") {
+        $('input').keyup(function () {
+            delay(function () {
+                var res = 0;
+                $('.tr').each(function () {
+                    if (getComputedStyle(this, null).display != "none") {
                         res += 1;
                     }
                 });
                 $('#result').text(res);
-            }, 350 );
+            }, 350);
         });
 
     });

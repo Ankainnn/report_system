@@ -1,4 +1,9 @@
 ru:
+  views:
+      pagination:
+        previous: "&lt;"
+        next: "&gt;"
+        truncate: "..."
   devise:
       failure:
         already_authenticated: "Вы уже вошли в систему."

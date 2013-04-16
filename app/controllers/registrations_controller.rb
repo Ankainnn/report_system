@@ -1,5 +1,4 @@
 class RegistrationsController < Devise::RegistrationsController
-	before_filter :authenticate_user!, :only => [:change_user, :list]
 
   def change_user(user)
     user.active = 1

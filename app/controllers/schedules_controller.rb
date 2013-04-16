@@ -3,7 +3,6 @@ class SchedulesController < ApplicationController
 include ApplicationHelper
   # GET /schedules
   # GET /schedules.json
-  before_filter :active_user
   before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
     @schedules = Schedule.order(:created_at).reverse_order

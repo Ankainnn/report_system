@@ -2,7 +2,6 @@
 class ResourcesController < ApplicationController
   # GET /resources
   # GET /resources.json
-  before_filter :active_user
   before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
     @resources = Resource.order(:created_at).reverse_order

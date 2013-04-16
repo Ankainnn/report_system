@@ -2,7 +2,6 @@
 class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
-  before_filter :active_user
   before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
     @courses = Course.order(:created_at).reverse_order

@@ -2,7 +2,6 @@
 class CostsController < ApplicationController
   # GET /costs
   # GET /costs.json
-  before_filter :active_user
   before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
     @costs = Cost.order(:created_at).reverse_order

@@ -5,7 +5,7 @@ class MailBoxesController < ApplicationController
   # GET /mail_boxes.json
   before_filter :only_admin
   def index
-    @mail_boxes = MailBox.order(:created_at).reverse_order
+    @mail_boxes = MailBox.order(:created_at).reverse_order.reverse_order.page(params[:page]).per(50)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @mail_boxes }

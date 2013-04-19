@@ -1,4 +1,33 @@
+<div class="form-wrap clearfix">
+  <h1>Новый график</h1>
+  <hr>
+  <%= flash[:notice]%>
 <%= simple_form_for(@schedule, :html => { :class => 'form-horizontal' }) do |f| %>
+      <div class="left-side">
+        <h3><i class="icon-info-sign icon-large"></i> Информация о графике</h3>
+        <div class="input">
+          <%=f.label :start, "начало занятий"%>
+          <%= f.text_field :start%>
+        </div>
+        <div class="input">
+          <%=f.label :end, "конец занятий"%>
+          <%= f.text_field :end%>
+        </div>
+        <%= f.association :office, label: "офис" %>
+        <%= f.association :teacher, :label_method => :fio, label: "преподаватель" %>
+        <%= f.association :course, label: "курс" %>
+        <%= f.input :hours, collection: Period.all.map(&:period) , :as => :select, label: "часы" %>
+        <%= f.input :comment, label: "комментарий" , :input_html => { :cols => 50, :rows => 4 } %>
+        <div id="submit">
+          <%= f.button :submit, :value => "сохранить"%>
+          <div>
+            <%= link_to 'к списку', schedules_path, class: "btn"%>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-side">
+        <h3><i class="icon-calendar icon-large"></i> Расписание графика</h3>
     <div id="date_time">
   <% %w(понедельник вторник среда четверг пятница суббота воскресение ).each do |i|%>
           <div>
@@ -9,24 +38,6 @@
           </div>
   <% end%>
     </div>
-
-    <div class="input">
-      <%=f.label :start, "начало занятий"%>
-      <%= f.text_field :start%>
-    </div>
-    <div class="input">
-      <%=f.label :end, "конец занятий"%>
-      <%= f.text_field :end%>
-    </div>
-  <%= f.association :office, label: "офис" %>
-  <%= f.association :teacher, :label_method => :fio, label: "преподаватель" %>
-  <%= f.association :course, label: "курс" %>
-  <%= f.input :hours, collection: Period.all.map(&:period) , :as => :select, label: "часы" %>
-  <%= f.input :comment, label: "комментарий" , :input_html => { :cols => 50, :rows => 4 } %>
-    <div id="submit">
-      <%= f.button :submit, :value => "сохранить"%>
-      <div>
-        <%= link_to 'к списку', schedules_path, class: "btn"%>
-      </div>
-    </div>
+</div>
 <% end %>
+</div>

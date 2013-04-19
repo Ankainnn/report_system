@@ -1,3 +1,7 @@
+<div class="form-wrap clearfix">
+  <h1>Новый офис</h1>
+  <hr>
+  <%= flash[:notice]%>
 <%= simple_form_for(@office) do |f| %>
   <%= f.input :name, label: "название" %>
   <%= f.input :address, label: "адрес" %>
@@ -9,3 +13,4 @@
       </div>
     </div>
 <% end %>
+</div>

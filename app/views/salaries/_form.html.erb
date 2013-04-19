@@ -1,3 +1,7 @@
+<div class="form-wrap clearfix">
+  <h1>Новая выплата</h1>
+  <hr>
+  <%= flash[:notice]%>
 <%= simple_form_for(@salary, :html => { :class => 'form-horizontal', id: 'new_salary' }) do |g|%>
     <div>
       <label for="date" class="select required control-label"><abbr title="required">*</abbr> дата</label>
@@ -57,3 +61,4 @@
     </div>
 
 <%end%>
+</div>

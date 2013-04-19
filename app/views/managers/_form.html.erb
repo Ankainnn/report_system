@@ -1,3 +1,7 @@
+<div class="form-wrap clearfix">
+  <h1>Новый менеджер</h1>
+  <hr>
+  <%= flash[:notice]%>
 <%= simple_form_for(@manager) do |f| %>
     <%= f.input :name , label: "имя"%>
     <%= f.input :phone, label: "телефон" %>
@@ -12,3 +16,4 @@
       </div>
     </div>
 <% end %>
+</div>

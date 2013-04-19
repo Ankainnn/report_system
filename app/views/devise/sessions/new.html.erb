@@ -1,4 +1,8 @@
 <div class="divise-form">
+<div class="login-head">
+
+</div>
+<div>
 <h2>Вход в систему</h2>
 <hr>
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
@@ -47,4 +51,5 @@
 <% if User.all.empty? %>
     <%= render "devise/shared/links" %>
 <% end %>
+</div>
 </div>

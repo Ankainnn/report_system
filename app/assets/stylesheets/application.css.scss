@@ -150,6 +150,12 @@ clearfix:after {
       border: 1px solid #acacac;
       width: 400px;
       margin: auto auto;
+      //h2{
+      //  background: url("logo.png") no-repeat #cecece;
+      //  background-position: right center;
+      //  padding: 15px;
+      //  border-radius: 6px;
+      //}
       .controls {
         margin-left: 100px;
       }
@@ -193,6 +199,15 @@ clearfix:after {
       margin: 0 auto;
       .controls {
         margin-left: 50px;
+      }
+    }
+    .help{
+      width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      td,th,table{border-color: #D4D4D4;}
+      i{
+      color:  #0088CC;
       }
     }
     form.select-form-styler {

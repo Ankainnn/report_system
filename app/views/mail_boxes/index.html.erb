@@ -1,31 +1,51 @@
-<h1>mail boxes</h1>
+<div class='table-actions'>
+  <h1 class='page-title'>Mail boxes</h1>
+  <ul class='create-download'>
+    <% if user_role != "visitor" %>
+        <li>
+          <%= link_to new_mail_box_path do %>
+              <i class='icon-plus-sign icon-2x'></i>
+          <% end %>
+        </li>
+    <% end %>
+  </ul>
+  <% if flash[:notice] %>
+      <span style="color: #41b140;"><%= flash[:notice] %></span>
+  <% end %>
+  <hr>
+  <%= paginate @mail_boxes, :window => 2 %>
+</div>
 
 <table id="demotable" class="table table-striped tablesorter">
   <thead>
   <tr class="sort">
+    <th class='record-manipulate'></th>
     <th>email</th>
     <th>пароль</th>
     <th>ресурс</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
   </thead>
 
 <tbody>
 <% @mail_boxes.each do |mail_box| %>
   <tr>
+    <td class="manipulate-box">
+      <ul>
+        <li><%= link_to mail_box do %> <i class="icon-search"></i>
+          <% end %></li>
+        <% if user_role != "visitor" %>
+            <li><%= link_to edit_mail_box_path(mail_box) do %> <i class="icon-pencil"></i>
+              <% end %></li>
+            <li><%= link_to mail_box, confirm: 'Вы уверены?', method: :delete do %>
+                  <i class="icon-trash"></i>
+              <% end %></li>
+        <% end %>
+      </ul>
+    </td>
     <td><%= mail_box.email %></td>
     <td><%= mail_box.password %></td>
     <td><%= mail_box.resource.name if mail_box.resource_id.present? %></td>
-    <td><%= link_to 'Show', mail_box %></td>
-    <td><%= link_to 'Edit', edit_mail_box_path(mail_box) %></td>
-    <td><%= link_to 'Destroy', mail_box, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </tbody>
 </table>
-
-<br />
-
-<%= link_to 'Новый ящик', new_mail_box_path %>

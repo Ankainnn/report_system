@@ -1,6 +1,8 @@
+<div class="form-wrap clearfix">
+  <h1>Новый договор</h1>
+  <hr>
+  <%= flash[:notice]%>
 <%= simple_form_for(@order, :html => { :class => 'form-horizontal' }) do |f| %>
-
-
     <%= f.input :number, label: "номер договора" %>
     <div class="input">
       <label for="client" class="select required control-label"><abbr title="required">*</abbr> клиент</label>
@@ -44,3 +46,4 @@
     </div>
 
 <% end %>
+</div>

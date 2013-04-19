@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def list
-    @users = User.order(:created_at).reverse_order
+    @users = User.order(:created_at).reverse_order.page(params[:page]).per(50)
   end
 
   def new

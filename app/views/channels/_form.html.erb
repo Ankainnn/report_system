@@ -1,3 +1,7 @@
+<div class="form-wrap clearfix">
+  <h1>Новый район</h1>
+  <hr>
+  <%= flash[:notice]%>
 <%= simple_form_for @channel, :html => { :class => 'form-horizontal' } do |f| %>
 
     <%= f.input :name, label: "название" %>
@@ -8,3 +12,4 @@
       </div>
     </div>
 <% end %>
+</div>

@@ -1,8 +1,25 @@
-<h1>Пользователи</h1>
-<%= link_to "Добавить нового пользователя", new_user_path%>
+<div class='table-actions'>
+  <h1 class='page-title'>Пользователи</h1>
+  <ul class='create-download'>
+    <% if user_role != "visitor" %>
+        <li>
+          <%= link_to new_user_path do %>
+              <i class='icon-plus-sign icon-2x'></i>
+          <% end %>
+        </li>
+    <% end %>
+  </ul>
+  <% if flash[:notice] %>
+      <span style="color: #41b140;"><%= flash[:notice] %></span>
+  <% end %>
+  <hr>
+  <%= paginate @users, :window => 2 %>
+</div>
 
-<table class="table table-striped">
-  <tr>
+<table id="demotable" class="table table-striped">
+  <thead>
+  <tr class="sort">
+    <th class='record-manipulate'></th>
     <th>email</th>
     <th>имя</th>
     <th>фамилия</th>
@@ -11,31 +28,40 @@
     <th>офис</th>
     <th>тип пользователя</th>
     <th>заблокирован?</th>
-    <th></th>
-    <th></th>
-    <th></th>
-
   </tr>
-
-<% @users.each do |course| %>
+  </thead>
+  <tbody>
+<% @users.each do |user| %>
   <tr>
-    <td><%= course.email %></td>
-    <td><%= course.name %></td>
-    <td><%= course.surname %></td>
-    <td><%= course.position %></td>
-    <td><%= course.phone %></td>
-    <td><%= course.office.try(:name)%></td>
-    <td><%= course.role %></td>
+    <td class="manipulate-box">
+      <ul>
+        <li><%= link_to user do %> <i class="icon-search"></i>
+          <% end %></li>
+        <% if user_role != "visitor" %>
+            <li><%= link_to edit_user_path(user) do %> <i class="icon-pencil"></i>
+              <% end %></li>
+            <li><%= link_to user, confirm: 'Вы уверены?', method: :delete do %>
+                  <i class="icon-trash"></i>
+              <% end %></li>
+        <% end %>
+      </ul>
+    </td>
+    <td><%= user.email %></td>
+    <td><%= user.name %></td>
+    <td><%= user.surname %></td>
+    <td><%= user.position %></td>
+    <td><%= user.phone %></td>
+    <td><%= user.office.try(:name)%></td>
+    <td><%= user.role %></td>
     <td>
-      <%if course.ban == "true"%>
+      <%if user.ban == "true"%>
       да
      <%else%>
       нет
       <%end%>
     </td>
-    <td><%= link_to 'ред.', edit_user_path(course.id) %></td>
-    <td><%= link_to 'уд.', course, confirm: 'Are you sure?', method: :delete %></td>
 
   </tr>
 <% end %>
+</tbody>
 </table>

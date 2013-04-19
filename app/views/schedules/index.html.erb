@@ -1,11 +1,30 @@
-<h1>Графики</h1>
-<%if user_role != "visitor"%>
-<%= link_to 'новый график', new_schedule_path %> |
-    <%end%>
-    <%= link_to 'загрузить таблицу в XLS формате', schedules_to_xls_path + ".xls" %>
+<div class='table-actions'>
+  <h1 class='page-title'>Графики</h1>
+  <ul class='create-download'>
+    <% if user_role != "visitor" %>
+        <li>
+          <%= link_to new_schedule_path do %>
+              <i class='icon-plus-sign icon-2x'></i>
+          <% end %>
+        </li>
+    <% end %>
+    <li>
+      <%= link_to new_schedule_path + ".xls" do %>
+          <i class='icon-save icon-2x'></i>
+      <% end %>
+    </li>
+  </ul>
+  <% if flash[:notice] %>
+      <span style="color: #41b140;"><%= flash[:notice] %></span>
+  <% end %>
+  <hr>
+  <%= paginate @schedules, :window => 2 %>
+</div>
+
 <table id="demotable" class="table table-striped">
   <thead>
     <tr class="sort">
+      <th class='record-manipulate'></th>
       <th><div id="result" style="text-align: center; color: #000000;"></div>день</th>
       <th>время</th>
       <th>начало занятий</th>
@@ -15,14 +34,24 @@
       <th>курс</th>
       <th>часы</th>
       <th>комментарий</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @schedules.each do |schedule| %>
       <tr class="tr">
+        <td class="manipulate-box">
+          <ul>
+            <li><%= link_to schedule do %> <i class="icon-search"></i>
+              <% end %></li>
+            <% if user_role != "visitor" %>
+                <li><%= link_to edit_schedule_path(schedule) do %> <i class="icon-pencil"></i>
+                  <% end %></li>
+                <li><%= link_to schedule, confirm: 'Вы уверены?', method: :delete do %>
+                      <i class="icon-trash"></i>
+                  <% end %></li>
+            <% end %>
+          </ul>
+        </td>
         <td><%= schedule.day %></td>
         <td><%= schedule.time %></td>
         <td><%= schedule.start %></td>
@@ -32,11 +61,6 @@
         <td><%= schedule.course.name %></td>
         <td><%= schedule.hours %></td>
         <td><%= schedule.comment %></td>
-        <td><%= link_to 'см.', schedule %></td>
-        <%if user_role != "visitor"%>
-        <td><%= link_to 'ред.', edit_schedule_path(schedule) %></td>
-        <td><%= link_to 'уд.', schedule, confirm: 'Вы уверены?', method: :delete %></td>
-            <%end%>
       </tr>
     <% end %>
   </tbody>

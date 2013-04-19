@@ -21,10 +21,10 @@ class PaymentsController < ApplicationController
     if res && res.payments.present?
       @prompt = @options.rassoc(res.payments).first
       @options.delete_if{|x| x.last == res.payments}
-      @payments = Payment.order("#{res.payments} ASC").order("created_at DESC")
+      @payments = Payment.order("#{res.payments} ASC").order("created_at DESC").page(params[:page]).per(50)
     else
       @prompt = 'варианты'
-      @payments = Payment.order("created_at DESC")
+      @payments = Payment.order("created_at DESC").page(params[:page]).per(50)
     end
 
     respond_to do |format|

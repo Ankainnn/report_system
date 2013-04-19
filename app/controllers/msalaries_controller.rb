@@ -20,10 +20,10 @@ class MsalariesController < ApplicationController
     if res && res.msalaries.present?
       @prompt = @options.rassoc(res.msalaries).first
       @options.delete_if{|x| x.last == res.msalaries}
-      @msalaries = Msalary.order("#{res.msalaries} ASC").order("created_at DESC")
+      @msalaries = Msalary.order("#{res.msalaries} ASC").order("created_at DESC").page(params[:page]).per(50)
     else
       @prompt = 'варианты'
-      @msalaries = Msalary.order("created_at DESC")
+      @msalaries = Msalary.order("created_at DESC").page(params[:page]).per(50)
     end
 
     respond_to do |format|

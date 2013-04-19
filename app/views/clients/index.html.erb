@@ -1,25 +1,25 @@
 <div class='table-actions'>
-    <h1 class='page-title'>Клиенты</h1>
-    <ul class='create-download'>
-      <% if user_role != "visitor" %>
-          <li>
-            <%= link_to new_client_path do %>
-                <i class='icon-plus-sign icon-2x'></i>
-            <% end %>
-          </li>
-      <% end %>
-      <li>
-        <%= link_to clients_to_xls_path + ".xls" do %>
-            <i class='icon-save icon-2x'></i>
-        <% end %>
-      </li>
-        </ul>
-    <% if flash[:notice] %>
-        <span style="color: #41b140;"><%= flash[:notice] %></span>
+  <h1 class='page-title'>Клиенты</h1>
+  <ul class='create-download'>
+    <% if user_role != "visitor" %>
+        <li>
+          <%= link_to new_client_path do %>
+              <i class='icon-plus-sign icon-2x'></i>
+          <% end %>
+        </li>
     <% end %>
+    <li>
+      <%= link_to clients_to_xls_path + ".xls" do %>
+          <i class='icon-save icon-2x'></i>
+      <% end %>
+    </li>
+  </ul>
+  <% if flash[:notice] %>
+      <span style="color: #41b140;"><%= flash[:notice] %></span>
+  <% end %>
   <hr>
-  <%= paginate @clients, :window =>2%>
-  </div>
+  <%= paginate @clients, :window => 2 %>
+</div>
 <table id="demotable" class="table table-striped tablesorter">
   <thead>
   <tr class="sort">
@@ -55,10 +55,14 @@
       <tr class="tr">
         <td class="manipulate-box">
           <ul>
-            <li><%= link_to client do%> <i class="icon-search"></i><%end%></li>
+            <li><%= link_to client do %> <i class="icon-search"></i>
+              <% end %></li>
             <% if user_role != "visitor" %>
-                <li><%= link_to edit_client_path(client) do%> <i class="icon-pencil"></i><%end%></li>
-                <li><%= link_to client, confirm: 'Вы уверены?', method: :delete do%><i class="icon-trash"></i> <%end%></li>
+                <li><%= link_to edit_client_path(client) do %> <i class="icon-pencil"></i>
+                  <% end %></li>
+                <li><%= link_to client, confirm: 'Вы уверены?', method: :delete do %>
+                      <i class="icon-trash"></i>
+                  <% end %></li>
             <% end %>
           </ul>
         </td>
@@ -89,7 +93,7 @@
 </table>
 
 <div class="pagination-block">
-<%= paginate @clients, :window =>2%>
+  <%= paginate @clients, :window => 2 %>
 </div>
 
 

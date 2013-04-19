@@ -1,11 +1,29 @@
-<h1>Выплаты преподавателям</h1>
-<%if user_role != "visitor"%>
-<%= link_to 'новая выплата', new_salary_path %> |
-    <%end%>
-    <%= link_to 'загрузить таблицу в XLS формате', salaries_to_xls_path + ".xls" %>  | сортировать по:  <%= render 'sort_by'%>
+<div class='table-actions'>
+  <h1 class='page-title'>Выплаты преподавателям</h1>
+  <ul class='create-download'>
+    <% if user_role != "visitor" %>
+        <li>
+          <%= link_to new_salary_path do %>
+              <i class='icon-plus-sign icon-2x'></i>
+          <% end %>
+        </li>
+    <% end %>
+    <li>
+      <%= link_to salaries_to_xls_path + ".xls" do %>
+          <i class='icon-save icon-2x'></i>
+      <% end %>
+    </li>
+  </ul>
+  <% if flash[:notice] %>
+      <span style="color: #41b140;"><%= flash[:notice] %></span>
+  <% end %>
+  <hr>
+  <%= paginate @salaries, :window => 2 %>
+</div>
 <table id="demotable" class="table table-striped">
   <thead>
   <tr class="sort">
+    <th class="record-manipulate"></th>
     <th> <div id="count" style="text-align: center; color: #000000;"></div> дата</th>
     <th> <div id="result" style="text-align: center; color: #000000;"></div> сумма</th>
     <th>курс</th>
@@ -16,14 +34,24 @@
     <th>комментарий</th>
     <th>создано</th>
     <th>отредактировано</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
   </thead>
   <tbody>
 <% @salaries.each do |salary| %>
   <tr class=<%= "tr" if salary.summ.present?%>>
+    <td class="manipulate-box">
+      <ul>
+        <li><%= link_to salary do %> <i class="icon-search"></i>
+          <% end %></li>
+        <% if user_role != "visitor" %>
+            <li><%= link_to edit_salary_path(salary) do %> <i class="icon-pencil"></i>
+              <% end %></li>
+            <li><%= link_to salary, confirm: 'Вы уверены?', method: :delete do %>
+                  <i class="icon-trash"></i>
+              <% end %></li>
+        <% end %>
+      </ul>
+    </td>
     <td><%=salary.date%></td>
     <td class="sum"><%= salary.summ %></td>
     <td><%= salary.course.try(:name) %></td>
@@ -34,17 +62,15 @@
     <td><%= salary.comment %></td>
     <td><%= salary.created_at.strftime("#{formating_month(salary.created_at)} %H:%M:%S") %></td>
     <td><%= salary.updated_at.strftime("#{formating_month(salary.updated_at)} %H:%M:%S") %></td>
-    <td><%= link_to 'см.', salary %></td>
-    <%if user_role != "visitor"%>
-    <td><%= link_to 'ред.', edit_salary_path(salary) %></td>
-    <td><%= link_to 'уд.', salary, confirm: 'Вы уверены?', method: :delete %></td>
-        <%end%>
   </tr>
 <% end %>
 </tbody>
 </table>
 
-
+</table>
+<div class="pagination-block">
+  <%= paginate @salaries, :window => 2 %>
+</div>
 <script>
     var delay = (function(){
         var timer = 0;

@@ -17,10 +17,10 @@ class OutlaysController < ApplicationController
     if res && res.outlays.present?
       @prompt = @options.rassoc(res.outlays).first
       @options.delete_if{|x| x.last == res.outlays}
-      @outlays = Outlay.order("#{res.outlays} ASC").order("created_at DESC")
+      @outlays = Outlay.order("#{res.outlays} ASC").order("created_at DESC").page(params[:page]).per(50)
     else
       @prompt = 'варианты'
-      @outlays = Outlay.order("created_at DESC")
+      @outlays = Outlay.order("created_at DESC").page(params[:page]).per(50)
     end
 
 

@@ -1,27 +1,51 @@
-<h1>Типы расходов</h1>
-<%if user_role != "visitor"%>
-<%= link_to 'новый тип расходов', new_cost_path %> |
-<%end%>
-<%= link_to 'загрузить таблицу в XLS формате', costs_to_xls_path + ".xls" %>
+<div class='table-actions'>
+  <h1 class='page-title'>Типы расходов</h1>
+  <ul class='create-download'>
+    <% if user_role != "visitor" %>
+        <li>
+          <%= link_to new_cost_path do %>
+              <i class='icon-plus-sign icon-2x'></i>
+          <% end %>
+        </li>
+    <% end %>
+    <li>
+      <%= link_to costs_to_xls_path + ".xls" do %>
+          <i class='icon-save icon-2x'></i>
+      <% end %>
+    </li>
+  </ul>
+  <% if flash[:notice] %>
+      <span style="color: #41b140;"><%= flash[:notice] %></span>
+  <% end %>
+  <hr>
+  <%= paginate @costs, :window => 2 %>
+</div>
+
 <table id="demotable" class="table table-striped">
   <thead>
   <tr class="sort">
+    <th class='record-manipulate'></th>
     <th>Название</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
   </thead>
   <tbody>
 
 <% @costs.each do |cost| %>
   <tr>
+    <td class="manipulate-box">
+      <ul>
+        <li><%= link_to cost do %> <i class="icon-search"></i>
+          <% end %></li>
+        <% if user_role != "visitor" %>
+            <li><%= link_to edit_cost_path(cost) do %> <i class="icon-pencil"></i>
+              <% end %></li>
+            <li><%= link_to cost, confirm: 'Вы уверены?', method: :delete do %>
+                  <i class="icon-trash"></i>
+              <% end %></li>
+        <% end %>
+      </ul>
+    </td>
     <td><%= cost.name %></td>
-    <td><%= link_to 'см.', cost %></td>
-    <%if user_role != "visitor"%>
-    <td><%= link_to 'ред.', edit_cost_path(cost) %></td>
-    <td><%= link_to 'уд.', cost, confirm: 'Вы уверены?', method: :delete %></td>
-    <%end%>
   </tr>
 <% end %>
   </tbody>

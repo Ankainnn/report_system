@@ -1,11 +1,30 @@
-<h1>Преподаватели</h1>
-<%if user_role != "visitor"%>
-<%= link_to 'новый преподаватель', new_teacher_path %> |
-<%end%>
-    <%= link_to 'загрузить таблицу в XLS формате', teachers_to_xls_path + ".xls" %>
+<div class='table-actions'>
+  <h1 class='page-title'>Преподаватели</h1>
+  <ul class='create-download'>
+    <% if user_role != "visitor" %>
+        <li>
+          <%= link_to new_teacher_path do %>
+              <i class='icon-plus-sign icon-2x'></i>
+          <% end %>
+        </li>
+    <% end %>
+    <li>
+      <%= link_to teachers_to_xls_path + ".xls" do %>
+          <i class='icon-save icon-2x'></i>
+      <% end %>
+    </li>
+  </ul>
+  <% if flash[:notice] %>
+      <span style="color: #41b140;"><%= flash[:notice] %></span>
+  <% end %>
+  <hr>
+  <%= paginate @teachers, :window => 2 %>
+</div>
+
 <table id="demotable" class="table table-striped">
   <thead>
     <tr class="sort">
+      <th class='record-manipulate'></th>
       <th><div id="result" style="text-align: center; color: #000000;"></div>ФИО</th>
       <th>телефон</th>
       <th>курсы</th>
@@ -15,14 +34,24 @@
       <th>комментарий</th>
       <th>оклад</th>
       <th>процент</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @teachers.each do |teacher| %>
       <tr class="tr">
+        <td class="manipulate-box">
+          <ul>
+            <li><%= link_to teacher do %> <i class="icon-search"></i>
+              <% end %></li>
+            <% if user_role != "visitor" %>
+                <li><%= link_to edit_teacher_path(teacher) do %> <i class="icon-pencil"></i>
+                  <% end %></li>
+                <li><%= link_to teacher, confirm: 'Вы уверены?', method: :delete do %>
+                      <i class="icon-trash"></i>
+                  <% end %></li>
+            <% end %>
+          </ul>
+        </td>
         <td><%= teacher.fio %></td>
         <td><%= teacher.phone %></td>
         <td>
@@ -36,11 +65,6 @@
         <td><%= teacher.comment %></td>
         <td><%= teacher.salary %></td>
         <td><%= teacher.percent %></td>
-        <td><%= link_to 'см.', teacher %></td>
-        <%if user_role != "visitor"%>
-        <td><%= link_to 'ред.', edit_teacher_path(teacher) %></td>
-        <td><%= link_to 'уд.', teacher, confirm: 'Вы уверены?', method: :delete %></td>
-         <%end%>
       </tr>
     <% end %>
   </tbody>

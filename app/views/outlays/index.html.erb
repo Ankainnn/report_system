@@ -1,11 +1,29 @@
-<h1>Расходы</h1>
-<%if user_role != "visitor"%>
-<%= link_to 'новая выплата', new_outlay_path %> |
-   <%end%>
-    <%= link_to 'загрузить таблицу в XLS формате', outlays_to_xls_path + ".xls" %> | сортировать по:  <%= render 'sort_by'%>
+<div class='table-actions'>
+  <h1 class='page-title'>Расходы</h1>
+  <ul class='create-download'>
+    <% if user_role != "visitor" %>
+        <li>
+          <%= link_to new_outlay_path do %>
+              <i class='icon-plus-sign icon-2x'></i>
+          <% end %>
+        </li>
+    <% end %>
+    <li>
+      <%= link_to outlays_to_xls_path + ".xls" do %>
+          <i class='icon-save icon-2x'></i>
+      <% end %>
+    </li>
+  </ul>
+  <% if flash[:notice] %>
+      <span style="color: #41b140;"><%= flash[:notice] %></span>
+  <% end %>
+  <hr>
+  <%= paginate @outlays, :window => 2 %>
+</div>
 <table id="demotable" class="table table-striped">
   <thead>
   <tr class="sort">
+    <th class='record-manipulate'></th>
     <th>дата</th>
     <th> <div id="result" style="text-align: center; color: #000000;"></div> сумма</th>
     <th>типа расходов</th>
@@ -15,14 +33,24 @@
     <th>комментарий</th>
     <th>создано</th>
     <th>отредактировано</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
   </thead>
   <tbody>
 <% @outlays.each do |outlay| %>
   <tr class=<%= "tr" if outlay.summ.present?%>>
+    <td class="manipulate-box">
+      <ul>
+        <li><%= link_to outlay do %> <i class="icon-search"></i>
+          <% end %></li>
+        <% if user_role != "visitor" %>
+            <li><%= link_to edit_outlay_path(outlay) do %> <i class="icon-pencil"></i>
+              <% end %></li>
+            <li><%= link_to outlay, confirm: 'Вы уверены?', method: :delete do %>
+                  <i class="icon-trash"></i>
+              <% end %></li>
+        <% end %>
+      </ul>
+    </td>
     <td><%=outlay.date %></td>
     <td class="sum"><%= outlay.summ %></td>
     <td><%= outlay.cost.try(:name)%></td>
@@ -32,16 +60,13 @@
     <td><%= outlay.comment %></td>
     <td><%= outlay.created_at.strftime("#{formating_month(outlay.created_at)} %H:%M:%S") %></td>
     <td><%= outlay.updated_at.strftime("#{formating_month(outlay.updated_at)} %H:%M:%S") %></td>
-    <td><%= link_to 'см.', outlay %></td>
-    <%if user_role != "visitor"%>
-    <td><%= link_to 'ред.', edit_outlay_path(outlay) %></td>
-    <td><%= link_to 'уд.', outlay, confirm: 'Вы уверены?', method: :delete %></td>
-        <%end%>
   </tr>
 <% end %>
 <tbody>
 </table>
-
+<div class="pagination-block">
+  <%= paginate @outlays, :window => 2 %>
+</div>
 <script>
     var delay = (function(){
         var timer = 0;

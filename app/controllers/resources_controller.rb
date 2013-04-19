@@ -4,7 +4,7 @@ class ResourcesController < ApplicationController
   # GET /resources.json
   before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
-    @resources = Resource.order(:created_at).reverse_order
+    @resources = Resource.order(:created_at).reverse_order.page(params[:page]).per(50)
 
     respond_to do |format|
       format.html # index.html.erb

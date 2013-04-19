@@ -5,7 +5,7 @@ include ApplicationHelper
   # GET /schedules.json
   before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
-    @schedules = Schedule.order(:created_at).reverse_order
+    @schedules = Schedule.order(:created_at).reverse_order.page(params[:page]).per(50)
 
     respond_to do |format|
       format.html # index.html.erb

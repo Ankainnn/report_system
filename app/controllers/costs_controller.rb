@@ -4,7 +4,7 @@ class CostsController < ApplicationController
   # GET /costs.json
   before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
-    @costs = Cost.order(:created_at).reverse_order
+    @costs = Cost.order(:created_at).reverse_order.page(params[:page]).per(50)
 
     respond_to do |format|
       format.html # index.html.erb

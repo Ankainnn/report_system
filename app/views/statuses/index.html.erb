@@ -1,28 +1,52 @@
-<h1>Статусы</h1>
-<%if user_role != "visitor"%>
-<%= link_to 'новый статус', new_status_path %> |
-    <%end%>
-    <%= link_to 'загрузить таблицу в XLS формате', statuses_to_xls_path + ".xls" %>
+<div class='table-actions'>
+  <h1 class='page-title'>Статусы</h1>
+  <ul class='create-download'>
+    <% if user_role != "visitor" %>
+        <li>
+          <%= link_to new_status_path do %>
+              <i class='icon-plus-sign icon-2x'></i>
+          <% end %>
+        </li>
+    <% end %>
+    <li>
+      <%= link_to statuses_to_xls_path + ".xls" do %>
+          <i class='icon-save icon-2x'></i>
+      <% end %>
+    </li>
+  </ul>
+  <% if flash[:notice] %>
+      <span style="color: #41b140;"><%= flash[:notice] %></span>
+  <% end %>
+  <hr>
+  <%= paginate @statuses, :window => 2 %>
+</div>
 <table id="demotable" class="table table-striped">
+
   <thead>
   <tr class="sort">
+    <th class='record-manipulate'></th>
     <th>название</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
- </thead>
+  </thead>
   <tbody>
-<% @statuses.each do |status| %>
-  <tr>
-    <td><%= status.name %></td>
-    <td><%= link_to 'см.', status %></td>
-    <%if user_role != "visitor"%>
-    <td><%= link_to 'ред.', edit_status_path(status) %></td>
-    <td><%= link_to 'уд.', status, confirm: 'Вы уверены?', method: :delete %></td>
-     <%end%>
-  </tr>
-<% end %>
+  <% @statuses.each do |status| %>
+      <tr>
+        <td class="manipulate-box">
+          <ul>
+            <li><%= link_to status do %> <i class="icon-search"></i>
+              <% end %></li>
+            <% if user_role != "visitor" %>
+                <li><%= link_to edit_status_path(status) do %> <i class="icon-pencil"></i>
+                  <% end %></li>
+                <li><%= link_to status, confirm: 'Вы уверены?', method: :delete do %>
+                      <i class="icon-trash"></i>
+                  <% end %></li>
+            <% end %>
+          </ul>
+        </td>
+        <td><%= status.name %></td>
+      </tr>
+  <% end %>
   </tbody>
 </table>
 

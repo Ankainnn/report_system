@@ -80,13 +80,14 @@ clearfix:after {
         min-width: 100px;
       }
       td.manipulate-box{
-        min-width: 110px;
+        width: 110px;
         border: 0;
         vertical-align: middle;
       }
       th.record-manipulate{
         visibility: hidden;
         border: 0;
+        max-width: 20%;
       }
       td.no-display{border: 0;}
       tr.tr td, tr.filters td, tr.sort th {
@@ -261,7 +262,7 @@ clearfix:after {
   #demotable {
     thead, tbody {
       th, td {
-        border: 1px solid #696969;
+        border: 1px solid #D4D4D4;
         border-collapse: collapse;
       }
       input {

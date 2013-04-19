@@ -1,36 +1,60 @@
-<h1>менеджеры</h1>
-<%if user_role != "visitor"%>
-<%= link_to 'новый менеджер', new_manager_path %> |
-    <%end%>
-    <%= link_to 'загрузить таблицу в XLS формате', managers_to_xls_path + ".xls" %>
+<div class='table-actions'>
+  <h1 class='page-title'>Менеджеры</h1>
+  <ul class='create-download'>
+    <% if user_role != "visitor" %>
+        <li>
+          <%= link_to new_manager_path do %>
+              <i class='icon-plus-sign icon-2x'></i>
+          <% end %>
+        </li>
+    <% end %>
+    <li>
+      <%= link_to managers_to_xls_path + ".xls" do %>
+          <i class='icon-save icon-2x'></i>
+      <% end %>
+    </li>
+  </ul>
+  <% if flash[:notice] %>
+      <span style="color: #41b140;"><%= flash[:notice] %></span>
+  <% end %>
+  <hr>
+  <%= paginate @managers, :window => 2 %>
+</div>
+
 <table id="demotable" class="table table-striped">
   <thead>
   <tr class="sort">
+    <th class='record-manipulate'></th>
     <th>имя</th>
     <th>телефон</th>
     <th>Id-vk</th>
     <th>школа</th>
     <th>оклад</th>
     <th>процент</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
   </thead>
   <tbody>
 <% @managers.each do |manager| %>
   <tr>
+    <td class="manipulate-box">
+      <ul>
+        <li><%= link_to manager do %> <i class="icon-search"></i>
+          <% end %></li>
+        <% if user_role != "visitor" %>
+            <li><%= link_to edit_manager_path(manager) do %> <i class="icon-pencil"></i>
+              <% end %></li>
+            <li><%= link_to manager, confirm: 'Вы уверены?', method: :delete do %>
+                  <i class="icon-trash"></i>
+              <% end %></li>
+        <% end %>
+      </ul>
+    </td>
     <td><%= manager.name %></td>
     <td><%= manager.phone %></td>
     <td><%= manager.idvk %></td>
     <td><%= manager.school %></td>
     <td><%= manager.salary %></td>
     <td><%= manager.percent %></td>
-    <td><%= link_to 'см.', manager %></td>
-    <%if user_role != "visitor"%>
-    <td><%= link_to 'ред.', edit_manager_path(manager) %></td>
-    <td><%= link_to 'уд.', manager, confirm: 'Вы уверены?', method: :delete %></td>
-        <%end%>
   </tr>
 <% end %>
   </tbody>

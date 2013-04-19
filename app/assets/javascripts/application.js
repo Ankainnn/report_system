@@ -55,6 +55,7 @@ $(document).ready(function() {
         '#schedule_start, #schedule_end, #order_contract, #start, #end, #outlay_date,' +
         ' #salary_date, #salary_start, #salary_end, #msalary_date, #msalary_start, #msalary_end,' +
       '#payment_date, #payment_start, #payment_end').datepicker();
+
     $(".filters").find('td').first().addClass('no-display');
 
 

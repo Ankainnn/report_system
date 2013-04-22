@@ -63,6 +63,8 @@ clearfix:after {
   }
   #content {
     padding-bottom: 50px;
+    width: 1200px;
+    margin: 0 auto;
     .table-actions, .pagination-block{
       margin-left: 116px;
     }
@@ -144,20 +146,25 @@ clearfix:after {
       }
     }
     .divise-form {
-      padding: 20px;
       background: #fdfdfd;
       border-radius: 6px;
       border: 1px solid #acacac;
       width: 400px;
       margin: auto auto;
-      h3{
-        background: url("small-logo.png") no-repeat #0e0e0e;
-        background-position: 94% center;
-        padding: 15px;
+      .login-form{
+        padding: 0px 20px 20px 20px;
+      }
+      .login-head{
+        h3{
+          margin: 0;
+          padding: 15px;
+          color: #FDFDFD;
+          font-size: 28px;
+        }
         border-top-right-radius: 6px;
         border-top-left-radius: 6px;
-        color: #FDFDFD;
-        font-size: 28px;
+        background: url("small-logo.png") no-repeat #919191;
+        background-position: 94% center;
       }
       .controls {
         margin-left: 100px;
@@ -187,7 +194,7 @@ clearfix:after {
       }
     }
 
-    .form-wrap {
+    .form-wrap, .table-wrap{
       h3{
         i{color: #5a9fe5;}
       }

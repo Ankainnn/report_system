@@ -1,16 +1,3 @@
-
-
-<p id="notice"><%= notice %></p>
-
-<p>
-<%= link_to 'редактировать', edit_client_path(@client) %> |
-<%= link_to 'к списку', clients_path %>
-</p>
-
-<div class="table-wrap">
-  <p id="notice"><%= notice %></p>
-  <h3> <%= @client.name %> <%= @client.try(:surname) %></h3>
-  <hr>
 <p>
   <b>дата:</b>
   <%= @client.date %>
@@ -129,6 +116,3 @@
   <b>редактировал:</b>
   <%= @client.try(:editor) %>
 </p>
-</div>
-
-

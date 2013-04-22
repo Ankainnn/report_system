@@ -32,22 +32,11 @@
     <th>источник</th>
     <th>ФИО</th>
     <th>телефон</th>
-    <th>школа</th>
+    <!--<th>школа</th>-->
     <th>родитель</th>
     <th>телефон родителя</th>
     <th>район</th>
     <th>менеджер</th>
-    <th>день</th>
-    <th>время</th>
-    <th>курс</th>
-    <th>продолжительность</th>
-    <th>ожидаемое начало</th>
-    <th>офис</th>
-    <th>комментарий</th>
-    <th>создано</th>
-    <th>создал</th>
-    <th>отредактировано</th>
-    <th>редактировал</th>
   </tr>
   </thead>
   <tbody id="clients_tabel">
@@ -55,8 +44,11 @@
       <tr class="tr">
         <td class="manipulate-box">
           <ul>
-            <li><%= link_to client do %> <i class="icon-search"></i>
-              <% end %></li>
+            <li>
+            <%= link_to url_for(id: client, anchor: 'myModal'), {:remote => true, 'data-toggle'=>"modal"} do%>
+                <i class="icon-search"></i>
+            <%end%>
+            </li>
             <% if user_role != "visitor" %>
                 <li><%= link_to edit_client_path(client) do %> <i class="icon-pencil"></i>
                   <% end %></li>
@@ -71,22 +63,11 @@
         <td><%= client.resource.try(:name) %></td>
         <td><%= client.fio %></td>
         <td><%= client.phone %></td>
-        <td class="sum"> <%= client.school %></td>
+        <!--<td class="sum"> < client.school %></td>-->
         <td><%= client.parent %></td>
         <td><%= client.parent_phone %></td>
         <td><%= client.channel.try(:name) %></td>
         <td><%= client.manager.try(:name) %></td>
-        <td><%= client.day %></td>
-        <td><%= client.time %></td>
-        <td><%= format_subject(client.course) if client.course.present? %></td>
-        <td><%= client.period %></td>
-        <td><%= client.presumed_start %></td>
-        <td><%= client.office.try(:name) %></td>
-        <td><%= client.comment %></td>
-        <td><%= client.created_at.strftime("#{formating_month(client.created_at)} %H:%M:%S") %></td>
-        <td><%= client.author %></td>
-        <td><%= client.updated_at.strftime("#{formating_month(client.updated_at)} %H:%M:%S") %></td>
-        <td><%= client.editor %></td>
       </tr>
   <% end %>
   </tbody>
@@ -96,7 +77,19 @@
   <%= paginate @clients, :window => 2 %>
 </div>
 
-
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel"></h3>
+  </div>
+  <div class="modal-body">
+    <p></p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Закрыть</button>
+  </div>
+</div>
 <script>
     var delay = (function () {
         var timer = 0;

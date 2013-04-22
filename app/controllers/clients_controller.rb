@@ -6,6 +6,9 @@ include ApplicationHelper
   #before_filter :active_user
 #before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
+    if params[:id].present?
+      @client = Client.find_by_id(params[:id])
+    end
     res = SortOption.find_by_user_id(current_user.id)
     @current_user = current_user.id
     @options = [['статус', 'status_id'],

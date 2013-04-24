@@ -34,7 +34,7 @@
   <tr class="tr">
     <td class="manipulate-box">
       <ul>
-        <li><%= link_to course do %> <i class="icon-search"></i>
+        <li><%= link_to url_for(id: course, anchor: 'myModal'), {:remote => true, 'data-toggle'=>"modal"} do%> <i class="icon-search"></i>
           <% end %></li>
         <% if user_role != "visitor" %>
             <li><%= link_to edit_course_path(course) do %> <i class="icon-pencil"></i>
@@ -52,6 +52,8 @@
   </tbody>
 </table>
 
+<!-- Modal -->
+<%= set_modal_window %>
 
 <script>
     var delay = (function(){

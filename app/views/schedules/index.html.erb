@@ -41,7 +41,7 @@
       <tr class="tr">
         <td class="manipulate-box">
           <ul>
-            <li><%= link_to schedule do %> <i class="icon-search"></i>
+            <li><%= link_to url_for(id: schedule, anchor: 'myModal'), {:remote => true, 'data-toggle'=>"modal"} do%> <i class="icon-search"></i>
               <% end %></li>
             <% if user_role != "visitor" %>
                 <li><%= link_to edit_schedule_path(schedule) do %> <i class="icon-pencil"></i>
@@ -65,7 +65,8 @@
     <% end %>
   </tbody>
 </table>
-
+<!-- Modal -->
+<%= set_modal_window %>
 <script>
     var delay = (function(){
         var timer = 0;

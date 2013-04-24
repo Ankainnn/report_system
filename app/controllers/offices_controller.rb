@@ -4,11 +4,15 @@ class OfficesController < ApplicationController
   # GET /offices.json
   before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
+    if params[:id].present?
+      @office = Office.find_by_id(params[:id])
+    end
     @offices = Office.order(:created_at).reverse_order.page(params[:page]).per(50)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @offices }
+      format.js
     end
   end
 

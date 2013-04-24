@@ -5,11 +5,15 @@ include ApplicationHelper
   # GET /schedules.json
   before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
+    if params[:id].present?
+      @schedule = Schedule.find_by_id(params[:id])
+    end
     @schedules = Schedule.order(:created_at).reverse_order.page(params[:page]).per(50)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @schedules }
+      format.js
     end
   end
 

@@ -447,10 +447,20 @@ clearfix:after {
   //  }
   //}
 }
-#footer {
+.footer {
   height: 100px;
   -moz-box-shadow: 0 -1px 7px rgba(0,0,0,0.5); /* Для Firefox */
   -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.5); /* Для Safari и Chrome */
   box-shadow: 0 -1px 7px rgba(0,0,0,0.5); /* Параметры тени */
-  background-color: #191919;
+  background-color: #181818;
+  .footer-content{
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 40px;
+    font-size: 14px;
+    a:hover{
+      color: #ffffff;
+    }
+  }
 }

@@ -34,7 +34,7 @@
       <tr>
         <td class="manipulate-box">
           <ul>
-            <li><%= link_to expenditure do %> <i class="icon-search"></i>
+            <li><%= link_to url_for(id: expenditure, anchor: 'myModal'), {:remote => true, 'data-toggle'=>"modal"} do%> <i class="icon-search"></i>
               <% end %></li>
             <% if user_role != "visitor" %>
                 <li><%= link_to edit_objects_of_expenditure_path(expenditure) do %> <i class="icon-pencil"></i>
@@ -51,6 +51,7 @@
   </tbody>
 </table>
 
-<br />
+<!-- Modal -->
+<%= set_modal_window %>
 
 

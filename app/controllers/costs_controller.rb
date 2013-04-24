@@ -4,11 +4,15 @@ class CostsController < ApplicationController
   # GET /costs.json
   before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
+    if params[:id].present?
+      @cost = Cost.find_by_id(params[:id])
+    end
     @costs = Cost.order(:created_at).reverse_order.page(params[:page]).per(50)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @costs }
+      format.js
     end
   end
 

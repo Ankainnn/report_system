@@ -2,11 +2,15 @@ class ObjectsOfExpendituresController < ApplicationController
   # GET /objects_of_expenditures
   # GET /objects_of_expenditures.json
   def index
+    if params[:id].present?
+      @objects_of_expenditure = ObjectsOfExpenditure.find_by_id(params[:id])
+    end
     @objects_of_expenditures = ObjectsOfExpenditure.order(:created_at).reverse_order.page(params[:page]).per(50)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @objects_of_expenditures }
+      format.js
     end
   end
 

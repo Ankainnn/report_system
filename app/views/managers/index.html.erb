@@ -38,7 +38,7 @@
   <tr>
     <td class="manipulate-box">
       <ul>
-        <li><%= link_to manager do %> <i class="icon-search"></i>
+        <li><%= link_to url_for(id: manager, anchor: 'myModal'), {:remote => true, 'data-toggle'=>"modal"} do%> <i class="icon-search"></i>
           <% end %></li>
         <% if user_role != "visitor" %>
             <li><%= link_to edit_manager_path(manager) do %> <i class="icon-pencil"></i>
@@ -60,3 +60,5 @@
   </tbody>
 </table>
 
+<!-- Modal -->
+<%= set_modal_window %>

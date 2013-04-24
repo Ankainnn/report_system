@@ -43,7 +43,7 @@
       <tr class=<%= "tr" if payment.summ.present?%>>
         <td class="manipulate-box">
           <ul>
-            <li><%= link_to payment do %> <i class="icon-search"></i>
+            <li><%= link_to url_for(id: payment, anchor: 'myModal'), {:remote => true, 'data-toggle'=>"modal"} do%> <i class="icon-search"></i>
               <% end %></li>
             <% if user_role != "visitor" %>
                 <li><%= link_to edit_payment_path(payment) do %> <i class="icon-pencil"></i>
@@ -72,6 +72,9 @@
 <div class="pagination-block">
   <%= paginate @payments, :window => 2 %>
 </div>
+
+<!-- Modal -->
+<%= set_modal_window %>
 
 <script>
     var delay = (function(){

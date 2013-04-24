@@ -5,6 +5,9 @@ class OrdersController < ApplicationController
   skip_before_filter :verify_authenticity_token
   before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
+    if params[:id].present?
+      @order= Order.find_by_id(params[:id])
+    end
     res = SortOption.find_by_user_id(current_user.id)
     @current_user = current_user.id
     @options = [['номер', 'number'],
@@ -35,6 +38,7 @@ class OrdersController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @orders }
+      format.js
     end
   end
 

@@ -1,0 +1,2 @@
+$('#myModalLabel').html("Номер договора <%= @payment.order.try(:number) %>");
+$('.modal-body p').html("<%=j render partial: 'modal' %>");

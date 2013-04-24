@@ -33,14 +33,7 @@
     <th>график</th>
     <th>офис</th>
     <th>часы</th>
-    <th>начало</th>
-    <th>конец</th>
-    <th>скидка</th>
     <th> <div id="result" style="text-align: center; color: #000000;"></div> стоимость </th>
-    <th>создано</th>
-    <th>создал</th>
-    <th>отредактировано</th>
-    <th>редактировал</th>
     <th></th>
   </tr>
   </thead>
@@ -49,8 +42,10 @@
       <tr class=<%= "tr" if order.price.present?%>>
         <td class="manipulate-box">
           <ul>
-            <li><%= link_to order do %> <i class="icon-search"></i>
-              <% end %></li>
+            <li><%= link_to url_for(id: order, anchor: 'myModal'), {:remote => true, 'data-toggle'=>"modal"} do%>
+                  <i class="icon-search"></i>
+              <% end %>
+            </li>
             <% if user_role != "visitor" %>
                 <li><%= link_to edit_order_path(order) do %> <i class="icon-pencil"></i>
                   <% end %></li>
@@ -68,22 +63,19 @@
         <td><%= order.schedule.try(:graphic)%></td>
         <td><%= order.office.try(:name)%></td>
         <td><%= order.schedule.try(:hours)%></td>
-        <td><%= order.schedule.try(:start)%></td>
-        <td><%= order.schedule.try(:end)%></td>
-        <td><%= order.discount %></td>
         <td class="sum"><%=order.price%></td>
-        <td><%= order.created_at.strftime("#{formating_month(order.created_at)} %H:%M:%S") %></td>
-        <td><%= order.author %></td>
-        <td><%= order.updated_at.strftime("#{formating_month(order.updated_at)} %H:%M:%S") %></td>
-        <td><%= order.editor %></td>
         <td><%= link_to 'оплата по договору', payment_to_order_path(id: order.id), class: "btn btn-success" %></td>
       </tr>
   <% end %>
   </tbody>
 </table>
+
 <div class="pagination-block">
   <%= paginate @orders, :window => 2 %>
 </div>
+
+<!-- Modal -->
+<%= set_modal_window %>
 
 <script>
     var delay = (function(){

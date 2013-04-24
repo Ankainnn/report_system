@@ -40,8 +40,11 @@
   <tr class=<%= "tr" if outlay.summ.present?%>>
     <td class="manipulate-box">
       <ul>
-        <li><%= link_to outlay do %> <i class="icon-search"></i>
-          <% end %></li>
+        <li>
+          <%= link_to url_for(id: outlay, anchor: 'myModal'), {:remote => true, 'data-toggle'=>"modal"} do%>
+              <i class="icon-search"></i>
+          <% end %>
+        </li>
         <% if user_role != "visitor" %>
             <li><%= link_to edit_outlay_path(outlay) do %> <i class="icon-pencil"></i>
               <% end %></li>
@@ -67,6 +70,10 @@
 <div class="pagination-block">
   <%= paginate @outlays, :window => 2 %>
 </div>
+
+<!-- Modal -->
+<%= set_modal_window %>
+
 <script>
     var delay = (function(){
         var timer = 0;

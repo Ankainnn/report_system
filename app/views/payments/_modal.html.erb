@@ -1,0 +1,44 @@
+<p>
+  <b>дата:</b>
+  <%= @payment.date %>
+</p>
+
+<p>
+  <b>сумма:</b>
+  <%= @payment.summ %>
+</p>
+
+<p>
+  <b>форма оплаты:</b>
+  <%= @payment.type %>
+</p>
+
+<p>
+  <b>договор:</b>
+  <%= @payment.order.try(:number) %>
+</p>
+
+<p>
+  <b>клиент:</b>
+  <%= client_fio_normalize(@payment.client)%>
+</p>
+
+<p>
+  <b>курс:</b>
+  <%= @payment.course.try(:name) %>
+</p>
+
+<p>
+  <b>график:</b>
+  <%= @payment.schedule %>
+</p>
+
+<p>
+  <b>часы:</b>
+  <%= @payment.hours %>
+</p>
+
+<p>
+  <b>офис:</b>
+  <%= @payment.office %>
+</p>

@@ -290,8 +290,18 @@ clearfix:after {
         border: 1px solid #D4D4D4;
         border-collapse: collapse;
       }
+
       input {
         padding: 0;
+      }
+    }
+    tbody tr:hover {
+      td.manipulate-box{
+        background-color: #F9F9F9;
+      }
+      td{
+        background: #ffffff;
+        color: #0088CC;
       }
     }
   }

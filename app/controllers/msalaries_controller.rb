@@ -4,6 +4,9 @@ class MsalariesController < ApplicationController
   # GET /msalaries.json
   before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
+    if params[:id].present?
+      @msalary= Msalary.find_by_id(params[:id])
+    end
     res = SortOption.find_by_user_id(current_user.id)
     @current_user = current_user.id
     @options = [['менеджер','manager_id'],
@@ -29,6 +32,7 @@ class MsalariesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @msalaries }
+      format.js
     end
   end
 

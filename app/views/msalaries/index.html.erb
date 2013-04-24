@@ -40,7 +40,7 @@
   <tr class=<%= "tr" if msalary.summ.present?%>>
     <td class="manipulate-box">
       <ul>
-        <li><%= link_to msalary do %> <i class="icon-search"></i>
+        <li><%= link_to url_for(id: msalary, anchor: 'myModal'), {:remote => true, 'data-toggle'=>"modal"} do%> <i class="icon-search"></i>
           <% end %></li>
         <% if user_role != "visitor" %>
             <li><%= link_to edit_msalary_path(msalary) do %> <i class="icon-pencil"></i>
@@ -67,6 +67,9 @@
 <div class="pagination-block">
   <%= paginate @msalaries, :window => 2 %>
 </div>
+
+<!-- Modal -->
+<%= set_modal_window %>
 <script>
     var delay = (function(){
         var timer = 0;

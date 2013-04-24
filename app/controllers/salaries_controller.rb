@@ -5,6 +5,9 @@ class SalariesController < ApplicationController
   skip_before_filter :verify_authenticity_token
   before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
+    if params[:id].present?
+      @salary= Salary.find_by_id(params[:id])
+    end
     res = SortOption.find_by_user_id(current_user.id)
 
     @current_user = current_user.id
@@ -34,6 +37,7 @@ class SalariesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @salaries }
+      format.js
     end
   end
 

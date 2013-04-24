@@ -1,0 +1,33 @@
+<p>
+  <b>дата:</b>
+  <%= @msalary.date %>
+</p>
+
+<p>
+  <b>сумма:</b>
+  <%= @msalary.summ %>
+</p>
+
+<p>
+  <b>менеджер:</b>
+  <%= @msalary.manager.try(:name)%>
+</p>
+
+<p>
+  <b>начало:</b>
+  <%= @msalary.start %>
+</p>
+<p>
+  <b>конец:</b>
+  <%= @msalary.end %>
+</p>
+
+<p>
+  <b>форма вылпаты:</b>
+  <%= @msalary.type %>
+</p>
+
+<p>
+  <b>комментарий:</b>
+  <%= @msalary.comment %>
+</p>

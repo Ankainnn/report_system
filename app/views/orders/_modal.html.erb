@@ -1,0 +1,60 @@
+<p>
+  <b>номер договора:</b>
+  <%= @order.number %>
+</p>
+
+<p>
+  <b>клиент:</b>
+  <%= @order.client.try(:fio)%>
+</p>
+
+<p>
+  <b>дата заключения:</b>
+  <%= @order.contract %>
+</p>
+
+<p>
+  <b>курс:</b>
+  <%= @order.course.try(:name)%>
+</p>
+
+<p>
+  <b>преподаватель:</b>
+  <%= @order.teacher.try(:fio)%>
+</p>
+
+<p>
+  <b>график:</b>
+  <%= @order.schedule.try(:graphic)%>
+</p>
+
+<p>
+  <b>офис:</b>
+  <%= @order.office.try(:name)%>
+</p>
+
+<p>
+  <b>часы:</b>
+  <%= @order.schedule.try(:hours) %>
+</p>
+
+<p>
+  <b>начало:</b>
+  <%= @order.schedule.try(:start)%>
+</p>
+
+
+<p>
+  <b>конец:</b>
+  <%= @order.schedule.try(:end)%>
+</p>
+
+<p>
+  <b>скидка:</b>
+  <%= @order.discount %>
+</p>
+
+<p>
+  <b>стоимость:</b>
+  <%= @order.price %>
+</p>

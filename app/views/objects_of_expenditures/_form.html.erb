@@ -1,5 +1,5 @@
 <div class="form-wrap clearfix">
-  <h1>Новый объект расходов</h1>
+  <h1><%= action_name == 'edit' ? 'Редактирование объекта расходов' : 'Новый объект расходов'%> </h1>
   <hr>
   <%= flash[:notice]%>
 <%= simple_form_for @objects_of_expenditure, :html => { :class => 'form-horizontal' } do |f| %>

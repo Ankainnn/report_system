@@ -1,118 +1,118 @@
 <p>
-  <b>дата:</b>
+  <b>Лата:</b>
   <%= @client.date %>
 </p>
 
 <p>
-  <b>статус:</b>
+  <b>Статус:</b>
   <%= @client.status.try(:name) %>
 </p>
 
 
 <p>
-  <b>имя:</b>
+  <b>Имя:</b>
   <%= @client.name %>
 </p>
 <p>
-  <b>фамилия:</b>
+  <b>Фамилия:</b>
   <%= @client.try(:surname) %>
 </p>
 
 <p>
-  <b>e-mail:</b>
+  <b>E-mail:</b>
   <%= @client.email %>
 </p>
 
 <p>
-  <b>телефон:</b>
+  <b>Телефон:</b>
   <%= @client.phone %>
 </p>
 
 
 
 <p>
-  <b>id-vk:</b>
+  <b>ID-VK:</b>
   <%= @client.idvk %>
 </p>
 
 <p>
-  <b>школа:</b>
+  <b>Школа:</b>
   <%= @client.school %>
 </p>
 
 <p>
-  <b>родитель:</b>
+  <b>Родитель:</b>
   <%= @client.parent %>
 </p>
 
 <p>
-  <b>телефон родителя:</b>
+  <b>Телефон родителя:</b>
   <%= @client.parent_phone %>
 </p>
 
 <p>
-  <b>источник:</b>
+  <b>Источник:</b>
   <%= @client.resource.try(:name) %>
 </p>
 
 <p>
-  <b>район:</b>
+  <b>Район:</b>
   <%= @client.channel.try(:name) %>
 </p>
 
 <p>
-  <b>менеджер:</b>
+  <b>Менеджер:</b>
   <%= @client.manager.try(:name) %>
 </p>
 
 <p>
-  <b>день:</b>
+  <b>День:</b>
   <%= @client.day %>
 </p>
 
 <p>
-  <b>время:</b>
+  <b>Время:</b>
   <%= @client.time %>
 </p>
 
 <p>
-  <b>ожидаемое начало:</b>
+  <b>Ожидаемое начало:</b>
   <%= @client.presumed_start %>
 </p>
 
 <p>
-  <b>курс:</b>
+  <b>Курс:</b>
   <%= @client.course%>
 </p>
 
 
 <p>
-  <b>продолжительность:</b>
+  <b>Продолжительность:</b>
   <%= @client.period %>
 </p>
 
 <p>
-  <b>офис:</b>
+  <b>Офис:</b>
   <%= @client.office.try(:name) %>
 </p>
 
 <p>
-  <b>комментарий:</b>
+  <b>Комментарий:</b>
   <%= @client.comment %>
 </p>
 <p>
-  <b>создано:</b>
+  <b>Создано:</b>
   <%= @client.created_at.strftime('%d/%m/%Y %H:%M:%S') %>
 </p>
 <p>
-  <b>создал:</b>
+  <b>Создал:</b>
   <%= @client.try(:author) %>
 </p>
 <p>
-  <b>редактировано:</b>
+  <b>Редактировано:</b>
   <%= @client.updated_at.strftime('%d/%m/%Y %H:%M:%S') %>
 </p>
 <p>
-  <b>редактировал:</b>
+  <b>Редактировал:</b>
   <%= @client.try(:editor) %>
 </p>

@@ -1,5 +1,5 @@
 <div class="form-wrap clearfix">
-  <h1>Новый график</h1>
+  <h1><%= action_name == 'edit' ? 'Редактирование расписания' : 'Новый график'%></h1>
   <hr>
   <%= flash[:notice]%>
 <%= simple_form_for(@schedule, :html => { :class => 'form-horizontal' }) do |f| %>

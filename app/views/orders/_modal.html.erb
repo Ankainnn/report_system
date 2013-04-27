@@ -1,60 +1,60 @@
 <p>
-  <b>номер договора:</b>
+  <b>Номер договора:</b>
   <%= @order.number %>
 </p>
 
 <p>
-  <b>клиент:</b>
+  <b>Клиент:</b>
   <%= @order.client.try(:fio)%>
 </p>
 
 <p>
-  <b>дата заключения:</b>
+  <b>Дата заключения:</b>
   <%= @order.contract %>
 </p>
 
 <p>
-  <b>курс:</b>
+  <b>Курс:</b>
   <%= @order.course.try(:name)%>
 </p>
 
 <p>
-  <b>преподаватель:</b>
+  <b>Преподаватель:</b>
   <%= @order.teacher.try(:fio)%>
 </p>
 
 <p>
-  <b>график:</b>
+  <b>График:</b>
   <%= @order.schedule.try(:graphic)%>
 </p>
 
 <p>
-  <b>офис:</b>
+  <b>Офис:</b>
   <%= @order.office.try(:name)%>
 </p>
 
 <p>
-  <b>часы:</b>
+  <b>Часы:</b>
   <%= @order.schedule.try(:hours) %>
 </p>
 
 <p>
-  <b>начало:</b>
+  <b>Начало:</b>
   <%= @order.schedule.try(:start)%>
 </p>
 
 
 <p>
-  <b>конец:</b>
+  <b>Конец:</b>
   <%= @order.schedule.try(:end)%>
 </p>
 
 <p>
-  <b>скидка:</b>
+  <b>Скидка:</b>
   <%= @order.discount %>
 </p>
 
 <p>
-  <b>стоимость:</b>
+  <b>Стоимость:</b>
   <%= @order.price %>
 </p>

@@ -1,0 +1,44 @@
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Имя:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Фамилия:</b>
+  <%= @user.surname %>
+</p>
+
+
+<p>
+  <b>Должность:</b>
+  <%= @user.position %>
+</p>
+
+<p>
+  <b>Телефон:</b>
+  <%= @user.phone %>
+</p>
+
+<p>
+  <b>Офис:</b>
+  <%= @user.office.try(:name) %>
+</p>
+
+<p>
+  <b>Тип пользователя:</b>
+  <%= @user.role %>
+</p>
+
+<p>
+  <b>Заблокирован:</b>
+  <%if @user.ban == "true"%>
+      да
+  <%else%>
+      нет
+  <%end%>
+</p>

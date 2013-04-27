@@ -1,39 +1,39 @@
 <p>
-  <b>дата:</b>
+  <b>Дата:</b>
   <%= @salary.date %>
 </p>
 
 <p>
-  <b>сумма:</b>
+  <b>Сумма:</b>
   <%= @salary.summ %>
 </p>
 
 <p>
-  <b>преподаватель:</b>
+  <b>Преподаватель:</b>
   <%= @salary.teacher.try(:fio) %>
 </p>
 
 <p>
-  <b>курс:</b>
+  <b>Курс:</b>
   <%= @salary.course.name %>
 </p>
 <p>
-  <b>график:</b>
+  <b>График:</b>
   <%= @salary.schedule.try(:graphic) %>
 </p>
 
 <p>
-  <b>кол. часов:</b>
+  <b>Кол. часов:</b>
   <%= @salary.hours %>
 </p>
 
 
 <p>
-  <b>форма выплаты:</b>
+  <b>Форма выплаты:</b>
   <%= @salary.type %>
 </p>
 
 <p>
-  <b>комментарий:</b>
+  <b>Комментарий:</b>
   <%= @salary.comment %>
 </p>

@@ -1,0 +1,2 @@
+$('#myModalLabel').html("<%= @user.fio.present? ? @user.fio : @user.email%>");
+$('.modal-body p').html("<%=j render partial: 'modal' %>");

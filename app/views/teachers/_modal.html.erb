@@ -1,14 +1,14 @@
 <p>
-  <b>фамилия:</b>
+  <b>Фамилия:</b>
   <%= @teacher.surname %>
 </p>
 <p>
-  <b>имя:</b>
+  <b>Имя:</b>
   <%= @teacher.name %>
 </p>
 
 <p>
-  <b>телефон:</b>
+  <b>Телефон:</b>
   <%= @teacher.phone %>
 </p>
 
@@ -18,33 +18,33 @@
 </p>
 
 <p>
-  <b>Id-vk:</b>
+  <b>ID-VK:</b>
   <%= @teacher.idvk %>
 </p>
 
 <p>
-  <b>рабочее место:</b>
+  <b>Рабочее место:</b>
   <%= @teacher.workplace %>
 </p>
 
 <p>
-  <b>коммент:</b>
+  <b>Коммент:</b>
   <%= @teacher.comment %>
 </p>
 
 <p>
-  <b>курсы:</b>
+  <b>Курсы:</b>
   <% @teacher.courses.each do |x| %>
       <%=  x.name + ", " %>
   <% end %>
 </p>
 
 <p>
-  <b>оклад:</b>
+  <b>Оклад:</b>
   <%= @teacher.salary %>
 </p>
 
 <p>
-  <b>оклад:</b>
+  <b>Оклад:</b>
   <%= @teacher.percent %>
 </p>

@@ -1,5 +1,5 @@
 <div class="form-wrap clearfix">
-  <h1>Новая выплата </h1>
+  <h1> <%= action_name == 'edit' ? 'Редактирование выплаты' : 'Новая выплата' %> </h1>
   <hr>
   <%= flash[:notice]%>
 <%= simple_form_for(@outlay, :html => { :class => 'form-horizontal' }) do |f| %>

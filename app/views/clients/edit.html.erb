@@ -1,6 +1,10 @@
-<h1>редактирование</h1>
+<div class="form-wrap clearfix">
+<h1>Редактирование</h1>
+  <hr>
 <%= flash[:notice]%>
 <%= simple_form_for @client, :html => { :class => 'form-horizontal' } do |f| %>
+      <div class="left-side">
+        <h3><i class="icon-user icon-large"></i> Информация о клиенте</h3>
     <%= f.association :status, :label => "статус" %>
     <%= f.input :date, label: "дата" %>
     <%= f.input :surname, :label => "фамилия" %>
@@ -12,19 +16,12 @@
     <%= f.input :school, :label => "школа" %>
     <%= f.input :parent, :label => "родитель" %>
     <%= f.input :parent_phone, :label => "телефон родителя"%>
+
+        <h3><i class="icon-paste icon-large"></i> Общая информация</h3>
     <%= f.association :resource, :label => "источник" %>
     <%= f.association :channel, :label => "район" %>
     <%= f.association :manager, :label => "менеджер" %>
-    <div id="date_time">
-      <% %w{понедельник вторник среда четверг пятница суббота воскресение}.each do |i|%>
-          <div>
-            <%= label_tag i%>
-            <%= check_box_tag "day[]", i %>
-            <%= select_tag "hour[]", options_for_select(range_format((0..23))), :prompt => "часы"%>
-            <%= select_tag  "minute[]", options_for_select(range_format((0..59))), :prompt => "минуты"%>
-          </div>
-      <% end%>
-    </div>
+
 
     <div>
       <%= f.input :presumed_start, label: "ожидаемое начало" %>
@@ -43,7 +40,20 @@
         <%= link_to 'к списку', clients_path, class: "btn"%>
       </div>
     </div>
-
+    </div>
+    <div class="right-side">
+      <h3><i class="icon-calendar icon-large"></i> Расписание клиента</h3>
+      <div id="date_time">
+        <% %w{понедельник вторник среда четверг пятница суббота воскресение}.each do |i|%>
+            <div>
+              <%= label_tag i%>
+              <%= check_box_tag "day[]", i %>
+              <%= select_tag "hour[]", options_for_select(range_format((0..23))), :prompt => "часы"%>
+              <%= select_tag  "minute[]", options_for_select(range_format((0..59))), :prompt => "минуты"%>
+            </div>
+        <% end%>
+      </div>
+    </div>
 <% end %>
-
+</div>
 

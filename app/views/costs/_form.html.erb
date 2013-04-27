@@ -1,5 +1,5 @@
 <div class="form-wrap clearfix">
-  <h1>Новый тип расходов</h1>
+  <h1><%= action_name == 'edit' ? 'Редактирование типа расходов' : 'Новый тип расходов'%></h1>
   <hr>
   <%= flash[:notice]%>
 <%= simple_form_for(@cost) do |f| %>

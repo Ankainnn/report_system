@@ -2,58 +2,65 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de743223-6f17-4e43-88be-9660287a7a29" name="Default" comment="Задачи: 1, 5, 9, 11, 20">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/channels/_modal.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/costs/_modal.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/courses/_modal.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/managers/_modal.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/objects_of_expenditures/_modal.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/offices/_modal.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/periods/_modal.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/resources/_modal.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/schedules/_modal.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/statuses/_modal.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/channels/index.js.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/costs/index.js.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/courses/index.js.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/managers/index.js.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/objects_of_expenditures/index.js.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/offices/index.js.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/periods/index.js.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/resources/index.js.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/schedules/index.js.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/statuses/index.js.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/teachers/index.js.erb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/users/_modal.html.erb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/users/list.js.erb" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/logo-very-big.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/texture.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/channels_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/channels_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/costs_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/costs_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/courses_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/courses_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/channels/index.html.erb" afterPath="$PROJECT_DIR$/app/views/channels/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/costs/index.html.erb" afterPath="$PROJECT_DIR$/app/views/costs/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/courses/index.html.erb" afterPath="$PROJECT_DIR$/app/views/courses/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/managers/index.html.erb" afterPath="$PROJECT_DIR$/app/views/managers/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/objects_of_expenditures/index.html.erb" afterPath="$PROJECT_DIR$/app/views/objects_of_expenditures/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/offices/index.html.erb" afterPath="$PROJECT_DIR$/app/views/offices/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/periods/index.html.erb" afterPath="$PROJECT_DIR$/app/views/periods/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/resources/index.html.erb" afterPath="$PROJECT_DIR$/app/views/resources/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/schedules/index.html.erb" afterPath="$PROJECT_DIR$/app/views/schedules/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/statuses/index.html.erb" afterPath="$PROJECT_DIR$/app/views/statuses/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/teachers/index.html.erb" afterPath="$PROJECT_DIR$/app/views/teachers/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/managers_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/managers_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/objects_of_expenditures_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/objects_of_expenditures_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/offices_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/offices_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/periods_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/periods_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/resources_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/resources_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/schedules_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/schedules_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/statuses_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/statuses_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/teachers_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/teachers_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/channels/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/channels/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/costs/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/costs/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/courses/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/courses/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/managers/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/managers/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/objects_of_expenditures/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/objects_of_expenditures/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/offices/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/offices/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/outlays/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/outlays/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/payments/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/payments/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/periods/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/periods/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/resources/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/resources/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/schedules/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/schedules/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/statuses/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/statuses/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/teachers/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/teachers/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/channels/_modal.html.erb" afterPath="$PROJECT_DIR$/app/views/channels/_modal.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/clients/_modal.html.erb" afterPath="$PROJECT_DIR$/app/views/clients/_modal.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/costs/_modal.html.erb" afterPath="$PROJECT_DIR$/app/views/costs/_modal.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/courses/_modal.html.erb" afterPath="$PROJECT_DIR$/app/views/courses/_modal.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/managers/_modal.html.erb" afterPath="$PROJECT_DIR$/app/views/managers/_modal.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/msalaries/_modal.html.erb" afterPath="$PROJECT_DIR$/app/views/msalaries/_modal.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/objects_of_expenditures/_modal.html.erb" afterPath="$PROJECT_DIR$/app/views/objects_of_expenditures/_modal.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/offices/_modal.html.erb" afterPath="$PROJECT_DIR$/app/views/offices/_modal.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/orders/_modal.html.erb" afterPath="$PROJECT_DIR$/app/views/orders/_modal.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/outlays/_modal.html.erb" afterPath="$PROJECT_DIR$/app/views/outlays/_modal.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/payments/_modal.html.erb" afterPath="$PROJECT_DIR$/app/views/payments/_modal.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/resources/_modal.html.erb" afterPath="$PROJECT_DIR$/app/views/resources/_modal.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/salaries/_modal.html.erb" afterPath="$PROJECT_DIR$/app/views/salaries/_modal.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/schedules/_modal.html.erb" afterPath="$PROJECT_DIR$/app/views/schedules/_modal.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/statuses/_modal.html.erb" afterPath="$PROJECT_DIR$/app/views/statuses/_modal.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/teachers/_modal.html.erb" afterPath="$PROJECT_DIR$/app/views/teachers/_modal.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/clients_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/clients_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/channels/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/channels/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/clients/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/clients/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/costs/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/costs/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/courses/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/courses/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/managers/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/managers/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/msalaries/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/msalaries/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/objects_of_expenditures/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/objects_of_expenditures/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/offices/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/offices/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/orders/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/orders/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/outlays/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/outlays/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/payments/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/payments/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/periods/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/periods/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/resources/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/resources/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/salaries/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/salaries/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/schedules/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/schedules/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/statuses/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/statuses/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/teachers/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/teachers/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/list.html.erb" afterPath="$PROJECT_DIR$/app/views/users/list.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/msalaries/new.html.erb" afterPath="$PROJECT_DIR$/app/views/msalaries/new.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="report_system-master.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1366832700972" ignored="false" />
+    <file path="/Dummy.txt" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1367085663841" ignored="false" />
     <file path="/clients_controller.rb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1366672083136" ignored="false" />
     <file path="/application_controller.rb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1365939230921" ignored="false" />
     <file path="/application.html.erb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1366837345843" ignored="false" />
@@ -69,10 +76,10 @@
     <file path="/bootstrap-responsive.min.css" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1365969341552" ignored="false" />
     <file path="/bootstrap.min.css" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1365970315283" ignored="false" />
     <file path="/font-awesome.min.css" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1365970572969" ignored="false" />
-    <file path="/new.html.erb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1366527990217" ignored="false" />
+    <file path="/new.html.erb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1367088045994" ignored="false" />
     <file path="/application.js" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1366671016694" ignored="false" />
     <file path="/_sort_by.html.erb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1365981516436" ignored="false" />
-    <file path="/_form.html.erb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1366406547949" ignored="false" />
+    <file path="/_form.html.erb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1367089240151" ignored="false" />
     <file path="/_prev_page.html.erb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1366070721354" ignored="false" />
     <file path="/_first_page.html.erb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1366071802168" ignored="false" />
     <file path="/_last_page.html.erb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1366071837855" ignored="false" />
@@ -102,9 +109,9 @@
     <file path="$PROJECT_DIR$/../../bkr/public/assets/application.js" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1366378866753" ignored="false" />
     <file path="$PROJECT_DIR$/../../bkr/app/controllers/task_block_controller.rb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1366755270616" ignored="false" />
     <file path="/list.html.erb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1366405115351" ignored="false" />
-    <file path="/show.html.erb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1366530144222" ignored="false" />
+    <file path="/show.html.erb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1367007928795" ignored="false" />
     <file path="/index.js.erb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1366835583766" ignored="false" />
-    <file path="/_modal.html.erb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1366787958206" ignored="false" />
+    <file path="/_modal.html.erb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1367010959557" ignored="false" />
     <file path="$PROJECT_DIR$/../../bkr/app/controllers/sessions_controller.rb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1366754890277" ignored="false" />
     <file path="/sessions_controller.rb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1366754785269" ignored="false" />
     <file path="$PROJECT_DIR$/../../bkr/config/initializers/active_admin.rb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1366747654858" ignored="false" />
@@ -129,6 +136,9 @@
     <file path="/schedules_controller.rb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1366835000006" ignored="false" />
     <file path="/periods_controller.rb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1366835227600" ignored="false" />
     <file path="/objects_of_expenditures_controller.rb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1366835622745" ignored="false" />
+    <file path="/users_controller.rb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1367010377235" ignored="false" />
+    <file path="/list.js.erb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1367011105070" ignored="false" />
+    <file path="/edit.html.erb" changelist="de743223-6f17-4e43-88be-9660287a7a29" time="1367088358346" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,19 +155,28 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/objects_of_expenditures/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="114" selection-start="4492" selection-end="4492" vertical-scroll-proportion="-17.5">
+            <state line="1" column="66" selection-start="99" selection-end="99" vertical-scroll-proportion="-0.625">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.css.scss" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
+      <file leaf-file-name="edit.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/objects_of_expenditures/edit.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="459" column="19" selection-start="8867" selection-end="8867" vertical-scroll-proportion="0.7487437">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="106" column="0" selection-start="4326" selection-end="4515" vertical-scroll-proportion="0.7623239">
               <folding />
             </state>
           </provider>
@@ -181,30 +200,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/teachers/_modal.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/teachers/index.js.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/schedules_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/schedules/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/schedules/_modal.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/schedules/index.js.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/periods_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/periods/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/periods/_modal.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/periods/index.js.erb" />
-        <option value="$PROJECT_DIR$/app/views/objects_of_expenditures/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/objects_of_expenditures/_modal.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/objects_of_expenditures/index.js.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/objects_of_expenditures_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/courses/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/costs/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/costs/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/offices/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/offices/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/managers/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/managers/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/teachers/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/teachers/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/schedules/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/schedules/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/periods/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/periods/edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/objects_of_expenditures/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/objects_of_expenditures/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1431" />
-    <option name="y" value="792" />
-    <option name="width" value="1301" />
-    <option name="height" value="744" />
+    <option name="x" value="-65" />
+    <option name="y" value="115" />
+    <option name="width" value="1588" />
+    <option name="height" value="714" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -270,6 +289,20 @@
               <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Views" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.UnclassifiedViewsFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="report_system-master" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="report_system-master" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Layouts" />
               <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.LayoutsFolder" />
             </PATH_ELEMENT>
@@ -284,26 +317,8 @@
               <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Assets" />
-              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.AssetsTopLevelFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="report_system-master" />
-              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="report_system-master" />
-              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assets" />
-              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.AssetsTopLevelFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Stylesheets" />
-              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.AssetsPredefinedGroupFolderNode" />
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.ModelsFolderNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -320,18 +335,56 @@
               <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.ControllersFolderNode" />
             </PATH_ELEMENT>
           </PATH>
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="report_system-master" />
-              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="report_system-master" />
-              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.RailsModuleNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="org.jetbrains.plugins.ruby.rails.projectView.v2.nodes.folders.ApplicationFolderNode" />
+              <option name="myItemId" value="report_system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="report_system-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="report_system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="report_system-master" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="report_system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -416,71 +469,19 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="report_system-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="report_system-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="report_system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="report_system-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="report_system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="report_system-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="report_system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="org.jetbrains.plugins.ruby.settings.RubyIdeSdkConfigurable" />
     <property name="recentsLimit" value="5" />
-    <property name="restartRequiresConfirmation" value="true" />
+    <property name="options.lastSelected" value="org.jetbrains.plugins.ruby.settings.RubyIdeSdkConfigurable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../bkr" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="Ruby.ViewRefParam.DefaultExtension" value="js.erb" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="Ruby.ViewRefParam.DefaultExtension" value="js.erb" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -846,14 +847,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1431" y="792" width="1301" height="744" extended-state="6" />
+    <frame x="-65" y="115" width="1588" height="714" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287037" sideWeight="0.4996016" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29243028" sideWeight="0.95679015" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31063554" sideWeight="0.95679015" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990307" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4785276" sideWeight="0.16891892" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287037" sideWeight="0.4948207" order="7" side_tool="true" content_ui="tabs" />
@@ -926,114 +927,114 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/schedules/_modal.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/courses/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="4" selection-start="279" selection-end="279" vertical-scroll-proportion="0.42003515">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/schedules_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/costs/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="244" selection-end="330" vertical-scroll-proportion="0.17706576">
+        <state line="13" column="6" selection-start="419" selection-end="419" vertical-scroll-proportion="-8.125">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/schedules/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/costs/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="0" selection-start="2129" selection-end="2167" vertical-scroll-proportion="0.32553956">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/periods/show.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/offices/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="34" selection-end="83" vertical-scroll-proportion="0.054744527">
+        <state line="1" column="73" selection-start="106" selection-end="106" vertical-scroll-proportion="-0.625">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/schedules/index.js.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/offices/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="94" vertical-scroll-proportion="-0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/periods/_modal.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/managers/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="4" selection-start="49" selection-end="49" vertical-scroll-proportion="0.07908612">
+        <state line="13" column="11" selection-start="531" selection-end="531" vertical-scroll-proportion="0.34330985">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/periods_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/managers/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="185" selection-end="267" vertical-scroll-proportion="0.13111888">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/objects_of_expenditures/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/teachers/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="0" selection-start="1603" selection-end="1603" vertical-scroll-proportion="0.7032374">
+        <state line="15" column="45" selection-start="669" selection-end="669" vertical-scroll-proportion="-9.375">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/periods/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/teachers/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="0" selection-start="1473" selection-end="1511" vertical-scroll-proportion="0.74766356">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/objects_of_expenditures/show.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/schedules/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="34" selection-end="100" vertical-scroll-proportion="0.054744527">
+        <state line="1" column="0" selection-start="21" selection-end="21" vertical-scroll-proportion="-0.625">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/objects_of_expenditures/_modal.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/schedules/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="66" selection-end="66" vertical-scroll-proportion="0.10948905">
+        <state line="12" column="44" selection-start="541" selection-end="541" vertical-scroll-proportion="0.31690142">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/periods/index.js.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/periods/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="94" vertical-scroll-proportion="-0.0">
+        <state line="14" column="49" selection-start="433" selection-end="433" vertical-scroll-proportion="-8.75">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/objects_of_expenditures/index.js.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/periods/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="39" selection-start="83" selection-end="83" vertical-scroll-proportion="0.02636204">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/objects_of_expenditures_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/objects_of_expenditures/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="29" selection-start="202" selection-end="202" vertical-scroll-proportion="0.13416816">
+        <state line="1" column="66" selection-start="99" selection-end="99" vertical-scroll-proportion="-0.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/objects_of_expenditures/edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="114" selection-start="4492" selection-end="4492" vertical-scroll-proportion="-17.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="459" column="19" selection-start="8867" selection-end="8867" vertical-scroll-proportion="0.7487437">
+        <state line="106" column="0" selection-start="4326" selection-end="4515" vertical-scroll-proportion="0.7623239">
           <folding />
         </state>
       </provider>

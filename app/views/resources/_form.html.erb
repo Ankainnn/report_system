@@ -1,5 +1,5 @@
 <div class="form-wrap clearfix">
-  <h1>Новый источник</h1>
+  <h1><%= action_name == 'edit' ? 'Редактирование источника' : 'Новый источник'%></h1>
   <hr>
   <%= flash[:notice]%>
 <%= simple_form_for(@resource) do |f| %>

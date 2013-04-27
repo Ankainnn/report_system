@@ -17,6 +17,9 @@ class UsersController < ApplicationController
   end
 
   def list
+    if params[:id].present?
+      @user = User.find_by_id(params[:id])
+    end
     @users = User.order(:created_at).reverse_order.page(params[:page]).per(50)
   end
 

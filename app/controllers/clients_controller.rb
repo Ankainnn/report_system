@@ -4,7 +4,7 @@ include ApplicationHelper
   # GET /clients
   # GET /clients.json
   #before_filter :active_user
-#before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
+before_filter :only_admin_and_user, only: [:destroy, :edit, :update, :new, :create]
   def index
     if params[:id].present?
       @client = Client.find_by_id(params[:id])

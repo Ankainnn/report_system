@@ -1,5 +1,6 @@
-<h1>редактирование заказа</h1>
-
+<div class="form-wrap clearfix">
+<h1>Редактирование заказа</h1>
+<hr>
 <%= simple_form_for(@order, :html => { :class => 'form-horizontal' }) do |f| %>
 
     <%= f.input :number, label: "номер договора" %>
@@ -51,5 +52,5 @@
     </div>
 
 <% end %>
-
+</div>
 

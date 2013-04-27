@@ -1,44 +1,44 @@
 <p>
-  <b>дата:</b>
+  <b>Дата:</b>
   <%= @outlay.date %>
 </p>
 
 <p>
-  <b>сумма:</b>
+  <b>Сумма:</b>
   <%= @outlay.summ %>
 </p>
 
 <p>
-  <b>тип расходов:</b>
+  <b>Тип расходов:</b>
   <%= @outlay.cost.try(:name) %>
 </p>
 
 
 <p>
-  <b>объект расходов:</b>
+  <b>Объект расходов:</b>
   <%= @outlay.objects_of_expenditure.try(:name) %>
 </p>
 
 
 
 <p>
-  <b>автор:</b>
+  <b>Автор:</b>
   <%= @outlay.person %>
 </p>
 
 
 
 <p>
-  <b>форма вылпаты:</b>
+  <b>Форма вылпаты:</b>
   <%= @outlay.type %>
 </p>
 
 <p>
-  <b>автор:</b>
+  <b>Автор:</b>
   <%= @outlay.person %>
 </p>
 
 <p>
-  <b>комментарий:</b>
+  <b>Комментарий:</b>
   <%= @outlay.comment %>
 </p>

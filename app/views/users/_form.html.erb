@@ -5,18 +5,18 @@
 
     <div class="form-inputs">
       <%= f.input :email, :required => true, :autofocus => true %>
-      <%= f.input :password, :required => true, label: "пароль" %>
-      <%= f.input :password_confirmation, :required => true, label: "повторите пароль" %>
-      <%= f.input :name, :required => true, label: "имя"%>
-      <%= f.input :surname, :required => true, label: "фамилия" %>
-      <%= f.input :position, :required => true, label: "должность" %>
-      <%= f.input :phone, :required => true, label: "телефон" %>
-      <%= f.association :office, :required => true, label: "офис" %>
-      <%= f.input :role, collection: [["admin", "admin"],["user", "user"],["visitor", "visitor"]], as: :select, label: "права"%>
+      <%= f.input :password, :required => true, label: "Пароль" %>
+      <%= f.input :password_confirmation, :required => true, label: "Повторите пароль" %>
+      <%= f.input :name, :required => true, label: "Имя"%>
+      <%= f.input :surname, :required => true, label: "Фамилия" %>
+      <%= f.input :position, :required => true, label: "Должность" %>
+      <%= f.input :phone, :required => true, label: "Телефон" %>
+      <%= f.association :office, :required => true, label: "Офис" %>
+      <%= f.input :role, collection: [["admin", "admin"],["user", "user"],["visitor", "visitor"]], as: :select, label: "Права"%>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "готово" %>
+      <%= f.button :submit, "Готово" %>
     </div>
 <% end %>
 </div>

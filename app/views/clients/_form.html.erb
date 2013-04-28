@@ -1,22 +1,22 @@
 <%= simple_form_for @client, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.association :status, :label => "статус" %>
-  <%= f.association :resource, :label => "источник" %>
-  <%= f.input :name, :label => "имя" %>
-  <%= f.input :surname, :label => "фамилия" %>
+  <%= f.association :status, :label => "Статус" %>
+  <%= f.association :resource, :label => "Источник" %>
+  <%= f.input :name, :label => "Имя" %>
+  <%= f.input :surname, :label => "Фамилия" %>
   <%= f.input :email %>
-  <%= f.input :phone, :label => "телефон", :input_html =>{:id => "phone"} %>
-  <%= f.input :idvk, :label => "id-vk" %>
-  <%= f.input :school, :label => "школа" %>
-  <%= f.input :parent, :label => "родитель", :input_html => {:value => current_user.email} %>
-  <%= f.input :parent_phone, :label => "телефон родителя"%>
-  <%= f.association :channel, :label => "канал" %>
-  <%= f.association :manager, :label => "менеджер" %>
-  <%= f.input :daysandtime, :label => "день и время" %>
-  <%= f.input :period, :label => "период" %>
-  <%= f.association :office, :label => "офис" %>
+  <%= f.input :phone, :label => "Телефон", :input_html =>{:id => "phone"} %>
+  <%= f.input :idvk, :label => "ID-VK" %>
+  <%= f.input :school, :label => "Школа" %>
+  <%= f.input :parent, :label => "Родитель", :input_html => {:value => current_user.email} %>
+  <%= f.input :parent_phone, :label => "Телефон родителя"%>
+  <%= f.association :channel, :label => "Канал" %>
+  <%= f.association :manager, :label => "Менеджер" %>
+  <%= f.input :daysandtime, :label => "День и время" %>
+  <%= f.input :period, :label => "Период" %>
+  <%= f.association :office, :label => "Офис" %>
   <div class="upper">
-    <%= f.input :comment, :label => "комментария" %>
+    <%= f.input :comment, :label => "Комментария" %>
   </div>
-  <%= f.button :submit, :value => "сохранить" %>
+  <%= f.button :submit, :value => "Сохранить" %>
 
 <% end %>

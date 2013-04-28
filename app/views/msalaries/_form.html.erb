@@ -3,28 +3,28 @@
     <label for="date" class="select required control-label"><abbr title="required">*</abbr>дата</label>
     <%= f.text_field :date%>
     </div>
-  <%= f.input :summ, label: "сумма" %>
-  <%= f.association :manager, label: "менеджер" %>
+  <%= f.input :summ, label: "Сумма" %>
+  <%= f.association :manager, label: "Менеджер" %>
 
     <div class="input">
-      <label for="start" class="select required control-label"><abbr title="required">*</abbr>начало периода</label>
+      <label for="start" class="select required control-label"><abbr title="required">*</abbr>Начало периода</label>
       <%= f.text_field :start%>
     </div>
 
     <div class="input">
-      <label for="end" class="select required control-label"><abbr title="required">*</abbr>конец периода</label>
+      <label for="end" class="select required control-label"><abbr title="required">*</abbr>Конец периода</label>
       <%= f.text_field :end%>
     </div>
 
 
     <div id="fix-outlays" class="input">
-  <%= f.input :type, label: "форма оплаты", :collection => ["Наличные", "По безналу"], :as => :radio_buttons %>
+  <%= f.input :type, label: "Форма оплаты", :collection => ["Наличные", "По безналу"], :as => :radio_buttons %>
     </div>
-  <%= f.input :comment, label: "комментарий", :input_html => { :cols => 50, :rows => 4 } %>
+  <%= f.input :comment, label: "Комментарий", :input_html => { :cols => 50, :rows => 4 } %>
     <div id="submit">
-      <%= f.button :submit, :value => "сохранить"%>
+      <%= f.button :submit, :value => "Сохранить"%>
       <div>
-        <%= link_to 'к списку', msalaries_path, class: "btn"%>
+        <%= link_to 'К списку', msalaries_path, class: "btn"%>
       </div>
     </div>
   

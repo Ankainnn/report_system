@@ -3,13 +3,13 @@
   <hr>
   <%= flash[:notice]%>
 <%= simple_form_for(@office) do |f| %>
-  <%= f.input :name, label: "название" %>
-  <%= f.input :address, label: "адрес" %>
-  <%= f.input :phone, label: "телефон" %>
+  <%= f.input :name, label: "Название" %>
+  <%= f.input :address, label: "Адрес" %>
+  <%= f.input :phone, label: "Телефон" %>
     <div id="submit">
-      <%= f.button :submit, :value => "сохранить"%>
+      <%= f.button :submit, :value => "Сохранить"%>
       <div>
-        <%= link_to 'к списку', offices_path, class: "btn"%>
+        <%= link_to 'К списку', offices_path, class: "btn"%>
       </div>
     </div>
 <% end %>

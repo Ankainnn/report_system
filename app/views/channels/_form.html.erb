@@ -4,9 +4,9 @@
   <%= flash[:notice]%>
 <%= simple_form_for @channel, :html => { :class => 'form-horizontal' } do |f| %>
 
-    <%= f.input :name, label: "название" %>
+    <%= f.input :name, label: "Название" %>
     <div id="submit">
-      <%= f.button :submit, :value => "сохранить"%>
+      <%= f.button :submit, :value => "Сохранить"%>
       <div>
         <%= link_to 'к списку', channels_path, class: "btn"%>
       </div>

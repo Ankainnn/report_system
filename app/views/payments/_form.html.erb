@@ -4,24 +4,24 @@
   <%= flash[:notice]%>
 <%= simple_form_for(@payment, :html => { :class => 'form-horizontal' }) do |f| %>
     <div class="input">
-    <label for="date" class="select required control-label"><abbr title="required">*</abbr>дата</label>
+    <label for="date" class="select required control-label"><abbr title="required">*</abbr>Дата</label>
     <%= f.text_field :date%>
     </div>
 
-    <%= f.input :summ, label: "сумма" %>
+    <%= f.input :summ, label: "Сумма" %>
     <div id="fix-payments">
-      <%= f.input :type, :collection => ["наличный расчет", "безналичный расчет"], :as => :radio_buttons, label: "форма оплаты"%>
+      <%= f.input :type, :collection => ["наличный расчет", "безналичный расчет"], :as => :radio_buttons, label: "Форма оплаты"%>
     </div>
 
 
 
-    <%=f.input :client, label: "клиент", :input_html => { data: {autocomplete_source: @collect_c.map(&:fi_and_phone) }, id: "client_new"}%>
+    <%=f.input :client, label: "Клиент", :input_html => { data: {autocomplete_source: @collect_c.map(&:fi_and_phone) }, id: "client_new"}%>
 
     <div id="select_list" >
 
       <div class="input">
         <%if @client_courses_edit.present?%>
-        <label for="course_id" class="select required control-label"><abbr title="required">*</abbr>курс</label>
+        <label for="course_id" class="select required control-label"><abbr title="required">*</abbr>Курс</label>
         <%= collection_select(:course_id , nil, @client_courses_edit, :id, :name, {:selected => @current_course, :include_blank => true}, {onchange: "$.post('search_options',  {course_id: $(this).val(), client: $('#client_new').val()}, {}, 'script' );"}) %>
         <%end%>
       </div>
@@ -29,24 +29,24 @@
     </div>
 
 
-    <%= f.input :order_name, label: "договор", :input_html => { :autocomplete => 'off'}%>
+    <%= f.input :order_name, label: "Договор", :input_html => { :autocomplete => 'off'}%>
 
 
     <%= f.input :order_id, as: :hidden, error: false%>
 
 
-    <%= f.input :schedule, label: "график", :input_html => { :autocomplete => 'off'}%>
+    <%= f.input :schedule, label: "График", :input_html => { :autocomplete => 'off'}%>
 
-    <%= f.input :hours, :label => "кол. часов"%>
+    <%= f.input :hours, :label => "Кол. часов"%>
 
-    <%= f.input :office, label: "офис", :input_html => { :autocomplete => 'off'}%>
+    <%= f.input :office, label: "Офис", :input_html => { :autocomplete => 'off'}%>
 
 
 
     <div id="submit">
-      <%= f.button :submit, :value => "сохранить"%>
+      <%= f.button :submit, :value => "Сохранить"%>
       <div>
-        <%= link_to 'к списку', payments_path, class: "btn"%>
+        <%= link_to 'К списку', payments_path, class: "btn"%>
             </div>
             </div>
 

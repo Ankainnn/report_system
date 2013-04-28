@@ -4,20 +4,20 @@
   <%= flash[:notice]%>
 <%= simple_form_for(@teacher) do |f| %>
 
-  <%= f.input :surname, label: "фамилия" %>
-  <%= f.input :name, label: "имя" %>
-  <%= f.input :phone, label: "телефон" %>
+  <%= f.input :surname, label: "Фамилия" %>
+  <%= f.input :name, label: "Имя" %>
+  <%= f.input :phone, label: "Телефон" %>
   <%= f.input :email %>
-  <%= f.input :idvk, :label => "id-vk" %>
-  <%= f.input :workplace, label: "рабочее место" %>
-  <%= f.input :comment, label: "комментарий", :input_html => { :cols => 50, :rows => 4 }  %>
-  <%= f.association :courses, label: "курс" %>
-    <%= f.input :salary, label: "оклад" %>
-    <%= f.input :percent, label: "процент" %>
+  <%= f.input :idvk, :label => "ID-VK" %>
+  <%= f.input :workplace, label: "Рабочее место" %>
+  <%= f.input :comment, label: "Комментарий", :input_html => { :cols => 50, :rows => 4 }  %>
+  <%= f.association :courses, label: "Курс" %>
+    <%= f.input :salary, label: "Оклад" %>
+    <%= f.input :percent, label: "Процент" %>
     <div id="submit">
-      <%= f.button :submit, :value => "сохранить"%>
+      <%= f.button :submit, :value => "Сохранить"%>
       <div>
-        <%= link_to 'к списку', teachers_path, class: "btn"%>
+        <%= link_to 'К списку', teachers_path, class: "btn"%>
       </div>
     </div>
 <% end %>

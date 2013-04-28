@@ -5,37 +5,37 @@
 <%= simple_form_for @client, :html => { :class => 'form-horizontal' } do |f| %>
     <div class="left-side">
       <h3><i class="icon-user icon-large"></i> Информация о клиенте</h3>
-    <%= f.association :status, :label => "статус" %>
-    <%= f.input :date,:input_html => { :value => formating_month(Time.now)}, label: "дата" %>
-    <%= f.input :surname, :label => "фамилия" %>
-    <%= f.input :name, :label => "имя" %>
-    <%= f.input :middle_name, :label => "отчество" %>
-    <%= f.input :email, label: 'e-mail' %>
-    <%= f.input :phone, :label => "телефон", :input_html =>{:id => "phone"} %>
-    <%= f.input :idvk, :label => "id-vk" %>
-    <%= f.input :school, :label => "школа" %>
-    <%= f.input :parent, :label => "родитель" %>
-    <%= f.input :parent_phone, :label => "телефон родителя"%>
+    <%= f.association :status, :label => "Статус" %>
+    <%= f.input :date,:input_html => { :value => formating_month(Time.now)}, label: "Дата" %>
+    <%= f.input :surname, :label => "Фамилия" %>
+    <%= f.input :name, :label => "Имя" %>
+    <%= f.input :middle_name, :label => "Отчество" %>
+    <%= f.input :email, label: 'E-mail' %>
+    <%= f.input :phone, :label => "Телефон", :input_html =>{:id => "phone"} %>
+    <%= f.input :idvk, :label => "ID-VK" %>
+    <%= f.input :school, :label => "Школа" %>
+    <%= f.input :parent, :label => "Родитель" %>
+    <%= f.input :parent_phone, :label => "Телефон родителя"%>
 
       <h3><i class="icon-paste icon-large"></i> Общая информация</h3>
-    <%= f.association :resource, :label => "источник" %>
-    <%= f.association :channel, :label => "район" %>
-    <%= f.association :manager, :label => "менеджер" %>
+    <%= f.association :resource, :label => "Источник" %>
+    <%= f.association :channel, :label => "Район" %>
+    <%= f.association :manager, :label => "Менеджер" %>
     <div>
-      <%= f.input :presumed_start, label: "ожидаемое начало" %>
+      <%= f.input :presumed_start, label: "Ожидаемое начало" %>
     </div>
-    <%= f.input :course, collection: Course.all.map(&:name), as: :select, label: "курс"%>
+    <%= f.input :course, collection: Course.all.map(&:name), as: :select, label: "Курс"%>
     <div class="input">
-      <%= f.label :period, "продолжительность" %>
+      <%= f.label :period, "Продолжительность" %>
       <%= f.select(:period, Period.all.collect {|p| p.period }, {:include_blank => true})  %>
     </div>
-    <%= f.association :office, :label => "офис" %>
-    <%= f.input :comment, :label => "комментарий", :input_html => { :cols => 50, :rows => 4 } %>
+    <%= f.association :office, :label => "Офис" %>
+    <%= f.input :comment, :label => "Комментарий", :input_html => { :cols => 50, :rows => 4 } %>
     <%= f.input :author,:as => :hidden, :input_html => {:value => current_user.email}, :disabled => true %>
     <div id="submit">
-    <%= f.button :submit, :value => "сохранить"%>
+    <%= f.button :submit, :value => "Сохранить"%>
       <div>
-    <%= link_to 'к списку', clients_path, class: "btn"%>
+    <%= link_to 'К списку', clients_path, class: "btn"%>
       </div>
     </div>
     </div>

@@ -8,15 +8,15 @@
     </div>
 
   <div class="form-inputs">
-    <%= f.input :email, label: "email" %>
-    <%= f.input :password, label: "пароль" %>
-    <%= f.association :resource, label: "ресурс" %>
+    <%= f.input :email, label: "Email" %>
+    <%= f.input :password, label: "Пароль" %>
+    <%= f.association :resource, label: "Ресурс" %>
   </div>
 
     <div id="submit">
-      <%= f.button :submit, :value => "сохранить"%>
+      <%= f.button :submit, :value => "Сохранить"%>
       <div>
-        <%= link_to 'к списку', mail_boxes_path, class: "btn"%>
+        <%= link_to 'К списку', mail_boxes_path, class: "btn"%>
             </div>
             </div>
 <% end %>

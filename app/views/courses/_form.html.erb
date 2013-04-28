@@ -3,10 +3,10 @@
   <hr>
   <%= flash[:notice]%>
 <%= simple_form_for(@course) do |f| %>
-    <%= f.input :direction, label: "направление" %>
-    <%= f.input :subject, label: "предмет" %>
+    <%= f.input :direction, label: "Направление" %>
+    <%= f.input :subject, label: "Предмет" %>
     <div id="submit">
-      <%= f.button :submit, :value => "сохранить"%>
+      <%= f.button :submit, :value => "Сохранить"%>
       <div>
         <%= link_to 'к списку', courses_path, class: "btn"%>
       </div>

@@ -3,11 +3,11 @@
   <hr>
   <%= flash[:notice]%>
 <%= simple_form_for(@cost) do |f| %>
-    <%= f.input :name, label: "имя" %>
+    <%= f.input :name, label: "Имя" %>
     <div id="submit">
-      <%= f.button :submit, :value => "сохранить"%>
+      <%= f.button :submit, :value => "Сохранить"%>
       <div>
-        <%= link_to 'к списку', costs_path, class: "btn"%>
+        <%= link_to 'К списку', costs_path, class: "btn"%>
       </div>
     </div>
 <% end %>

@@ -4,17 +4,17 @@
 
 <%= simple_form_for(@salary, :html => { :class => 'form-horizontal', id: 'new_salary' }) do |g|%>
     <div>
-      <label for="date" class="select required control-label"><abbr title="required">*</abbr> дата</label>
+      <label for="date" class="select required control-label"><abbr title="required">*</abbr>Дата</label>
       <%= g.text_field :date %>
     </div>
 
     <div>
-      <label for="summ" class="select required control-label"><abbr title="required">*</abbr> сумма</label>
+      <label for="summ" class="select required control-label"><abbr title="required">*</abbr>Сумма</label>
       <%= g.text_field :summ %>
     </div>
 
     <div>
-      <label for="teacher" class="select required control-label"><abbr title="required">*</abbr> преподаватель</label>
+      <label for="teacher" class="select required control-label"><abbr title="required">*</abbr>Преподаватель</label>
       <%= g.collection_select(:teacher_id, Teacher.order(:name), :id, :fio, {include_blank: true}, {onchange: "$.post('salary_search_options', {teacher_id: $(this).val()}, {}, 'script' );" })%>
     </div>
 
@@ -22,14 +22,14 @@
 
       <%if @current_teacher_courses.present?%>
           <div class="input">
-            <label for="course_id" class="select required control-label"><abbr title="required">*</abbr>курс</label>
+            <label for="course_id" class="select required control-label"><abbr title="required">*</abbr>Курс</label>
             <%= collection_select(:course_id , nil, @current_teacher_courses, :id, :name) %>
           </div>
 
 
           <% if @current_teacher_schedules.present?%>
               <div class="input">
-                <label for="schedule_id" class="select required control-label"><abbr title="required">*</abbr>график</label>
+                <label for="schedule_id" class="select required control-label"><abbr title="required">*</abbr>График</label>
                 <%= collection_select(:schedule_id , nil, @current_teacher_schedules, :id, :graphic) %>
               </div>
 
@@ -38,26 +38,26 @@
     </div>
 
     <div>
-      <%= g.label :hours, "кол. часов"%>
+      <%= g.label :hours, "Кол. часов"%>
       <%= g.text_field :hours%>
     </div>
 
 
     <div id="fix-outlays" class="input">
-      <label for="type" class="select required control-label"><abbr title="required">*</abbr> форма оплаты</label>
+      <label for="type" class="select required control-label"><abbr title="required">*</abbr> Форма оплаты</label>
       <%= g.input :type, :collection => ["Наличные", "По безналу"], :as => :radio_buttons, label: false, error: false %>
     </div>
 
 
     <div>
-      <%= g.label :comment, "комментарий"%>
+      <%= g.label :comment, "Комментарий"%>
       <%= g.text_area :comment, size: "50x4"%>
     </div>
 
     <div id="submit">
-      <%= g.button :submit, :value => "сохранить"%>
+      <%= g.button :submit, :value => "Сохранить"%>
       <div>
-        <%= link_to 'к списку', salaries_path, class: "btn"%>
+        <%= link_to 'К списку', salaries_path, class: "btn"%>
       </div>
     </div>
 

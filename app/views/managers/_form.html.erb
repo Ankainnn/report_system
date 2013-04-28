@@ -3,14 +3,14 @@
   <hr>
   <%= flash[:notice]%>
 <%= simple_form_for(@manager) do |f| %>
-    <%= f.input :name , label: "имя"%>
-    <%= f.input :phone, label: "телефон" %>
-    <%= f.input :idvk , label: "id-vk"%>
-    <%= f.input :school, label: "школа" %>
-    <%= f.input :salary, label: "оклад" %>
-    <%= f.input :percent, label: "процент" %>
+    <%= f.input :name , label: "Имя"%>
+    <%= f.input :phone, label: "Телефон" %>
+    <%= f.input :idvk , label: "ID-VK"%>
+    <%= f.input :school, label: "Школа" %>
+    <%= f.input :salary, label: "Оклад" %>
+    <%= f.input :percent, label: "Процент" %>
     <div id="submit">
-      <%= f.button :submit, :value => "сохранить"%>
+      <%= f.button :submit, :value => "Сохранить"%>
       <div>
         <%= link_to 'к списку', managers_path, class: "btn"%>
       </div>

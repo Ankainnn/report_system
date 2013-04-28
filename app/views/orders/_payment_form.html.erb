@@ -1,28 +1,28 @@
 <%= simple_form_for(@order, :html => { :class => 'form-horizontal' }) do |f| %>
 
-    <%= f.input :number, label: "номер договора" %>
+    <%= f.input :number, label: "Номер договора" %>
     <div class="input">
-    <%= f.label :client, "клиент"%>
+    <%= f.label :client, "Клиент"%>
     <%= text_field_tag :client,  @order.client.try(:fio) %>
     </div>
     <div class="input">
-    <%= f.label :contract, "дата заключения"%>
+    <%= f.label :contract, "Дата заключения"%>
     <%= f.text_field :contract%>
     </div>
-    <%= f.association :course, label: "курс" %>
-    <%= f.association :teacher, label: "учитель" %>
-    <%= f.association :schedule, label: "расписание" %>
-    <%= f.association :office, label: "офис" %>
+    <%= f.association :course, label: "Курс" %>
+    <%= f.association :teacher, label: "Учитель" %>
+    <%= f.association :schedule, label: "Расписание" %>
+    <%= f.association :office, label: "Офис" %>
     <div class="input">
-      <%= f.label :start, "начало"%>
+      <%= f.label :start, "Начало"%>
       <%= f.text_field :start%>
     </div>
     <div class="input">
-      <%= f.label :end, "конец"%>
+      <%= f.label :end, "Конец"%>
       <%= f.text_field :end%>
     </div>
-    <%= f.input :discount, label: "скидка" %>
-    <%= f.input :price, label: "стоимость" %>
-    <%= f.button :submit,"отправить" %>
+    <%= f.input :discount, label: "Скидка" %>
+    <%= f.input :price, label: "Стоимость" %>
+    <%= f.button :submit,"Отправить" %>
 
 <% end %>

@@ -3,45 +3,45 @@
   <hr>
   <%= flash[:notice]%>
 <%= simple_form_for(@order, :html => { :class => 'form-horizontal' }) do |f| %>
-    <%= f.input :number, label: "номер договора" %>
+    <%= f.input :number, label: "Номер договора" %>
     <div class="input">
-      <label for="client" class="select required control-label"><abbr title="required">*</abbr> клиент</label>
+      <label for="client" class="select required control-label"><abbr title="required">*</abbr>Клиент</label>
     <%= text_field_tag :client, @current_client, data: {autocomplete_source: @client_collection.map(&:fi_and_phone)}, :html => { :id => 'order_client_id' } %>
     </div>
     <div class="input">
-      <label for="contract" class="select required control-label"><abbr title="required">*</abbr>дата заключения</label>
+      <label for="contract" class="select required control-label"><abbr title="required">*</abbr>Дата заключения</label>
       <%= f.text_field :contract%>
     </div>
-    <%= f.association :course, label: "курс", :input_html => {onchange: "$.post('search_optionss',  {course_id: $(this).val()}, {}, 'script' );"}%>
+    <%= f.association :course, label: "Курс", :input_html => {onchange: "$.post('search_optionss',  {course_id: $(this).val()}, {}, 'script' );"}%>
 
     <div id="select_list">
     <%= render 'select_list'%>
     </div>
 
     <div class="input">
-      <label for="hours" class="select required control-label"><abbr title="required">*</abbr>часы</label>
+      <label for="hours" class="select required control-label"><abbr title="required">*</abbr>Часы</label>
       <%= text_field_tag :hours%>
     </div>
 
     <div class="input">
-      <%= label_tag :start, "начало"%>
+      <%= label_tag :start, "Начало"%>
       <%= text_field_tag :start%>
     </div>
 
     <div class="input">
-      <%= label_tag :end, "конец"%>
+      <%= label_tag :end, "Конец"%>
       <%= text_field_tag :end%>
     </div>
 
 
 
-    <%= f.input :discount, label: "скидка" %>
+    <%= f.input :discount, label: "Скидка" %>
 
-    <%= f.input :price, label: "стоимость" %>
+    <%= f.input :price, label: "Стоимость" %>
     <div id="submit">
-      <%= f.button :submit, :value => "сохранить"%>
+      <%= f.button :submit, :value => "Сохранить"%>
       <div>
-        <%= link_to 'к списку', orders_path, class: "btn"%>
+        <%= link_to 'К списку', orders_path, class: "btn"%>
       </div>
     </div>
 
